@@ -414,9 +414,9 @@ class AnalysisDialog(PortableToplevel):
                                                         tagName = 'frame_selection',\
                                                         contents = timeInfo)
 
-                self.updateTimeInfo()
+                self.updateTimeInfo(t)
 
-                self.widgets[widget].entry.variable.trace_variable('w', self.updateTimeInfo)
+                self.widgets[widget].entry.variable.trace_variable('w', lambda: self.updateTimeInfo(t))
 
             elif widget == 'timeunits':
                 self.widgets[widget] = ComboRadiobutton(widgetsFrame,\
@@ -671,7 +671,7 @@ class AnalysisDialog(PortableToplevel):
             except:
                 return
 
-    def updateTimeInfo(self, *dummy):
+    def updateTimeInfo(self, trajectory):
         """
         """
 
@@ -700,21 +700,16 @@ class AnalysisDialog(PortableToplevel):
 
             f -= 1
 
-            if hasattr(self.trajectory,'time'):
-                t = self.trajectory.time[f:l:s]
+            t = trajectory.time[f:l:s]
 
-            # Otherwise, sets |t| to virtual times.
-            else:
-                t = range(len(self.trajectory))[f:l:s]
-                
             if len(t) <= 1:
                 dt = 1.0
             else:
                 dt = t[1] - t[0]
 
-            updatedFirt, updatedLast, updatedStep = [round(v,3) for v in [t[0],t[-1],dt]]
+            updatedFirst, updatedLast, updatedStep = [round(v,3) for v in [t[0],t[-1],dt]]
 
-            updatedTimeInfo += ' (%s ps to %s ps step %s ps)' % (updatedFirt, updatedLast, updatedStep)
+            updatedTimeInfo += ' (%s ps to %s ps step %s ps)' % (updatedFirst, updatedLast, updatedStep)
 
         self.widgets['timeinfo'].frameLabel.set(updatedTimeInfo)
 
