@@ -1,0 +1,17 @@
+name = 'chromium'
+symbol = 'Cr'
+
+atomic_number = 24
+atomic_number_deut = 24
+
+mass = [(49.946046000000003, 4.3499999999999996), (51.940510000000003, 83.790000000000006), (52.940651000000003, 9.5), (53.938882, 2.3599999999999999)]
+mass_deut = 51.9959257902
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 3.635*fm
+b_incoherent = 3.81610761*fm
+b_coherent_deut = 3.635*fm
+b_incoherent_deut = 3.81610761*fm

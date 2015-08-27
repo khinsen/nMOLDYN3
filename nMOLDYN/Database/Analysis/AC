@@ -1,0 +1,21 @@
+db_shortname = 'AC'
+
+db_longname = 'Angular Correlation'
+
+db_internalname = 'AngularCorrelation'
+
+db_estimable = False
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'group',
+'atomorder',
+'timeunits',
+'pyroserver',
+'output',
+)
+
+db_menu = ('Dynamics',)
+
+

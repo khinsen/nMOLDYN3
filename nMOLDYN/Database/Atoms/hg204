@@ -1,0 +1,16 @@
+name = 'mercury204'
+symbol = 'Hg204'
+atomic_number = 80
+atomic_number_deut = 80
+
+mass = 203.973481
+mass_deut = 203.973481
+
+color = 'black'
+
+vdW_radius = 0.155
+
+b_coherent = NA
+b_incoherent = 0*fm
+b_coherent_deut = NA
+b_incoherent_deut = 0*fm

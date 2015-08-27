@@ -1,0 +1,16 @@
+name = 'lanthanum139'
+symbol = 'La139'
+atomic_number = 57
+atomic_number_deut = 57
+
+mass = 138.906355
+mass_deut = 138.906355
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 8.24*fm
+b_incoherent = 2.99870877*fm
+b_coherent_deut = 8.24*fm
+b_incoherent_deut = 2.99870877*fm

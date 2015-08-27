@@ -1,0 +1,16 @@
+name = 'gadolinium154'
+symbol = 'Gd154'
+atomic_number = 64
+atomic_number_deut = 64
+
+mass = 153.920876
+mass_deut = 153.920876
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 10*fm
+b_incoherent = 0*fm
+b_coherent_deut = 10*fm
+b_incoherent_deut = 0*fm

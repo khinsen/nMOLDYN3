@@ -1,0 +1,14 @@
+db_shortname = 'CVACF'
+
+db_longname = 'Cartesian Velocity AutoCorrelation Function'
+
+db_internalname = 'CartesianVelocityAutoCorrelationFunction'
+
+db_estimable = True
+
+db_parameternames = ('trajectory', 'timeinfo', 'differentiation', 'projection', 'normalize', 'subset',\
+                     'deuteration', 'weights', 'timeunits', 'distanceunits', 'pyroserver', 'output')
+
+db_menu = ('Dynamics',)
+
+pmoldyn_arg = "--vacf-xyz"

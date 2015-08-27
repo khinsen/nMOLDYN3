@@ -1,0 +1,14 @@
+db_shortname = 'SD'
+
+db_longname = 'Spatial Density'
+
+db_internalname = 'SpatialDensity'
+
+db_estimable = True
+
+db_parameternames = ('trajectory', 'timeinfo', 'rvalues', 'thetavalues', 'phivalues', 'group',
+                     'atomorder', 'target', 'pyroserver', 'output')
+
+db_menu = ('Structure',)
+
+

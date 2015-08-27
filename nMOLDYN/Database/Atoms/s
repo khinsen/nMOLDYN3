@@ -1,0 +1,17 @@
+name = 'sulfur'
+symbol = 'S'
+
+atomic_number = 16
+atomic_number_deut = 16
+
+mass = [(31.972072000000001, 95.019999999999996), (32.971459000000003, 0.75), (33.967868000000003, 4.21), (35.967078999999998, 0.02)]
+mass_deut = 32.0643894155
+
+color = 'black'
+
+vdW_radius = 0.18
+
+b_coherent = 2.847*fm
+b_incoherent = 0.236017436*fm
+b_coherent_deut = 2.847*fm
+b_incoherent_deut = 0.236017436*fm

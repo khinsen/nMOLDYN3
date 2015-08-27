@@ -1,0 +1,17 @@
+name = 'niobium'
+symbol = 'Nb'
+
+atomic_number = 41
+atomic_number_deut = 41
+
+mass = 92.906378
+mass_deut = 92.906378
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 7.054*fm
+b_incoherent = 0.13819766*fm
+b_coherent_deut = 7.054*fm
+b_incoherent_deut = 0.13819766*fm

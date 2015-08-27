@@ -1,0 +1,16 @@
+name = 'germanium73'
+symbol = 'Ge73'
+atomic_number = 32
+atomic_number_deut = 32
+
+mass = 72.923464
+mass_deut = 72.923464
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 5.02*fm
+b_incoherent = 3.454941495*fm
+b_coherent_deut = 5.02*fm
+b_incoherent_deut = 3.454941495*fm

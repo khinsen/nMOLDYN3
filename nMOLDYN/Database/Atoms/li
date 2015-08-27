@@ -1,0 +1,17 @@
+name = 'lithium'
+symbol = 'Li'
+
+atomic_number = 3
+atomic_number_deut = 3
+
+mass = [(6.015123, 7.4199999999999999), (7.0160049999999998, 92.579999999999998)]
+mass_deut = 6.9417395556
+
+color = 'black'
+
+vdW_radius = 0.182
+
+b_coherent = -1.9*fm
+b_incoherent = 2.70575819*fm
+b_coherent_deut = -1.9*fm
+b_incoherent_deut = 2.70575819*fm

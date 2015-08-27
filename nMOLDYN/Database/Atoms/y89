@@ -1,0 +1,16 @@
+name = 'yttrium89'
+symbol = 'Y89'
+atomic_number = 39
+atomic_number_deut = 39
+
+mass = 88.905856
+mass_deut = 88.905856
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 7.75*fm
+b_incoherent = 1.092548431*fm
+b_coherent_deut = 7.75*fm
+b_incoherent_deut = 1.092548431*fm

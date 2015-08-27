@@ -1,0 +1,16 @@
+name = 'samarium144'
+symbol = 'Sm144'
+atomic_number = 62
+atomic_number_deut = 62
+
+mass = 143.912009
+mass_deut = 143.912009
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = -3*fm
+b_incoherent = 0*fm
+b_coherent_deut = -3*fm
+b_incoherent_deut = 0*fm

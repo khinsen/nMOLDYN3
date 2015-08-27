@@ -1,0 +1,16 @@
+name = 'nickel64'
+symbol = 'Ni64'
+atomic_number = 28
+atomic_number_deut = 28
+
+mass = 63.927968
+mass_deut = 63.927968
+
+color = 'black'
+
+vdW_radius = 0.163
+
+b_coherent = -0.37*fm
+b_incoherent = 0*fm
+b_coherent_deut = -0.37*fm
+b_incoherent_deut = 0*fm

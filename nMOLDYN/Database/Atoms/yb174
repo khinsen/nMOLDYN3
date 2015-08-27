@@ -1,0 +1,16 @@
+name = 'ytterbium174'
+symbol = 'Yb174'
+atomic_number = 70
+atomic_number_deut = 70
+
+mass = 173.938873
+mass_deut = 173.938873
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 19.2*fm
+b_incoherent = 0*fm
+b_coherent_deut = 19.2*fm
+b_incoherent_deut = 0*fm

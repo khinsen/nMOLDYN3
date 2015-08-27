@@ -1,0 +1,16 @@
+name = 'molybdenum98'
+symbol = 'Mo98'
+atomic_number = 42
+atomic_number_deut = 42
+
+mass = 97.905405
+mass_deut = 97.905405
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 6.6*fm
+b_incoherent = 0*fm
+b_coherent_deut = 6.6*fm
+b_incoherent_deut = 0*fm

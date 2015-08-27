@@ -1,0 +1,17 @@
+name = 'tantalum'
+symbol = 'Ta'
+
+atomic_number = 73
+atomic_number_deut = 73
+
+mass = [(179.94748899999999, 0.01), (180.948014, 99.989999999999995)]
+mass_deut = 180.947913948
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 6.91*fm
+b_incoherent = 0.282094792*fm
+b_coherent_deut = 6.91*fm
+b_incoherent_deut = 0.282094792*fm

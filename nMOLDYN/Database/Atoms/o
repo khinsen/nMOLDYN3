@@ -1,0 +1,17 @@
+name = 'oxygen'
+symbol = 'O'
+
+atomic_number = 8
+atomic_number_deut = 8
+
+mass = [(15.994915000000001, 99.760000000000005), (16.999130999999998, 0.040000000000000001), (17.999158999999999, 0.20000000000000001)]
+mass_deut = 15.9993251744
+
+color = 'black'
+
+vdW_radius = 0.152
+
+b_coherent = 5.805*fm
+b_incoherent = 0*fm
+b_coherent_deut = 5.805*fm
+b_incoherent_deut = 0*fm

@@ -1,0 +1,17 @@
+name = 'bromine'
+symbol = 'Br'
+
+atomic_number = 35
+atomic_number_deut = 35
+
+mass = [(78.918335999999996, 50.689999999999998), (80.916290000000004, 49.310000000000002)]
+mass_deut = 79.9035271174
+
+color = 'black'
+
+vdW_radius = 0.185
+
+b_coherent = 6.79*fm
+b_incoherent = 0.892062058*fm
+b_coherent_deut = 6.79*fm
+b_incoherent_deut = 0.892062058*fm

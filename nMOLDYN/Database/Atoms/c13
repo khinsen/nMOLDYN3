@@ -1,0 +1,16 @@
+name = 'carbon13'
+symbol = 'C13'
+atomic_number = 6
+atomic_number_deut = 6
+
+mass = 13.003355
+mass_deut = 13.003355
+
+color = 'black'
+
+vdW_radius = 0.17
+
+b_coherent = 6.19*fm
+b_incoherent = 0.520157095*fm
+b_coherent_deut = 6.19*fm
+b_incoherent_deut = 0.520157095*fm

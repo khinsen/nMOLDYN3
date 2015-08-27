@@ -1,0 +1,17 @@
+name = 'palladium'
+symbol = 'Pd'
+
+atomic_number = 46
+atomic_number_deut = 46
+
+mass = [(101.905609, 1.02), (103.904026, 11.140000000000001), (104.905075, 22.329999999999998), (105.903475, 27.329999999999998), (107.90389399999999, 26.460000000000001), (109.905169, 11.720000000000001)]
+mass_deut = 106.415324832
+
+color = 'black'
+
+vdW_radius = 0.163
+
+b_coherent = 5.91*fm
+b_incoherent = 0.860273495*fm
+b_coherent_deut = 5.91*fm
+b_incoherent_deut = 0.860273495*fm

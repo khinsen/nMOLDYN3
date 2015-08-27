@@ -1,0 +1,20 @@
+db_shortname = 'PBFT'
+
+db_longname = 'Pass-Band Filtered Trajectory'
+
+db_internalname = 'PassBandFilteredTrajectory'
+
+db_estimable = True
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'filter',
+'subset',
+'pyroserver',
+'output',
+)
+
+db_menu = ('Trajectory',)
+
+

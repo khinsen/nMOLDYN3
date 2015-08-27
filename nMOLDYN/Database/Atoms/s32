@@ -1,0 +1,16 @@
+name = 'sulfur32'
+symbol = 'S32'
+atomic_number = 16
+atomic_number_deut = 16
+
+mass = 31.972072
+mass_deut = 31.972072
+
+color = 'black'
+
+vdW_radius = 0.18
+
+b_coherent = 2.804*fm
+b_incoherent = 0*fm
+b_coherent_deut = 2.804*fm
+b_incoherent_deut = 0*fm

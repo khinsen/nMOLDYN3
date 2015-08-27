@@ -1,0 +1,17 @@
+name = 'boron'
+symbol = 'B'
+
+atomic_number = 5
+atomic_number_deut = 5
+
+mass = [(10.012938, 19.800000000000001), (11.009304999999999, 80.200000000000003)]
+mass_deut = 10.812024334
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 5.3*fm
+b_incoherent = 3.67806609*fm
+b_coherent_deut = 5.3*fm
+b_incoherent_deut = 3.67806609*fm

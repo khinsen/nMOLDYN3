@@ -1,0 +1,16 @@
+name = 'oxygen17'
+symbol = 'O17'
+atomic_number = 8
+atomic_number_deut = 8
+
+mass = 16.999131
+mass_deut = 16.999131
+
+color = 'black'
+
+vdW_radius = 0.152
+
+b_coherent = 5.6*fm
+b_incoherent = 0.178412412*fm
+b_coherent_deut = 5.6*fm
+b_incoherent_deut = 0.178412412*fm

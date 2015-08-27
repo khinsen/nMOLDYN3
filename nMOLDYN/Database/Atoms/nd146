@@ -1,0 +1,16 @@
+name = 'neodymium146'
+symbol = 'Nd146'
+atomic_number = 60
+atomic_number_deut = 60
+
+mass = 145.913126
+mass_deut = 145.913126
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 8.7*fm
+b_incoherent = 0*fm
+b_coherent_deut = 8.7*fm
+b_incoherent_deut = 0*fm

@@ -1,0 +1,16 @@
+name = 'osmium192'
+symbol = 'Os192'
+atomic_number = 76
+atomic_number_deut = 76
+
+mass = 191.961487
+mass_deut = 191.961487
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 11.9*fm
+b_incoherent = 0*fm
+b_coherent_deut = 11.9*fm
+b_incoherent_deut = 0*fm

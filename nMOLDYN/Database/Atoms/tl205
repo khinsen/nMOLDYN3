@@ -1,0 +1,16 @@
+name = 'thallium205'
+symbol = 'Tl205'
+atomic_number = 81
+atomic_number_deut = 81
+
+mass = 204.97441
+mass_deut = 204.97441
+
+color = 'black'
+
+vdW_radius = 0.196
+
+b_coherent = 8.87*fm
+b_incoherent = 0.236017436*fm
+b_coherent_deut = 8.87*fm
+b_incoherent_deut = 0.236017436*fm

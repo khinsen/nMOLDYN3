@@ -1,0 +1,16 @@
+db_shortname = 'OPCM'
+
+db_longname = 'Order Parameter using Contact Model'
+
+db_internalname = 'OrderParameterContactModel'
+
+db_estimable = True
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'pyroserver',
+'output',
+)
+
+db_menu = ('NMR', )

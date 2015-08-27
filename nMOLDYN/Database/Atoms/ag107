@@ -1,0 +1,16 @@
+name = 'silver107'
+symbol = 'Ag107'
+atomic_number = 47
+atomic_number_deut = 47
+
+mass = 106.905095
+mass_deut = 106.905095
+
+color = 'black'
+
+vdW_radius = 0.172
+
+b_coherent = 7.555*fm
+b_incoherent = 1.017107236*fm
+b_coherent_deut = 7.555*fm
+b_incoherent_deut = 1.017107236*fm

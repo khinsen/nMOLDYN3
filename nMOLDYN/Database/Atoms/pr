@@ -1,0 +1,17 @@
+name = 'praseodymium'
+symbol = 'Pr'
+
+atomic_number = 59
+atomic_number_deut = 59
+
+mass = 140.907657
+mass_deut = 140.907657
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 4.58*fm
+b_incoherent = 0.345494149*fm
+b_coherent_deut = 4.58*fm
+b_incoherent_deut = 0.345494149*fm

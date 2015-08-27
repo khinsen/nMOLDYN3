@@ -1,0 +1,17 @@
+name = 'thallium'
+symbol = 'Tl'
+
+atomic_number = 81
+atomic_number_deut = 81
+
+mass = [(202.97233600000001, 29.52), (204.97441000000001, 70.480000000000004)]
+mass_deut = 204.383397755
+
+color = 'black'
+
+vdW_radius = 0.196
+
+b_coherent = 8.776*fm
+b_incoherent = 1.292720736*fm
+b_coherent_deut = 8.776*fm
+b_incoherent_deut = 1.292720736*fm

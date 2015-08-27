@@ -1,0 +1,16 @@
+name = 'tungsten183'
+symbol = 'W183'
+atomic_number = 74
+atomic_number_deut = 74
+
+mass = 182.950245
+mass_deut = 182.950245
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 6.59*fm
+b_incoherent = 1.545096808*fm
+b_coherent_deut = 6.59*fm
+b_incoherent_deut = 1.545096808*fm

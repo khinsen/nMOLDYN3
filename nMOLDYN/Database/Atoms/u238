@@ -1,0 +1,16 @@
+name = 'uranium238'
+symbol = 'U238'
+atomic_number = 92
+atomic_number_deut = 92
+
+mass = 238.050786
+mass_deut = 238.050786
+
+color = 'black'
+
+vdW_radius = 0.186
+
+b_coherent = 8.407*fm
+b_incoherent = 0*fm
+b_coherent_deut = 8.407*fm
+b_incoherent_deut = 0*fm

@@ -1,0 +1,16 @@
+name = 'mercury201'
+symbol = 'Hg201'
+atomic_number = 80
+atomic_number_deut = 80
+
+mass = 200.970293
+mass_deut = 200.970293
+
+color = 'black'
+
+vdW_radius = 0.155
+
+b_coherent = NA
+b_incoherent = NA
+b_coherent_deut = NA
+b_incoherent_deut = NA

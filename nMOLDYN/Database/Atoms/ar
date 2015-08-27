@@ -1,0 +1,17 @@
+name = 'argon'
+symbol = 'Ar'
+
+atomic_number = 18
+atomic_number_deut = 18
+
+mass = [(35.967545999999999, 0.34000000000000002), (37.962732000000003, 0.059999999999999998), (39.962383000000003, 99.599999999999994)]
+mass_deut = 39.9476007636
+
+color = 'black'
+
+vdW_radius = 0.188
+
+b_coherent = 1.909*fm
+b_incoherent = 1.338093087*fm
+b_coherent_deut = 1.909*fm
+b_incoherent_deut = 1.338093087*fm

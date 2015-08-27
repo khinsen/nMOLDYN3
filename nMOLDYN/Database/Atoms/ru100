@@ -1,0 +1,16 @@
+name = 'ruthenium100'
+symbol = 'Ru100'
+atomic_number = 44
+atomic_number_deut = 44
+
+mass = 99.904218
+mass_deut = 99.904218
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = NA
+b_incoherent = 0*fm
+b_coherent_deut = NA
+b_incoherent_deut = 0*fm

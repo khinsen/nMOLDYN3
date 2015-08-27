@@ -1,0 +1,22 @@
+db_shortname = 'RMSD'
+
+db_longname = 'Root Mean-Square Deviation'
+
+db_internalname = 'RootMeanSquareDeviation'
+
+db_estimable = True
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'referenceframe',
+'subset',
+'deuteration',
+'weights',
+'timeunits',
+'distanceunits',
+'pyroserver',
+'output',
+)
+
+db_menu = ('Dynamics',)

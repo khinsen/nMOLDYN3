@@ -1,0 +1,16 @@
+name = 'neon21'
+symbol = 'Ne21'
+atomic_number = 10
+atomic_number_deut = 10
+
+mass = 20.993845
+mass_deut = 20.993845
+
+color = 'black'
+
+vdW_radius = 0.154
+
+b_coherent = 6.66*fm
+b_incoherent = 0.630783131*fm
+b_coherent_deut = 6.66*fm
+b_incoherent_deut = 0.630783131*fm

@@ -1,0 +1,16 @@
+name = 'cadmium114'
+symbol = 'Cd114'
+atomic_number = 48
+atomic_number_deut = 48
+
+mass = 113.903361
+mass_deut = 113.903361
+
+color = 'black'
+
+vdW_radius = 0.158
+
+b_coherent = 7.48*fm
+b_incoherent = 0*fm
+b_coherent_deut = 7.48*fm
+b_incoherent_deut = 0*fm

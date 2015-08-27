@@ -1,0 +1,17 @@
+db_shortname = 'ADOS'
+
+db_longname = 'Angular Density Of States'
+
+db_internalname = 'AngularDensityOfStates'
+
+db_estimable = False
+
+db_parameternames = ('trajectory', 'timeinfo', 'differentiation', 'projection', 'referenceframe',\
+                     'stepwiserbt', 'resolution', 'group', 'pyroserver', 'output')
+
+db_menu = ('Rigid-Body',)
+
+db_modulator = {'differentiation' : (1,2,3,4,5)}
+
+pmoldyn_arg = "--savacf"
+

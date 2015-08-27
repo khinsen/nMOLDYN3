@@ -1,0 +1,17 @@
+name = 'nickel'
+symbol = 'Ni'
+
+atomic_number = 28
+atomic_number_deut = 28
+
+mass = [(57.935347, 68.269999999999996), (59.930788999999997, 26.100000000000001), (60.931058999999998, 1.1299999999999999), (61.928345999999998, 3.5899999999999999), (63.927968, 0.91000000000000003)]
+mass_deut = 58.6878904228
+
+color = 'black'
+
+vdW_radius = 0.163
+
+b_coherent = 10.3*fm
+b_incoherent = 6.432750983*fm
+b_coherent_deut = 10.3*fm
+b_incoherent_deut = 6.432750983*fm

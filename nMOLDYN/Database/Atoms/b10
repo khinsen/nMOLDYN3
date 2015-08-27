@@ -1,0 +1,16 @@
+name = 'boron10'
+symbol = 'B10'
+atomic_number = 5
+atomic_number_deut = 5
+
+mass = 10.012938
+mass_deut = 10.012938
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = -0.2*fm
+b_incoherent = 4.886025119*fm
+b_coherent_deut = -0.2*fm
+b_incoherent_deut = 4.886025119*fm

@@ -1,0 +1,17 @@
+name = 'iridium'
+symbol = 'Ir'
+
+atomic_number = 77
+atomic_number_deut = 77
+
+mass = [(190.96060299999999, 37.299999999999997), (192.962942, 62.700000000000003)]
+mass_deut = 192.216069553
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 10.6*fm
+b_incoherent = 0*fm
+b_coherent_deut = 10.6*fm
+b_incoherent_deut = 0*fm

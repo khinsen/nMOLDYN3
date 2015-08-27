@@ -1,0 +1,16 @@
+name = 'potassium41'
+symbol = 'K41'
+atomic_number = 19
+atomic_number_deut = 19
+
+mass = 40.961825
+mass_deut = 40.961825
+
+color = 'black'
+
+vdW_radius = 0.275
+
+b_coherent = 2.69*fm
+b_incoherent = 1.545096808*fm
+b_coherent_deut = 2.69*fm
+b_incoherent_deut = 1.545096808*fm

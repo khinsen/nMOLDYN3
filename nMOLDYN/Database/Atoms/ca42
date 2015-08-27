@@ -1,0 +1,16 @@
+name = 'calcium42'
+symbol = 'Ca42'
+atomic_number = 20
+atomic_number_deut = 20
+
+mass = 41.958622
+mass_deut = 41.958622
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 3.36*fm
+b_incoherent = 0*fm
+b_coherent_deut = 3.36*fm
+b_incoherent_deut = 0*fm

@@ -1,0 +1,16 @@
+name = 'iron58'
+symbol = 'Fe58'
+atomic_number = 26
+atomic_number_deut = 26
+
+mass = 57.933278
+mass_deut = 57.933278
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 15*fm
+b_incoherent = 0*fm
+b_coherent_deut = 15*fm
+b_incoherent_deut = 0*fm

@@ -1,0 +1,17 @@
+name = 'tungsten'
+symbol = 'W'
+
+atomic_number = 74
+atomic_number_deut = 74
+
+mass = [(179.94672700000001, 0.13), (181.94822500000001, 26.300000000000001), (182.950245, 14.300000000000001), (183.950953, 30.670000000000002), (185.95437699999999, 28.600000000000001)]
+mass_deut = 183.848908062
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 4.755*fm
+b_incoherent = 3.601545205*fm
+b_coherent_deut = 4.755*fm
+b_incoherent_deut = 3.601545205*fm

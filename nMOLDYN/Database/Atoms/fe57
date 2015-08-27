@@ -1,0 +1,16 @@
+name = 'iron57'
+symbol = 'Fe57'
+atomic_number = 26
+atomic_number_deut = 26
+
+mass = 56.935396
+mass_deut = 56.935396
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 2.3*fm
+b_incoherent = 1.545096808*fm
+b_coherent_deut = 2.3*fm
+b_incoherent_deut = 1.545096808*fm

@@ -1,0 +1,16 @@
+name = 'xenon129'
+symbol = 'Xe129'
+atomic_number = 54
+atomic_number_deut = 54
+
+mass = 128.90478
+mass_deut = 128.90478
+
+color = 'black'
+
+vdW_radius = 0.216
+
+b_coherent = NA
+b_incoherent = NA
+b_coherent_deut = NA
+b_incoherent_deut = NA

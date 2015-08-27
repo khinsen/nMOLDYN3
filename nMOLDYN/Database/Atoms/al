@@ -1,0 +1,17 @@
+name = 'aluminum'
+symbol = 'Al'
+
+atomic_number = 13
+atomic_number_deut = 13
+
+mass = 26.981541
+mass_deut = 26.981541
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 3.449*fm
+b_incoherent = 0.255447698*fm
+b_coherent_deut = 3.449*fm
+b_incoherent_deut = 0.255447698*fm

@@ -1,0 +1,16 @@
+name = 'iridium191'
+symbol = 'Ir191'
+atomic_number = 77
+atomic_number_deut = 77
+
+mass = 190.960603
+mass_deut = 190.960603
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = NA
+b_incoherent = NA
+b_coherent_deut = NA
+b_incoherent_deut = NA

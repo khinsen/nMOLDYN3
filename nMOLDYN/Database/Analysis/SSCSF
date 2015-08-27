@@ -1,0 +1,23 @@
+db_shortname = 'SSCSF'
+
+db_longname = 'Smoothed Static Coherent Structure Factor'
+
+db_internalname = 'SmoothedStaticCoherentStructureFactor'
+
+db_estimable = True
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'qshellvalues',
+'subset',
+'deuteration',
+'weights',
+'qunits',
+'pyroserver',
+'output',
+)
+
+db_modulator = {'weights' : 'coherent'}
+
+db_menu = ('Scattering','Coherent')

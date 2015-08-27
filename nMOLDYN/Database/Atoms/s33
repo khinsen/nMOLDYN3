@@ -1,0 +1,16 @@
+name = 'sulfur33'
+symbol = 'S33'
+atomic_number = 16
+atomic_number_deut = 16
+
+mass = 32.971459
+mass_deut = 32.971459
+
+color = 'black'
+
+vdW_radius = 0.18
+
+b_coherent = 4.74*fm
+b_incoherent = 1.545096808*fm
+b_coherent_deut = 4.74*fm
+b_incoherent_deut = 1.545096808*fm

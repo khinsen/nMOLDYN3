@@ -1,0 +1,16 @@
+name = 'tellurium123'
+symbol = 'Te123'
+atomic_number = 52
+atomic_number_deut = 52
+
+mass = 122.904278
+mass_deut = 122.904278
+
+color = 'black'
+
+vdW_radius = 0.206
+
+b_coherent = -0.05*fm
+b_incoherent = 2.034214473*fm
+b_coherent_deut = -0.05*fm
+b_incoherent_deut = 2.034214473*fm

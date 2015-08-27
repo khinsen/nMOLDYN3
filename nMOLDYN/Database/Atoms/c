@@ -1,0 +1,17 @@
+name = 'carbon'
+symbol = 'C'
+
+atomic_number = 6
+atomic_number_deut = 6
+
+mass = [(12.0, 98.900000000000006), (13.003354826, 1.1000000000000001)]
+mass_deut = 12.011036905
+
+color = 'black'
+
+vdW_radius = 0.17
+
+b_coherent = 6.6484*fm
+b_incoherent = 0.089206206*fm
+b_coherent_deut = 6.6484*fm
+b_incoherent_deut = 0.089206206*fm

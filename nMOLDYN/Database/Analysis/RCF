@@ -1,0 +1,17 @@
+db_shortname = 'RCF'
+
+db_longname = 'Reorientational Correlation Function'
+
+db_internalname = 'ReorientationalCorrelationFunction'
+
+db_estimable = False
+
+db_parameternames = ('trajectory', 'timeinfo', 'referenceframe', 'stepwiserbt', 'wignerindexes', 'group',\
+                     'pyroserver', 'output')
+
+db_menu = ('Rigid-Body',)
+
+pmoldyn_arg = "--rcf"
+
+
+

@@ -1,0 +1,16 @@
+name = 'dysprosium163'
+symbol = 'Dy163'
+atomic_number = 66
+atomic_number_deut = 66
+
+mass = 162.928737
+mass_deut = 162.928737
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 5*fm
+b_incoherent = 1.292720736*fm
+b_coherent_deut = 5*fm
+b_incoherent_deut = 1.292720736*fm

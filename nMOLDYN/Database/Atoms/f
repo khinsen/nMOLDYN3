@@ -1,0 +1,17 @@
+name = 'fluorine'
+symbol = 'F'
+
+atomic_number = 9
+atomic_number_deut = 9
+
+mass = 18.998403
+mass_deut = 18.998403
+
+color = 'black'
+
+vdW_radius = 0.147
+
+b_coherent = 5.654*fm
+b_incoherent = 0.079788456*fm
+b_coherent_deut = 5.654*fm
+b_incoherent_deut = 0.079788456*fm

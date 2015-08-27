@@ -1,0 +1,16 @@
+name = 'argon38'
+symbol = 'Ar38'
+atomic_number = 18
+atomic_number_deut = 18
+
+mass = 37.962732
+mass_deut = 37.962732
+
+color = 'black'
+
+vdW_radius = 0.188
+
+b_coherent = 3.5*fm
+b_incoherent = 0*fm
+b_coherent_deut = 3.5*fm
+b_incoherent_deut = 0*fm

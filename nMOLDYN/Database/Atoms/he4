@@ -1,0 +1,16 @@
+name = 'helium4'
+symbol = 'He4'
+atomic_number = 2
+atomic_number_deut = 2
+
+mass = 4.002603
+mass_deut = 4.002603
+
+color = 'black'
+
+vdW_radius = 0.14
+
+b_coherent = 3.26*fm
+b_incoherent = 0*fm
+b_coherent_deut = 3.26*fm
+b_incoherent_deut = 0*fm

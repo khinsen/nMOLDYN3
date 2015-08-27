@@ -1,0 +1,16 @@
+name = 'hafnium178'
+symbol = 'Hf178'
+atomic_number = 72
+atomic_number_deut = 72
+
+mass = 177.94371
+mass_deut = 177.94371
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 5.9*fm
+b_incoherent = 0*fm
+b_coherent_deut = 5.9*fm
+b_incoherent_deut = 0*fm

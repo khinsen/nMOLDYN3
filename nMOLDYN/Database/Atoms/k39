@@ -1,0 +1,16 @@
+name = 'potassium39'
+symbol = 'K39'
+atomic_number = 19
+atomic_number_deut = 19
+
+mass = 38.963708
+mass_deut = 38.963708
+
+color = 'black'
+
+vdW_radius = 0.275
+
+b_coherent = 3.79*fm
+b_incoherent = 1.410473959*fm
+b_coherent_deut = 3.79*fm
+b_incoherent_deut = 1.410473959*fm

@@ -1,0 +1,17 @@
+db_shortname = 'DISF'
+
+db_longname = 'Dynamic Incoherent Structure Factor'
+
+db_internalname = 'DynamicIncoherentStructureFactor'
+
+db_estimable = True
+
+db_parameternames = ('trajectory', 'timeinfo', 'qvectors',  'resolution', 'subset', 'deuteration',\
+                     'weights', 'timeunits', 'frequencyunits', 'qunits', 'pyroserver', 'output')
+
+db_menu = ('Scattering', 'Incoherent')
+
+db_modulator = {'weights' : 'incoherent'}
+
+pmoldyn_arg = "--isf"
+

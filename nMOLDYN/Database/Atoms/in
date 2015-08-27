@@ -1,0 +1,17 @@
+name = 'indium'
+symbol = 'In'
+
+atomic_number = 49
+atomic_number_deut = 49
+
+mass = [(112.904056, 4.2999999999999998), (114.903875, 95.700000000000003)]
+mass_deut = 114.817882783
+
+color = 'black'
+
+vdW_radius = 0.193
+
+b_coherent = 4.065*fm
+b_incoherent = 2.072964897*fm
+b_coherent_deut = 4.065*fm
+b_incoherent_deut = 2.072964897*fm

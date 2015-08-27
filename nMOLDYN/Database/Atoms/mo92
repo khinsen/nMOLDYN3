@@ -1,0 +1,16 @@
+name = 'molybdenum92'
+symbol = 'Mo92'
+atomic_number = 42
+atomic_number_deut = 42
+
+mass = 91.906809
+mass_deut = 91.906809
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 6.93*fm
+b_incoherent = 0*fm
+b_coherent_deut = 6.93*fm
+b_incoherent_deut = 0*fm

@@ -1,0 +1,17 @@
+name = 'lanthanum'
+symbol = 'La'
+
+atomic_number = 57
+atomic_number_deut = 57
+
+mass = [(137.90711400000001, 0.089999999999999997), (138.90635499999999, 99.909999999999997)]
+mass_deut = 138.905455683
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 8.24*fm
+b_incoherent = 2.99870877*fm
+b_coherent_deut = 8.24*fm
+b_incoherent_deut = 2.99870877*fm

@@ -1,0 +1,17 @@
+name = 'bismuth'
+symbol = 'Bi'
+
+atomic_number = 83
+atomic_number_deut = 83
+
+mass = 208.980388
+mass_deut = 208.980388
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 8.532*fm
+b_incoherent = 0.258544147*fm
+b_coherent_deut = 8.532*fm
+b_incoherent_deut = 0.258544147*fm

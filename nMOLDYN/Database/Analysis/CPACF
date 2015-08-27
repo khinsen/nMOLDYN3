@@ -1,0 +1,23 @@
+db_shortname = 'CPACF'
+
+db_longname = 'Cartesian Position AutoCorrelation Function'
+
+db_internalname = 'CartesianPositionAutoCorrelationFunction'
+
+db_estimable = True
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'projection',
+'normalize',
+'subset',
+'deuteration',
+'weights',
+'timeunits',
+'distanceunits',
+'pyroserver',
+'output',
+)
+
+db_menu = ('Dynamics',)

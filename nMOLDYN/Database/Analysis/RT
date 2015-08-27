@@ -1,0 +1,13 @@
+db_shortname = 'RT'
+
+db_longname = 'Reduced Trajectory'
+
+db_internalname = 'ReducedTrajectory'
+
+db_estimable = True
+
+db_parameternames = ('trajectory', 'timeinfo', 'subset', 'pyroserver', 'output')
+
+db_menu = ('Trajectory',)
+
+

@@ -1,0 +1,16 @@
+name = 'bromine79'
+symbol = 'Br79'
+atomic_number = 35
+atomic_number_deut = 35
+
+mass = 78.918336
+mass_deut = 78.918336
+
+color = 'black'
+
+vdW_radius = 0.185
+
+b_coherent = 6.79*fm
+b_incoherent = 1.092548431*fm
+b_coherent_deut = 6.79*fm
+b_incoherent_deut = 1.092548431*fm

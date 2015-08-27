@@ -1,0 +1,23 @@
+db_shortname = 'PDF'
+
+db_longname = 'Pair Distribution Function'
+
+db_internalname = 'PairDistributionFunction'
+
+db_estimable = True
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'rvalues',
+'subset',
+'deuteration',
+'weights',
+'distanceunits',
+'pyroserver',
+'output',
+)
+
+db_menu = ('Structure',)
+
+

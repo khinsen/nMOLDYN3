@@ -1,0 +1,13 @@
+db_shortname = 'QHA'
+
+db_longname = 'Quasi Harmonic Analysis'
+
+db_internalname = 'QuasiHarmonicAnalysis'
+
+db_estimable = False
+
+db_parameternames = ('trajectory', 'timeinfo', 'temperature', 'subset', 'output')
+
+db_menu = ('Trajectory',)
+
+

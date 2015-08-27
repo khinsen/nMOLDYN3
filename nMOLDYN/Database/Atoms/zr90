@@ -1,0 +1,16 @@
+name = 'zirconium90'
+symbol = 'Zr90'
+atomic_number = 40
+atomic_number_deut = 40
+
+mass = 89.904708
+mass_deut = 89.904708
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 6.5*fm
+b_incoherent = 0*fm
+b_coherent_deut = 6.5*fm
+b_incoherent_deut = 0*fm

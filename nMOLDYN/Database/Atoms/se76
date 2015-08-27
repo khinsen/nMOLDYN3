@@ -1,0 +1,16 @@
+name = 'selenium76'
+symbol = 'Se76'
+atomic_number = 34
+atomic_number_deut = 34
+
+mass = 75.919207
+mass_deut = 75.919207
+
+color = 'black'
+
+vdW_radius = 0.19
+
+b_coherent = 12.2*fm
+b_incoherent = 0*fm
+b_coherent_deut = 12.2*fm
+b_incoherent_deut = 0*fm

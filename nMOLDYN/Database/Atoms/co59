@@ -1,0 +1,16 @@
+name = 'cobalt59'
+symbol = 'Co59'
+atomic_number = 27
+atomic_number_deut = 27
+
+mass = 58.933198
+mass_deut = 58.933198
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 2.49*fm
+b_incoherent = 6.180387232*fm
+b_coherent_deut = 2.49*fm
+b_incoherent_deut = 6.180387232*fm

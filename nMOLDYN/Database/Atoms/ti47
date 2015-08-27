@@ -1,0 +1,16 @@
+name = 'titanium47'
+symbol = 'Ti47'
+atomic_number = 22
+atomic_number_deut = 22
+
+mass = 46.951765
+mass_deut = 46.951765
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 3.53*fm
+b_incoherent = 3.454941495*fm
+b_coherent_deut = 3.53*fm
+b_incoherent_deut = 3.454941495*fm

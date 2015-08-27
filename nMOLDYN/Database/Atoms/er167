@@ -1,0 +1,16 @@
+name = 'erbium167'
+symbol = 'Er167'
+atomic_number = 68
+atomic_number_deut = 68
+
+mass = 166.932061
+mass_deut = 166.932061
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 3.06*fm
+b_incoherent = 1.017107236*fm
+b_coherent_deut = 3.06*fm
+b_incoherent_deut = 1.017107236*fm

@@ -1,0 +1,17 @@
+name = 'hafnium'
+symbol = 'Hf'
+
+atomic_number = 72
+atomic_number_deut = 72
+
+mass = [(173.940065, 0.16), (175.94141999999999, 5.2000000000000002), (176.94323299999999, 18.600000000000001), (177.94371000000001, 27.100000000000001), (178.94582700000001, 13.74), (179.946561, 35.200000000000003)]
+mass_deut = 178.489790794
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 7.77*fm
+b_incoherent = 4.548641841*fm
+b_coherent_deut = 7.77*fm
+b_incoherent_deut = 4.548641841*fm

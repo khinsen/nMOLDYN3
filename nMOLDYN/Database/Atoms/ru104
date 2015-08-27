@@ -1,0 +1,16 @@
+name = 'ruthenium104'
+symbol = 'Ru104'
+atomic_number = 44
+atomic_number_deut = 44
+
+mass = 103.905422
+mass_deut = 103.905422
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = NA
+b_incoherent = 0*fm
+b_coherent_deut = NA
+b_incoherent_deut = 0*fm

@@ -1,0 +1,17 @@
+name = 'potassium'
+symbol = 'K'
+
+atomic_number = 19
+atomic_number_deut = 19
+
+mass = [(38.963707999999997, 93.260000000000005), (39.963999000000001, 0.01), (40.961824999999997, 6.7300000000000004)]
+mass_deut = 39.0982813032
+
+color = 'black'
+
+vdW_radius = 0.275
+
+b_coherent = 3.67*fm
+b_incoherent = 1.465807536*fm
+b_coherent_deut = 3.67*fm
+b_incoherent_deut = 1.465807536*fm

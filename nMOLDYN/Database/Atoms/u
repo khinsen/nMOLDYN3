@@ -1,0 +1,17 @@
+name = 'uranium'
+symbol = 'U'
+
+atomic_number = 92
+atomic_number_deut = 92
+
+mass = [(234.04094699999999, 0.01), (235.043925, 0.71999999999999997), (238.05078599999999, 99.269999999999996)]
+mass_deut = 238.028735617
+
+color = 'black'
+
+vdW_radius = 0.186
+
+b_coherent = 8.417*fm
+b_incoherent = 0.19947114*fm
+b_coherent_deut = 8.417*fm
+b_incoherent_deut = 0.19947114*fm

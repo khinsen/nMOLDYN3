@@ -1,0 +1,16 @@
+name = 'magnesium24'
+symbol = 'Mg24'
+atomic_number = 12
+atomic_number_deut = 12
+
+mass = 23.985045
+mass_deut = 23.985045
+
+color = 'black'
+
+vdW_radius = 0.173
+
+b_coherent = 5.49*fm
+b_incoherent = 0*fm
+b_coherent_deut = 5.49*fm
+b_incoherent_deut = 0*fm

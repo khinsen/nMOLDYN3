@@ -1,0 +1,17 @@
+name = 'vanadium'
+symbol = 'V'
+
+atomic_number = 23
+atomic_number_deut = 23
+
+mass = [(49.947161000000001, 0.25), (50.943962999999997, 99.75)]
+mass_deut = 50.941470995
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = -0.443*fm
+b_incoherent = 6.358093704*fm
+b_coherent_deut = -0.443*fm
+b_incoherent_deut = 6.358093704*fm

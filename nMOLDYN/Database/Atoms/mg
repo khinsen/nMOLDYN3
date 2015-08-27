@@ -1,0 +1,17 @@
+name = 'magnesium'
+symbol = 'Mg'
+
+atomic_number = 12
+atomic_number_deut = 12
+
+mass = [(23.985045, 78.900000000000006), (24.985838999999999, 10.0), (25.982595, 11.1)]
+mass_deut = 24.30685245
+
+color = 'black'
+
+vdW_radius = 0.173
+
+b_coherent = 5.375*fm
+b_incoherent = 0.797884561*fm
+b_coherent_deut = 5.375*fm
+b_incoherent_deut = 0.797884561*fm

@@ -1,0 +1,16 @@
+name = 'vanadium51'
+symbol = 'V51'
+atomic_number = 23
+atomic_number_deut = 23
+
+mass = 50.943963
+mass_deut = 50.943963
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = -0.402*fm
+b_incoherent = 6.351832655*fm
+b_coherent_deut = -0.402*fm
+b_incoherent_deut = 6.351832655*fm

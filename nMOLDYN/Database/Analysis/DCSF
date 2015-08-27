@@ -1,0 +1,16 @@
+db_shortname = 'DCSF'
+
+db_longname = 'Dynamic Coherent Structure Factor'
+
+db_internalname = 'DynamicCoherentStructureFactor'
+
+db_estimable = False
+
+db_parameternames = ('trajectory', 'timeinfo', 'qvectors', 'resolution', 'subset', 'deuteration',\
+                     'weights', 'timeunits', 'frequencyunits', 'qunits', 'pyroserver', 'output')
+
+db_menu = ('Scattering', 'Coherent')
+
+db_modulator = {'weights' : 'coherent'}
+
+pmoldyn_arg = "--csf"

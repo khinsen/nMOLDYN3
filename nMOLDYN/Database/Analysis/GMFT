@@ -1,0 +1,20 @@
+db_shortname = 'GMFT'
+
+db_longname = 'Global Motion Filtered Trajectory'
+
+db_internalname = 'GlobalMotionFilteredTrajectory'
+
+db_estimable = True
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'subset',
+'target',
+'pyroserver',
+'output',
+)
+
+db_menu = ('Trajectory',)
+
+

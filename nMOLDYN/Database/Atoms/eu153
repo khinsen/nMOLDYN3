@@ -1,0 +1,16 @@
+name = 'europium153'
+symbol = 'Eu153'
+atomic_number = 63
+atomic_number_deut = 63
+
+mass = 152.921243
+mass_deut = 152.921243
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 8.22*fm
+b_incoherent = 3.216375491*fm
+b_coherent_deut = 8.22*fm
+b_incoherent_deut = 3.216375491*fm

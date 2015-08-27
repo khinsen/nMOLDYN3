@@ -1,0 +1,17 @@
+name = 'gallium'
+symbol = 'Ga'
+
+atomic_number = 31
+atomic_number_deut = 31
+
+mass = [(68.925580999999994, 60.100000000000001), (70.924700999999999, 39.899999999999999)]
+mass_deut = 69.72322988
+
+color = 'black'
+
+vdW_radius = 0.187
+
+b_coherent = 7.288*fm
+b_incoherent = 1.128379167*fm
+b_coherent_deut = 7.288*fm
+b_incoherent_deut = 1.128379167*fm

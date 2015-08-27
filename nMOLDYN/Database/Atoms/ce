@@ -1,0 +1,17 @@
+name = 'cerium'
+symbol = 'Ce'
+
+atomic_number = 58
+atomic_number_deut = 58
+
+mass = [(135.90714, 0.19), (137.90599599999999, 0.25), (139.90544199999999, 88.480000000000004), (141.90924899999999, 11.08)]
+mass_deut = 140.114868427
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 4.84*fm
+b_incoherent = 0*fm
+b_coherent_deut = 4.84*fm
+b_incoherent_deut = 0*fm

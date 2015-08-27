@@ -1,0 +1,16 @@
+name = 'zinc66'
+symbol = 'Zn66'
+atomic_number = 30
+atomic_number_deut = 30
+
+mass = 65.926035
+mass_deut = 65.926035
+
+color = 'black'
+
+vdW_radius = 0.139
+
+b_coherent = 5.98*fm
+b_incoherent = 0*fm
+b_coherent_deut = 5.98*fm
+b_incoherent_deut = 0*fm

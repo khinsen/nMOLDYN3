@@ -1,0 +1,17 @@
+name = 'chlorine'
+symbol = 'Cl'
+
+atomic_number = 17
+atomic_number_deut = 17
+
+mass = [(34.968853000000003, 75.769999999999996), (36.965902999999997, 24.23)]
+mass_deut = 35.452738215
+
+color = 'black'
+
+vdW_radius = 0.175
+
+b_coherent = 9.5792*fm
+b_incoherent = 6.494309811*fm
+b_coherent_deut = 9.5792*fm
+b_incoherent_deut = 6.494309811*fm

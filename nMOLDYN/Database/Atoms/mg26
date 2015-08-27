@@ -1,0 +1,16 @@
+name = 'magnesium26'
+symbol = 'Mg26'
+atomic_number = 12
+atomic_number_deut = 12
+
+mass = 25.982595
+mass_deut = 25.982595
+
+color = 'black'
+
+vdW_radius = 0.173
+
+b_coherent = 4.89*fm
+b_incoherent = 0*fm
+b_coherent_deut = 4.89*fm
+b_incoherent_deut = 0*fm

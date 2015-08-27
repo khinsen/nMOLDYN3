@@ -1,0 +1,21 @@
+db_shortname = 'DP'
+
+db_longname = 'Density Profile'
+
+db_internalname = 'DensityProfile'
+
+db_estimable = True
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'thickness',
+'direction',
+'subset',
+'deuteration',
+'distanceunits',
+'pyroserver',
+'output',
+)
+
+db_menu = ('Structure',)

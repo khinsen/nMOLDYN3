@@ -1,0 +1,31 @@
+include LICENCE LICENSE README
+include MANIFEST.in
+
+recursive-include Include *
+
+recursive-include Src *
+
+include Lib/*
+
+include nMOLDYN/Trajectories/*
+
+include nMOLDYN/win32_files/*
+
+include nMOLDYN/Images/*
+
+recursive-include nMOLDYN/Database *
+
+recursive-include nMOLDYN/Doc *
+
+exclude nMOLDYN/Tests/SerialVsParallel/serial.*
+
+exclude nMOLDYN/Tests/SerialVsParallel/parallel.*
+
+global-exclude build/*
+
+global-exclude Src/build/*
+
+global-exclude .svn/*
+
+global-exclude setup.cfg
+

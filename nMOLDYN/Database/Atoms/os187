@@ -1,0 +1,16 @@
+name = 'osmium187'
+symbol = 'Os187'
+atomic_number = 76
+atomic_number_deut = 76
+
+mass = 186.955762
+mass_deut = 186.955762
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 10*fm
+b_incoherent = 1.545096808*fm
+b_coherent_deut = 10*fm
+b_incoherent_deut = 1.545096808*fm

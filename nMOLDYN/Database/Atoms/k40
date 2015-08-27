@@ -1,0 +1,16 @@
+name = 'potassium40'
+symbol = 'K40'
+atomic_number = 19
+atomic_number_deut = 19
+
+mass = 39.963999
+mass_deut = 39.963999
+
+color = 'black'
+
+vdW_radius = 0.275
+
+b_coherent = 3.1*fm
+b_incoherent = 1.994711402*fm
+b_coherent_deut = 3.1*fm
+b_incoherent_deut = 1.994711402*fm

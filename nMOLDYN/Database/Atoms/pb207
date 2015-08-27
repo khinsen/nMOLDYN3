@@ -1,0 +1,16 @@
+name = 'lead207'
+symbol = 'Pb207'
+atomic_number = 82
+atomic_number_deut = 82
+
+mass = 206.975885
+mass_deut = 206.975885
+
+color = 'black'
+
+vdW_radius = 0.202
+
+b_coherent = 9.286*fm
+b_incoherent = 0.126156626*fm
+b_coherent_deut = 9.286*fm
+b_incoherent_deut = 0.126156626*fm

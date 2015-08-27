@@ -1,0 +1,15 @@
+db_shortname = 'CDOS'
+
+db_longname = 'Cartesian Density Of States'
+
+db_internalname = 'CartesianDensityOfStates'
+
+db_estimable = True
+
+db_parameternames = ('trajectory', 'timeinfo', 'differentiation', 'projection', 'resolution', 'subset',\
+                     'deuteration', 'weights', 'frequencyunits', 'pyroserver', 'output')
+
+db_menu = ('Dynamics',)
+
+pmoldyn_arg = "--dos-xyz"
+

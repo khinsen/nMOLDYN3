@@ -1,0 +1,17 @@
+name = 'krypton'
+symbol = 'Kr'
+
+atomic_number = 36
+atomic_number_deut = 36
+
+mass = [(77.920396999999994, 0.34999999999999998), (79.916375000000002, 2.5), (81.913482999999999, 11.6), (82.914134000000004, 11.5), (83.911506000000003, 57.0), (85.910613999999995, 17.300000000000001)]
+mass_deut = 83.9998148445
+
+color = 'black'
+
+vdW_radius = 0.202
+
+b_coherent = 7.81*fm
+b_incoherent = 0.282094792*fm
+b_coherent_deut = 7.81*fm
+b_incoherent_deut = 0.282094792*fm

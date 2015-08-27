@@ -1,0 +1,16 @@
+name = 'cerium138'
+symbol = 'Ce138'
+atomic_number = 58
+atomic_number_deut = 58
+
+mass = 137.905996
+mass_deut = 137.905996
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 6.65*fm
+b_incoherent = 0*fm
+b_coherent_deut = 6.65*fm
+b_incoherent_deut = 0*fm

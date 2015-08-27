@@ -1,0 +1,13 @@
+name = 'deuterium'
+symbol = 'D'
+
+mass = 2.014102
+
+color = 'black'
+
+vdW_radius = 0.109
+
+b_coherent = 6.674*fm
+b_incoherent = 4.038982752*fm
+b_coherent_deut = 6.674*fm
+b_incoherent_deut = 4.038982752*fm

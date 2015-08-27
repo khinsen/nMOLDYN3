@@ -1,0 +1,16 @@
+name = 'xenon128'
+symbol = 'Xe128'
+atomic_number = 54
+atomic_number_deut = 54
+
+mass = 127.903531
+mass_deut = 127.903531
+
+color = 'black'
+
+vdW_radius = 0.216
+
+b_coherent = NA
+b_incoherent = 0*fm
+b_coherent_deut = NA
+b_incoherent_deut = 0*fm

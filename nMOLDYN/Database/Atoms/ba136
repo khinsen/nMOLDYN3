@@ -1,0 +1,16 @@
+name = 'barium136'
+symbol = 'Ba136'
+atomic_number = 56
+atomic_number_deut = 56
+
+mass = 135.904556
+mass_deut = 135.904556
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 4.9*fm
+b_incoherent = 0*fm
+b_coherent_deut = 4.9*fm
+b_incoherent_deut = 0*fm

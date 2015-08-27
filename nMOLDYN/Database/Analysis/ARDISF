@@ -1,0 +1,16 @@
+db_shortname = 'ARDISF'
+
+db_longname = 'Auto Regressive Dynamic Incoherent Structure Factor'
+
+db_internalname = 'AutoRegressiveDynamicIncoherentStructureFactor'
+
+db_estimable = True
+
+db_parameternames = ('trajectory', 'timeinfo', 'armodelorder', 'qvectors', 'subset', 'deuteration',\
+                     'weights', 'pyroserver', 'output')
+
+db_menu = ('Scattering', 'Incoherent',)
+
+db_modulator = {'weights' : 'incoherent'}
+
+pmoldyn_arg = "--arisf"

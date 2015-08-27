@@ -1,0 +1,14 @@
+db_shortname = 'ARA'
+
+db_longname = 'Auto Regressive Analysis'
+
+db_internalname = 'AutoRegressiveAnalysis'
+
+db_estimable = True
+
+db_parameternames = ('trajectory', 'timeinfo', 'differentiation', 'projection', 'armodelorder', 'subset',\
+                     'deuteration', 'weights', 'pyroserver', 'output')
+
+db_menu = ('Dynamics',)
+
+pmoldyn_arg = "--ar-xyz"

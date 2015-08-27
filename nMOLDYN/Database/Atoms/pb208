@@ -1,0 +1,16 @@
+name = 'lead208'
+symbol = 'Pb208'
+atomic_number = 82
+atomic_number_deut = 82
+
+mass = 207.976641
+mass_deut = 207.976641
+
+color = 'black'
+
+vdW_radius = 0.202
+
+b_coherent = 9.494*fm
+b_incoherent = 0*fm
+b_coherent_deut = 9.494*fm
+b_incoherent_deut = 0*fm

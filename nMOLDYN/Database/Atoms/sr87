@@ -1,0 +1,16 @@
+name = 'strontium87'
+symbol = 'Sr87'
+atomic_number = 38
+atomic_number_deut = 38
+
+mass = 86.908902
+mass_deut = 86.908902
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 7.41*fm
+b_incoherent = 1.994711402*fm
+b_coherent_deut = 7.41*fm
+b_incoherent_deut = 1.994711402*fm

@@ -1,0 +1,16 @@
+name = 'titanium49'
+symbol = 'Ti49'
+atomic_number = 22
+atomic_number_deut = 22
+
+mass = 48.947871
+mass_deut = 48.947871
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 0.98*fm
+b_incoherent = 5.124506377*fm
+b_coherent_deut = 0.98*fm
+b_incoherent_deut = 5.124506377*fm

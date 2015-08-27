@@ -1,0 +1,16 @@
+name = 'neodymium143'
+symbol = 'Nd143'
+atomic_number = 60
+atomic_number_deut = 60
+
+mass = 142.909823
+mass_deut = 142.909823
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 14*fm
+b_incoherent = 20.92070968*fm
+b_coherent_deut = 14*fm
+b_incoherent_deut = 20.92070968*fm

@@ -1,0 +1,16 @@
+name = 'calcium44'
+symbol = 'Ca44'
+atomic_number = 20
+atomic_number_deut = 20
+
+mass = 43.955485
+mass_deut = 43.955485
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 1.42*fm
+b_incoherent = 0*fm
+b_coherent_deut = 1.42*fm
+b_incoherent_deut = 0*fm

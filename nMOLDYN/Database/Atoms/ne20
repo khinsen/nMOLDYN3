@@ -1,0 +1,16 @@
+name = 'neon20'
+symbol = 'Ne20'
+atomic_number = 10
+atomic_number_deut = 10
+
+mass = 19.992439
+mass_deut = 19.992439
+
+color = 'black'
+
+vdW_radius = 0.154
+
+b_coherent = 4.631*fm
+b_incoherent = 0*fm
+b_coherent_deut = 4.631*fm
+b_incoherent_deut = 0*fm

@@ -1,0 +1,16 @@
+db_shortname = 'DISFGA'
+
+db_longname = 'Dynamic Incoherent Structure Factor within Gaussian Approximation'
+
+db_internalname = 'DynamicIncoherentStructureFactorGaussianApproximation'
+
+db_estimable = True
+
+db_parameternames = ('trajectory', 'timeinfo', 'qshellvalues', 'resolution', 'subset', 'deuteration', \
+                     'weights', 'timeunits', 'frequencyunits', 'qunits', 'pyroserver', 'output')
+
+db_menu = ('Scattering', 'Incoherent')
+
+db_modulator = {'weights' : 'incoherent'}
+
+pmoldyn_arg = "--isfg"

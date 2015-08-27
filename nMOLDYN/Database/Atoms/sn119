@@ -1,0 +1,16 @@
+name = 'tin119'
+symbol = 'Sn119'
+atomic_number = 50
+atomic_number_deut = 50
+
+mass = 118.90331
+mass_deut = 118.90331
+
+color = 'black'
+
+vdW_radius = 0.217
+
+b_coherent = 6.28*fm
+b_incoherent = 1.545096808*fm
+b_coherent_deut = 6.28*fm
+b_incoherent_deut = 1.545096808*fm

@@ -1,0 +1,16 @@
+name = 'chromium53'
+symbol = 'Cr53'
+atomic_number = 24
+atomic_number_deut = 24
+
+mass = 52.940651
+mass_deut = 52.940651
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = -4.2*fm
+b_incoherent = 6.869457084*fm
+b_coherent_deut = -4.2*fm
+b_incoherent_deut = 6.869457084*fm

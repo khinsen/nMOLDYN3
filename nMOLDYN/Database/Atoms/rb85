@@ -1,0 +1,16 @@
+name = 'rubidium85'
+symbol = 'Rb85'
+atomic_number = 37
+atomic_number_deut = 37
+
+mass = 84.9118
+mass_deut = 84.9118
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 7.07*fm
+b_incoherent = 1.994711402*fm
+b_coherent_deut = 7.07*fm
+b_incoherent_deut = 1.994711402*fm

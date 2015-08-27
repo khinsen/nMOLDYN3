@@ -1,0 +1,16 @@
+name = 'germanium76'
+symbol = 'Ge76'
+atomic_number = 32
+atomic_number_deut = 32
+
+mass = 75.921403
+mass_deut = 75.921403
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 8.2*fm
+b_incoherent = 0*fm
+b_coherent_deut = 8.2*fm
+b_incoherent_deut = 0*fm

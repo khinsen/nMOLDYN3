@@ -1,0 +1,16 @@
+name = 'copper65'
+symbol = 'Cu65'
+atomic_number = 29
+atomic_number_deut = 29
+
+mass = 64.927792
+mass_deut = 64.927792
+
+color = 'black'
+
+vdW_radius = 0.14
+
+b_coherent = 10.204*fm
+b_incoherent = 1.784124116*fm
+b_coherent_deut = 10.204*fm
+b_incoherent_deut = 1.784124116*fm

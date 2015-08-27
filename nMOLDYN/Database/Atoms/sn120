@@ -1,0 +1,16 @@
+name = 'tin120'
+symbol = 'Sn120'
+atomic_number = 50
+atomic_number_deut = 50
+
+mass = 119.902199
+mass_deut = 119.902199
+
+color = 'black'
+
+vdW_radius = 0.217
+
+b_coherent = 6.67*fm
+b_incoherent = 0*fm
+b_coherent_deut = 6.67*fm
+b_incoherent_deut = 0*fm

@@ -1,0 +1,16 @@
+name = 'strontium84'
+symbol = 'Sr84'
+atomic_number = 38
+atomic_number_deut = 38
+
+mass = 83.913428
+mass_deut = 83.913428
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 5*fm
+b_incoherent = 0*fm
+b_coherent_deut = 5*fm
+b_incoherent_deut = 0*fm

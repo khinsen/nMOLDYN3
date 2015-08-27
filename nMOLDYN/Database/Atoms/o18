@@ -1,0 +1,16 @@
+name = 'oxygen18'
+symbol = 'O18'
+atomic_number = 8
+atomic_number_deut = 8
+
+mass = 17.999159
+mass_deut = 17.999159
+
+color = 'black'
+
+vdW_radius = 0.152
+
+b_coherent = 5.84*fm
+b_incoherent = 0*fm
+b_coherent_deut = 5.84*fm
+b_incoherent_deut = 0*fm

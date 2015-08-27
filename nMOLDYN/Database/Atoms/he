@@ -1,0 +1,17 @@
+name = 'helium'
+symbol = 'He'
+
+atomic_number = 2
+atomic_number_deut = 2
+
+mass = [(3.0160290000000001, 0.0001), (4.0026029999999997, 99.999899999999997)]
+mass_deut = 4.00260201343
+
+color = 'black'
+
+vdW_radius = 0.14
+
+b_coherent = 3.26*fm
+b_incoherent = 0*fm
+b_coherent_deut = 3.26*fm
+b_incoherent_deut = 0*fm

@@ -1,0 +1,19 @@
+name = 'CD2'
+symbol = 'C'
+
+atomic_number = 6 + 2
+atomic_number_deut = 6 + 2
+
+mass = 12.0110369031 + 2*2.014102
+mass_deut = 12.0110369031 + 2*2.014102
+
+color = 'black'
+
+vdW_radius = 0.17
+
+from Scientific import N
+b_coherent = (6.648 + 2*(6.674))*fm
+b_incoherent = N.sqrt(0.285**2 + 2*4.038982752**2)*fm
+b_coherent_deut = (6.648 + 2*6.674)*fm
+b_incoherent_deut = N.sqrt(0.285**2 + 2*4.038982752**2)*fm
+del N

@@ -1,0 +1,17 @@
+name = 'lutetium'
+symbol = 'Lu'
+
+atomic_number = 71
+atomic_number_deut = 71
+
+mass = [(174.94078500000001, 97.400000000000006), (175.94269399999999, 2.6000000000000001)]
+mass_deut = 174.966834634
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 7.21*fm
+b_incoherent = 2.36017436*fm
+b_coherent_deut = 7.21*fm
+b_incoherent_deut = 2.36017436*fm

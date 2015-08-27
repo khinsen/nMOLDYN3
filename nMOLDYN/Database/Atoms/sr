@@ -1,0 +1,17 @@
+name = 'strontium'
+symbol = 'Sr'
+
+atomic_number = 38
+atomic_number_deut = 38
+
+mass = [(83.913427999999996, 0.56000000000000005), (85.909272999999999, 9.8599999999999994), (86.908901999999998, 7.0), (87.905625000000001, 82.579999999999998)]
+mass_deut = 87.6166577796
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 7.02*fm
+b_incoherent = 0.690988299*fm
+b_coherent_deut = 7.02*fm
+b_incoherent_deut = 0.690988299*fm

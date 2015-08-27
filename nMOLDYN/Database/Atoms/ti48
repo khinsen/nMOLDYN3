@@ -1,0 +1,16 @@
+name = 'titanium48'
+symbol = 'Ti48'
+atomic_number = 22
+atomic_number_deut = 22
+
+mass = 47.947947
+mass_deut = 47.947947
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = -5.86*fm
+b_incoherent = 0*fm
+b_coherent_deut = -5.86*fm
+b_incoherent_deut = 0*fm

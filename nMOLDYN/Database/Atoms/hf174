@@ -1,0 +1,16 @@
+name = 'hafnium174'
+symbol = 'Hf174'
+atomic_number = 72
+atomic_number_deut = 72
+
+mass = 173.940065
+mass_deut = 173.940065
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 10.9*fm
+b_incoherent = 0*fm
+b_coherent_deut = 10.9*fm
+b_incoherent_deut = 0*fm

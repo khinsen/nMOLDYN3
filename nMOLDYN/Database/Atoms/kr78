@@ -1,0 +1,16 @@
+name = 'krypton78'
+symbol = 'Kr78'
+atomic_number = 36
+atomic_number_deut = 36
+
+mass = 77.920397
+mass_deut = 77.920397
+
+color = 'black'
+
+vdW_radius = 0.202
+
+b_coherent = NA
+b_incoherent = 0*fm
+b_coherent_deut = NA
+b_incoherent_deut = 0*fm

@@ -1,0 +1,14 @@
+db_shortname = 'SCSF'
+
+db_longname = 'Static Coherent Structure Factor'
+
+db_internalname = 'StaticCoherentStructureFactor'
+
+db_estimable = False
+
+db_parameternames = ('trajectory', 'timeinfo', 'qvectors', 'subset', 'deuteration', \
+                     'weights', 'qunits', 'pyroserver', 'output')
+
+db_modulator = {'weights' : 'coherent'}
+
+db_menu = ('Scattering', 'Coherent',)

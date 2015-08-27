@@ -1,0 +1,14 @@
+db_shortname = 'MSD'
+
+db_longname = 'Mean-Square Displacement'
+
+db_internalname = 'MeanSquareDisplacement'
+
+db_estimable = True
+
+db_parameternames = ('trajectory', 'timeinfo', 'projection', 'subset', 'deuteration', 'weights',\
+                     'timeunits', 'distanceunits', 'pyroserver', 'output', )
+
+db_menu = ('Dynamics',)
+
+pmoldyn_arg = "--msd"

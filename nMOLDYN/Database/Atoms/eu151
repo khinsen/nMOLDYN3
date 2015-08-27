@@ -1,0 +1,16 @@
+name = 'europium151'
+symbol = 'Eu151'
+atomic_number = 63
+atomic_number_deut = 63
+
+mass = 150.91986
+mass_deut = 150.91986
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = NA
+b_incoherent = 4.966791336*fm
+b_coherent_deut = NA
+b_incoherent_deut = 4.966791336*fm

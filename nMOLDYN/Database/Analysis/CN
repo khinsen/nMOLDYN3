@@ -1,0 +1,24 @@
+db_shortname = 'CN'
+
+db_longname = 'Coordination Number'
+
+db_internalname = 'CoordinationNumber'
+
+db_estimable = True
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'rvalues',
+'group',
+'subset',
+'deuteration',
+'timeunits',
+'distanceunits',
+'pyroserver',
+'output',
+)
+
+db_menu = ('Structure',)
+
+

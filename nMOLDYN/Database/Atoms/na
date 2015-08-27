@@ -1,0 +1,17 @@
+name = 'sodium'
+symbol = 'Na'
+
+atomic_number = 11
+atomic_number_deut = 11
+
+mass = 22.98977
+mass_deut = 22.98977
+
+color = 'black'
+
+vdW_radius = 0.227
+
+b_coherent = 3.63*fm
+b_incoherent = 3.590480524*fm
+b_coherent_deut = 3.63*fm
+b_incoherent_deut = 3.590480524*fm

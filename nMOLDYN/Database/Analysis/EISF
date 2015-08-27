@@ -1,0 +1,17 @@
+db_shortname = 'EISF'
+
+db_longname = 'Elastic Incoherent Structure Factor'
+
+db_internalname = 'ElasticIncoherentStructureFactor'
+
+db_estimable = True
+
+db_parameternames = ('trajectory', 'timeinfo', 'qvectors', 'subset', 'deuteration', \
+                     'weights', 'qunits', 'pyroserver', 'output')
+
+db_menu = ('Scattering', 'Incoherent')
+
+db_modulator = {'weights' : 'incoherent'}
+
+pmoldyn_arg = "--eisf"
+

@@ -1,0 +1,16 @@
+name = 'hydrogen1'
+symbol = 'H1'
+atomic_number = 1
+atomic_number_deut = 1
+
+mass = 1.007825
+mass_deut = 2.014102
+
+color = 'black'
+
+vdW_radius = 0.109
+
+b_coherent = -3.7423*fm
+b_incoherent = 25.27386722*fm
+b_coherent_deut = 6.674*fm
+b_incoherent_deut = 4.038982752*fm

@@ -1,0 +1,16 @@
+name = 'xenon134'
+symbol = 'Xe134'
+atomic_number = 54
+atomic_number_deut = 54
+
+mass = 133.905395
+mass_deut = 133.905395
+
+color = 'black'
+
+vdW_radius = 0.216
+
+b_coherent = NA
+b_incoherent = 0*fm
+b_coherent_deut = NA
+b_incoherent_deut = 0*fm

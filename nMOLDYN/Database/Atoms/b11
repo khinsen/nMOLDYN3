@@ -1,0 +1,16 @@
+name = 'boron11'
+symbol = 'B11'
+atomic_number = 5
+atomic_number_deut = 5
+
+mass = 11.009305
+mass_deut = 11.009305
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 6.65*fm
+b_incoherent = 1.292720736*fm
+b_coherent_deut = 6.65*fm
+b_incoherent_deut = 1.292720736*fm

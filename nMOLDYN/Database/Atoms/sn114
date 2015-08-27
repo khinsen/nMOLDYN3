@@ -1,0 +1,16 @@
+name = 'tin114'
+symbol = 'Sn114'
+atomic_number = 50
+atomic_number_deut = 50
+
+mass = 113.902784
+mass_deut = 113.902784
+
+color = 'black'
+
+vdW_radius = 0.217
+
+b_coherent = 6*fm
+b_incoherent = 0*fm
+b_coherent_deut = 6*fm
+b_incoherent_deut = 0*fm

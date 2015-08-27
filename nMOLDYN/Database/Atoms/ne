@@ -1,0 +1,17 @@
+name = 'neon'
+symbol = 'Ne'
+
+atomic_number = 10
+atomic_number_deut = 10
+
+mass = [(19.992439000000001, 90.5), (20.993845, 0.27000000000000002), (21.991384, 9.2300000000000004)]
+mass_deut = 20.1796454197
+
+color = 'black'
+
+vdW_radius = 0.154
+
+b_coherent = 4.566*fm
+b_incoherent = 0.252313252*fm
+b_coherent_deut = 4.566*fm
+b_incoherent_deut = 0.252313252*fm

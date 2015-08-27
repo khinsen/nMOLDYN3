@@ -1,0 +1,16 @@
+name = 'rhodium103'
+symbol = 'Rh103'
+atomic_number = 45
+atomic_number_deut = 45
+
+mass = 102.905503
+mass_deut = 102.905503
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 5.9*fm
+b_incoherent = 1.545096808*fm
+b_coherent_deut = 5.9*fm
+b_incoherent_deut = 1.545096808*fm

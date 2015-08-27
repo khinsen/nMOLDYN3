@@ -1,0 +1,16 @@
+name = 'krypton84'
+symbol = 'Kr84'
+atomic_number = 36
+atomic_number_deut = 36
+
+mass = 83.911506
+mass_deut = 83.911506
+
+color = 'black'
+
+vdW_radius = 0.202
+
+b_coherent = NA
+b_incoherent = 0*fm
+b_coherent_deut = NA
+b_incoherent_deut = 0*fm

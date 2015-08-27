@@ -1,0 +1,17 @@
+name = 'rhenium'
+symbol = 'Re'
+
+atomic_number = 75
+atomic_number_deut = 75
+
+mass = [(184.952977, 37.399999999999999), (186.95576500000001, 62.600000000000001)]
+mass_deut = 186.206722288
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 9.2*fm
+b_incoherent = 2.676186174*fm
+b_coherent_deut = 9.2*fm
+b_incoherent_deut = 2.676186174*fm

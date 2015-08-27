@@ -1,0 +1,17 @@
+name = 'germanium'
+symbol = 'Ge'
+
+atomic_number = 32
+atomic_number_deut = 32
+
+mass = [(69.924250000000001, 20.5), (71.922079999999994, 27.399999999999999), (72.923463999999996, 7.7999999999999998), (73.921178999999995, 36.5), (75.921402999999998, 7.7999999999999998)]
+mass_deut = 72.632251131
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 8.185*fm
+b_incoherent = 1.196826841*fm
+b_coherent_deut = 8.185*fm
+b_incoherent_deut = 1.196826841*fm

@@ -1,0 +1,16 @@
+name = 'barium130'
+symbol = 'Ba130'
+atomic_number = 56
+atomic_number_deut = 56
+
+mass = 129.906277
+mass_deut = 129.906277
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = -3.6*fm
+b_incoherent = 0*fm
+b_coherent_deut = -3.6*fm
+b_incoherent_deut = 0*fm

@@ -1,0 +1,16 @@
+name = 'nickel62'
+symbol = 'Ni62'
+atomic_number = 28
+atomic_number_deut = 28
+
+mass = 61.928346
+mass_deut = 61.928346
+
+color = 'black'
+
+vdW_radius = 0.163
+
+b_coherent = -8.7*fm
+b_incoherent = 0*fm
+b_coherent_deut = -8.7*fm
+b_incoherent_deut = 0*fm

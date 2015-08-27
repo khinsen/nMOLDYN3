@@ -1,0 +1,16 @@
+name = 'tellurium128'
+symbol = 'Te128'
+atomic_number = 52
+atomic_number_deut = 52
+
+mass = 127.904464
+mass_deut = 127.904464
+
+color = 'black'
+
+vdW_radius = 0.206
+
+b_coherent = 5.88*fm
+b_incoherent = 0*fm
+b_coherent_deut = 5.88*fm
+b_incoherent_deut = 0*fm

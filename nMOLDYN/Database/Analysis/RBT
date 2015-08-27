@@ -1,0 +1,20 @@
+db_shortname = 'RBT'
+
+db_longname = 'Rigid-Body Trajectory'
+
+db_internalname = 'RigidBodyTrajectory'
+
+db_estimable = False
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'referenceframe',
+'removetranslation',
+'stepwiserbt',
+'group',
+'pyroserver',
+'output',
+)
+
+db_menu = ('Rigid-Body',)

@@ -1,0 +1,16 @@
+name = 'neodymium145'
+symbol = 'Nd145'
+atomic_number = 60
+atomic_number_deut = 60
+
+mass = 144.912582
+mass_deut = 144.912582
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 14*fm
+b_incoherent = 6.307831305*fm
+b_coherent_deut = 14*fm
+b_incoherent_deut = 6.307831305*fm

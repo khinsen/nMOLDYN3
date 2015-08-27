@@ -1,0 +1,16 @@
+name = 'palladium105'
+symbol = 'Pd105'
+atomic_number = 46
+atomic_number_deut = 46
+
+mass = 104.905075
+mass_deut = 104.905075
+
+color = 'black'
+
+vdW_radius = 0.163
+
+b_coherent = 5.5*fm
+b_incoherent = 2.523132522*fm
+b_coherent_deut = 5.5*fm
+b_incoherent_deut = 2.523132522*fm

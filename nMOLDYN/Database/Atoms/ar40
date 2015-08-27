@@ -1,0 +1,16 @@
+name = 'argon40'
+symbol = 'Ar40'
+atomic_number = 18
+atomic_number_deut = 18
+
+mass = 39.962383
+mass_deut = 39.962383
+
+color = 'black'
+
+vdW_radius = 0.188
+
+b_coherent = 1.7*fm
+b_incoherent = 0*fm
+b_coherent_deut = 1.7*fm
+b_incoherent_deut = 0*fm

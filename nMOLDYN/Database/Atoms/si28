@@ -1,0 +1,16 @@
+name = 'silicon28'
+symbol = 'Si28'
+atomic_number = 14
+atomic_number_deut = 14
+
+mass = 27.976928
+mass_deut = 27.976928
+
+color = 'black'
+
+vdW_radius = 0.21
+
+b_coherent = 4.106*fm
+b_incoherent = 0*fm
+b_coherent_deut = 4.106*fm
+b_incoherent_deut = 0*fm

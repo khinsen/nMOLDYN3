@@ -1,0 +1,16 @@
+name = 'tungsten182'
+symbol = 'W182'
+atomic_number = 74
+atomic_number_deut = 74
+
+mass = 181.948225
+mass_deut = 181.948225
+
+color = 'black'
+
+vdW_radius = 0.2
+
+b_coherent = 7.04*fm
+b_incoherent = 0*fm
+b_coherent_deut = 7.04*fm
+b_incoherent_deut = 0*fm

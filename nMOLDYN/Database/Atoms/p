@@ -1,0 +1,17 @@
+name = 'phosphorus'
+symbol = 'P'
+
+atomic_number = 15
+atomic_number_deut = 15
+
+mass = 30.973763
+mass_deut = 30.973763
+
+color = 'black'
+
+vdW_radius = 0.18
+
+b_coherent = 5.13*fm
+b_incoherent = 0.19947114*fm
+b_coherent_deut = 5.13*fm
+b_incoherent_deut = 0.19947114*fm

@@ -1,0 +1,16 @@
+db_shortname = 'ARDCSF'
+
+db_longname = 'Auto Regressive Dynamic Coherent Structure Factor'
+
+db_internalname = 'AutoRegressiveDynamicCoherentStructureFactor'
+
+db_estimable = False
+
+db_parameternames = ('trajectory', 'timeinfo', 'armodelorder', 'qvectors', 'subset', 'deuteration',\
+                     'weights', 'pyroserver', 'output')
+
+db_menu = ('Scattering', 'Coherent')
+
+db_modulator = {'weights' : 'coherent'}
+
+pmoldyn_arg = "--arcsf"

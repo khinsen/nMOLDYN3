@@ -1,0 +1,25 @@
+db_shortname = 'HBSA'
+
+db_longname = 'Hydrogen Bond Survival Analysis'
+
+db_internalname = 'HydrogenBondSurvivalAnalysis'
+
+db_estimable = True
+
+db_parameternames = (
+'trajectory',
+'timeinfo',
+'disminmax',
+'angminmax',
+'subset1',
+'subset2',
+'truebreakstep',
+'timeunits',
+'distanceunits',
+'pyroserver',
+'output',
+)
+
+db_menu = ('Structure',)
+
+

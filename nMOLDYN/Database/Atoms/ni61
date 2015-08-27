@@ -1,0 +1,16 @@
+name = 'nickel61'
+symbol = 'Ni61'
+atomic_number = 28
+atomic_number_deut = 28
+
+mass = 60.931059
+mass_deut = 60.931059
+
+color = 'black'
+
+vdW_radius = 0.163
+
+b_coherent = 7.6*fm
+b_incoherent = 3.888408363*fm
+b_coherent_deut = 7.6*fm
+b_incoherent_deut = 3.888408363*fm

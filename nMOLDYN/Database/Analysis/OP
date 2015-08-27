@@ -1,0 +1,11 @@
+db_shortname = 'OP'
+
+db_longname = 'Order Parameter'
+
+db_internalname = 'OrderParameter'
+
+db_estimable = False
+
+db_parameternames = ('trajectory', 'timeinfo', 'group', 'atomorder', 'pyroserver', 'output')
+
+db_menu = ('NMR',)
