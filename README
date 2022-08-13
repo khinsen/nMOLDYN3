@@ -1,4 +1,4 @@
-This is nMoldyn-3.0.0, an interactive program for the
+This is nMoldyn-3, an interactive program for the
 analysis of Molecular Dynamics trajectories. This program is
 copyrighted but free to use for anyone under the CeCILL license,
 see the file LICENSE for details.
@@ -8,9 +8,15 @@ and MacOSX and Windows. There is little system-specific code in nMoldyn
 itself, so porting nMoldyn to other systems should be straightforward.
 However, we cannot provide any support for this.
 
-If you have any questions about nMoldyn that are not answered on the
-Web page mentioned above, please contact the authors.
-
+nMoldyn as well as some of its dependencies are written in Python 2
+and are *not* compatible with Python 3. Much of the underlying code,
+in particular in the MMTK library on which nMOLDYN is based, goes back
+to Python 1.4 and would require extensive rewrited for a port to
+Python 3.  We do not have the resources to do such a port. But Python
+2 is still available, and can still be installed on current systems
+with little effort. nMoldyn does not make use of any Python libraries
+that are safety-critical, so the fact that Python 2 is now unsupported
+should not matter much for nMoldyn users.
 
 Eric Pellegrini
 Calcul Scientific
@@ -25,14 +31,14 @@ Centre de Biophysique Moleculaire (CNRS)
 Rue Charles Sadron
 45071 Orleans Cedex 2
 France
-E-Mail: hinsen@cnrs-orleans.fr
+E-Mail: konrad.hinsen@cnrs.fr
 
 Gerald Kneller
 Centre de Biophysique Moleculaire (CNRS)
 Rue Charles Sadron
 45071 Orleans Cedex 2
 France
-E-Mail: kneller@cnrs-orleans.fr
+E-Mail: gerald.kneller@cnrs.fr
 
 Step 1: Prerequesites
 =====================
@@ -42,11 +48,11 @@ and configured properly:
 
 	-Tcl and Tk libraries version >= 8.4
 
-	-Python 2.4 or higher
-	-numpy version >= 1.2
+	-Python 2.4 or higher (but not Python 3)
+	-numpy version between 1.2 and 1.8
 	-matplotlib version >= 0.98
 	-pyro version >= 3.9
-	-Scientific version >= 2.8
+	-ScientificPython version >= 2.8
 	-MMTK version >= 2.6.1
 
     -NetCDF library version >= 3.6.1
@@ -82,71 +88,3 @@ in your Python binaries directory.
 
 In the future, you should create an alias/shortcut for that script in order to not 
 disrupt any component of that sensitive directory.
-
-WARNING:
-========
-
-If the version of Scientific used to run nMOLDYN is the 2.9.0, small changes has 
-to be performed in order to use nMOLDYN in parallel mode via a Pyro server.
-
-The changes are the following:
-
-FILE    : MasterSlave.py
-LOCATION: Scientific installation directory
-
-REPLACE
-
-def getMachineInfo():
-    import os
-    sysname, nodename, release, version, machine = os.uname()
-    pid = os.getpid()
-    return "PID %d on %s (%s)" % (pid, nodename, machine)
-
-BY
-
-def getMachineInfo():
-    import os
-    import platform
-    sysname, nodename, release, version, machine, processor = platform.uname()
-    pid = os.getpid() 
-    return "PID %d on %s (%s)" % (pid, nodename, machine)
-
-If you are not familiar with the Python installed modules file structure, you
-can find the path for Scientific directory by running the following command 
-within the Python interpreter:
-
-import Scientific
-print Scientific.__path__[0]
-
-KNOWN BUGS:
-===========
-
-    - Bug with tk >= 8.5 on Linux (Fedora, Suse, Ubuntu): when using a tkMessageBox, if you click 'Yes' 
-    the answer will be the same as 'No'! In nMOLDYN, you will experience this bug at the end of an 
-    analysis when you can decide to plot the results just after the analysis. Whatever is your decision 
-    ('Yes' or 'No'), no plot will be displayed.
-    
-    Here is the proposed patch (http://bugs.python.org/issue4961):
-    
-    Index: Lib/lib-tk/tkMessageBox.py
-    ===================================================================
-    --- Lib/lib-tk/tkMessageBox.py	(revision 73494)
-    +++ Lib/lib-tk/tkMessageBox.py	(working copy)
-    @@ -70,11 +70,13 @@
-         if title:   options["title"] = title
-         if message: options["message"] = message
-         res = Message(**options).show()
-    -    # In some Tcl installations, Tcl converts yes/no into a boolean
-    +    # In some Tcl installations, yes/no is converted into a boolean.
-         if isinstance(res, bool):
-    -        if res: return YES
-    +        if res:
-    +            return YES
-             return NO
-    -    return res
-    +    # In others we get a Tcl_Obj.
-    +    return str(res)
- 
-     def showinfo(title=None, message=None, **options):
-         "Show an info message"
-    
