@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node113.html">
+<LINK REL="previous" HREF="node111.html">
+<LINK REL="up" HREF="node111.html">
+<LINK REL="next" HREF="node113.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2749"
+  HREF="node113.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2745"
+  HREF="node111.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2739"
+  HREF="node111.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2747"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2750"
+  HREF="node113.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2746"
+  HREF="node111.html">Angular Velocity AutoCorrelation Function</A>
+<B> Previous:</B> <A NAME="tex2html2740"
+  HREF="node111.html">Angular Velocity AutoCorrelation Function</A>
+ &nbsp <B>  <A NAME="tex2html2748"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION0082414100000000000000"></A>
+<A NAME="avacf_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+Similarly to the translational velocity autocorrelation functions introduced in Section <A HREF="node67.html#vacf">4.2.4.5</A> one can define angular 
+velocity autocorrelation functions to characterize the angular motion of molecules. In general the angular velocity is 
+referred to an orthonormal <EM>body-fixed</EM> coordinate system. Usually this is the principal axis system in which the tensor 
+of inertia is diagonal. Depending on its geometry, a molecule will behave differently with respect to rotational motion 
+about different body-fixed axes.  The autocorrelation function for the angular velocity components <IMG
+ WIDTH="23" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img383.gif"
+ ALT="$\omega'_{i}$"> is defined 
+as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+C_{\omega\omega}(t;i) \doteq
+\langle\omega'_{i}(0)\omega_{i}'(t) \rangle.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:c_omgomg"></A><IMG
+ WIDTH="370" HEIGHT="31" BORDER="0"
+ SRC="img384.gif"
+ ALT="\begin{displaymath}
+C_{\omega\omega}(t;i) \doteq
+\langle\omega'_{i}(0)\omega_{i}'(t) \rangle.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.125)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The prime indicates a body fixed coordinate system. The components <IMG
+ WIDTH="23" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img383.gif"
+ ALT="$\omega'_{i}$"> are related to the quaternion parameters
+describing the orientation of the molecule and their time derivatives [<A
+ HREF="node192.html#Smith:1992">14</A>,<A
+ HREF="node192.html#Tildesley">66</A>]:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\left(\begin{array}{c}
+      0         \\
+      \omega'_x \\
+      \omega'_y \\
+      \omega'_z 
+      \end{array}
+\right)      
+      = 2 \cdot
+\left(
+\begin{array}{rrrr}
+  q_0 & q_1 & q_2 & q_3 \\
+ -q_1 & q_0 & q_3 &-q_2 \\
+ -q_2 &-q_3 & q_0 & q_1 \\
+ -q_3 & q_2 &-q_1 & q_0 
+\end{array}
+\right)
+\left(\begin{array}{c}
+      \dot q_0 \\
+      \dot q_1 \\
+      \dot q_2 \\
+      \dot q_3 
+      \end{array}
+\right).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:omega_prime_quat_dot_"></A><IMG
+ WIDTH="472" HEIGHT="94" BORDER="0"
+ SRC="img385.gif"
+ ALT="\begin{displaymath}
+\left(\begin{array}{c}
+0 \\
+\omega'_x \\
+\omega'_y \\
+...
+...\
+\dot q_1 \\
+\dot q_2 \\
+\dot q_3
+\end{array}\right).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.126)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Here the quaternion parameters describe the rotation of the space-fixed coordinate system into the body-fixed coordinate 
+system. The corresponding rotation matrix is explicitly given in Eq. (<A HREF="node85.html#eq:d_quat">4.52</A>).
+
+<P>
+The components of the angular velocity may be used to define rotation angles describing rotations about the body-fixed axes
+[<A
+ HREF="node192.html#Smith:1992">14</A>]:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\Phi_i(t) = \int_0^t d\tau\,\omega'_i(\tau).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="phi_omega"></A><IMG
+ WIDTH="355" HEIGHT="46" BORDER="0"
+ SRC="img386.gif"
+ ALT="\begin{displaymath}
+\Phi_i(t) = \int_0^t d\tau \omega'_i(\tau).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.127)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2749"
+  HREF="node113.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2745"
+  HREF="node111.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2739"
+  HREF="node111.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2747"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2750"
+  HREF="node113.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2746"
+  HREF="node111.html">Angular Velocity AutoCorrelation Function</A>
+<B> Previous:</B> <A NAME="tex2html2740"
+  HREF="node111.html">Angular Velocity AutoCorrelation Function</A>
+ &nbsp <B>  <A NAME="tex2html2748"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

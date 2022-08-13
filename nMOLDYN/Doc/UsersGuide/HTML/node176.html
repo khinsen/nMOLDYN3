@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node177.html">
+<LINK REL="previous" HREF="node175.html">
+<LINK REL="up" HREF="node175.html">
+<LINK REL="next" HREF="node177.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3579"
+  HREF="node177.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3575"
+  HREF="node175.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3569"
+  HREF="node175.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3577"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3580"
+  HREF="node177.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3576"
+  HREF="node175.html">Order Parameter (Contact Model)</A>
+<B> Previous:</B> <A NAME="tex2html3570"
+  HREF="node175.html">Order Parameter (Contact Model)</A>
+ &nbsp <B>  <A NAME="tex2html3578"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008272100000000000000"></A>
+<A NAME="opcm_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+This analysis is based on an analytical relationship for the estimation of the generalized order parameter <IMG
+ WIDTH="26" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img612.gif"
+ ALT="$S^2_i$"> 
+(see Section <A HREF="node172.html#op_theory">4.2.7.1</A>) of N-H vectors of the protein backbone. It related <IMG
+ WIDTH="26" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img612.gif"
+ ALT="$S^2_i$"> of the N-H vector of residue 
+<I>i</I> to close contact experienced by the H atom and the carbonyl oxygen of the preceeding residue <I>i-1</I> 
+with heavy atoms <I>k</I> using the formula:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+S^2_i(t) = tanh\left(2.656\sum_k \left((exp(-r^O_{i-1,k}(t)))) + 0.8exp(-r^H_{i,k}(t))\right)\right) + b
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:opcm_s2i"></A><IMG
+ WIDTH="541" HEIGHT="56" BORDER="0"
+ SRC="img616.gif"
+ ALT="\begin{displaymath}
+S^2_i(t) = tanh\left(2.656\sum_k \left((exp(-r^O_{i-1,k}(t)))) + 0.8exp(-r^H_{i,k}(t))\right)\right) + b
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.199)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="48" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img617.gif"
+ ALT="$r^O_{i-1,k}$"> is the distance between the carbonyl oxygen of residue <I>i-1</I> and heavy atom <I>k</I> and <IMG
+ WIDTH="31" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img618.gif"
+ ALT="$r^H_{i,k}$"> is 
+the distance between the amide proton of residue <I>i</I> and heavy atom <I>k</I>. The parameter <I>b</I> is set to -0.1 which takes into account that order 
+parameters of rigid protein regions typically lie around 0.9. The sum ranges over all heavy atoms <I>k</I> that do not belong to amino 
+acids <I>i</I> and <I>i-1</I>. For more details about this method, please refer to Ref. [<A
+ HREF="node192.html#Bruschweiler">73</A>]
+
+<P>
+Beside the time-dependent <IMG
+ WIDTH="46" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img619.gif"
+ ALT="$S^2_i(t)$"> defined in Eq; <A HREF="node176.html#eq:opcm_s2i">4.199</A>, <I>n</I>MOLDYN also provide a time-averaged <IMG
+ WIDTH="26" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img612.gif"
+ ALT="$S^2_i$"> defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+S^2_i = \frac{1}{N_{frames}}\sum_{i=1}^{N_{frames}} S^2_i(t_i)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:opcm_s2i_avg"></A><IMG
+ WIDTH="385" HEIGHT="61" BORDER="0"
+ SRC="img620.gif"
+ ALT="\begin{displaymath}
+S^2_i = \frac{1}{N_{frames}}\sum_{i=1}^{N_{frames}} S^2_i(t_i)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.200)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="67" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img311.gif"
+ ALT="$N_{frames}$"> is the number of selected frames for the analysis.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3579"
+  HREF="node177.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3575"
+  HREF="node175.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3569"
+  HREF="node175.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3577"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3580"
+  HREF="node177.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3576"
+  HREF="node175.html">Order Parameter (Contact Model)</A>
+<B> Previous:</B> <A NAME="tex2html3570"
+  HREF="node175.html">Order Parameter (Contact Model)</A>
+ &nbsp <B>  <A NAME="tex2html3578"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

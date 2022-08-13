@@ -1,0 +1,194 @@
+\contentsline {chapter}{Table of Contents}{3}{chapter*.1}
+\contentsline {chapter}{List of Figures}{5}{chapter*.2}
+\contentsline {chapter}{List of Tables}{6}{chapter*.3}
+\contentsline {chapter}{List of Acronyms}{7}{section*.4}
+\contentsline {chapter}{\numberline {1}Introduction}{9}{chapter.1}
+\contentsline {section}{\numberline {1.1}New features in version 3.0}{10}{section.1.1}
+\contentsline {section}{\numberline {1.2}User feedback}{11}{section.1.2}
+\contentsline {chapter}{\numberline {2}Installing \textit {n}MOLDYN}{12}{chapter.2}
+\contentsline {section}{\numberline {2.1}Unix users}{12}{section.2.1}
+\contentsline {section}{\numberline {2.2}Windows users}{13}{section.2.2}
+\contentsline {chapter}{\numberline {3}Input and output files}{14}{chapter.3}
+\contentsline {section}{\numberline {3.1}NetCDF file format}{14}{section.3.1}
+\contentsline {section}{\numberline {3.2}PDB file format}{14}{section.3.2}
+\contentsline {section}{\numberline {3.3}\textit {n}MOLDYN\ preference file}{15}{section.3.3}
+\contentsline {section}{\numberline {3.4}\textit {n}MOLDYN\ selection files}{15}{section.3.4}
+\contentsline {section}{\numberline {3.5}\textit {n}MOLDYN\ autostart files}{15}{section.3.5}
+\contentsline {section}{\numberline {3.6}\textit {n}MOLDYN\ input files}{15}{section.3.6}
+\contentsline {chapter}{\numberline {4}Using \textit {n}MOLDYNfrom the Graphical User Interface}{16}{chapter.4}
+\contentsline {section}{\numberline {4.1}The \textbf {File} menu}{19}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Load NetCDF file}{19}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Trajectory conversion}{21}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}Amber to MMTK}{21}{subsubsection.4.1.2.1}
+\contentsline {subsubsection}{\numberline {4.1.2.2}CHARMM/X-PLOR to MMTK}{23}{subsubsection.4.1.2.2}
+\contentsline {subsubsection}{\numberline {4.1.2.3}DL\_POLY to MMTK}{23}{subsubsection.4.1.2.3}
+\contentsline {subsubsection}{\numberline {4.1.2.4}Discover to MMTK}{25}{subsubsection.4.1.2.4}
+\contentsline {subsubsection}{\numberline {4.1.2.5}Forcite to MMTK}{27}{subsubsection.4.1.2.5}
+\contentsline {subsubsection}{\numberline {4.1.2.6}NAMD to MMTK}{28}{subsubsection.4.1.2.6}
+\contentsline {subsubsection}{\numberline {4.1.2.7}VASP to MMTK}{29}{subsubsection.4.1.2.7}
+\contentsline {subsection}{\numberline {4.1.3}Frame snapshot}{31}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Convert NetCDF to ASCII}{32}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}Convert ASCII to NetCDF}{33}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.6}Preferences}{35}{subsection.4.1.6}
+\contentsline {subsection}{\numberline {4.1.7}Quit}{40}{subsection.4.1.7}
+\contentsline {section}{\numberline {4.2}The \textbf {Analysis} menu}{40}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Weighting scheme}{41}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Atom selection}{42}{subsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.2.1}Subset selection}{42}{subsubsection.4.2.2.1}
+\contentsline {paragraph}{selection from a selection file\\}{43}{section*.6}
+\contentsline {paragraph}{selection from the loaded trajectory\\}{44}{section*.7}
+\contentsline {paragraph}{selection from an expression string\\}{47}{section*.8}
+\contentsline {subsubsection}{\numberline {4.2.2.2}Deuteration selection}{48}{subsubsection.4.2.2.2}
+\contentsline {paragraph}{selection from a selection file\\}{48}{section*.9}
+\contentsline {paragraph}{selection from the loaded trajectory\\}{50}{section*.10}
+\contentsline {paragraph}{selection from an expression string\\}{51}{section*.11}
+\contentsline {subsubsection}{\numberline {4.2.2.3}Group selection}{52}{subsubsection.4.2.2.3}
+\contentsline {paragraph}{selection from a selection file\\}{53}{section*.12}
+\contentsline {paragraph}{selection from the loaded trajectory\\}{54}{section*.13}
+\contentsline {paragraph}{selection from an expression string\\}{55}{section*.14}
+\contentsline {subsection}{\numberline {4.2.3}Running modes}{56}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}The Dynamics menu}{57}{subsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.4.1}Mean-Square Displacement}{57}{subsubsection.4.2.4.1}
+\contentsline {paragraph}{Theory and implementation\\}{57}{section*.15}
+\contentsline {paragraph}{Parameters\\}{60}{section*.16}
+\contentsline {paragraph}{Output\\}{62}{section*.17}
+\contentsline {subsubsection}{\numberline {4.2.4.2}Root Mean-Square Deviation}{62}{subsubsection.4.2.4.2}
+\contentsline {paragraph}{Theory and implementation\\}{62}{section*.18}
+\contentsline {paragraph}{Parameters\\}{62}{section*.19}
+\contentsline {paragraph}{Output\\}{64}{section*.20}
+\contentsline {subsubsection}{\numberline {4.2.4.3}Radius of gyration}{64}{subsubsection.4.2.4.3}
+\contentsline {paragraph}{Theory and implementation\\}{64}{section*.21}
+\contentsline {paragraph}{Parameters\\}{65}{section*.22}
+\contentsline {paragraph}{Output\\}{66}{section*.23}
+\contentsline {subsubsection}{\numberline {4.2.4.4}Angular Correlation}{66}{subsubsection.4.2.4.4}
+\contentsline {paragraph}{Theory and implementation\\}{66}{section*.24}
+\contentsline {paragraph}{Parameters\\}{67}{section*.25}
+\contentsline {paragraph}{Output\\}{69}{section*.26}
+\contentsline {subsubsection}{\numberline {4.2.4.5}Velocity Autocorrelation Function}{69}{subsubsection.4.2.4.5}
+\contentsline {paragraph}{Theory and implementation\\}{69}{section*.27}
+\contentsline {paragraph}{Parameters\\}{70}{section*.28}
+\contentsline {paragraph}{Output\\}{73}{section*.29}
+\contentsline {subsubsection}{\numberline {4.2.4.6}Density Of States}{73}{subsubsection.4.2.4.6}
+\contentsline {paragraph}{Theory and implementation\\}{73}{section*.30}
+\contentsline {paragraph}{Parameters\\}{73}{section*.31}
+\contentsline {paragraph}{Output\\}{76}{section*.32}
+\contentsline {subsubsection}{\numberline {4.2.4.7}Pass-Band Filtered Trajectory}{76}{subsubsection.4.2.4.7}
+\contentsline {paragraph}{Theory and implementation\\}{76}{section*.33}
+\contentsline {paragraph}{Parameters\\}{76}{section*.34}
+\contentsline {paragraph}{Output\\}{78}{section*.35}
+\contentsline {subsubsection}{\numberline {4.2.4.8}Global Motion Filtered Trajectory}{78}{subsubsection.4.2.4.8}
+\contentsline {paragraph}{Theory and implementation\\}{78}{section*.36}
+\contentsline {paragraph}{Parameters\\}{78}{section*.37}
+\contentsline {paragraph}{Output\\}{80}{section*.38}
+\contentsline {subsubsection}{\numberline {4.2.4.9}Rigid-Body Trajectory}{80}{subsubsection.4.2.4.9}
+\contentsline {paragraph}{Theory and implementation\\}{80}{section*.39}
+\contentsline {subparagraph}{Optimal superposition.}{80}{section*.40}
+\contentsline {subparagraph}{Quaternions and rotations.}{81}{section*.41}
+\contentsline {subparagraph}{Solution of the minimization problem.}{82}{section*.42}
+\contentsline {paragraph}{Parameters\\}{83}{section*.43}
+\contentsline {paragraph}{Output\\}{84}{section*.44}
+\contentsline {subsubsection}{\numberline {4.2.4.10}Center Of Mass Trajectory}{85}{subsubsection.4.2.4.10}
+\contentsline {paragraph}{Theory and implementation\\}{85}{section*.45}
+\contentsline {paragraph}{Parameters\\}{85}{section*.46}
+\contentsline {paragraph}{Output\\}{86}{section*.47}
+\contentsline {subsubsection}{\numberline {4.2.4.11}Auto-Regressive Analysis}{86}{subsubsection.4.2.4.11}
+\contentsline {paragraph}{Theory and implementation\\}{86}{section*.48}
+\contentsline {subparagraph}{VACF within the AR model}{87}{section*.49}
+\contentsline {subparagraph}{Density of states within the AR model}{88}{section*.50}
+\contentsline {subparagraph}{Discrete memory function of the VACF within the AR model}{88}{section*.51}
+\contentsline {subparagraph}{MSD within the AR model}{89}{section*.52}
+\contentsline {subparagraph}{Friction coefficient within the AR model}{90}{section*.53}
+\contentsline {paragraph}{Parameters\\}{91}{section*.54}
+\contentsline {paragraph}{Output\\}{93}{section*.55}
+\contentsline {subsubsection}{\numberline {4.2.4.12}Quasi Harmonic Analysis}{94}{subsubsection.4.2.4.12}
+\contentsline {paragraph}{Theory and implementation\\}{94}{section*.56}
+\contentsline {paragraph}{Parameters\\}{96}{section*.57}
+\contentsline {paragraph}{Output\\}{97}{section*.58}
+\contentsline {subsubsection}{\numberline {4.2.4.13}Reorientational Correlation Function}{98}{subsubsection.4.2.4.13}
+\contentsline {paragraph}{Theory and implementation\\}{98}{section*.59}
+\contentsline {paragraph}{Parameters\\}{100}{section*.60}
+\contentsline {paragraph}{Output\\}{102}{section*.61}
+\contentsline {subsubsection}{\numberline {4.2.4.14}Angular Velocity AutoCorrelation Function}{102}{subsubsection.4.2.4.14}
+\contentsline {paragraph}{Theory and implementation\\}{102}{section*.62}
+\contentsline {paragraph}{Parameters\\}{102}{section*.63}
+\contentsline {paragraph}{Output\\}{105}{section*.64}
+\contentsline {subsubsection}{\numberline {4.2.4.15}Angular Density Of States}{105}{subsubsection.4.2.4.15}
+\contentsline {paragraph}{Theory and implementation\\}{105}{section*.65}
+\contentsline {paragraph}{Parameters\\}{105}{section*.66}
+\contentsline {paragraph}{Output\\}{108}{section*.67}
+\contentsline {subsection}{\numberline {4.2.5}The Scattering menu}{108}{subsection.4.2.5}
+\contentsline {subsubsection}{\numberline {4.2.5.1}Introduction\\}{108}{subsubsection.4.2.5.1}
+\contentsline {subsubsection}{\numberline {4.2.5.2}Dynamic Coherent Structure Factor}{110}{subsubsection.4.2.5.2}
+\contentsline {paragraph}{Theory and implementation\\}{110}{section*.68}
+\contentsline {paragraph}{Parameters\\}{112}{section*.69}
+\contentsline {paragraph}{Output\\}{115}{section*.70}
+\contentsline {subsubsection}{\numberline {4.2.5.3}Dynamic Coherent Structure Factor (AR Model)}{116}{subsubsection.4.2.5.3}
+\contentsline {paragraph}{Theory and implementation\\}{116}{section*.71}
+\contentsline {paragraph}{Parameters\\}{117}{section*.72}
+\contentsline {paragraph}{Output\\}{120}{section*.73}
+\contentsline {subsubsection}{\numberline {4.2.5.4}Dynamic Incoherent Structure Factor}{121}{subsubsection.4.2.5.4}
+\contentsline {paragraph}{Theory and implementation\\}{121}{section*.74}
+\contentsline {paragraph}{Parameters\\}{122}{section*.75}
+\contentsline {paragraph}{Output\\}{126}{section*.76}
+\contentsline {subsubsection}{\numberline {4.2.5.5}Dynamic Incoherent Structure Factor (AR Model)}{126}{subsubsection.4.2.5.5}
+\contentsline {paragraph}{Theory and implementation\\}{126}{section*.77}
+\contentsline {paragraph}{Parameters\\}{127}{section*.78}
+\contentsline {paragraph}{Output\\}{130}{section*.79}
+\contentsline {subsubsection}{\numberline {4.2.5.6}Dynamic Incoherent Structure Factor (Gaussian Approximation)}{131}{subsubsection.4.2.5.6}
+\contentsline {paragraph}{Theory and implementation\\}{131}{section*.80}
+\contentsline {paragraph}{Parameters\\}{132}{section*.81}
+\contentsline {paragraph}{Output\\}{134}{section*.82}
+\contentsline {subsubsection}{\numberline {4.2.5.7}Elastic Incoherent Structure Factor}{135}{subsubsection.4.2.5.7}
+\contentsline {paragraph}{Theory and implementation\\}{135}{section*.83}
+\contentsline {paragraph}{Parameters\\}{136}{section*.84}
+\contentsline {paragraph}{Output\\}{140}{section*.85}
+\contentsline {subsubsection}{\numberline {4.2.5.8}Static Coherent Structure Factor}{140}{subsubsection.4.2.5.8}
+\contentsline {paragraph}{Theory and implementation\\}{140}{section*.86}
+\contentsline {paragraph}{Parameters\\}{140}{section*.87}
+\contentsline {paragraph}{Output\\}{144}{section*.88}
+\contentsline {subsubsection}{\numberline {4.2.5.9}Smoothed Static Coherent Structure Factor}{144}{subsubsection.4.2.5.9}
+\contentsline {paragraph}{Theory and implementation\\}{144}{section*.89}
+\contentsline {paragraph}{Parameters\\}{144}{section*.90}
+\contentsline {paragraph}{Output\\}{146}{section*.91}
+\contentsline {subsection}{\numberline {4.2.6}The Structure menu}{147}{subsection.4.2.6}
+\contentsline {subsubsection}{\numberline {4.2.6.1}Pair Distribution Function}{147}{subsubsection.4.2.6.1}
+\contentsline {paragraph}{Theory and implementation\\}{147}{section*.92}
+\contentsline {paragraph}{Parameters\\}{148}{section*.93}
+\contentsline {paragraph}{Output\\}{150}{section*.94}
+\contentsline {subsubsection}{\numberline {4.2.6.2}Coordination number}{150}{subsubsection.4.2.6.2}
+\contentsline {paragraph}{Theory and implementation\\}{150}{section*.95}
+\contentsline {paragraph}{Parameters\\}{151}{section*.96}
+\contentsline {paragraph}{Output\\}{153}{section*.97}
+\contentsline {subsubsection}{\numberline {4.2.6.3}Spatial Density}{154}{subsubsection.4.2.6.3}
+\contentsline {paragraph}{Theory and implementation\\}{154}{section*.98}
+\contentsline {paragraph}{Parameters\\}{155}{section*.99}
+\contentsline {paragraph}{Output\\}{158}{section*.100}
+\contentsline {subsubsection}{\numberline {4.2.6.4}ScrewFit analysis}{158}{subsubsection.4.2.6.4}
+\contentsline {paragraph}{Theory and implementation\\}{158}{section*.101}
+\contentsline {paragraph}{Parameters\\}{159}{section*.102}
+\contentsline {paragraph}{Output\\}{160}{section*.103}
+\contentsline {subsection}{\numberline {4.2.7}The NMR menu}{160}{subsection.4.2.7}
+\contentsline {subsubsection}{\numberline {4.2.7.1}Order Parameter}{160}{subsubsection.4.2.7.1}
+\contentsline {paragraph}{Theory and implementation\\}{160}{section*.104}
+\contentsline {paragraph}{Parameters\\}{161}{section*.105}
+\contentsline {paragraph}{Output\\}{163}{section*.106}
+\contentsline {subsubsection}{\numberline {4.2.7.2}Order Parameter (Contact Model)}{163}{subsubsection.4.2.7.2}
+\contentsline {paragraph}{Theory and implementation\\}{163}{section*.107}
+\contentsline {paragraph}{Parameters\\}{164}{section*.108}
+\contentsline {paragraph}{Output\\}{165}{section*.109}
+\contentsline {section}{\numberline {4.3}The \textbf {View} menu}{165}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Plot}{165}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Animation}{169}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Effective mode}{170}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}The \textbf {Help} menu}{172}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Documentation}{172}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Mailing List}{172}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}API}{172}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Analysis benchmark}{172}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}About nMOLDYN}{174}{subsection.4.4.5}
+\contentsline {chapter}{\numberline {5}Using nMOLDYN from the command-line interface}{175}{chapter.5}
+\contentsline {section}{\numberline {5.1}\textit {n}MOLDYN\ autostart files}{175}{section.5.1}
+\contentsline {section}{\numberline {5.2}\textit {n}MOLDYN\ input files}{178}{section.5.2}
+\contentsline {chapter}{References}{180}{section*.110}
+\contentsline {chapter}{Appendices}{184}{section*.112}
+\contentsline {chapter}{Appendix \numberline {A}The FCA algorithm}{184}{Appendix.1.A}

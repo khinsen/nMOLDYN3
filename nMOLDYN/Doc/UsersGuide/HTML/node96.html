@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>VACF within the AR model</TITLE>
+<META NAME="description" CONTENT="VACF within the AR model">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node97.html">
+<LINK REL="previous" HREF="node95.html">
+<LINK REL="up" HREF="node95.html">
+<LINK REL="next" HREF="node97.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2556"
+  HREF="node97.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2552"
+  HREF="node95.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2546"
+  HREF="node95.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2554"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2557"
+  HREF="node97.html">Density of states within</A>
+<B> Up:</B> <A NAME="tex2html2553"
+  HREF="node95.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2547"
+  HREF="node95.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html2555"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H5><A NAME="SECTION0082411110000000000000">
+VACF within the AR model</A>
+</H5> The autocorrelation function <IMG
+ WIDTH="35" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img236.gif"
+ ALT="$r(t)$"> introduced in the previous Section is here 
+the <I>normalized</I> <A HREF=node4.html#tex2html429 NAME="19735"><I>VACF</I></A>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+VACF(t) := \frac{\langle v(t)v(0)\rangle}{\langle v^2(0)\rangle}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="370" HEIGHT="48" BORDER="0"
+ SRC="img240.gif"
+ ALT="\begin{displaymath}
+VACF(t) := \frac{\langle v(t)v(0)\rangle}{\langle v^2(0)\rangle}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.71)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+hence <!-- MATH
+ $r(0)=VACF(0)=1$
+ -->
+<IMG
+ WIDTH="169" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img241.gif"
+ ALT="$r(0)=VACF(0)=1$">. 
+Here <IMG
+ WIDTH="35" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img242.gif"
+ ALT="$v(t)$"> is the x-, y-, or z-component of the velocity of a `tagged' atom. 
+The memory function <IMG
+ WIDTH="35" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img229.gif"
+ ALT="$\xi(t)$"> of <IMG
+ WIDTH="38" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img243.gif"
+ ALT="$\psi(t)$"> is defined by the relation
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{d}{dt}\VACF(t) = -\int_{0}^{t}d\tau\, \xi(t-\tau)\VACF(\tau).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:memory_function_equation"></A><IMG
+ WIDTH="590" HEIGHT="46" BORDER="0"
+ SRC="img244.gif"
+ ALT="\begin{displaymath}
+\frac{d}{dt}\VACF(t) = -\int_{0}^{t}d\tau  \xi(t-\tau)\VACF(\tau).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.72)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Eq. (<A HREF="node96.html#eq:memory_function_equation">4.72</A>) is called the <EM>memory function equation</EM>. 
+
+<P>
+Within the AR-model the z-transform of the <A HREF=node4.html#tex2html430 NAME="19742"><I>VACF</I></A> has the form
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\mathrm{VACF}^{(AR)}(z) = \frac{1}{a^{(P)}_P}\frac{-z^P\sigma_P^2}
+{\prod_{k=1}^P (z-z_k)\,\prod_{l=1}^P(z-z^{-1}_l)}.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:vacf_ar"></A><IMG
+ WIDTH="471" HEIGHT="55" BORDER="0"
+ SRC="img245.gif"
+ ALT="\begin{displaymath}
+\mathrm{VACF}^{(AR)}(z) = \frac{1}{a^{(P)}_P}\frac{-z^P\sigma_P^2}
+{\prod_{k=1}^P (z-z_k) \prod_{l=1}^P(z-z^{-1}_l)}.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.73)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Here the <IMG
+ WIDTH="40" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img246.gif"
+ ALT="$\{z_k\}$"> are the zeros of
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+p(z) = z^P-\sum_{k=1}^{P}a^{(P)}_k z^{P-k}.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:p_z"></A><IMG
+ WIDTH="378" HEIGHT="59" BORDER="0"
+ SRC="img247.gif"
+ ALT="\begin{displaymath}
+p(z) = z^P-\sum_{k=1}^{P}a^{(P)}_k z^{P-k}.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.74)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+We recall that the z-transform of an arbitrary discrete function <IMG
+ WIDTH="41" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img248.gif"
+ ALT="$f(n)$"> is given by 
+<!-- MATH
+ $F(z) = \sum_{n=-\infty}^{+\infty} f(n) z^{-n}$
+ -->
+<IMG
+ WIDTH="192" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img249.gif"
+ ALT="$F(z) = \sum_{n=-\infty}^{+\infty} f(n) z^{-n}$">, and the inverse transform by <!-- MATH
+ $f(n)  = \frac{1}{2\pi i}\oint_C dz\,z^{n-1} 
+F(z)$
+ -->
+<IMG
+ WIDTH="204" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img250.gif"
+ ALT="$f(n) = \frac{1}{2\pi i}\oint_C dz z^{n-1}
+F(z)$">. Applying the inverse z-transform to (<A HREF="node96.html#eq:vacf_ar">4.73</A>) yields
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+VACF^{(AR)}(n) = \sum_{j=1}^{P}\beta_jz_j^{|n|},
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:psi_n"></A><IMG
+ WIDTH="384" HEIGHT="61" BORDER="0"
+ SRC="img251.gif"
+ ALT="\begin{displaymath}
+VACF^{(AR)}(n) = \sum_{j=1}^{P}\beta_jz_j^{\vert n\vert},
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.75)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where the coefficients <IMG
+ WIDTH="23" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img252.gif"
+ ALT="$\beta_j$"> are given by
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\beta_j = \frac{1}{a_P}\frac{-z_j^{P-1}\sigma_P^2}
+{\prod_{k=1,k\ne j}^P (z_j-z_k)\,\prod_{l=1}^P(z_j-z^{-1}_l)}.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:beta_j"></A><IMG
+ WIDTH="443" HEIGHT="58" BORDER="0"
+ SRC="img253.gif"
+ ALT="\begin{displaymath}
+\beta_j = \frac{1}{a_P}\frac{-z_j^{P-1}\sigma_P^2}
+{\prod_{k=1,k\ne j}^P (z_j-z_k) \prod_{l=1}^P(z_j-z^{-1}_l)}.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.76)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Note that <!-- MATH
+ $VACF^{(AR)}(n)$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img254.gif"
+ ALT="$VACF^{(AR)}(n)$"> has a multiexponential form, and that the stability criterion
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+|z_j| < 1,\quad j=1,\ldots,P,
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:stability"></A><IMG
+ WIDTH="369" HEIGHT="32" BORDER="0"
+ SRC="img255.gif"
+ ALT="\begin{displaymath}
+\vert z_j\vert &lt; 1,\quad j=1,\ldots,P,
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.77)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+must be fulfilled. This is guaranteed by the Burg-algorithm [<A
+ HREF="node192.html#Burg">60</A>,<A
+ HREF="node192.html#Makhoul:1977">61</A>]. 
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2556"
+  HREF="node97.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2552"
+  HREF="node95.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2546"
+  HREF="node95.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2554"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2557"
+  HREF="node97.html">Density of states within</A>
+<B> Up:</B> <A NAME="tex2html2553"
+  HREF="node95.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2547"
+  HREF="node95.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html2555"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

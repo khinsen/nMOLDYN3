@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node69.html">
+<LINK REL="previous" HREF="node67.html">
+<LINK REL="up" HREF="node67.html">
+<LINK REL="next" HREF="node69.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2200"
+  HREF="node69.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2196"
+  HREF="node67.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2190"
+  HREF="node67.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2198"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2201"
+  HREF="node69.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2197"
+  HREF="node67.html">Velocity Autocorrelation Function</A>
+<B> Previous:</B> <A NAME="tex2html2191"
+  HREF="node67.html">Velocity Autocorrelation Function</A>
+ &nbsp <B>  <A NAME="tex2html2199"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008245100000000000000"></A>
+<A NAME="vacf_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+The <A HREF=node4.html#tex2html332 NAME="18902"><B>V</B>elocity <B>A</B>uto<B>C</B>orrelation <B>F</B>unction (<I>VACF</I>)</A> is another interesting property describing the dynamics of a 
+molecular system. Indeed, it reveals the underlying nature of the forces acting on the system. 
+
+<P>
+In a molecular system that would be made of non interacting particles, the velocities would be constant at 
+any time triggering the <A HREF=node4.html#tex2html333 NAME="18909"><I>VACF</I></A> to be a constant value. Now, if we think about a system with small interactions such as in a
+gas-phase, the magnitude and direction of the velocity of a particle will change gradually over time due to its 
+collision with the other particles of the molecular system. In such a system, the <A HREF=node4.html#tex2html334 NAME="18916"><I>VACF</I></A> will be represented by a
+decaying exponential.
+
+<P>
+In the case of solid phase, the interaction are much stronger and, as a results, the atoms are bound to a given 
+position from which they will move backwards and forwards oscillating between positive and negative values of 
+their velocity. The oscillations will not be of equal magnitude however, but will decay in time, because there 
+are still perturbative forces acting on the atoms to disrupt the perfection of their oscillatory motion. So, in 
+that case the <A HREF=node4.html#tex2html335 NAME="18923"><I>VACF</I></A> will look like a damped harmonic motion.
+
+<P>
+Finally, in the case of liquid phase, the atoms have more freedom than in solid phase and because of the diffusion 
+process, the oscillatory motion seen in solid phase will be cancelled quite rapidly depending on the density of the
+system. So, the <A HREF=node4.html#tex2html336 NAME="18930"><I>VACF</I></A> will just have one very damped oscillation before decaying to zero. This decaying time can be
+considered as the average time for a collision between two atoms to occur before they diffuse away.
+
+<P>
+Mathematically, the <A HREF=node4.html#tex2html337 NAME="18937"><I>VACF</I></A> of atom <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.gif"
+ ALT="$\alpha$"> in an atomic or molecular system is usually defined as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+C_{vv ; \alpha\alpha}(t) \doteq
+\frac{1}{3}\langle {\bf v}_\alpha(t_0)\cdot{\bf v}_\alpha(t_0+t)\rangle_{t_0}.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:vacf"></A><IMG
+ WIDTH="415" HEIGHT="42" BORDER="0"
+ SRC="img138.gif"
+ ALT="\begin{displaymath}
+C_{vv ; \alpha\alpha}(t) \doteq
+\frac{1}{3}\langle {\bf v}_\alpha(t_0)\cdot{\bf v}_\alpha(t_0+t)\rangle_{t_0}.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.36)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+In some cases, e.g. for non-isotropic systems, it is useful to define <A HREF=node4.html#tex2html338 NAME="18944"><I>VACF</I></A> along a given axis,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+C_{vv ; \alpha\alpha}(t;{\bf n}) \doteq
+\langle v_\alpha(t_0;{\bf n})v_\alpha(t_0+t;{\bf n})\rangle_{t_0},
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:vacf_n"></A><IMG
+ WIDTH="429" HEIGHT="32" BORDER="0"
+ SRC="img139.gif"
+ ALT="\begin{displaymath}
+C_{vv ; \alpha\alpha}(t;{\bf n}) \doteq
+\langle v_\alpha(t_0;{\bf n})v_\alpha(t_0+t;{\bf n})\rangle_{t_0},
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.37)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <!-- MATH
+ $v_\alpha(t;{\bf n})$
+ -->
+<IMG
+ WIDTH="63" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img140.gif"
+ ALT="$v_\alpha(t;{\bf n})$"> is given by
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+v_\alpha(t;{\bf n}) \doteq 
+{\bf n}\cdot{\bf v}_{\alpha}(t).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="354" HEIGHT="31" BORDER="0"
+ SRC="img141.gif"
+ ALT="\begin{displaymath}
+v_\alpha(t;{\bf n}) \doteq
+{\bf n}\cdot{\bf v}_{\alpha}(t).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.38)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The vector <I><B>n</B></I> is a unit vector defining a space-fixed axis.
+
+<P>
+The <A HREF=node4.html#tex2html339 NAME="18951"><I>VACF</I></A> of the particles in a many body system can be related to the
+incoherent dynamic structure factor by the relation:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+lim_{q\to 0} \frac{\omega^2}{q^2}{\cal S}({\bf q},\omega) =
+G(\omega),
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:sqw_dos"></A><IMG
+ WIDTH="380" HEIGHT="48" BORDER="0"
+ SRC="img142.gif"
+ ALT="\begin{displaymath}
+lim_{q\to 0} \frac{\omega^2}{q^2}{\cal S}({\bf q},\omega) =
+G(\omega),
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.39)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="45" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img143.gif"
+ ALT="$G(\omega)$"> is the <A HREF=node4.html#tex2html340 NAME="18958"><B>D</B>ensity <B>O</B>f <B>S</B>tates (<I>DOS</I>)</A>. For an isotropic system it reads
+<BR>
+<DIV ALIGN="CENTER"><A NAME="eq:dos"></A><A NAME="eq:dos_alpha"></A>
+<!-- MATH
+ \begin{eqnarray}
+G(\omega) &= &\sum_{\alpha}b^2_{\alpha,inc}
+\tilde C_{vv ; \alpha\alpha}(\omega),\\\tilde C_{vv ; \alpha\alpha}(\omega) &= &
+\frac{1}{2\pi}\int_{-\infty}^{+\infty}dt\, \exp[-i\omega t] 
+C_{vv ; \alpha\alpha}(t).
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="45" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img144.gif"
+ ALT="$\displaystyle G(\omega)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="150" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img145.gif"
+ ALT="$\displaystyle \sum_{\alpha}b^2_{\alpha,inc}
+\tilde C_{vv ; \alpha\alpha}(\omega),$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.40)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="80" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img146.gif"
+ ALT="$\displaystyle \tilde C_{vv ; \alpha\alpha}(\omega)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="244" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img147.gif"
+ ALT="$\displaystyle \frac{1}{2\pi}\int_{-\infty}^{+\infty}dt  \exp[-i\omega t]
+C_{vv ; \alpha\alpha}(t).$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.41)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+For non-isotropic systems relation (<A HREF="node68.html#eq:sqw_dos">4.39</A>) holds if the <A HREF=node4.html#tex2html341 NAME="18965"><I>DOS</I></A> is computed from the atomic velocity 
+autocorrelation functions <!-- MATH
+ $C_{vv ; \alpha\alpha}(t;{\bf n}_q)$
+ -->
+<IMG
+ WIDTH="101" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img148.gif"
+ ALT="$C_{vv ; \alpha\alpha}(t;{\bf n}_q)$">, where <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img149.gif"
+ ALT="${\bf n}_q$"> is the unit vector in the 
+direction of <I><B>q</B></I>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2200"
+  HREF="node69.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2196"
+  HREF="node67.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2190"
+  HREF="node67.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2198"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2201"
+  HREF="node69.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2197"
+  HREF="node67.html">Velocity Autocorrelation Function</A>
+<B> Previous:</B> <A NAME="tex2html2191"
+  HREF="node67.html">Velocity Autocorrelation Function</A>
+ &nbsp <B>  <A NAME="tex2html2199"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

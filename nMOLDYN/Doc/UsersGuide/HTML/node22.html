@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Amber to MMTK</TITLE>
+<META NAME="description" CONTENT="Amber to MMTK">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node23.html">
+<LINK REL="previous" HREF="node21.html">
+<LINK REL="up" HREF="node21.html">
+<LINK REL="next" HREF="node23.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1420"
+  HREF="node23.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1416"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1410"
+  HREF="node21.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1418"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1421"
+  HREF="node23.html">CHARMM/X-PLOR to MMTK</A>
+<B> Up:</B> <A NAME="tex2html1417"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1411"
+  HREF="node21.html">Trajectory conversion</A>
+ &nbsp <B>  <A NAME="tex2html1419"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION008121000000000000000"></A>
+<A NAME="amber_to_mmtk"></A>
+<BR>
+Amber to MMTK
+</H3>
+This converter allows the conversion from a <A HREF=node4.html#tex2html86 NAME="16996">NetCDF</A> trajectory generated with Amber 9 or 10 [<A
+ HREF="node192.html#Amber">26</A>] to a <A HREF=node4.html#tex2html87 NAME="17003">MMTK</A> <A HREF=node4.html#tex2html88 NAME="17010">NetCDF</A> trajectory 
+(unfortunately, both <A HREF=node4.html#tex2html89 NAME="17017">NetCDF</A> files do not follow the same convention). For version of Amber lower than 9, Amber provides some tools 
+for the conversion to Amber <A HREF=node4.html#tex2html90 NAME="17024">NetCDF</A> trajectories. Pressing the <B>Amber NetCDF to MMTK</B> menubutton, the dialog shown in 
+figure <A HREF="node22.html#fig:amber_converter">4.4</A> will pop up.
+
+<DIV ALIGN="CENTER"><A NAME="fig:amber_converter"></A><A NAME="684"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.4:</STRONG>
+The Amber to MMTK converter dialog.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="295" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.gif"
+ ALT="\includegraphics[width=10cm]{Figures/amber_converter.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+To perform the conversion, the following input fields must be filled:
+
+<UL>
+<LI><B>PDB input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> a PDB file of the system must be provided for the conversion. This file is necessary to build up the 
+<A HREF=node4.html#tex2html91 NAME="17031">MMTK</A> universe related to the <A HREF=node4.html#tex2html92 NAME="17038">MMTK</A> trajectory. 
+
+<P>
+</LI>
+<LI><B>Amber NetCDF input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the Amber 9 or 10 <A HREF=node4.html#tex2html93 NAME="17045">NetCDF</A> trajectory file that contains all the trajectory frames.
+
+<P>
+</LI>
+<LI><B>Time step (in ps)</B>
+<BR><B>Format:</B> strictly positive float
+<BR><B>Default:</B> <I>1.0</I>
+<BR><B>Description:</B> the time step in <I>ps</I> between two consecutive frames of the Amber <A HREF=node4.html#tex2html94 NAME="17052">NetCDF</A> trajectory. You have to provide 
+this information because it is not contained in the Amber <A HREF=node4.html#tex2html95 NAME="17059">NetCDF</A> trajectory file.
+
+<P>
+</LI>
+<LI><B>MMTK NetCDF output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the name of the <A HREF=node4.html#tex2html96 NAME="17066">MMTK</A> <A HREF=node4.html#tex2html97 NAME="17073">NetCDF</A> trajectory that will be written. Once, an Amber <A HREF=node4.html#tex2html98 NAME="17080">NetCDF</A> 
+file has been loaded, a default name for the <A HREF=node4.html#tex2html99 NAME="17087">MMTK</A> <A HREF=node4.html#tex2html100 NAME="17094">NetCDF</A> output file will be proposed. This default name will be 
+<I>file_mmtk.nc</I> if <I>file.nc</I> is the Amber <A HREF=node4.html#tex2html101 NAME="17101">NetCDF</A> trajectory file name.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1420"
+  HREF="node23.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1416"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1410"
+  HREF="node21.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1418"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1421"
+  HREF="node23.html">CHARMM/X-PLOR to MMTK</A>
+<B> Up:</B> <A NAME="tex2html1417"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1411"
+  HREF="node21.html">Trajectory conversion</A>
+ &nbsp <B>  <A NAME="tex2html1419"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

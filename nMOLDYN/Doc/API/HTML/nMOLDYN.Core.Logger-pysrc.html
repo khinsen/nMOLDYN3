@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>nMOLDYN.Core.Logger</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="nMOLDYN-module.html">Package&nbsp;nMOLDYN</a> ::
+        <a href="nMOLDYN.Core-module.html">Package&nbsp;Core</a> ::
+        Module&nbsp;Logger
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="nMOLDYN.Core.Logger-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="nMOLDYN.Core.Logger-module.html">Module nMOLDYN.Core.Logger</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""This module implements the classes used to handle the nMOLDYN logger.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">Classes:</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">    * LogToGUI     : sets up a GUI logger.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">    * LogToFile    : sets up a file logger.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">    * LogToConsole : sets up a console logger.</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">Procedures:</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">    * LogMessage   : displays a logging message of a specified logging level to the specified logger(s).</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment"># The python distribution modules</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">time</tt> <tt class="py-keyword">import</tt> <tt class="py-name">strftime</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">Tkinter</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">tkMessageBox</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable nMOLDYN.Core.Logger.LEVELS=nMOLDYN.Core.Logger-module.html#LEVELS"><a title="nMOLDYN.Core.Logger.LEVELS" class="py-name" href="#" onclick="return doclink('link-0', 'LEVELS', 'link-0');">LEVELS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'debug'</tt><tt class="py-op">:</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">DEBUG</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">          <tt class="py-string">'info'</tt><tt class="py-op">:</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">INFO</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">          <tt class="py-string">'warning'</tt><tt class="py-op">:</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">WARNING</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">          <tt class="py-string">'error'</tt><tt class="py-op">:</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">ERROR</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">          <tt class="py-string">'critical'</tt><tt class="py-op">:</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">CRITICAL</tt><tt class="py-op">}</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="LogToGUI"></a><div id="LogToGUI-def"><a name="L29"></a><tt class="py-lineno"> 29</tt> <a class="py-toggle" href="#" id="LogToGUI-toggle" onclick="return toggle('LogToGUI');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="nMOLDYN.Core.Logger.LogToGUI-class.html">LogToGUI</a><tt class="py-op">(</tt><tt class="py-base-class">logging</tt><tt class="py-op">.</tt><tt class="py-base-class">Handler</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LogToGUI-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="LogToGUI-expanded"><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-docstring">"""Sets up a GUI handler for the nMOLDYN logger.</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    Emits the logging messages to a Tk dialog.</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">     </tt>
+<a name="LogToGUI.__init__"></a><div id="LogToGUI.__init__-def"><a name="L35"></a><tt class="py-lineno"> 35</tt> <a class="py-toggle" href="#" id="LogToGUI.__init__-toggle" onclick="return toggle('LogToGUI.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.Core.Logger.LogToGUI-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LogToGUI.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LogToGUI.__init__-expanded"><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-docstring">"""The constructor. Sets the logger."""</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">Handler</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method nMOLDYN.Analysis.Analysis.Analysis.__init__()=nMOLDYN.Analysis.Analysis.Analysis-class.html#__init__,Method nMOLDYN.Analysis.Analysis.QVectors.__init__()=nMOLDYN.Analysis.Analysis.QVectors-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.AngularCorrelation.__init__()=nMOLDYN.Analysis.Dynamics.AngularCorrelation-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.AngularDensityOfStates.__init__()=nMOLDYN.Analysis.Dynamics.AngularDensityOfStates-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.AngularVelocity.__init__()=nMOLDYN.Analysis.Dynamics.AngularVelocity-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.AngularVelocityAutoCorrelationFunction.__init__()=nMOLDYN.Analysis.Dynamics.AngularVelocityAutoCorrelationFunction-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.AutoRegressiveAnalysis.__init__()=nMOLDYN.Analysis.Dynamics.AutoRegressiveAnalysis-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.CartesianDensityOfStates.__init__()=nMOLDYN.Analysis.Dynamics.CartesianDensityOfStates-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.CartesianVelocityAutoCorrelationFunction.__init__()=nMOLDYN.Analysis.Dynamics.CartesianVelocityAutoCorrelationFunction-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.CenterOfMassTrajectory.__init__()=nMOLDYN.Analysis.Dynamics.CenterOfMassTrajectory-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.GlobalMotionFilteredTrajectory.__init__()=nMOLDYN.Analysis.Dynamics.GlobalMotionFilteredTrajectory-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.MeanSquareDisplacement.__init__()=nMOLDYN.Analysis.Dynamics.MeanSquareDisplacement-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.PassBandFilteredTrajectory.__init__()=nMOLDYN.Analysis.Dynamics.PassBandFilteredTrajectory-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.QuasiHarmonicAnalysis.__init__()=nMOLDYN.Analysis.Dynamics.QuasiHarmonicAnalysis-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.RadiusOfGyration.__init__()=nMOLDYN.Analysis.Dynamics.RadiusOfGyration-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.ReorientationalCorrelationFunction.__init__()=nMOLDYN.Analysis.Dynamics.ReorientationalCorrelationFunction-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.RigidBodyTrajectory.__init__()=nMOLDYN.Analysis.Dynamics.RigidBodyTrajectory-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.RootMeanSquareDeviation.__init__()=nMOLDYN.Analysis.Dynamics.RootMeanSquareDeviation-class.html#__init__,Method nMOLDYN.Analysis.NMR.OrderParameter.__init__()=nMOLDYN.Analysis.NMR.OrderParameter-class.html#__init__,Method nMOLDYN.Analysis.NMR.OrderParameterContactModel.__init__()=nMOLDYN.Analysis.NMR.OrderParameterContactModel-class.html#__init__,Method nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor.__init__()=nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor-class.html#__init__,Method nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR.__init__()=nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR-class.html#__init__,Method nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor.__init__()=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor-class.html#__init__,Method nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR.__init__()=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR-class.html#__init__,Method nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian.__init__()=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian-class.html#__init__,Method nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor.__init__()=nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor-class.html#__init__,Method nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor.__init__()=nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor-class.html#__init__,Method nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor.__init__()=nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor-class.html#__init__,Method nMOLDYN.Analysis.Structure.CoordinationNumber.__init__()=nMOLDYN.Analysis.Structure.CoordinationNumber-class.html#__init__,Method nMOLDYN.Analysis.Structure.PairDistributionFunction.__init__()=nMOLDYN.Analysis.Structure.PairDistributionFunction-class.html#__init__,Method nMOLDYN.Analysis.Structure.ScrewFitAnalysis.__init__()=nMOLDYN.Analysis.Structure.ScrewFitAnalysis-class.html#__init__,Method nMOLDYN.Analysis.Structure.SpatialDensity.__init__()=nMOLDYN.Analysis.Structure.SpatialDensity-class.html#__init__,Method nMOLDYN.Core.Error.Error.__init__()=nMOLDYN.Core.Error.Error-class.html#__init__,Method nMOLDYN.Core.IOFiles.AmberNetCDFConverter.__init__()=nMOLDYN.Core.IOFiles.AmberNetCDFConverter-class.html#__init__,Method nMOLDYN.Core.IOFiles.CHARMMConverter.__init__()=nMOLDYN.Core.IOFiles.CHARMMConverter-class.html#__init__,Method nMOLDYN.Core.IOFiles.DCDFile.__init__()=nMOLDYN.Core.IOFiles.DCDFile-class.html#__init__,Method nMOLDYN.Core.IOFiles.DL_POLYConverter.__init__()=nMOLDYN.Core.IOFiles.DL_POLYConverter-class.html#__init__,Method nMOLDYN.Core.IOFiles.FortranBinaryFile.__init__()=nMOLDYN.Core.IOFiles.FortranBinaryFile-class.html#__init__,Method nMOLDYN.Core.IOFiles.MaterialsStudioConverter.__init__()=nMOLDYN.Core.IOFiles.MaterialsStudioConverter-class.html#__init__,Method nMOLDYN.Core.IOFiles.NAMDConverter.__init__()=nMOLDYN.Core.IOFiles.NAMDConverter-class.html#__init__,Method nMOLDYN.Core.IOFiles.TemporaryFile.__init__()=nMOLDYN.Core.IOFiles.TemporaryFile-class.html#__init__,Method nMOLDYN.Core.IOFiles.VASPConverter.__init__()=nMOLDYN.Core.IOFiles.VASPConverter-class.html#__init__,Method nMOLDYN.Core.Logger.LogToConsole.__init__()=nMOLDYN.Core.Logger.LogToConsole-class.html#__init__,Method nMOLDYN.Core.Logger.LogToFile.__init__()=nMOLDYN.Core.Logger.LogToFile-class.html#__init__,Method nMOLDYN.Core.Logger.LogToGUI.__init__()=nMOLDYN.Core.Logger.LogToGUI-class.html#__init__,Method nMOLDYN.Core.Preferences.nMOLDYNPreferences.__Singleton.__init__()=nMOLDYN.Core.Preferences.nMOLDYNPreferences.__Singleton-class.html#__init__,Method nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.__init__()=nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#__init__,Method nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.__init__()=nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog-class.html#__init__,Method nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.__init__()=nMOLDYN.GUI.AnalysisDialog.AnalysisDialog-class.html#__init__,Method nMOLDYN.GUI.AnimationDialog.AnimationDialog.__init__()=nMOLDYN.GUI.AnimationDialog.AnimationDialog-class.html#__init__,Method nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.__init__()=nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog-class.html#__init__,Method nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.__init__()=nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.mfxutil.KwStruct.__init__()=nMOLDYN.GUI.HTMLReader.mfxutil.KwStruct-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.mfxutil.Struct.__init__()=nMOLDYN.GUI.HTMLReader.mfxutil.Struct-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkhtml.MfxReadonlyScrolledText.__init__()=nMOLDYN.GUI.HTMLReader.tkhtml.MfxReadonlyScrolledText-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkhtml.MfxScrolledText.__init__()=nMOLDYN.GUI.HTMLReader.tkhtml.MfxScrolledText-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLViewer.__init__()=nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLViewer-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.__init__()=nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxDialog.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxDialog-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxExceptionDialog.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxExceptionDialog-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxScrolledCanvas.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxScrolledCanvas-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleEntry.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleEntry-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleSlider.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleSlider-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxTooltip.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxTooltip-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget._ToplevelDialog.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget._ToplevelDialog-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.util.DataLoader.__init__()=nMOLDYN.GUI.HTMLReader.util.DataLoader-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.util.Timer.__init__()=nMOLDYN.GUI.HTMLReader.util.Timer-class.html#__init__,Method nMOLDYN.GUI.MainDialog.MainDialog.__init__()=nMOLDYN.GUI.MainDialog.MainDialog-class.html#__init__,Method nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.__init__()=nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog-class.html#__init__,Method nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.__init__()=nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog-class.html#__init__,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.__init__()=nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog-class.html#__init__,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.__init__()=nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog-class.html#__init__,Method nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.__init__()=nMOLDYN.GUI.PreferencesDialog.PreferencesDialog-class.html#__init__,Method nMOLDYN.GUI.PreferencesDialog.dummy.__init__()=nMOLDYN.GUI.PreferencesDialog.dummy-class.html#__init__,Method nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.__init__()=nMOLDYN.GUI.PyroServerDialog.PyroServerDialog-class.html#__init__,Method nMOLDYN.GUI.SelectionDialog.SelectionDialog.__init__()=nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog-class.html#__init__,Method nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.__init__()=nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboButton.__init__()=nMOLDYN.GUI.Widgets.ComboButton-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboCheckbutton.__init__()=nMOLDYN.GUI.Widgets.ComboCheckbutton-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboFileBrowser.__init__()=nMOLDYN.GUI.Widgets.ComboFileBrowser-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboFloatEntry.__init__()=nMOLDYN.GUI.Widgets.ComboFloatEntry-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboFrame.__init__()=nMOLDYN.GUI.Widgets.ComboFrame-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboIntegerEntry.__init__()=nMOLDYN.GUI.Widgets.ComboIntegerEntry-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboLabel.__init__()=nMOLDYN.GUI.Widgets.ComboLabel-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboListbox.__init__()=nMOLDYN.GUI.Widgets.ComboListbox-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboOptionMenu.__init__()=nMOLDYN.GUI.Widgets.ComboOptionMenu-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboRadiobutton.__init__()=nMOLDYN.GUI.Widgets.ComboRadiobutton-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboScale.__init__()=nMOLDYN.GUI.Widgets.ComboScale-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboSpinbox.__init__()=nMOLDYN.GUI.Widgets.ComboSpinbox-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboStringEntry.__init__()=nMOLDYN.GUI.Widgets.ComboStringEntry-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboText.__init__()=nMOLDYN.GUI.Widgets.ComboText-class.html#__init__,Method nMOLDYN.GUI.Widgets.StatusBar.__init__()=nMOLDYN.GUI.Widgets.StatusBar-class.html#__init__,Method nMOLDYN.GUI.Widgets.StringEntry.__init__()=nMOLDYN.GUI.Widgets.StringEntry-class.html#__init__,Method nMOLDYN.GUI.Widgets.ValidatingEntry.__init__()=nMOLDYN.GUI.Widgets.ValidatingEntry-class.html#__init__"><a title="nMOLDYN.Analysis.Analysis.Analysis.__init__
+nMOLDYN.Analysis.Analysis.QVectors.__init__
+nMOLDYN.Analysis.Dynamics.AngularCorrelation.__init__
+nMOLDYN.Analysis.Dynamics.AngularDensityOfStates.__init__
+nMOLDYN.Analysis.Dynamics.AngularVelocity.__init__
+nMOLDYN.Analysis.Dynamics.AngularVelocityAutoCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.AutoRegressiveAnalysis.__init__
+nMOLDYN.Analysis.Dynamics.CartesianDensityOfStates.__init__
+nMOLDYN.Analysis.Dynamics.CartesianVelocityAutoCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.CenterOfMassTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.GlobalMotionFilteredTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.MeanSquareDisplacement.__init__
+nMOLDYN.Analysis.Dynamics.PassBandFilteredTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.QuasiHarmonicAnalysis.__init__
+nMOLDYN.Analysis.Dynamics.RadiusOfGyration.__init__
+nMOLDYN.Analysis.Dynamics.ReorientationalCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.RigidBodyTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.RootMeanSquareDeviation.__init__
+nMOLDYN.Analysis.NMR.OrderParameter.__init__
+nMOLDYN.Analysis.NMR.OrderParameterContactModel.__init__
+nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian.__init__
+nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Structure.CoordinationNumber.__init__
+nMOLDYN.Analysis.Structure.PairDistributionFunction.__init__
+nMOLDYN.Analysis.Structure.ScrewFitAnalysis.__init__
+nMOLDYN.Analysis.Structure.SpatialDensity.__init__
+nMOLDYN.Core.Error.Error.__init__
+nMOLDYN.Core.IOFiles.AmberNetCDFConverter.__init__
+nMOLDYN.Core.IOFiles.CHARMMConverter.__init__
+nMOLDYN.Core.IOFiles.DCDFile.__init__
+nMOLDYN.Core.IOFiles.DL_POLYConverter.__init__
+nMOLDYN.Core.IOFiles.FortranBinaryFile.__init__
+nMOLDYN.Core.IOFiles.MaterialsStudioConverter.__init__
+nMOLDYN.Core.IOFiles.NAMDConverter.__init__
+nMOLDYN.Core.IOFiles.TemporaryFile.__init__
+nMOLDYN.Core.IOFiles.VASPConverter.__init__
+nMOLDYN.Core.Logger.LogToConsole.__init__
+nMOLDYN.Core.Logger.LogToFile.__init__
+nMOLDYN.Core.Logger.LogToGUI.__init__
+nMOLDYN.Core.Preferences.nMOLDYNPreferences.__Singleton.__init__
+nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.__init__
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.__init__
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.__init__
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.__init__
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.__init__
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.__init__
+nMOLDYN.GUI.HTMLReader.mfxutil.KwStruct.__init__
+nMOLDYN.GUI.HTMLReader.mfxutil.Struct.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.MfxReadonlyScrolledText.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.MfxScrolledText.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLViewer.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxDialog.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxExceptionDialog.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxScrolledCanvas.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleEntry.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleSlider.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxTooltip.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget._ToplevelDialog.__init__
+nMOLDYN.GUI.HTMLReader.util.DataLoader.__init__
+nMOLDYN.GUI.HTMLReader.util.Timer.__init__
+nMOLDYN.GUI.MainDialog.MainDialog.__init__
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.__init__
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.__init__
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.__init__
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.__init__
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.__init__
+nMOLDYN.GUI.PreferencesDialog.dummy.__init__
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.__init__
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.__init__
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.__init__
+nMOLDYN.GUI.Widgets.ComboButton.__init__
+nMOLDYN.GUI.Widgets.ComboCheckbutton.__init__
+nMOLDYN.GUI.Widgets.ComboFileBrowser.__init__
+nMOLDYN.GUI.Widgets.ComboFloatEntry.__init__
+nMOLDYN.GUI.Widgets.ComboFrame.__init__
+nMOLDYN.GUI.Widgets.ComboIntegerEntry.__init__
+nMOLDYN.GUI.Widgets.ComboLabel.__init__
+nMOLDYN.GUI.Widgets.ComboListbox.__init__
+nMOLDYN.GUI.Widgets.ComboOptionMenu.__init__
+nMOLDYN.GUI.Widgets.ComboRadiobutton.__init__
+nMOLDYN.GUI.Widgets.ComboScale.__init__
+nMOLDYN.GUI.Widgets.ComboSpinbox.__init__
+nMOLDYN.GUI.Widgets.ComboStringEntry.__init__
+nMOLDYN.GUI.Widgets.ComboText.__init__
+nMOLDYN.GUI.Widgets.StatusBar.__init__
+nMOLDYN.GUI.Widgets.StringEntry.__init__
+nMOLDYN.GUI.Widgets.ValidatingEntry.__init__" class="py-name" href="#" onclick="return doclink('link-1', '__init__', 'link-1');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setFormatter</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">Formatter</tt><tt class="py-op">(</tt><tt class="py-string">'%(name)s %(levelname)s %(filename)s %(lineno)s \n%(message)s'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="LogToGUI.emit"></a><div id="LogToGUI.emit-def"><a name="L40"></a><tt class="py-lineno"> 40</tt> <a class="py-toggle" href="#" id="LogToGUI.emit-toggle" onclick="return toggle('LogToGUI.emit');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.Core.Logger.LogToGUI-class.html#emit">emit</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">record</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LogToGUI.emit-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LogToGUI.emit-expanded"><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-docstring">"""Emits the logging message in a tkMessageBox.</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">        @param record: the logging message.</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">        @type record: instance of LogRecord class.</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">        @note: the tkMessageBox called will depend on the logging level.</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">            - tkMessageBox.showerror for 'ERROR' and 'CRITICAL' logging levels.</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">            - tkMessageBox.showwarning for 'WARNING' logging level.</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">            - tkMessageBox.showinfo for other logging levels.</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">                 </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">record</tt><tt class="py-op">.</tt><tt class="py-name">levelname</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">'ERROR'</tt><tt class="py-op">,</tt><tt class="py-string">'CRITICAL'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">            <tt class="py-name">tkMessageBox</tt><tt class="py-op">.</tt><tt class="py-name">showerror</tt><tt class="py-op">(</tt><tt class="py-name">record</tt><tt class="py-op">.</tt><tt class="py-name">levelname</tt><tt class="py-op">.</tt><tt class="py-name">capitalize</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-name">record</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">record</tt><tt class="py-op">.</tt><tt class="py-name">levelname</tt> <tt class="py-op">==</tt> <tt class="py-string">'WARNING'</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">            <tt class="py-name">tkMessageBox</tt><tt class="py-op">.</tt><tt class="py-name">showwarning</tt><tt class="py-op">(</tt><tt class="py-name">record</tt><tt class="py-op">.</tt><tt class="py-name">levelname</tt><tt class="py-op">.</tt><tt class="py-name">capitalize</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-name">record</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">            <tt class="py-name">tkMessageBox</tt><tt class="py-op">.</tt><tt class="py-name">showinfo</tt><tt class="py-op">(</tt><tt class="py-name">record</tt><tt class="py-op">.</tt><tt class="py-name">levelname</tt><tt class="py-op">.</tt><tt class="py-name">capitalize</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-name">record</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="LogToFile"></a><div id="LogToFile-def"><a name="L59"></a><tt class="py-lineno"> 59</tt> <a class="py-toggle" href="#" id="LogToFile-toggle" onclick="return toggle('LogToFile');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="nMOLDYN.Core.Logger.LogToFile-class.html">LogToFile</a><tt class="py-op">(</tt><tt class="py-base-class">logging</tt><tt class="py-op">.</tt><tt class="py-base-class">FileHandler</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LogToFile-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="LogToFile-expanded"><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">    <tt class="py-docstring">"""Sets up a file logger.</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">    Emits the logging messages to a file.    </tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">     </tt>
+<a name="LogToFile.__init__"></a><div id="LogToFile.__init__-def"><a name="L65"></a><tt class="py-lineno"> 65</tt> <a class="py-toggle" href="#" id="LogToFile.__init__-toggle" onclick="return toggle('LogToFile.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.Core.Logger.LogToFile-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">fileName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LogToFile.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LogToFile.__init__-expanded"><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-docstring">"""The constructor. Sets the logger.</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">        @param fileName: the name of the file where all the logging messages will be emitted.</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">        @type fileName: string        </tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">FileHandler</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name"><a title="nMOLDYN.Analysis.Analysis.Analysis.__init__
+nMOLDYN.Analysis.Analysis.QVectors.__init__
+nMOLDYN.Analysis.Dynamics.AngularCorrelation.__init__
+nMOLDYN.Analysis.Dynamics.AngularDensityOfStates.__init__
+nMOLDYN.Analysis.Dynamics.AngularVelocity.__init__
+nMOLDYN.Analysis.Dynamics.AngularVelocityAutoCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.AutoRegressiveAnalysis.__init__
+nMOLDYN.Analysis.Dynamics.CartesianDensityOfStates.__init__
+nMOLDYN.Analysis.Dynamics.CartesianVelocityAutoCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.CenterOfMassTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.GlobalMotionFilteredTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.MeanSquareDisplacement.__init__
+nMOLDYN.Analysis.Dynamics.PassBandFilteredTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.QuasiHarmonicAnalysis.__init__
+nMOLDYN.Analysis.Dynamics.RadiusOfGyration.__init__
+nMOLDYN.Analysis.Dynamics.ReorientationalCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.RigidBodyTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.RootMeanSquareDeviation.__init__
+nMOLDYN.Analysis.NMR.OrderParameter.__init__
+nMOLDYN.Analysis.NMR.OrderParameterContactModel.__init__
+nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian.__init__
+nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Structure.CoordinationNumber.__init__
+nMOLDYN.Analysis.Structure.PairDistributionFunction.__init__
+nMOLDYN.Analysis.Structure.ScrewFitAnalysis.__init__
+nMOLDYN.Analysis.Structure.SpatialDensity.__init__
+nMOLDYN.Core.Error.Error.__init__
+nMOLDYN.Core.IOFiles.AmberNetCDFConverter.__init__
+nMOLDYN.Core.IOFiles.CHARMMConverter.__init__
+nMOLDYN.Core.IOFiles.DCDFile.__init__
+nMOLDYN.Core.IOFiles.DL_POLYConverter.__init__
+nMOLDYN.Core.IOFiles.FortranBinaryFile.__init__
+nMOLDYN.Core.IOFiles.MaterialsStudioConverter.__init__
+nMOLDYN.Core.IOFiles.NAMDConverter.__init__
+nMOLDYN.Core.IOFiles.TemporaryFile.__init__
+nMOLDYN.Core.IOFiles.VASPConverter.__init__
+nMOLDYN.Core.Logger.LogToConsole.__init__
+nMOLDYN.Core.Logger.LogToFile.__init__
+nMOLDYN.Core.Logger.LogToGUI.__init__
+nMOLDYN.Core.Preferences.nMOLDYNPreferences.__Singleton.__init__
+nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.__init__
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.__init__
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.__init__
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.__init__
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.__init__
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.__init__
+nMOLDYN.GUI.HTMLReader.mfxutil.KwStruct.__init__
+nMOLDYN.GUI.HTMLReader.mfxutil.Struct.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.MfxReadonlyScrolledText.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.MfxScrolledText.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLViewer.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxDialog.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxExceptionDialog.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxScrolledCanvas.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleEntry.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleSlider.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxTooltip.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget._ToplevelDialog.__init__
+nMOLDYN.GUI.HTMLReader.util.DataLoader.__init__
+nMOLDYN.GUI.HTMLReader.util.Timer.__init__
+nMOLDYN.GUI.MainDialog.MainDialog.__init__
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.__init__
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.__init__
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.__init__
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.__init__
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.__init__
+nMOLDYN.GUI.PreferencesDialog.dummy.__init__
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.__init__
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.__init__
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.__init__
+nMOLDYN.GUI.Widgets.ComboButton.__init__
+nMOLDYN.GUI.Widgets.ComboCheckbutton.__init__
+nMOLDYN.GUI.Widgets.ComboFileBrowser.__init__
+nMOLDYN.GUI.Widgets.ComboFloatEntry.__init__
+nMOLDYN.GUI.Widgets.ComboFrame.__init__
+nMOLDYN.GUI.Widgets.ComboIntegerEntry.__init__
+nMOLDYN.GUI.Widgets.ComboLabel.__init__
+nMOLDYN.GUI.Widgets.ComboListbox.__init__
+nMOLDYN.GUI.Widgets.ComboOptionMenu.__init__
+nMOLDYN.GUI.Widgets.ComboRadiobutton.__init__
+nMOLDYN.GUI.Widgets.ComboScale.__init__
+nMOLDYN.GUI.Widgets.ComboSpinbox.__init__
+nMOLDYN.GUI.Widgets.ComboStringEntry.__init__
+nMOLDYN.GUI.Widgets.ComboText.__init__
+nMOLDYN.GUI.Widgets.StatusBar.__init__
+nMOLDYN.GUI.Widgets.StringEntry.__init__
+nMOLDYN.GUI.Widgets.ValidatingEntry.__init__" class="py-name" href="#" onclick="return doclink('link-2', '__init__', 'link-1');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">fileName</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">    <tt class="py-comment"># The overdefined emit Handler method.</tt> </tt>
+<a name="LogToFile.emit"></a><div id="LogToFile.emit-def"><a name="L74"></a><tt class="py-lineno"> 74</tt> <a class="py-toggle" href="#" id="LogToFile.emit-toggle" onclick="return toggle('LogToFile.emit');">-</a><tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.Core.Logger.LogToFile-class.html#emit">emit</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">record</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LogToFile.emit-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LogToFile.emit-expanded"><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-docstring">"""Emits the logging message in a file.</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">        @param record: the logging message.</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">        @type record: instance of LogRecord class.</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-comment"># If the record level is INFO then produce a slightly different output for the logfile.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">if</tt> <tt class="py-name">record</tt><tt class="py-op">.</tt><tt class="py-name">levelname</tt> <tt class="py-op">==</tt> <tt class="py-string">'INFO'</tt><tt class="py-op">:</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setFormatter</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">Formatter</tt><tt class="py-op">(</tt><tt class="py-string">'%(name)s %(levelname)s ---&gt; %(message)s'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">record</tt><tt class="py-op">.</tt><tt class="py-name">levelname</tt> <tt class="py-op">==</tt> <tt class="py-string">'WARNING'</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setFormatter</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">Formatter</tt><tt class="py-op">(</tt><tt class="py-string">'!'</tt><tt class="py-op">*</tt><tt class="py-number">119</tt> <tt class="py-op">+</tt> <tt class="py-string">'\n%(name)s %(levelname)s ---&gt; %(filename)s %(lineno)s %(message)s\n'</tt> <tt class="py-op">+</tt> <tt class="py-string">'!'</tt><tt class="py-op">*</tt><tt class="py-number">119</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setFormatter</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">Formatter</tt><tt class="py-op">(</tt><tt class="py-string">'%(name)s %(levelname)s ---&gt; %(filename)s %(lineno)s %(message)s'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-comment"># The formatted record is written to the log file.</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stream</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Method nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.write()=nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter-class.html#write"><a title="nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.write" class="py-name" href="#" onclick="return doclink('link-3', 'write', 'link-3');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-name">record</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-comment"># And flushed.</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stream</tt><tt class="py-op">.</tt><tt class="py-name">flush</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="LogToFile.close"></a><div id="LogToFile.close-def"><a name="L92"></a><tt class="py-lineno"> 92</tt> <a class="py-toggle" href="#" id="LogToFile.close-toggle" onclick="return toggle('LogToFile.close');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.Core.Logger.LogToFile-class.html#close">close</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LogToFile.close-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LogToFile.close-expanded"><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-docstring">"""Closes the file logger."""</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stream</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method nMOLDYN.Core.IOFiles.TemporaryFile.close()=nMOLDYN.Core.IOFiles.TemporaryFile-class.html#close,Method nMOLDYN.Core.Logger.LogToFile.close()=nMOLDYN.Core.Logger.LogToFile-class.html#close"><a title="nMOLDYN.Core.IOFiles.TemporaryFile.close
+nMOLDYN.Core.Logger.LogToFile.close" class="py-name" href="#" onclick="return doclink('link-4', 'close', 'link-4');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"> </tt>
+<a name="LogToConsole"></a><div id="LogToConsole-def"><a name="L96"></a><tt class="py-lineno"> 96</tt> <a class="py-toggle" href="#" id="LogToConsole-toggle" onclick="return toggle('LogToConsole');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="nMOLDYN.Core.Logger.LogToConsole-class.html">LogToConsole</a><tt class="py-op">(</tt><tt class="py-base-class">logging</tt><tt class="py-op">.</tt><tt class="py-base-class">StreamHandler</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LogToConsole-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="LogToConsole-expanded"><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">    <tt class="py-docstring">"""Sets up a console logger.</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">    Emits the logging messages to the console.</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"> </tt>
+<a name="LogToConsole.__init__"></a><div id="LogToConsole.__init__-def"><a name="L102"></a><tt class="py-lineno">102</tt> <a class="py-toggle" href="#" id="LogToConsole.__init__-toggle" onclick="return toggle('LogToConsole.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.Core.Logger.LogToConsole-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LogToConsole.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LogToConsole.__init__-expanded"><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-docstring">"""The constructor. Sets the logger."""</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">         </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">StreamHandler</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="nMOLDYN.Analysis.Analysis.Analysis.__init__
+nMOLDYN.Analysis.Analysis.QVectors.__init__
+nMOLDYN.Analysis.Dynamics.AngularCorrelation.__init__
+nMOLDYN.Analysis.Dynamics.AngularDensityOfStates.__init__
+nMOLDYN.Analysis.Dynamics.AngularVelocity.__init__
+nMOLDYN.Analysis.Dynamics.AngularVelocityAutoCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.AutoRegressiveAnalysis.__init__
+nMOLDYN.Analysis.Dynamics.CartesianDensityOfStates.__init__
+nMOLDYN.Analysis.Dynamics.CartesianVelocityAutoCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.CenterOfMassTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.GlobalMotionFilteredTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.MeanSquareDisplacement.__init__
+nMOLDYN.Analysis.Dynamics.PassBandFilteredTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.QuasiHarmonicAnalysis.__init__
+nMOLDYN.Analysis.Dynamics.RadiusOfGyration.__init__
+nMOLDYN.Analysis.Dynamics.ReorientationalCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.RigidBodyTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.RootMeanSquareDeviation.__init__
+nMOLDYN.Analysis.NMR.OrderParameter.__init__
+nMOLDYN.Analysis.NMR.OrderParameterContactModel.__init__
+nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian.__init__
+nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Structure.CoordinationNumber.__init__
+nMOLDYN.Analysis.Structure.PairDistributionFunction.__init__
+nMOLDYN.Analysis.Structure.ScrewFitAnalysis.__init__
+nMOLDYN.Analysis.Structure.SpatialDensity.__init__
+nMOLDYN.Core.Error.Error.__init__
+nMOLDYN.Core.IOFiles.AmberNetCDFConverter.__init__
+nMOLDYN.Core.IOFiles.CHARMMConverter.__init__
+nMOLDYN.Core.IOFiles.DCDFile.__init__
+nMOLDYN.Core.IOFiles.DL_POLYConverter.__init__
+nMOLDYN.Core.IOFiles.FortranBinaryFile.__init__
+nMOLDYN.Core.IOFiles.MaterialsStudioConverter.__init__
+nMOLDYN.Core.IOFiles.NAMDConverter.__init__
+nMOLDYN.Core.IOFiles.TemporaryFile.__init__
+nMOLDYN.Core.IOFiles.VASPConverter.__init__
+nMOLDYN.Core.Logger.LogToConsole.__init__
+nMOLDYN.Core.Logger.LogToFile.__init__
+nMOLDYN.Core.Logger.LogToGUI.__init__
+nMOLDYN.Core.Preferences.nMOLDYNPreferences.__Singleton.__init__
+nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.__init__
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.__init__
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.__init__
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.__init__
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.__init__
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.__init__
+nMOLDYN.GUI.HTMLReader.mfxutil.KwStruct.__init__
+nMOLDYN.GUI.HTMLReader.mfxutil.Struct.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.MfxReadonlyScrolledText.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.MfxScrolledText.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLViewer.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxDialog.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxExceptionDialog.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxScrolledCanvas.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleEntry.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleSlider.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxTooltip.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget._ToplevelDialog.__init__
+nMOLDYN.GUI.HTMLReader.util.DataLoader.__init__
+nMOLDYN.GUI.HTMLReader.util.Timer.__init__
+nMOLDYN.GUI.MainDialog.MainDialog.__init__
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.__init__
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.__init__
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.__init__
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.__init__
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.__init__
+nMOLDYN.GUI.PreferencesDialog.dummy.__init__
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.__init__
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.__init__
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.__init__
+nMOLDYN.GUI.Widgets.ComboButton.__init__
+nMOLDYN.GUI.Widgets.ComboCheckbutton.__init__
+nMOLDYN.GUI.Widgets.ComboFileBrowser.__init__
+nMOLDYN.GUI.Widgets.ComboFloatEntry.__init__
+nMOLDYN.GUI.Widgets.ComboFrame.__init__
+nMOLDYN.GUI.Widgets.ComboIntegerEntry.__init__
+nMOLDYN.GUI.Widgets.ComboLabel.__init__
+nMOLDYN.GUI.Widgets.ComboListbox.__init__
+nMOLDYN.GUI.Widgets.ComboOptionMenu.__init__
+nMOLDYN.GUI.Widgets.ComboRadiobutton.__init__
+nMOLDYN.GUI.Widgets.ComboScale.__init__
+nMOLDYN.GUI.Widgets.ComboSpinbox.__init__
+nMOLDYN.GUI.Widgets.ComboStringEntry.__init__
+nMOLDYN.GUI.Widgets.ComboText.__init__
+nMOLDYN.GUI.Widgets.StatusBar.__init__
+nMOLDYN.GUI.Widgets.StringEntry.__init__
+nMOLDYN.GUI.Widgets.ValidatingEntry.__init__" class="py-name" href="#" onclick="return doclink('link-5', '__init__', 'link-1');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-comment"># The overdefined emit Handler method.</tt> </tt>
+<a name="LogToConsole.emit"></a><div id="LogToConsole.emit-def"><a name="L108"></a><tt class="py-lineno">108</tt> <a class="py-toggle" href="#" id="LogToConsole.emit-toggle" onclick="return toggle('LogToConsole.emit');">-</a><tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.Core.Logger.LogToConsole-class.html#emit">emit</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">record</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LogToConsole.emit-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LogToConsole.emit-expanded"><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-docstring">"""Emits the logging message to the console.</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">        @param record: the logging message.</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">        @type record: instance of LogRecord class.</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-comment"># If the record level is INFO then produce a slightly different output for the logfile.</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">if</tt> <tt class="py-name">record</tt><tt class="py-op">.</tt><tt class="py-name">levelname</tt> <tt class="py-op">==</tt> <tt class="py-string">'INFO'</tt><tt class="py-op">:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setFormatter</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">Formatter</tt><tt class="py-op">(</tt><tt class="py-string">'%(name)s %(levelname)s ------&gt; %(message)s'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">record</tt><tt class="py-op">.</tt><tt class="py-name">levelname</tt> <tt class="py-op">==</tt> <tt class="py-string">'WARNING'</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setFormatter</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">Formatter</tt><tt class="py-op">(</tt><tt class="py-string">'!'</tt><tt class="py-op">*</tt><tt class="py-number">119</tt> <tt class="py-op">+</tt> <tt class="py-string">'\n%(name)s %(levelname)s ---&gt; %(filename)s %(lineno)s %(message)s\n'</tt> <tt class="py-op">+</tt> <tt class="py-string">'!'</tt><tt class="py-op">*</tt><tt class="py-number">119</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">setFormatter</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">Formatter</tt><tt class="py-op">(</tt><tt class="py-string">'%(name)s %(levelname)s ---&gt; %(filename)s %(lineno)s %(message)s'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-comment"># The formatted record is written to the console.</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stream</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.write" class="py-name" href="#" onclick="return doclink('link-6', 'write', 'link-3');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-name">record</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-comment"># And flushed.</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stream</tt><tt class="py-op">.</tt><tt class="py-name">flush</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">         </tt>
+<a name="LogMessage"></a><div id="LogMessage-def"><a name="L127"></a><tt class="py-lineno">127</tt> <a class="py-toggle" href="#" id="LogMessage-toggle" onclick="return toggle('LogMessage');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.Core.Logger-module.html#LogMessage">LogMessage</a><tt class="py-op">(</tt><tt class="py-param">level</tt> <tt class="py-op">=</tt> <tt class="py-string">'debug'</tt><tt class="py-op">,</tt> <tt class="py-param">message</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt><tt class="py-op">,</tt> <tt class="py-param">media</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'gui'</tt><tt class="py-op">,</tt><tt class="py-string">'file'</tt><tt class="py-op">,</tt><tt class="py-string">'console'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LogMessage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="LogMessage-expanded"><a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">    <tt class="py-docstring">"""Displays the logging messahe |message| of logging level |level| to the logger(s) |media|.</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring">    @param level: a string being one of 'debug', 'info', 'warning', 'error' or 'critical' specifying </tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">        the logging level of the logging message. Will change the way the logging message will be </tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">        displayed.</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">    @type level: string</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">    @param message: the logging message.</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring">    @type message: string</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-docstring">    @param media: a list containing 'gui' and/or 'file' and/or 'console' specifying on which logger(s) the logging</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">        message should emitted.</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-docstring">    @type media: list</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">    <tt class="py-name">media</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">lower</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">s</tt> <tt class="py-keyword">in</tt> <tt class="py-name">media</tt><tt class="py-op">]</tt>     </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">     </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-string">'console'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">media</tt><tt class="py-op">:</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">            <tt id="link-7" class="py-name" targets="Variable nMOLDYN.Core.Logger.CONSOLE_LOGGER=nMOLDYN.Core.Logger-module.html#CONSOLE_LOGGER"><a title="nMOLDYN.Core.Logger.CONSOLE_LOGGER" class="py-name" href="#" onclick="return doclink('link-7', 'CONSOLE_LOGGER', 'link-7');">CONSOLE_LOGGER</a></tt><tt class="py-op">.</tt><tt class="py-name">log</tt><tt class="py-op">(</tt><tt id="link-8" class="py-name"><a title="nMOLDYN.Core.Logger.LEVELS" class="py-name" href="#" onclick="return doclink('link-8', 'LEVELS', 'link-0');">LEVELS</a></tt><tt class="py-op">[</tt><tt class="py-name">level</tt><tt class="py-op">.</tt><tt class="py-name">lower</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">message</tt><tt class="py-op">)</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-string">'file'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">media</tt><tt class="py-op">:</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">            <tt id="link-9" class="py-name" targets="Variable nMOLDYN.Core.Logger.FILE_LOGGER=nMOLDYN.Core.Logger-module.html#FILE_LOGGER"><a title="nMOLDYN.Core.Logger.FILE_LOGGER" class="py-name" href="#" onclick="return doclink('link-9', 'FILE_LOGGER', 'link-9');">FILE_LOGGER</a></tt><tt class="py-op">.</tt><tt class="py-name">log</tt><tt class="py-op">(</tt><tt id="link-10" class="py-name"><a title="nMOLDYN.Core.Logger.LEVELS" class="py-name" href="#" onclick="return doclink('link-10', 'LEVELS', 'link-0');">LEVELS</a></tt><tt class="py-op">[</tt><tt class="py-name">level</tt><tt class="py-op">.</tt><tt class="py-name">lower</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">message</tt><tt class="py-op">)</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">                 </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-string">'gui'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">media</tt><tt class="py-op">:</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">Tkinter</tt><tt class="py-op">.</tt><tt class="py-name">_default_root</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">                <tt id="link-11" class="py-name" targets="Variable nMOLDYN.Core.Logger.GUI_LOGGER=nMOLDYN.Core.Logger-module.html#GUI_LOGGER"><a title="nMOLDYN.Core.Logger.GUI_LOGGER" class="py-name" href="#" onclick="return doclink('link-11', 'GUI_LOGGER', 'link-11');">GUI_LOGGER</a></tt><tt class="py-op">.</tt><tt class="py-name">log</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name"><a title="nMOLDYN.Core.Logger.LEVELS" class="py-name" href="#" onclick="return doclink('link-12', 'LEVELS', 'link-0');">LEVELS</a></tt><tt class="py-op">[</tt><tt class="py-name">level</tt><tt class="py-op">.</tt><tt class="py-name">lower</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">message</tt><tt class="py-op">)</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">         </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-comment"># The nMOLDYN file logger is set up.</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-13" class="py-name"><a title="nMOLDYN.Core.Logger.FILE_LOGGER" class="py-name" href="#" onclick="return doclink('link-13', 'FILE_LOGGER', 'link-9');">FILE_LOGGER</a></tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">getLogger</tt><tt class="py-op">(</tt><tt class="py-string">'NMOLDYN LOGFILE'</tt><tt class="py-op">)</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt id="link-14" class="py-name"><a title="nMOLDYN.Core.Logger.FILE_LOGGER" class="py-name" href="#" onclick="return doclink('link-14', 'FILE_LOGGER', 'link-9');">FILE_LOGGER</a></tt><tt class="py-op">.</tt><tt class="py-name">setLevel</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">DEBUG</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">         </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-comment"># The nMOLDYN console logger is set up.</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-15" class="py-name"><a title="nMOLDYN.Core.Logger.CONSOLE_LOGGER" class="py-name" href="#" onclick="return doclink('link-15', 'CONSOLE_LOGGER', 'link-7');">CONSOLE_LOGGER</a></tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">getLogger</tt><tt class="py-op">(</tt><tt class="py-string">'NMOLDYN CONSOLE'</tt><tt class="py-op">)</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt id="link-16" class="py-name"><a title="nMOLDYN.Core.Logger.CONSOLE_LOGGER" class="py-name" href="#" onclick="return doclink('link-16', 'CONSOLE_LOGGER', 'link-7');">CONSOLE_LOGGER</a></tt><tt class="py-op">.</tt><tt class="py-name">setLevel</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">INFO</tt><tt class="py-op">)</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">        </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"><tt class="py-comment"># The nMOLDYN GUI logger is set up.</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-17" class="py-name"><a title="nMOLDYN.Core.Logger.GUI_LOGGER" class="py-name" href="#" onclick="return doclink('link-17', 'GUI_LOGGER', 'link-11');">GUI_LOGGER</a></tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">getLogger</tt><tt class="py-op">(</tt><tt class="py-string">'NMOLDYN GUI'</tt><tt class="py-op">)</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt id="link-18" class="py-name"><a title="nMOLDYN.Core.Logger.GUI_LOGGER" class="py-name" href="#" onclick="return doclink('link-18', 'GUI_LOGGER', 'link-11');">GUI_LOGGER</a></tt><tt class="py-op">.</tt><tt class="py-name">setLevel</tt><tt class="py-op">(</tt><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">INFO</tt><tt class="py-op">)</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct  8 16:57:22 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

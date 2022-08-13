@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Parameters
+</TITLE>
+<META NAME="description" CONTENT="Parameters
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node89.html">
+<LINK REL="previous" HREF="node84.html">
+<LINK REL="up" HREF="node83.html">
+<LINK REL="next" HREF="node89.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2448"
+  HREF="node89.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2444"
+  HREF="node83.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2438"
+  HREF="node87.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2446"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2449"
+  HREF="node89.html">Output</A>
+<B> Up:</B> <A NAME="tex2html2445"
+  HREF="node83.html">Rigid-Body Trajectory</A>
+<B> Previous:</B> <A NAME="tex2html2439"
+  HREF="node87.html">Solution of the minimization</A>
+ &nbsp <B>  <A NAME="tex2html2447"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008249200000000000000"></A>
+<A NAME="rbt_parameters"></A>
+<BR>
+Parameters
+<BR>
+</H4>
+Pressing the <B>Rigid-Body Trajectory</B> button will pop up the dialog shown on figure <A HREF="node88.html#fig:rbt">4.43</A>
+
+<DIV ALIGN="CENTER"><A NAME="fig:rbt"></A><A NAME="7505"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.43:</STRONG>
+The dialog from where the <I>RBT</I> analysis will be set up and run.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="521" ALIGN="BOTTOM" BORDER="0"
+ SRC="img225.gif"
+ ALT="\includegraphics[width=10cm]{Figures/rbt.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The following input fields controls the parameters for the <A HREF=node4.html#tex2html401 NAME="19494"><I>RBT</I></A> analysis:
+
+<P>
+
+<UL>
+<LI><B>Trajectory file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>traj_file</I> where <I>traj_file</I> is the name of the loaded trajectory
+<BR><B>Description:</B> the value of this widget can not be changed. It just recalls for information purpose the name
+of the trajectory file loaded for the analysis.
+
+<P>
+</LI>
+<LI><B>Frame selection</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>1:traj_length:1</I> where <I>traj_length</I> is the number of frames of the trajectory.
+<BR><B>Description:</B> this widget allows to select the trajectory frames that will be used for the analysis. This must
+be a string of the form:
+
+<BR>
+<BR><I>first:last:step</I>
+
+<BR>
+<BR>
+where <I>first</I> is an integer specifying the first frame number to consider, <I>last</I> is an integer specifying the last 
+frame number to consider and <I>step</I> is an integer specifying the step number between two frames.
+
+<P>
+For example,
+
+<UL>
+<LI><I>2:10:3</I> will select the frames 2, 5 and 8.
+</LI>
+<LI><I>1:5:1</I> will select the frames 1, 2, 3, 4 and 5.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>Reference frame</B>
+<BR><B>Format:</B> integer in [1,<I>traj_length</I>] where <I>traj_length</I> is the number of frames of the input trajectory
+<BR><B>Default:</B> <I>1</I>
+<BR><B>Description:</B> this widget allows to specify which frame should be the reference for the <A HREF=node4.html#tex2html402 NAME="19501"><I>RBT</I></A> analysis.
+The value entered should be an integer ranging from 1 to <I>traj_length</I> where <I>traj_length</I> is the 
+number of rames of the input trajectory.
+
+<P>
+</LI>
+<LI><B>Remove translation</B>
+<BR><B>Format:</B> string equal to <I>yes</I> or <I>no</I>
+<BR><B>Default:</B> <I>no</I>
+<BR><B>Description:</B> if set to <I>yes</I> the translation motion will be removed from the <A HREF=node4.html#tex2html403 NAME="19508"><I>RBT</I></A>.
+
+<P>
+</LI>
+<LI><B>Stepwise RBT</B>
+<BR><B>Format:</B> string equal to <I>yes</I> or <I>no</I>
+<BR><B>Default:</B> <I>no</I>
+<BR><B>Description:</B> if set to <I>yes</I>, each frame <I>f</I> will serve as the reference for the frame <I>f+1</I> 
+when defining the <A HREF=node4.html#tex2html404 NAME="19515"><I>RBT</I></A> canceling the value entred in <B>Reference frame</B> entry.
+
+<P>
+</LI>
+<LI><B>Group selection</B>
+<BR><B>Format:</B> group selection string
+<BR><B>Default:</B> <I>all</I>
+<BR><B>Description:</B> this widget allows the selection of the groups of atoms that will be defined as rigid-bodies when performing 
+the <A HREF=node4.html#tex2html405 NAME="19522"><I>RBT</I></A>. See Section <A HREF="node45.html#group_selection">4.2.2.3</A> for more details.
+
+<P>
+</LI>
+<LI><B>RBT output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>RBT_traj_file.nc</I> where <I>traj_file.nc</I> is the name of the input trajectory
+<BR><B>Description:</B> this widget allows to enter the name of the <A HREF=node4.html#tex2html406 NAME="19529">NetCDF</A> output file of the <A HREF=node4.html#tex2html407 NAME="19536"><I>RBT</I></A> analysis.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2448"
+  HREF="node89.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2444"
+  HREF="node83.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2438"
+  HREF="node87.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2446"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2449"
+  HREF="node89.html">Output</A>
+<B> Up:</B> <A NAME="tex2html2445"
+  HREF="node83.html">Rigid-Body Trajectory</A>
+<B> Previous:</B> <A NAME="tex2html2439"
+  HREF="node87.html">Solution of the minimization</A>
+ &nbsp <B>  <A NAME="tex2html2447"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

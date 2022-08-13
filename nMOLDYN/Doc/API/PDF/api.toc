@@ -1,0 +1,653 @@
+\contentsline {section}{Contents}{1}{section*.2}
+\contentsline {section}{\numberline {1}Package nMOLDYN}{16}{section.1}
+\contentsline {subsection}{\numberline {1.1}Modules}{16}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Variables}{18}{subsection.1.2}
+\contentsline {section}{\numberline {2}Package nMOLDYN.Analysis}{19}{section.2}
+\contentsline {subsection}{\numberline {2.1}Modules}{19}{subsection.2.1}
+\contentsline {section}{\numberline {3}Module nMOLDYN.Analysis.Analysis}{20}{section.3}
+\contentsline {subsection}{\numberline {3.1}Functions}{20}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Variables}{20}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Class Analysis}{20}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Methods}{20}{subsubsection.3.3.1}
+\contentsline {subsection}{\numberline {3.4}Class QVectors}{23}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Methods}{24}{subsubsection.3.4.1}
+\contentsline {section}{\numberline {4}Module nMOLDYN.Analysis.Dynamics}{25}{section.4}
+\contentsline {subsection}{\numberline {4.1}Class MeanSquareDisplacement}{25}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Methods}{26}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Class Variables}{27}{subsubsection.4.1.2}
+\contentsline {subsection}{\numberline {4.2}Class RootMeanSquareDeviation}{27}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Methods}{28}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Class Variables}{29}{subsubsection.4.2.2}
+\contentsline {subsection}{\numberline {4.3}Class CartesianVelocityAutoCorrelationFunction}{29}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Methods}{31}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Class Variables}{31}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Class CartesianDensityOfStates}{32}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Methods}{33}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Class Variables}{34}{subsubsection.4.4.2}
+\contentsline {subsection}{\numberline {4.5}Class AutoRegressiveAnalysis}{34}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Methods}{35}{subsubsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.2}Class Variables}{36}{subsubsection.4.5.2}
+\contentsline {subsection}{\numberline {4.6}Class PassBandFilteredTrajectory}{36}{subsection.4.6}
+\contentsline {subsubsection}{\numberline {4.6.1}Methods}{37}{subsubsection.4.6.1}
+\contentsline {subsubsection}{\numberline {4.6.2}Class Variables}{38}{subsubsection.4.6.2}
+\contentsline {subsection}{\numberline {4.7}Class RadiusOfGyration}{38}{subsection.4.7}
+\contentsline {subsubsection}{\numberline {4.7.1}Methods}{39}{subsubsection.4.7.1}
+\contentsline {subsubsection}{\numberline {4.7.2}Class Variables}{39}{subsubsection.4.7.2}
+\contentsline {subsection}{\numberline {4.8}Class GlobalMotionFilteredTrajectory}{40}{subsection.4.8}
+\contentsline {subsubsection}{\numberline {4.8.1}Methods}{41}{subsubsection.4.8.1}
+\contentsline {subsubsection}{\numberline {4.8.2}Class Variables}{41}{subsubsection.4.8.2}
+\contentsline {subsection}{\numberline {4.9}Class CenterOfMassTrajectory}{42}{subsection.4.9}
+\contentsline {subsubsection}{\numberline {4.9.1}Methods}{43}{subsubsection.4.9.1}
+\contentsline {subsubsection}{\numberline {4.9.2}Class Variables}{43}{subsubsection.4.9.2}
+\contentsline {subsection}{\numberline {4.10}Class QuasiHarmonicAnalysis}{44}{subsection.4.10}
+\contentsline {subsubsection}{\numberline {4.10.1}Methods}{45}{subsubsection.4.10.1}
+\contentsline {subsubsection}{\numberline {4.10.2}Class Variables}{45}{subsubsection.4.10.2}
+\contentsline {subsection}{\numberline {4.11}Class AngularCorrelation}{45}{subsection.4.11}
+\contentsline {subsubsection}{\numberline {4.11.1}Methods}{46}{subsubsection.4.11.1}
+\contentsline {subsubsection}{\numberline {4.11.2}Class Variables}{47}{subsubsection.4.11.2}
+\contentsline {subsection}{\numberline {4.12}Class RigidBodyTrajectory}{47}{subsection.4.12}
+\contentsline {subsubsection}{\numberline {4.12.1}Methods}{48}{subsubsection.4.12.1}
+\contentsline {subsubsection}{\numberline {4.12.2}Class Variables}{49}{subsubsection.4.12.2}
+\contentsline {subsection}{\numberline {4.13}Class ReorientationalCorrelationFunction}{49}{subsection.4.13}
+\contentsline {subsubsection}{\numberline {4.13.1}Methods}{50}{subsubsection.4.13.1}
+\contentsline {subsubsection}{\numberline {4.13.2}Class Variables}{51}{subsubsection.4.13.2}
+\contentsline {subsection}{\numberline {4.14}Class AngularVelocity}{51}{subsection.4.14}
+\contentsline {subsubsection}{\numberline {4.14.1}Methods}{52}{subsubsection.4.14.1}
+\contentsline {subsection}{\numberline {4.15}Class AngularVelocityAutoCorrelationFunction}{52}{subsection.4.15}
+\contentsline {subsubsection}{\numberline {4.15.1}Methods}{53}{subsubsection.4.15.1}
+\contentsline {subsubsection}{\numberline {4.15.2}Class Variables}{54}{subsubsection.4.15.2}
+\contentsline {subsection}{\numberline {4.16}Class AngularDensityOfStates}{54}{subsection.4.16}
+\contentsline {subsubsection}{\numberline {4.16.1}Methods}{55}{subsubsection.4.16.1}
+\contentsline {subsubsection}{\numberline {4.16.2}Class Variables}{56}{subsubsection.4.16.2}
+\contentsline {section}{\numberline {5}Module nMOLDYN.Analysis.NMR}{57}{section.5}
+\contentsline {subsection}{\numberline {5.1}Class OrderParameter}{57}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Methods}{58}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Class Variables}{59}{subsubsection.5.1.2}
+\contentsline {subsection}{\numberline {5.2}Class OrderParameterContactModel}{59}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Methods}{60}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Class Variables}{61}{subsubsection.5.2.2}
+\contentsline {section}{\numberline {6}Module nMOLDYN.Analysis.Scattering}{62}{section.6}
+\contentsline {subsection}{\numberline {6.1}Functions}{62}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Class DynamicCoherentStructureFactor}{62}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Methods}{64}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Class Variables}{64}{subsubsection.6.2.2}
+\contentsline {subsection}{\numberline {6.3}Class StaticCoherentStructureFactor}{65}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Methods}{66}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}Class Variables}{67}{subsubsection.6.3.2}
+\contentsline {subsection}{\numberline {6.4}Class DynamicCoherentStructureFactorAR}{67}{subsection.6.4}
+\contentsline {subsubsection}{\numberline {6.4.1}Methods}{68}{subsubsection.6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.2}Class Variables}{69}{subsubsection.6.4.2}
+\contentsline {subsection}{\numberline {6.5}Class DynamicIncoherentStructureFactor}{69}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}Methods}{71}{subsubsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.2}Class Variables}{71}{subsubsection.6.5.2}
+\contentsline {subsection}{\numberline {6.6}Class DynamicIncoherentStructureFactorAR}{72}{subsection.6.6}
+\contentsline {subsubsection}{\numberline {6.6.1}Methods}{73}{subsubsection.6.6.1}
+\contentsline {subsubsection}{\numberline {6.6.2}Class Variables}{74}{subsubsection.6.6.2}
+\contentsline {subsection}{\numberline {6.7}Class DynamicIncoherentStructureFactorGaussian}{74}{subsection.6.7}
+\contentsline {subsubsection}{\numberline {6.7.1}Methods}{75}{subsubsection.6.7.1}
+\contentsline {subsubsection}{\numberline {6.7.2}Class Variables}{76}{subsubsection.6.7.2}
+\contentsline {subsection}{\numberline {6.8}Class ElasticIncoherentStructureFactor}{76}{subsection.6.8}
+\contentsline {subsubsection}{\numberline {6.8.1}Methods}{77}{subsubsection.6.8.1}
+\contentsline {subsubsection}{\numberline {6.8.2}Class Variables}{78}{subsubsection.6.8.2}
+\contentsline {subsection}{\numberline {6.9}Class SmoothedStaticCoherentStructureFactor}{78}{subsection.6.9}
+\contentsline {subsubsection}{\numberline {6.9.1}Methods}{80}{subsubsection.6.9.1}
+\contentsline {subsubsection}{\numberline {6.9.2}Class Variables}{80}{subsubsection.6.9.2}
+\contentsline {section}{\numberline {7}Module nMOLDYN.Analysis.Slave}{82}{section.7}
+\contentsline {subsection}{\numberline {7.1}Functions}{82}{subsection.7.1}
+\contentsline {section}{\numberline {8}Module nMOLDYN.Analysis.Structure}{83}{section.8}
+\contentsline {subsection}{\numberline {8.1}Class PairDistributionFunction}{83}{subsection.8.1}
+\contentsline {subsubsection}{\numberline {8.1.1}Methods}{84}{subsubsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.2}Class Variables}{85}{subsubsection.8.1.2}
+\contentsline {subsection}{\numberline {8.2}Class CoordinationNumber}{85}{subsection.8.2}
+\contentsline {subsubsection}{\numberline {8.2.1}Methods}{86}{subsubsection.8.2.1}
+\contentsline {subsubsection}{\numberline {8.2.2}Class Variables}{87}{subsubsection.8.2.2}
+\contentsline {subsection}{\numberline {8.3}Class ScrewFitAnalysis}{87}{subsection.8.3}
+\contentsline {subsubsection}{\numberline {8.3.1}Methods}{88}{subsubsection.8.3.1}
+\contentsline {subsubsection}{\numberline {8.3.2}Class Variables}{89}{subsubsection.8.3.2}
+\contentsline {subsection}{\numberline {8.4}Class SpatialDensity}{90}{subsection.8.4}
+\contentsline {subsubsection}{\numberline {8.4.1}Methods}{91}{subsubsection.8.4.1}
+\contentsline {subsubsection}{\numberline {8.4.2}Class Variables}{92}{subsubsection.8.4.2}
+\contentsline {section}{\numberline {9}Module nMOLDYN.Analysis.Template}{93}{section.9}
+\contentsline {subsection}{\numberline {9.1}Functions}{93}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Variables}{93}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Class SerialPerAtom}{93}{subsection.9.3}
+\contentsline {subsubsection}{\numberline {9.3.1}Methods}{93}{subsubsection.9.3.1}
+\contentsline {subsection}{\numberline {9.4}Class ParallelPerAtom}{93}{subsection.9.4}
+\contentsline {subsubsection}{\numberline {9.4.1}Methods}{94}{subsubsection.9.4.1}
+\contentsline {subsection}{\numberline {9.5}Class SerialPerFrame}{94}{subsection.9.5}
+\contentsline {subsubsection}{\numberline {9.5.1}Methods}{94}{subsubsection.9.5.1}
+\contentsline {subsection}{\numberline {9.6}Class ParallelPerFrame}{94}{subsection.9.6}
+\contentsline {subsubsection}{\numberline {9.6.1}Methods}{94}{subsubsection.9.6.1}
+\contentsline {subsection}{\numberline {9.7}Class SerialPerGroup}{94}{subsection.9.7}
+\contentsline {subsubsection}{\numberline {9.7.1}Methods}{94}{subsubsection.9.7.1}
+\contentsline {subsection}{\numberline {9.8}Class ParallelPerGroup}{94}{subsection.9.8}
+\contentsline {subsubsection}{\numberline {9.8.1}Methods}{95}{subsubsection.9.8.1}
+\contentsline {subsection}{\numberline {9.9}Class SerialPerQShell}{95}{subsection.9.9}
+\contentsline {subsubsection}{\numberline {9.9.1}Methods}{95}{subsubsection.9.9.1}
+\contentsline {subsection}{\numberline {9.10}Class ParallelPerQShell}{95}{subsection.9.10}
+\contentsline {subsubsection}{\numberline {9.10.1}Methods}{95}{subsubsection.9.10.1}
+\contentsline {subsection}{\numberline {9.11}Class MeanSquareDisplacement\_serial}{95}{subsection.9.11}
+\contentsline {subsubsection}{\numberline {9.11.1}Methods}{96}{subsubsection.9.11.1}
+\contentsline {subsubsection}{\numberline {9.11.2}Class Variables}{96}{subsubsection.9.11.2}
+\contentsline {subsection}{\numberline {9.12}Class MeanSquareDisplacement\_parallel}{96}{subsection.9.12}
+\contentsline {subsubsection}{\numberline {9.12.1}Methods}{96}{subsubsection.9.12.1}
+\contentsline {subsubsection}{\numberline {9.12.2}Class Variables}{97}{subsubsection.9.12.2}
+\contentsline {subsection}{\numberline {9.13}Class RootMeanSquareDeviation\_serial}{97}{subsection.9.13}
+\contentsline {subsubsection}{\numberline {9.13.1}Methods}{97}{subsubsection.9.13.1}
+\contentsline {subsubsection}{\numberline {9.13.2}Class Variables}{98}{subsubsection.9.13.2}
+\contentsline {subsection}{\numberline {9.14}Class RootMeanSquareDeviation\_parallel}{98}{subsection.9.14}
+\contentsline {subsubsection}{\numberline {9.14.1}Methods}{98}{subsubsection.9.14.1}
+\contentsline {subsubsection}{\numberline {9.14.2}Class Variables}{98}{subsubsection.9.14.2}
+\contentsline {subsection}{\numberline {9.15}Class CartesianVelocityAutoCorrelationFunction\_serial}{99}{subsection.9.15}
+\contentsline {subsubsection}{\numberline {9.15.1}Methods}{99}{subsubsection.9.15.1}
+\contentsline {subsubsection}{\numberline {9.15.2}Class Variables}{99}{subsubsection.9.15.2}
+\contentsline {subsection}{\numberline {9.16}Class CartesianVelocityAutoCorrelationFunction\_parallel}{100}{subsection.9.16}
+\contentsline {subsubsection}{\numberline {9.16.1}Methods}{100}{subsubsection.9.16.1}
+\contentsline {subsubsection}{\numberline {9.16.2}Class Variables}{100}{subsubsection.9.16.2}
+\contentsline {subsection}{\numberline {9.17}Class CartesianDensityOfStates\_serial}{101}{subsection.9.17}
+\contentsline {subsubsection}{\numberline {9.17.1}Methods}{101}{subsubsection.9.17.1}
+\contentsline {subsubsection}{\numberline {9.17.2}Class Variables}{101}{subsubsection.9.17.2}
+\contentsline {subsection}{\numberline {9.18}Class CartesianDensityOfStates\_parallel}{102}{subsection.9.18}
+\contentsline {subsubsection}{\numberline {9.18.1}Methods}{102}{subsubsection.9.18.1}
+\contentsline {subsubsection}{\numberline {9.18.2}Class Variables}{102}{subsubsection.9.18.2}
+\contentsline {subsection}{\numberline {9.19}Class AutoRegressiveAnalysis\_serial}{103}{subsection.9.19}
+\contentsline {subsubsection}{\numberline {9.19.1}Methods}{103}{subsubsection.9.19.1}
+\contentsline {subsubsection}{\numberline {9.19.2}Class Variables}{103}{subsubsection.9.19.2}
+\contentsline {subsection}{\numberline {9.20}Class AutoRegressiveAnalysis\_parallel}{104}{subsection.9.20}
+\contentsline {subsubsection}{\numberline {9.20.1}Methods}{104}{subsubsection.9.20.1}
+\contentsline {subsubsection}{\numberline {9.20.2}Class Variables}{104}{subsubsection.9.20.2}
+\contentsline {subsection}{\numberline {9.21}Class PassBandFilteredTrajectory\_serial}{105}{subsection.9.21}
+\contentsline {subsubsection}{\numberline {9.21.1}Methods}{105}{subsubsection.9.21.1}
+\contentsline {subsubsection}{\numberline {9.21.2}Class Variables}{105}{subsubsection.9.21.2}
+\contentsline {subsection}{\numberline {9.22}Class PassBandFilteredTrajectory\_parallel}{106}{subsection.9.22}
+\contentsline {subsubsection}{\numberline {9.22.1}Methods}{106}{subsubsection.9.22.1}
+\contentsline {subsubsection}{\numberline {9.22.2}Class Variables}{106}{subsubsection.9.22.2}
+\contentsline {subsection}{\numberline {9.23}Class DynamicIncoherentStructureFactor\_serial}{107}{subsection.9.23}
+\contentsline {subsubsection}{\numberline {9.23.1}Methods}{107}{subsubsection.9.23.1}
+\contentsline {subsubsection}{\numberline {9.23.2}Class Variables}{107}{subsubsection.9.23.2}
+\contentsline {subsection}{\numberline {9.24}Class DynamicIncoherentStructureFactor\_parallel}{108}{subsection.9.24}
+\contentsline {subsubsection}{\numberline {9.24.1}Methods}{108}{subsubsection.9.24.1}
+\contentsline {subsubsection}{\numberline {9.24.2}Class Variables}{108}{subsubsection.9.24.2}
+\contentsline {subsection}{\numberline {9.25}Class DynamicIncoherentStructureFactorGaussian\_serial}{109}{subsection.9.25}
+\contentsline {subsubsection}{\numberline {9.25.1}Methods}{109}{subsubsection.9.25.1}
+\contentsline {subsubsection}{\numberline {9.25.2}Class Variables}{109}{subsubsection.9.25.2}
+\contentsline {subsection}{\numberline {9.26}Class DynamicIncoherentStructureFactorGaussian\_parallel}{110}{subsection.9.26}
+\contentsline {subsubsection}{\numberline {9.26.1}Methods}{110}{subsubsection.9.26.1}
+\contentsline {subsubsection}{\numberline {9.26.2}Class Variables}{110}{subsubsection.9.26.2}
+\contentsline {subsection}{\numberline {9.27}Class ElasticIncoherentStructureFactor\_serial}{111}{subsection.9.27}
+\contentsline {subsubsection}{\numberline {9.27.1}Methods}{111}{subsubsection.9.27.1}
+\contentsline {subsubsection}{\numberline {9.27.2}Class Variables}{111}{subsubsection.9.27.2}
+\contentsline {subsection}{\numberline {9.28}Class ElasticIncoherentStructureFactor\_parallel}{112}{subsection.9.28}
+\contentsline {subsubsection}{\numberline {9.28.1}Methods}{112}{subsubsection.9.28.1}
+\contentsline {subsubsection}{\numberline {9.28.2}Class Variables}{112}{subsubsection.9.28.2}
+\contentsline {subsection}{\numberline {9.29}Class RadiusOfGyration\_serial}{113}{subsection.9.29}
+\contentsline {subsubsection}{\numberline {9.29.1}Methods}{113}{subsubsection.9.29.1}
+\contentsline {subsubsection}{\numberline {9.29.2}Class Variables}{113}{subsubsection.9.29.2}
+\contentsline {subsection}{\numberline {9.30}Class RadiusOfGyration\_parallel}{114}{subsection.9.30}
+\contentsline {subsubsection}{\numberline {9.30.1}Methods}{114}{subsubsection.9.30.1}
+\contentsline {subsubsection}{\numberline {9.30.2}Class Variables}{114}{subsubsection.9.30.2}
+\contentsline {subsection}{\numberline {9.31}Class DynamicIncoherentStructureFactorAR\_serial}{115}{subsection.9.31}
+\contentsline {subsubsection}{\numberline {9.31.1}Methods}{115}{subsubsection.9.31.1}
+\contentsline {subsubsection}{\numberline {9.31.2}Class Variables}{115}{subsubsection.9.31.2}
+\contentsline {subsection}{\numberline {9.32}Class DynamicIncoherentStructureFactorAR\_parallel}{116}{subsection.9.32}
+\contentsline {subsubsection}{\numberline {9.32.1}Methods}{116}{subsubsection.9.32.1}
+\contentsline {subsubsection}{\numberline {9.32.2}Class Variables}{116}{subsubsection.9.32.2}
+\contentsline {subsection}{\numberline {9.33}Class SmoothedStaticCoherentStructureFactor\_serial}{117}{subsection.9.33}
+\contentsline {subsubsection}{\numberline {9.33.1}Methods}{117}{subsubsection.9.33.1}
+\contentsline {subsubsection}{\numberline {9.33.2}Class Variables}{117}{subsubsection.9.33.2}
+\contentsline {subsection}{\numberline {9.34}Class SmoothedStaticCoherentStructureFactor\_parallel}{118}{subsection.9.34}
+\contentsline {subsubsection}{\numberline {9.34.1}Methods}{118}{subsubsection.9.34.1}
+\contentsline {subsubsection}{\numberline {9.34.2}Class Variables}{118}{subsubsection.9.34.2}
+\contentsline {subsection}{\numberline {9.35}Class PairDistributionFunction\_serial}{119}{subsection.9.35}
+\contentsline {subsubsection}{\numberline {9.35.1}Methods}{119}{subsubsection.9.35.1}
+\contentsline {subsubsection}{\numberline {9.35.2}Class Variables}{119}{subsubsection.9.35.2}
+\contentsline {subsection}{\numberline {9.36}Class PairDistributionFunction\_parallel}{120}{subsection.9.36}
+\contentsline {subsubsection}{\numberline {9.36.1}Methods}{120}{subsubsection.9.36.1}
+\contentsline {subsubsection}{\numberline {9.36.2}Class Variables}{120}{subsubsection.9.36.2}
+\contentsline {subsection}{\numberline {9.37}Class CoordinationNumber\_serial}{121}{subsection.9.37}
+\contentsline {subsubsection}{\numberline {9.37.1}Methods}{121}{subsubsection.9.37.1}
+\contentsline {subsubsection}{\numberline {9.37.2}Class Variables}{121}{subsubsection.9.37.2}
+\contentsline {subsection}{\numberline {9.38}Class CoordinationNumber\_parallel}{122}{subsection.9.38}
+\contentsline {subsubsection}{\numberline {9.38.1}Methods}{122}{subsubsection.9.38.1}
+\contentsline {subsubsection}{\numberline {9.38.2}Class Variables}{122}{subsubsection.9.38.2}
+\contentsline {subsection}{\numberline {9.39}Class ScrewFitAnalysis\_serial}{123}{subsection.9.39}
+\contentsline {subsubsection}{\numberline {9.39.1}Methods}{123}{subsubsection.9.39.1}
+\contentsline {subsubsection}{\numberline {9.39.2}Class Variables}{123}{subsubsection.9.39.2}
+\contentsline {subsection}{\numberline {9.40}Class ScrewFitAnalysis\_parallel}{124}{subsection.9.40}
+\contentsline {subsubsection}{\numberline {9.40.1}Methods}{124}{subsubsection.9.40.1}
+\contentsline {subsubsection}{\numberline {9.40.2}Class Variables}{124}{subsubsection.9.40.2}
+\contentsline {subsection}{\numberline {9.41}Class SpatialDensity\_serial}{125}{subsection.9.41}
+\contentsline {subsubsection}{\numberline {9.41.1}Methods}{125}{subsubsection.9.41.1}
+\contentsline {subsubsection}{\numberline {9.41.2}Class Variables}{125}{subsubsection.9.41.2}
+\contentsline {subsection}{\numberline {9.42}Class SpatialDensity\_parallel}{126}{subsection.9.42}
+\contentsline {subsubsection}{\numberline {9.42.1}Methods}{126}{subsubsection.9.42.1}
+\contentsline {subsubsection}{\numberline {9.42.2}Class Variables}{126}{subsubsection.9.42.2}
+\contentsline {subsection}{\numberline {9.43}Class GlobalMotionFilteredTrajectory\_serial}{127}{subsection.9.43}
+\contentsline {subsubsection}{\numberline {9.43.1}Methods}{127}{subsubsection.9.43.1}
+\contentsline {subsubsection}{\numberline {9.43.2}Class Variables}{127}{subsubsection.9.43.2}
+\contentsline {subsection}{\numberline {9.44}Class GlobalMotionFilteredTrajectory\_parallel}{128}{subsection.9.44}
+\contentsline {subsubsection}{\numberline {9.44.1}Methods}{128}{subsubsection.9.44.1}
+\contentsline {subsubsection}{\numberline {9.44.2}Class Variables}{128}{subsubsection.9.44.2}
+\contentsline {subsection}{\numberline {9.45}Class CenterOfMassTrajectory\_serial}{129}{subsection.9.45}
+\contentsline {subsubsection}{\numberline {9.45.1}Methods}{129}{subsubsection.9.45.1}
+\contentsline {subsubsection}{\numberline {9.45.2}Class Variables}{129}{subsubsection.9.45.2}
+\contentsline {subsection}{\numberline {9.46}Class CenterOfMassTrajectory\_parallel}{130}{subsection.9.46}
+\contentsline {subsubsection}{\numberline {9.46.1}Methods}{130}{subsubsection.9.46.1}
+\contentsline {subsubsection}{\numberline {9.46.2}Class Variables}{130}{subsubsection.9.46.2}
+\contentsline {subsection}{\numberline {9.47}Class OrderParameterContactModel\_serial}{131}{subsection.9.47}
+\contentsline {subsubsection}{\numberline {9.47.1}Methods}{131}{subsubsection.9.47.1}
+\contentsline {subsubsection}{\numberline {9.47.2}Class Variables}{131}{subsubsection.9.47.2}
+\contentsline {subsection}{\numberline {9.48}Class OrderParameterContactModel\_parallel}{132}{subsection.9.48}
+\contentsline {subsubsection}{\numberline {9.48.1}Methods}{132}{subsubsection.9.48.1}
+\contentsline {subsubsection}{\numberline {9.48.2}Class Variables}{132}{subsubsection.9.48.2}
+\contentsline {subsection}{\numberline {9.49}Class AngularCorrelation\_serial}{133}{subsection.9.49}
+\contentsline {subsubsection}{\numberline {9.49.1}Methods}{133}{subsubsection.9.49.1}
+\contentsline {subsubsection}{\numberline {9.49.2}Class Variables}{133}{subsubsection.9.49.2}
+\contentsline {subsection}{\numberline {9.50}Class AngularCorrelation\_parallel}{134}{subsection.9.50}
+\contentsline {subsubsection}{\numberline {9.50.1}Methods}{134}{subsubsection.9.50.1}
+\contentsline {subsubsection}{\numberline {9.50.2}Class Variables}{134}{subsubsection.9.50.2}
+\contentsline {subsection}{\numberline {9.51}Class RigidBodyTrajectory\_serial}{135}{subsection.9.51}
+\contentsline {subsubsection}{\numberline {9.51.1}Methods}{135}{subsubsection.9.51.1}
+\contentsline {subsubsection}{\numberline {9.51.2}Class Variables}{135}{subsubsection.9.51.2}
+\contentsline {subsection}{\numberline {9.52}Class RigidBodyTrajectory\_parallel}{136}{subsection.9.52}
+\contentsline {subsubsection}{\numberline {9.52.1}Methods}{136}{subsubsection.9.52.1}
+\contentsline {subsubsection}{\numberline {9.52.2}Class Variables}{136}{subsubsection.9.52.2}
+\contentsline {subsection}{\numberline {9.53}Class ReorientationalCorrelationFunction\_serial}{137}{subsection.9.53}
+\contentsline {subsubsection}{\numberline {9.53.1}Methods}{137}{subsubsection.9.53.1}
+\contentsline {subsubsection}{\numberline {9.53.2}Class Variables}{137}{subsubsection.9.53.2}
+\contentsline {subsection}{\numberline {9.54}Class ReorientationalCorrelationFunction\_parallel}{138}{subsection.9.54}
+\contentsline {subsubsection}{\numberline {9.54.1}Methods}{138}{subsubsection.9.54.1}
+\contentsline {subsubsection}{\numberline {9.54.2}Class Variables}{138}{subsubsection.9.54.2}
+\contentsline {subsection}{\numberline {9.55}Class AngularVelocityAutoCorrelationFunction\_serial}{139}{subsection.9.55}
+\contentsline {subsubsection}{\numberline {9.55.1}Methods}{139}{subsubsection.9.55.1}
+\contentsline {subsubsection}{\numberline {9.55.2}Class Variables}{139}{subsubsection.9.55.2}
+\contentsline {subsection}{\numberline {9.56}Class AngularVelocityAutoCorrelationFunction\_parallel}{140}{subsection.9.56}
+\contentsline {subsubsection}{\numberline {9.56.1}Methods}{140}{subsubsection.9.56.1}
+\contentsline {subsubsection}{\numberline {9.56.2}Class Variables}{140}{subsubsection.9.56.2}
+\contentsline {subsection}{\numberline {9.57}Class AngularDensityOfStates\_serial}{141}{subsection.9.57}
+\contentsline {subsubsection}{\numberline {9.57.1}Methods}{141}{subsubsection.9.57.1}
+\contentsline {subsubsection}{\numberline {9.57.2}Class Variables}{141}{subsubsection.9.57.2}
+\contentsline {subsection}{\numberline {9.58}Class AngularDensityOfStates\_parallel}{142}{subsection.9.58}
+\contentsline {subsubsection}{\numberline {9.58.1}Methods}{142}{subsubsection.9.58.1}
+\contentsline {subsubsection}{\numberline {9.58.2}Class Variables}{142}{subsubsection.9.58.2}
+\contentsline {subsection}{\numberline {9.59}Class OrderParameter\_serial}{143}{subsection.9.59}
+\contentsline {subsubsection}{\numberline {9.59.1}Methods}{143}{subsubsection.9.59.1}
+\contentsline {subsubsection}{\numberline {9.59.2}Class Variables}{143}{subsubsection.9.59.2}
+\contentsline {subsection}{\numberline {9.60}Class OrderParameter\_parallel}{144}{subsection.9.60}
+\contentsline {subsubsection}{\numberline {9.60.1}Methods}{144}{subsubsection.9.60.1}
+\contentsline {subsubsection}{\numberline {9.60.2}Class Variables}{144}{subsubsection.9.60.2}
+\contentsline {subsection}{\numberline {9.61}Class QuasiHarmonicAnalysis\_serial}{144}{subsection.9.61}
+\contentsline {subsubsection}{\numberline {9.61.1}Methods}{145}{subsubsection.9.61.1}
+\contentsline {subsubsection}{\numberline {9.61.2}Class Variables}{145}{subsubsection.9.61.2}
+\contentsline {subsection}{\numberline {9.62}Class DynamicCoherentStructureFactor\_serial}{145}{subsection.9.62}
+\contentsline {subsubsection}{\numberline {9.62.1}Methods}{145}{subsubsection.9.62.1}
+\contentsline {subsubsection}{\numberline {9.62.2}Class Variables}{146}{subsubsection.9.62.2}
+\contentsline {subsection}{\numberline {9.63}Class DynamicCoherentStructureFactor\_parallel}{146}{subsection.9.63}
+\contentsline {subsubsection}{\numberline {9.63.1}Methods}{146}{subsubsection.9.63.1}
+\contentsline {subsubsection}{\numberline {9.63.2}Class Variables}{146}{subsubsection.9.63.2}
+\contentsline {subsection}{\numberline {9.64}Class StaticCoherentStructureFactor\_serial}{147}{subsection.9.64}
+\contentsline {subsubsection}{\numberline {9.64.1}Methods}{147}{subsubsection.9.64.1}
+\contentsline {subsubsection}{\numberline {9.64.2}Class Variables}{147}{subsubsection.9.64.2}
+\contentsline {subsection}{\numberline {9.65}Class StaticCoherentStructureFactor\_parallel}{148}{subsection.9.65}
+\contentsline {subsubsection}{\numberline {9.65.1}Methods}{148}{subsubsection.9.65.1}
+\contentsline {subsubsection}{\numberline {9.65.2}Class Variables}{148}{subsubsection.9.65.2}
+\contentsline {subsection}{\numberline {9.66}Class DynamicCoherentStructureFactorAR\_serial}{149}{subsection.9.66}
+\contentsline {subsubsection}{\numberline {9.66.1}Methods}{149}{subsubsection.9.66.1}
+\contentsline {subsubsection}{\numberline {9.66.2}Class Variables}{149}{subsubsection.9.66.2}
+\contentsline {subsection}{\numberline {9.67}Class DynamicCoherentStructureFactorAR\_parallel}{150}{subsection.9.67}
+\contentsline {subsubsection}{\numberline {9.67.1}Methods}{150}{subsubsection.9.67.1}
+\contentsline {subsubsection}{\numberline {9.67.2}Class Variables}{150}{subsubsection.9.67.2}
+\contentsline {section}{\numberline {10}Package nMOLDYN.Core}{151}{section.10}
+\contentsline {subsection}{\numberline {10.1}Modules}{151}{subsection.10.1}
+\contentsline {section}{\numberline {11}Module nMOLDYN.Core.Chemistry}{152}{section.11}
+\contentsline {subsection}{\numberline {11.1}Functions}{152}{subsection.11.1}
+\contentsline {section}{\numberline {12}Module nMOLDYN.Core.Config}{153}{section.12}
+\contentsline {subsection}{\numberline {12.1}Functions}{153}{subsection.12.1}
+\contentsline {section}{\numberline {13}Module nMOLDYN.Core.Error}{154}{section.13}
+\contentsline {subsection}{\numberline {13.1}Class Error}{154}{subsection.13.1}
+\contentsline {subsubsection}{\numberline {13.1.1}Methods}{154}{subsubsection.13.1.1}
+\contentsline {subsubsection}{\numberline {13.1.2}Properties}{154}{subsubsection.13.1.2}
+\contentsline {section}{\numberline {14}Module nMOLDYN.Core.IOFiles}{155}{section.14}
+\contentsline {subsection}{\numberline {14.1}Functions}{155}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}Class TemporaryFile}{156}{subsection.14.2}
+\contentsline {subsubsection}{\numberline {14.2.1}Methods}{156}{subsubsection.14.2.1}
+\contentsline {subsection}{\numberline {14.3}Class EndOfFile}{157}{subsection.14.3}
+\contentsline {subsubsection}{\numberline {14.3.1}Methods}{157}{subsubsection.14.3.1}
+\contentsline {subsubsection}{\numberline {14.3.2}Properties}{157}{subsubsection.14.3.2}
+\contentsline {subsection}{\numberline {14.4}Class FortranBinaryFile}{157}{subsection.14.4}
+\contentsline {subsubsection}{\numberline {14.4.1}Methods}{158}{subsubsection.14.4.1}
+\contentsline {subsubsection}{\numberline {14.4.2}Properties}{158}{subsubsection.14.4.2}
+\contentsline {subsection}{\numberline {14.5}Class DCDFile}{158}{subsection.14.5}
+\contentsline {subsubsection}{\numberline {14.5.1}Methods}{159}{subsubsection.14.5.1}
+\contentsline {subsubsection}{\numberline {14.5.2}Properties}{159}{subsubsection.14.5.2}
+\contentsline {subsection}{\numberline {14.6}Class AmberNetCDFConverter}{159}{subsection.14.6}
+\contentsline {subsubsection}{\numberline {14.6.1}Methods}{160}{subsubsection.14.6.1}
+\contentsline {subsection}{\numberline {14.7}Class CHARMMConverter}{160}{subsection.14.7}
+\contentsline {subsubsection}{\numberline {14.7.1}Methods}{161}{subsubsection.14.7.1}
+\contentsline {subsection}{\numberline {14.8}Class DL\_POLYConverter}{161}{subsection.14.8}
+\contentsline {subsubsection}{\numberline {14.8.1}Methods}{161}{subsubsection.14.8.1}
+\contentsline {subsection}{\numberline {14.9}Class MaterialsStudioConverter}{162}{subsection.14.9}
+\contentsline {subsubsection}{\numberline {14.9.1}Methods}{162}{subsubsection.14.9.1}
+\contentsline {subsubsection}{\numberline {14.9.2}Class Variables}{163}{subsubsection.14.9.2}
+\contentsline {subsection}{\numberline {14.10}Class NAMDConverter}{163}{subsection.14.10}
+\contentsline {subsubsection}{\numberline {14.10.1}Methods}{163}{subsubsection.14.10.1}
+\contentsline {subsection}{\numberline {14.11}Class VASPConverter}{163}{subsection.14.11}
+\contentsline {subsubsection}{\numberline {14.11.1}Methods}{164}{subsubsection.14.11.1}
+\contentsline {section}{\numberline {15}Module nMOLDYN.Core.Logger}{165}{section.15}
+\contentsline {subsection}{\numberline {15.1}Functions}{165}{subsection.15.1}
+\contentsline {subsection}{\numberline {15.2}Variables}{165}{subsection.15.2}
+\contentsline {subsection}{\numberline {15.3}Class LogToGUI}{166}{subsection.15.3}
+\contentsline {subsubsection}{\numberline {15.3.1}Methods}{166}{subsubsection.15.3.1}
+\contentsline {subsection}{\numberline {15.4}Class LogToFile}{167}{subsection.15.4}
+\contentsline {subsubsection}{\numberline {15.4.1}Methods}{167}{subsubsection.15.4.1}
+\contentsline {subsection}{\numberline {15.5}Class LogToConsole}{168}{subsection.15.5}
+\contentsline {subsubsection}{\numberline {15.5.1}Methods}{168}{subsubsection.15.5.1}
+\contentsline {section}{\numberline {16}Module nMOLDYN.Core.Mathematics}{170}{section.16}
+\contentsline {subsection}{\numberline {16.1}Functions}{170}{subsection.16.1}
+\contentsline {subsection}{\numberline {16.2}Variables}{175}{subsection.16.2}
+\contentsline {section}{\numberline {17}Module nMOLDYN.Core.Misc}{177}{section.17}
+\contentsline {subsection}{\numberline {17.1}Functions}{177}{subsection.17.1}
+\contentsline {subsection}{\numberline {17.2}Variables}{178}{subsection.17.2}
+\contentsline {section}{\numberline {18}Module nMOLDYN.Core.Preferences}{179}{section.18}
+\contentsline {subsection}{\numberline {18.1}Variables}{179}{subsection.18.1}
+\contentsline {subsection}{\numberline {18.2}Class nMOLDYNPreferences}{179}{subsection.18.2}
+\contentsline {subsubsection}{\numberline {18.2.1}Methods}{179}{subsubsection.18.2.1}
+\contentsline {subsubsection}{\numberline {18.2.2}Properties}{180}{subsubsection.18.2.2}
+\contentsline {subsubsection}{\numberline {18.2.3}Class Variables}{180}{subsubsection.18.2.3}
+\contentsline {section}{\numberline {19}Package nMOLDYN.GUI}{181}{section.19}
+\contentsline {subsection}{\numberline {19.1}Modules}{181}{subsection.19.1}
+\contentsline {section}{\numberline {20}Module nMOLDYN.GUI.ASCIIToNetCDFConversionDialog}{183}{section.20}
+\contentsline {subsection}{\numberline {20.1}Class ASCIIToNetCDFConversionDialog}{183}{subsection.20.1}
+\contentsline {subsubsection}{\numberline {20.1.1}Methods}{183}{subsubsection.20.1.1}
+\contentsline {section}{\numberline {21}Module nMOLDYN.GUI.AnalysisBenchmarkDialog}{185}{section.21}
+\contentsline {subsection}{\numberline {21.1}Class AnalysisBenchmarkDialog}{185}{subsection.21.1}
+\contentsline {subsubsection}{\numberline {21.1.1}Methods}{185}{subsubsection.21.1.1}
+\contentsline {section}{\numberline {22}Module nMOLDYN.GUI.AnalysisDialog}{187}{section.22}
+\contentsline {subsection}{\numberline {22.1}Class AnalysisDialog}{187}{subsection.22.1}
+\contentsline {subsubsection}{\numberline {22.1.1}Methods}{187}{subsubsection.22.1.1}
+\contentsline {section}{\numberline {23}Module nMOLDYN.GUI.AnimationDialog}{189}{section.23}
+\contentsline {subsection}{\numberline {23.1}Class AnimationDialog}{189}{subsection.23.1}
+\contentsline {subsubsection}{\numberline {23.1.1}Methods}{189}{subsubsection.23.1.1}
+\contentsline {subsubsection}{\numberline {23.1.2}Class Variables}{191}{subsubsection.23.1.2}
+\contentsline {section}{\numberline {24}Module nMOLDYN.GUI.CheckJobsStatusDialog}{192}{section.24}
+\contentsline {subsection}{\numberline {24.1}Variables}{192}{subsection.24.1}
+\contentsline {subsection}{\numberline {24.2}Class CheckJobsStatusDialog}{192}{subsection.24.2}
+\contentsline {subsubsection}{\numberline {24.2.1}Methods}{192}{subsubsection.24.2.1}
+\contentsline {subsubsection}{\numberline {24.2.2}Class Variables}{194}{subsubsection.24.2.2}
+\contentsline {section}{\numberline {25}Module nMOLDYN.GUI.GeneralInformationsDialog}{195}{section.25}
+\contentsline {subsection}{\numberline {25.1}Variables}{195}{subsection.25.1}
+\contentsline {subsection}{\numberline {25.2}Class GeneralInformationsDialog}{195}{subsection.25.2}
+\contentsline {subsubsection}{\numberline {25.2.1}Methods}{196}{subsubsection.25.2.1}
+\contentsline {subsubsection}{\numberline {25.2.2}Class Variables}{197}{subsubsection.25.2.2}
+\contentsline {section}{\numberline {26}Package nMOLDYN.GUI.HTMLReader}{198}{section.26}
+\contentsline {subsection}{\numberline {26.1}Modules}{198}{subsection.26.1}
+\contentsline {section}{\numberline {27}Module nMOLDYN.GUI.HTMLReader.mfxtools}{199}{section.27}
+\contentsline {subsection}{\numberline {27.1}Functions}{199}{subsection.27.1}
+\contentsline {subsection}{\numberline {27.2}Variables}{199}{subsection.27.2}
+\contentsline {section}{\numberline {28}Module nMOLDYN.GUI.HTMLReader.mfxutil}{200}{section.28}
+\contentsline {subsection}{\numberline {28.1}Functions}{200}{subsection.28.1}
+\contentsline {subsection}{\numberline {28.2}Variables}{201}{subsection.28.2}
+\contentsline {subsection}{\numberline {28.3}Class SubclassResponsibility}{201}{subsection.28.3}
+\contentsline {subsubsection}{\numberline {28.3.1}Methods}{201}{subsubsection.28.3.1}
+\contentsline {subsubsection}{\numberline {28.3.2}Properties}{202}{subsubsection.28.3.2}
+\contentsline {subsection}{\numberline {28.4}Class Struct}{202}{subsection.28.4}
+\contentsline {subsubsection}{\numberline {28.4.1}Methods}{202}{subsubsection.28.4.1}
+\contentsline {subsection}{\numberline {28.5}Class KwStruct}{202}{subsection.28.5}
+\contentsline {subsubsection}{\numberline {28.5.1}Methods}{202}{subsubsection.28.5.1}
+\contentsline {section}{\numberline {29}Module nMOLDYN.GUI.HTMLReader.tkconst}{204}{section.29}
+\contentsline {subsection}{\numberline {29.1}Variables}{204}{subsection.29.1}
+\contentsline {section}{\numberline {30}Module nMOLDYN.GUI.HTMLReader.tkfont}{205}{section.30}
+\contentsline {subsection}{\numberline {30.1}Functions}{205}{subsection.30.1}
+\contentsline {subsection}{\numberline {30.2}Variables}{205}{subsection.30.2}
+\contentsline {section}{\numberline {31}Module nMOLDYN.GUI.HTMLReader.tkhtml}{206}{section.31}
+\contentsline {subsection}{\numberline {31.1}Functions}{206}{subsection.31.1}
+\contentsline {subsection}{\numberline {31.2}Class MfxScrolledText}{206}{subsection.31.2}
+\contentsline {subsubsection}{\numberline {31.2.1}Methods}{207}{subsubsection.31.2.1}
+\contentsline {subsubsection}{\numberline {31.2.2}Class Variables}{209}{subsubsection.31.2.2}
+\contentsline {subsection}{\numberline {31.3}Class MfxReadonlyScrolledText}{210}{subsection.31.3}
+\contentsline {subsubsection}{\numberline {31.3.1}Methods}{211}{subsubsection.31.3.1}
+\contentsline {subsubsection}{\numberline {31.3.2}Class Variables}{212}{subsubsection.31.3.2}
+\contentsline {subsection}{\numberline {31.4}Class tkHTMLWriter}{213}{subsection.31.4}
+\contentsline {subsubsection}{\numberline {31.4.1}Methods}{213}{subsubsection.31.4.1}
+\contentsline {subsection}{\numberline {31.5}Class tkHTMLParser}{214}{subsection.31.5}
+\contentsline {subsubsection}{\numberline {31.5.1}Methods}{214}{subsubsection.31.5.1}
+\contentsline {subsubsection}{\numberline {31.5.2}Class Variables}{215}{subsubsection.31.5.2}
+\contentsline {subsection}{\numberline {31.6}Class tkHTMLViewer}{216}{subsection.31.6}
+\contentsline {subsubsection}{\numberline {31.6.1}Methods}{216}{subsubsection.31.6.1}
+\contentsline {section}{\numberline {32}Module nMOLDYN.GUI.HTMLReader.tkinit}{218}{section.32}
+\contentsline {subsection}{\numberline {32.1}Functions}{218}{subsection.32.1}
+\contentsline {section}{\numberline {33}Module nMOLDYN.GUI.HTMLReader.tkutil}{220}{section.33}
+\contentsline {subsection}{\numberline {33.1}Functions}{220}{subsection.33.1}
+\contentsline {section}{\numberline {34}Module nMOLDYN.GUI.HTMLReader.tkwidget}{221}{section.34}
+\contentsline {subsection}{\numberline {34.1}Functions}{221}{subsection.34.1}
+\contentsline {subsection}{\numberline {34.2}Class MfxDialog}{221}{subsection.34.2}
+\contentsline {subsubsection}{\numberline {34.2.1}Methods}{221}{subsubsection.34.2.1}
+\contentsline {subsubsection}{\numberline {34.2.2}Class Variables}{221}{subsubsection.34.2.2}
+\contentsline {subsection}{\numberline {34.3}Class MfxExceptionDialog}{222}{subsection.34.3}
+\contentsline {subsubsection}{\numberline {34.3.1}Methods}{222}{subsubsection.34.3.1}
+\contentsline {subsubsection}{\numberline {34.3.2}Class Variables}{222}{subsubsection.34.3.2}
+\contentsline {subsection}{\numberline {34.4}Class MfxSimpleSlider}{222}{subsection.34.4}
+\contentsline {subsubsection}{\numberline {34.4.1}Methods}{222}{subsubsection.34.4.1}
+\contentsline {subsubsection}{\numberline {34.4.2}Class Variables}{223}{subsubsection.34.4.2}
+\contentsline {subsection}{\numberline {34.5}Class MfxSimpleEntry}{223}{subsection.34.5}
+\contentsline {subsubsection}{\numberline {34.5.1}Methods}{223}{subsubsection.34.5.1}
+\contentsline {subsubsection}{\numberline {34.5.2}Class Variables}{224}{subsubsection.34.5.2}
+\contentsline {subsection}{\numberline {34.6}Class MfxTooltip}{224}{subsection.34.6}
+\contentsline {subsubsection}{\numberline {34.6.1}Methods}{224}{subsubsection.34.6.1}
+\contentsline {subsection}{\numberline {34.7}Class MfxScrolledCanvas}{224}{subsection.34.7}
+\contentsline {subsubsection}{\numberline {34.7.1}Methods}{224}{subsubsection.34.7.1}
+\contentsline {section}{\numberline {35}Module nMOLDYN.GUI.HTMLReader.util}{226}{section.35}
+\contentsline {subsection}{\numberline {35.1}Functions}{226}{subsection.35.1}
+\contentsline {subsection}{\numberline {35.2}Variables}{226}{subsection.35.2}
+\contentsline {subsection}{\numberline {35.3}Class Timer}{226}{subsection.35.3}
+\contentsline {subsubsection}{\numberline {35.3.1}Methods}{226}{subsubsection.35.3.1}
+\contentsline {subsection}{\numberline {35.4}Class DataLoader}{227}{subsection.35.4}
+\contentsline {subsubsection}{\numberline {35.4.1}Methods}{227}{subsubsection.35.4.1}
+\contentsline {section}{\numberline {36}Module nMOLDYN.GUI.HTMLReader.version}{228}{section.36}
+\contentsline {subsection}{\numberline {36.1}Variables}{228}{subsection.36.1}
+\contentsline {section}{\numberline {37}Module nMOLDYN.GUI.MainDialog}{229}{section.37}
+\contentsline {subsection}{\numberline {37.1}Variables}{229}{subsection.37.1}
+\contentsline {subsection}{\numberline {37.2}Class MainDialog}{229}{subsection.37.2}
+\contentsline {subsubsection}{\numberline {37.2.1}Methods}{229}{subsubsection.37.2.1}
+\contentsline {subsubsection}{\numberline {37.2.2}Class Variables}{232}{subsubsection.37.2.2}
+\contentsline {section}{\numberline {38}Module nMOLDYN.GUI.NetCDFToASCIIConversionDialog}{233}{section.38}
+\contentsline {subsection}{\numberline {38.1}Class NetCDFToASCIIConversionDialog}{233}{subsection.38.1}
+\contentsline {subsubsection}{\numberline {38.1.1}Methods}{233}{subsubsection.38.1.1}
+\contentsline {section}{\numberline {39}Module nMOLDYN.GUI.PDBSnapshotGeneratorDialog}{235}{section.39}
+\contentsline {subsection}{\numberline {39.1}Class PDBSnapshotGeneratorDialog}{235}{subsection.39.1}
+\contentsline {subsubsection}{\numberline {39.1.1}Methods}{235}{subsubsection.39.1.1}
+\contentsline {section}{\numberline {40}Module nMOLDYN.GUI.PlotNetCDFVariableDialog}{237}{section.40}
+\contentsline {subsection}{\numberline {40.1}Variables}{237}{subsection.40.1}
+\contentsline {subsection}{\numberline {40.2}Class SettingsDialog}{237}{subsection.40.2}
+\contentsline {subsubsection}{\numberline {40.2.1}Methods}{237}{subsubsection.40.2.1}
+\contentsline {subsection}{\numberline {40.3}Class PlotNetCDFVariableDialog}{238}{subsection.40.3}
+\contentsline {subsubsection}{\numberline {40.3.1}Methods}{239}{subsubsection.40.3.1}
+\contentsline {section}{\numberline {41}Module nMOLDYN.GUI.PreferencesDialog}{241}{section.41}
+\contentsline {subsection}{\numberline {41.1}Class dummy}{241}{subsection.41.1}
+\contentsline {subsubsection}{\numberline {41.1.1}Methods}{241}{subsubsection.41.1.1}
+\contentsline {subsection}{\numberline {41.2}Class PreferencesDialog}{241}{subsection.41.2}
+\contentsline {subsubsection}{\numberline {41.2.1}Methods}{241}{subsubsection.41.2.1}
+\contentsline {section}{\numberline {42}Module nMOLDYN.GUI.PyroServerDialog}{243}{section.42}
+\contentsline {subsection}{\numberline {42.1}Class PyroServerDialog}{243}{subsection.42.1}
+\contentsline {subsubsection}{\numberline {42.1.1}Methods}{243}{subsubsection.42.1.1}
+\contentsline {subsubsection}{\numberline {42.1.2}Class Variables}{245}{subsubsection.42.1.2}
+\contentsline {section}{\numberline {43}Module nMOLDYN.GUI.SelectionDialog}{246}{section.43}
+\contentsline {subsection}{\numberline {43.1}Class SelectionDialog}{246}{subsection.43.1}
+\contentsline {subsubsection}{\numberline {43.1.1}Methods}{246}{subsubsection.43.1.1}
+\contentsline {subsubsection}{\numberline {43.1.2}Class Variables}{250}{subsubsection.43.1.2}
+\contentsline {section}{\numberline {44}Module nMOLDYN.GUI.Tags}{251}{section.44}
+\contentsline {subsection}{\numberline {44.1}Variables}{251}{subsection.44.1}
+\contentsline {section}{\numberline {45}Module nMOLDYN.GUI.TrajectoryConversionDialog}{252}{section.45}
+\contentsline {subsection}{\numberline {45.1}Class AmberNetCDFConverterDialog}{252}{subsection.45.1}
+\contentsline {subsubsection}{\numberline {45.1.1}Methods}{252}{subsubsection.45.1.1}
+\contentsline {subsection}{\numberline {45.2}Class CHARMMConverterDialog}{253}{subsection.45.2}
+\contentsline {subsubsection}{\numberline {45.2.1}Methods}{253}{subsubsection.45.2.1}
+\contentsline {subsection}{\numberline {45.3}Class DL\_POLYConverterDialog}{254}{subsection.45.3}
+\contentsline {subsubsection}{\numberline {45.3.1}Methods}{254}{subsubsection.45.3.1}
+\contentsline {subsection}{\numberline {45.4}Class MaterialsStudioConverterDialog}{255}{subsection.45.4}
+\contentsline {subsubsection}{\numberline {45.4.1}Methods}{255}{subsubsection.45.4.1}
+\contentsline {subsection}{\numberline {45.5}Class NAMDConverterDialog}{256}{subsection.45.5}
+\contentsline {subsubsection}{\numberline {45.5.1}Methods}{256}{subsubsection.45.5.1}
+\contentsline {subsection}{\numberline {45.6}Class VASPConverterDialog}{257}{subsection.45.6}
+\contentsline {subsubsection}{\numberline {45.6.1}Methods}{257}{subsubsection.45.6.1}
+\contentsline {section}{\numberline {46}Module nMOLDYN.GUI.ViewEffectiveModeDialog}{258}{section.46}
+\contentsline {subsection}{\numberline {46.1}Class ViewEffectiveModeDialog}{258}{subsection.46.1}
+\contentsline {subsubsection}{\numberline {46.1.1}Methods}{258}{subsubsection.46.1.1}
+\contentsline {subsubsection}{\numberline {46.1.2}Class Variables}{260}{subsubsection.46.1.2}
+\contentsline {section}{\numberline {47}Module nMOLDYN.GUI.Widgets}{261}{section.47}
+\contentsline {subsection}{\numberline {47.1}Functions}{262}{subsection.47.1}
+\contentsline {subsection}{\numberline {47.2}Variables}{262}{subsection.47.2}
+\contentsline {subsection}{\numberline {47.3}Class ValidatingEntry}{263}{subsection.47.3}
+\contentsline {subsubsection}{\numberline {47.3.1}Methods}{263}{subsubsection.47.3.1}
+\contentsline {subsubsection}{\numberline {47.3.2}Class Variables}{265}{subsubsection.47.3.2}
+\contentsline {subsection}{\numberline {47.4}Class IntegerEntry}{265}{subsection.47.4}
+\contentsline {subsubsection}{\numberline {47.4.1}Methods}{266}{subsubsection.47.4.1}
+\contentsline {subsubsection}{\numberline {47.4.2}Class Variables}{267}{subsubsection.47.4.2}
+\contentsline {subsection}{\numberline {47.5}Class FloatEntry}{268}{subsection.47.5}
+\contentsline {subsubsection}{\numberline {47.5.1}Methods}{268}{subsubsection.47.5.1}
+\contentsline {subsubsection}{\numberline {47.5.2}Class Variables}{270}{subsubsection.47.5.2}
+\contentsline {subsection}{\numberline {47.6}Class StringEntry}{270}{subsection.47.6}
+\contentsline {subsubsection}{\numberline {47.6.1}Methods}{271}{subsubsection.47.6.1}
+\contentsline {subsubsection}{\numberline {47.6.2}Class Variables}{272}{subsubsection.47.6.2}
+\contentsline {subsection}{\numberline {47.7}Class ComboFrame}{273}{subsection.47.7}
+\contentsline {subsubsection}{\numberline {47.7.1}Methods}{273}{subsubsection.47.7.1}
+\contentsline {subsubsection}{\numberline {47.7.2}Class Variables}{274}{subsubsection.47.7.2}
+\contentsline {subsection}{\numberline {47.8}Class ComboLabel}{275}{subsection.47.8}
+\contentsline {subsubsection}{\numberline {47.8.1}Methods}{275}{subsubsection.47.8.1}
+\contentsline {subsubsection}{\numberline {47.8.2}Class Variables}{277}{subsubsection.47.8.2}
+\contentsline {subsection}{\numberline {47.9}Class ComboIntegerEntry}{277}{subsection.47.9}
+\contentsline {subsubsection}{\numberline {47.9.1}Methods}{278}{subsubsection.47.9.1}
+\contentsline {subsubsection}{\numberline {47.9.2}Class Variables}{279}{subsubsection.47.9.2}
+\contentsline {subsection}{\numberline {47.10}Class ComboFloatEntry}{280}{subsection.47.10}
+\contentsline {subsubsection}{\numberline {47.10.1}Methods}{280}{subsubsection.47.10.1}
+\contentsline {subsubsection}{\numberline {47.10.2}Class Variables}{282}{subsubsection.47.10.2}
+\contentsline {subsection}{\numberline {47.11}Class ComboStringEntry}{282}{subsection.47.11}
+\contentsline {subsubsection}{\numberline {47.11.1}Methods}{283}{subsubsection.47.11.1}
+\contentsline {subsubsection}{\numberline {47.11.2}Class Variables}{284}{subsubsection.47.11.2}
+\contentsline {subsection}{\numberline {47.12}Class ComboRadiobutton}{285}{subsection.47.12}
+\contentsline {subsubsection}{\numberline {47.12.1}Methods}{286}{subsubsection.47.12.1}
+\contentsline {subsubsection}{\numberline {47.12.2}Class Variables}{287}{subsubsection.47.12.2}
+\contentsline {subsection}{\numberline {47.13}Class ComboCheckbutton}{288}{subsection.47.13}
+\contentsline {subsubsection}{\numberline {47.13.1}Methods}{289}{subsubsection.47.13.1}
+\contentsline {subsubsection}{\numberline {47.13.2}Class Variables}{291}{subsubsection.47.13.2}
+\contentsline {subsection}{\numberline {47.14}Class ComboOptionMenu}{291}{subsection.47.14}
+\contentsline {subsubsection}{\numberline {47.14.1}Methods}{292}{subsubsection.47.14.1}
+\contentsline {subsubsection}{\numberline {47.14.2}Class Variables}{293}{subsubsection.47.14.2}
+\contentsline {subsection}{\numberline {47.15}Class ComboSpinbox}{294}{subsection.47.15}
+\contentsline {subsubsection}{\numberline {47.15.1}Methods}{295}{subsubsection.47.15.1}
+\contentsline {subsubsection}{\numberline {47.15.2}Class Variables}{296}{subsubsection.47.15.2}
+\contentsline {subsection}{\numberline {47.16}Class ComboScale}{297}{subsection.47.16}
+\contentsline {subsubsection}{\numberline {47.16.1}Methods}{297}{subsubsection.47.16.1}
+\contentsline {subsubsection}{\numberline {47.16.2}Class Variables}{299}{subsubsection.47.16.2}
+\contentsline {subsection}{\numberline {47.17}Class ComboButton}{299}{subsection.47.17}
+\contentsline {subsubsection}{\numberline {47.17.1}Methods}{300}{subsubsection.47.17.1}
+\contentsline {subsubsection}{\numberline {47.17.2}Class Variables}{301}{subsubsection.47.17.2}
+\contentsline {subsection}{\numberline {47.18}Class ComboFileBrowser}{302}{subsection.47.18}
+\contentsline {subsubsection}{\numberline {47.18.1}Methods}{303}{subsubsection.47.18.1}
+\contentsline {subsubsection}{\numberline {47.18.2}Class Variables}{304}{subsubsection.47.18.2}
+\contentsline {subsection}{\numberline {47.19}Class ComboText}{305}{subsection.47.19}
+\contentsline {subsubsection}{\numberline {47.19.1}Methods}{305}{subsubsection.47.19.1}
+\contentsline {subsubsection}{\numberline {47.19.2}Class Variables}{307}{subsubsection.47.19.2}
+\contentsline {subsection}{\numberline {47.20}Class ComboListbox}{308}{subsection.47.20}
+\contentsline {subsubsection}{\numberline {47.20.1}Methods}{308}{subsubsection.47.20.1}
+\contentsline {subsubsection}{\numberline {47.20.2}Class Variables}{310}{subsubsection.47.20.2}
+\contentsline {subsection}{\numberline {47.21}Class StatusBar}{311}{subsection.47.21}
+\contentsline {subsubsection}{\numberline {47.21.1}Methods}{311}{subsubsection.47.21.1}
+\contentsline {subsubsection}{\numberline {47.21.2}Class Variables}{312}{subsubsection.47.21.2}
+\contentsline {section}{\numberline {48}Package nMOLDYN.Tests}{313}{section.48}
+\contentsline {subsection}{\numberline {48.1}Modules}{313}{subsection.48.1}
+\contentsline {section}{\numberline {49}Package nMOLDYN.Tests.ARA}{314}{section.49}
+\contentsline {subsection}{\numberline {49.1}Modules}{314}{subsection.49.1}
+\contentsline {section}{\numberline {50}Module nMOLDYN.Tests.ARA.TestsContents}{315}{section.50}
+\contentsline {subsection}{\numberline {50.1}Variables}{315}{subsection.50.1}
+\contentsline {section}{\numberline {51}Module nMOLDYN.Tests.ARA.runTests}{316}{section.51}
+\contentsline {subsection}{\numberline {51.1}Variables}{316}{subsection.51.1}
+\contentsline {section}{\numberline {52}Package nMOLDYN.Tests.AVACF}{317}{section.52}
+\contentsline {subsection}{\numberline {52.1}Modules}{317}{subsection.52.1}
+\contentsline {section}{\numberline {53}Module nMOLDYN.Tests.AVACF.TestsContents}{318}{section.53}
+\contentsline {subsection}{\numberline {53.1}Variables}{318}{subsection.53.1}
+\contentsline {section}{\numberline {54}Module nMOLDYN.Tests.AVACF.runTests}{319}{section.54}
+\contentsline {subsection}{\numberline {54.1}Variables}{319}{subsection.54.1}
+\contentsline {section}{\numberline {55}Module nMOLDYN.Tests.AnalysisTests}{320}{section.55}
+\contentsline {subsection}{\numberline {55.1}Class AnalysisTest}{320}{subsection.55.1}
+\contentsline {subsubsection}{\numberline {55.1.1}Methods}{320}{subsubsection.55.1.1}
+\contentsline {section}{\numberline {56}Module nMOLDYN.Tests.BuildTestCases}{321}{section.56}
+\contentsline {subsection}{\numberline {56.1}Variables}{321}{subsection.56.1}
+\contentsline {section}{\numberline {57}Package nMOLDYN.Tests.DCSF}{322}{section.57}
+\contentsline {subsection}{\numberline {57.1}Modules}{322}{subsection.57.1}
+\contentsline {section}{\numberline {58}Module nMOLDYN.Tests.DCSF.TestsContents}{323}{section.58}
+\contentsline {subsection}{\numberline {58.1}Variables}{323}{subsection.58.1}
+\contentsline {section}{\numberline {59}Module nMOLDYN.Tests.DCSF.runTests}{324}{section.59}
+\contentsline {subsection}{\numberline {59.1}Variables}{324}{subsection.59.1}
+\contentsline {section}{\numberline {60}Package nMOLDYN.Tests.DISF}{325}{section.60}
+\contentsline {subsection}{\numberline {60.1}Modules}{325}{subsection.60.1}
+\contentsline {section}{\numberline {61}Module nMOLDYN.Tests.DISF.TestsContents}{326}{section.61}
+\contentsline {subsection}{\numberline {61.1}Variables}{326}{subsection.61.1}
+\contentsline {section}{\numberline {62}Module nMOLDYN.Tests.DISF.runTests}{327}{section.62}
+\contentsline {subsection}{\numberline {62.1}Variables}{327}{subsection.62.1}
+\contentsline {section}{\numberline {63}Package nMOLDYN.Tests.DISFG}{328}{section.63}
+\contentsline {subsection}{\numberline {63.1}Modules}{328}{subsection.63.1}
+\contentsline {section}{\numberline {64}Module nMOLDYN.Tests.DISFG.TestsContents}{329}{section.64}
+\contentsline {subsection}{\numberline {64.1}Variables}{329}{subsection.64.1}
+\contentsline {section}{\numberline {65}Module nMOLDYN.Tests.DISFG.runTests}{330}{section.65}
+\contentsline {subsection}{\numberline {65.1}Variables}{330}{subsection.65.1}
+\contentsline {section}{\numberline {66}Package nMOLDYN.Tests.DOS}{331}{section.66}
+\contentsline {subsection}{\numberline {66.1}Modules}{331}{subsection.66.1}
+\contentsline {section}{\numberline {67}Module nMOLDYN.Tests.DOS.TestsContents}{332}{section.67}
+\contentsline {subsection}{\numberline {67.1}Variables}{332}{subsection.67.1}
+\contentsline {section}{\numberline {68}Module nMOLDYN.Tests.DOS.runTests}{333}{section.68}
+\contentsline {subsection}{\numberline {68.1}Variables}{333}{subsection.68.1}
+\contentsline {section}{\numberline {69}Package nMOLDYN.Tests.EISF}{334}{section.69}
+\contentsline {subsection}{\numberline {69.1}Modules}{334}{subsection.69.1}
+\contentsline {section}{\numberline {70}Module nMOLDYN.Tests.EISF.TestsContents}{335}{section.70}
+\contentsline {subsection}{\numberline {70.1}Variables}{335}{subsection.70.1}
+\contentsline {section}{\numberline {71}Module nMOLDYN.Tests.EISF.runTests}{336}{section.71}
+\contentsline {subsection}{\numberline {71.1}Variables}{336}{subsection.71.1}
+\contentsline {section}{\numberline {72}Package nMOLDYN.Tests.MSD}{337}{section.72}
+\contentsline {subsection}{\numberline {72.1}Modules}{337}{subsection.72.1}
+\contentsline {section}{\numberline {73}Module nMOLDYN.Tests.MSD.TestsContents}{338}{section.73}
+\contentsline {subsection}{\numberline {73.1}Variables}{338}{subsection.73.1}
+\contentsline {section}{\numberline {74}Module nMOLDYN.Tests.MSD.runTests}{339}{section.74}
+\contentsline {subsection}{\numberline {74.1}Variables}{339}{subsection.74.1}
+\contentsline {section}{\numberline {75}Module nMOLDYN.Tests.StabilityTests}{340}{section.75}
+\contentsline {subsection}{\numberline {75.1}Variables}{340}{subsection.75.1}
+\contentsline {subsection}{\numberline {75.2}Class AnalysisTest}{340}{subsection.75.2}
+\contentsline {subsubsection}{\numberline {75.2.1}Methods}{340}{subsubsection.75.2.1}
+\contentsline {subsection}{\numberline {75.3}Class MSDTests}{341}{subsection.75.3}
+\contentsline {subsubsection}{\numberline {75.3.1}Methods}{341}{subsubsection.75.3.1}
+\contentsline {subsubsection}{\numberline {75.3.2}Class Variables}{341}{subsubsection.75.3.2}
+\contentsline {subsection}{\numberline {75.4}Class VACFTests}{342}{subsection.75.4}
+\contentsline {subsubsection}{\numberline {75.4.1}Methods}{342}{subsubsection.75.4.1}
+\contentsline {subsubsection}{\numberline {75.4.2}Class Variables}{342}{subsubsection.75.4.2}
+\contentsline {subsection}{\numberline {75.5}Class ARATests}{343}{subsection.75.5}
+\contentsline {subsubsection}{\numberline {75.5.1}Methods}{343}{subsubsection.75.5.1}
+\contentsline {subsubsection}{\numberline {75.5.2}Class Variables}{343}{subsubsection.75.5.2}
+\contentsline {subsection}{\numberline {75.6}Class AVACFTests}{344}{subsection.75.6}
+\contentsline {subsubsection}{\numberline {75.6.1}Methods}{344}{subsubsection.75.6.1}
+\contentsline {subsubsection}{\numberline {75.6.2}Class Variables}{344}{subsubsection.75.6.2}
+\contentsline {subsection}{\numberline {75.7}Class DOSTests}{345}{subsection.75.7}
+\contentsline {subsubsection}{\numberline {75.7.1}Methods}{345}{subsubsection.75.7.1}
+\contentsline {subsubsection}{\numberline {75.7.2}Class Variables}{345}{subsubsection.75.7.2}
+\contentsline {subsection}{\numberline {75.8}Class DCSFTests}{346}{subsection.75.8}
+\contentsline {subsubsection}{\numberline {75.8.1}Methods}{346}{subsubsection.75.8.1}
+\contentsline {subsubsection}{\numberline {75.8.2}Class Variables}{346}{subsubsection.75.8.2}
+\contentsline {subsection}{\numberline {75.9}Class DISFTests}{347}{subsection.75.9}
+\contentsline {subsubsection}{\numberline {75.9.1}Methods}{347}{subsubsection.75.9.1}
+\contentsline {subsubsection}{\numberline {75.9.2}Class Variables}{347}{subsubsection.75.9.2}
+\contentsline {subsection}{\numberline {75.10}Class DISFGTests}{348}{subsection.75.10}
+\contentsline {subsubsection}{\numberline {75.10.1}Methods}{348}{subsubsection.75.10.1}
+\contentsline {subsubsection}{\numberline {75.10.2}Class Variables}{348}{subsubsection.75.10.2}
+\contentsline {subsection}{\numberline {75.11}Class EISFTests}{349}{subsection.75.11}
+\contentsline {subsubsection}{\numberline {75.11.1}Methods}{349}{subsubsection.75.11.1}
+\contentsline {subsubsection}{\numberline {75.11.2}Class Variables}{349}{subsubsection.75.11.2}
+\contentsline {subsection}{\numberline {75.12}Class ALLTests}{350}{subsection.75.12}
+\contentsline {subsubsection}{\numberline {75.12.1}Methods}{350}{subsubsection.75.12.1}
+\contentsline {subsubsection}{\numberline {75.12.2}Class Variables}{350}{subsubsection.75.12.2}
+\contentsline {section}{\numberline {76}Package nMOLDYN.Tests.VACF}{351}{section.76}
+\contentsline {subsection}{\numberline {76.1}Modules}{351}{subsection.76.1}
+\contentsline {section}{\numberline {77}Module nMOLDYN.Tests.VACF.TestsContents}{352}{section.77}
+\contentsline {subsection}{\numberline {77.1}Variables}{352}{subsection.77.1}
+\contentsline {section}{\numberline {78}Module nMOLDYN.Tests.VACF.runTests}{353}{section.78}
+\contentsline {subsection}{\numberline {78.1}Variables}{353}{subsection.78.1}
+\contentsline {section}{\numberline {79}Module nMOLDYN.\_\_pkginfo\_\_}{354}{section.79}
+\contentsline {section}{Index}{355}{section*.4}

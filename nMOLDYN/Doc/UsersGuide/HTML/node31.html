@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Convert ASCII to NetCDF</TITLE>
+<META NAME="description" CONTENT="Convert ASCII to NetCDF">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node32.html">
+<LINK REL="previous" HREF="node30.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node32.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1526"
+  HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1522"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1516"
+  HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1524"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1527"
+  HREF="node32.html">Preferences</A>
+<B> Up:</B> <A NAME="tex2html1523"
+  HREF="node19.html">The File menu</A>
+<B> Previous:</B> <A NAME="tex2html1517"
+  HREF="node30.html">Convert NetCDF to ASCII</A>
+ &nbsp <B>  <A NAME="tex2html1525"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION008150000000000000000"></A>
+<A NAME="convert_ascii_netcdf"></A>
+<BR>
+Convert ASCII to NetCDF
+</H2>
+The <B>Convert ASCII to NetCDF</B> option allows the conversion of from an ASCII file to a <A HREF=node4.html#tex2html196 NAME="17742">NetCDF</A> file. 
+Clicking on it, the dialog shown in figure <A HREF="node31.html#fig:convert_ascii_netcdf">4.1.5</A> will pop up.
+
+<DIV ALIGN="CENTER"><A NAME="fig:convert_ascii_netcdf"></A><A NAME="1049"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.14:</STRONG>
+The dialog used to convert files in ASCII/CDL format to NetCDF format.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="204" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.gif"
+ ALT="\includegraphics[width=10cm]{Figures/convert_ascii_netcdf.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+To use this functionnality, the <B>ncgen</B> program [<A
+ HREF="node192.html#ncgen">37</A>] provided with the <A HREF=node4.html#tex2html197 NAME="17749">NetCDF</A> library must be 
+installed and the path to the <B>ncgen</B> executable must be defined in the <I>n</I>MOLDYN preferences. 
+If <B>ncgen</B> is not installed, this functionnality will be disabled.
+
+<P>
+To perform the conversion, the following input fields must be filled:
+
+<UL>
+<LI><B>ASCII input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> this field stores the name of the ASCII input file that will be used for the conversion. Two possible 
+ASCII file formats are compatible for the conversion. The first one is the <A HREF=node4.html#tex2html198 NAME="17756">CDL</A> file format [<A
+ HREF="node192.html#CDL">77</A>] and the second one is 
+a simpler but less general format where only numeric data can be converted. The latter format must contain white spaces separated columns where 
+each column will be interpreted as a <A HREF=node4.html#tex2html199 NAME="17763">NetCDF</A> unidimensional array of double. The file can contain header lines that must 
+start with '#' character. The rest of the line will be stored in the <A HREF=node4.html#tex2html200 NAME="17770">NetCDF</A> global attribute 'comment'. 
+Some <A HREF=node4.html#tex2html201 NAME="17777">NetCDF</A> global variables can also be specified for the conversion. They must be declared one after the other inside 
+the header using the following format;
+
+<BR>
+<BR><I># global name = value</I>
+
+<BR>
+<BR>
+Finally, a name and some additional <A HREF=node4.html#tex2html202 NAME="17784">NetCDF</A> variable attributes (units ...) can be given to the columns that will 
+be converted. Column names must be declared one after the other inside the header using the following format:
+
+<BR>
+<BR><I># variable name = value ; attribute1 = value1 ; attribute2 = value2 ...</I>
+
+<BR>
+<BR>
+In such a case the number of variable declaration must be exactly the same than the number of columns. Otherwise the 
+<A HREF=node4.html#tex2html203 NAME="17791">NetCDF</A> variable name will be Column<I>i</I> where <I>i</I> is the column index.
+
+<P>
+The figure <A HREF="node31.html#fig:convert_ascii_netcdf_example">4.15</A> shows an example of such file.
+
+<DIV ALIGN="CENTER"><A NAME="fig:convert_ascii_netcdf_example"></A><A NAME="1071"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.15:</STRONG>
+Example of an ASCII file that can be converted to a NetCDF file.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="281" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.gif"
+ ALT="\includegraphics[width=10cm]{Figures/convert_ascii_netcdf_example.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The output <A HREF=node4.html#tex2html204 NAME="17798">NetCDF</A> file resulting from its conversion will contain:
+
+<UL>
+<LI>a NetCDF dimension 'nvalues' whose value corresponds to the length of the columns to convert (in that case 10),
+</LI>
+<LI>a global attribute 'comment' whose value is ' The sun is shinning. I'm happy',
+</LI>
+<LI>a global attribute 'toto' whose value is '300000',
+</LI>
+<LI>a global attribute 'tata' whose value is 'yipee',
+</LI>
+<LI>a NetCDF variable 'time' of dimension 'nvalues' with an additional attribute 'units' whose value is 'fs',
+</LI>
+<LI>a NetCDF variable 'velocity' of dimension 'nvalues' with additional attributes 'units' and 'theory' whose values are respectively 
+'m/s' and 'can not be faster than light',
+</LI>
+<LI>a NetCDF variable 'acceleration' of dimension 'nvalues' with an additional attribute 'units' whose value is 'm/s2',
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>NetCDF output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> this field stores the name of the <A HREF=node4.html#tex2html205 NAME="17805">NetCDF</A> output file.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1526"
+  HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1522"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1516"
+  HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1524"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1527"
+  HREF="node32.html">Preferences</A>
+<B> Up:</B> <A NAME="tex2html1523"
+  HREF="node19.html">The File menu</A>
+<B> Previous:</B> <A NAME="tex2html1517"
+  HREF="node30.html">Convert NetCDF to ASCII</A>
+ &nbsp <B>  <A NAME="tex2html1525"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

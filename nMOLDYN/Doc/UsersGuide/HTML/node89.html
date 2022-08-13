@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Output
+</TITLE>
+<META NAME="description" CONTENT="Output
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="previous" HREF="node88.html">
+<LINK REL="up" HREF="node83.html">
+<LINK REL="next" HREF="node90.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2458"
+  HREF="node90.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2454"
+  HREF="node83.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2450"
+  HREF="node88.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2456"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2459"
+  HREF="node90.html">Center Of Mass Trajectory</A>
+<B> Up:</B> <A NAME="tex2html2455"
+  HREF="node83.html">Rigid-Body Trajectory</A>
+<B> Previous:</B> <A NAME="tex2html2451"
+  HREF="node88.html">Parameters</A>
+ &nbsp <B>  <A NAME="tex2html2457"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008249300000000000000">
+Output
+<BR></A>
+</H4>
+The results of a <A HREF=node4.html#tex2html408 NAME="19554"><I>RBT</I></A> analysis is a <A HREF=node4.html#tex2html409 NAME="19561">MMTK</A> <A HREF=node4.html#tex2html410 NAME="19568">NetCDF</A> trajectory file containing the rigid-body trajectory. Beside the 
+trajectory, other <A HREF=node4.html#tex2html411 NAME="19575">NetCDF</A> variables are stored in this file namely:
+
+<UL>
+<LI>groupi, i = 1, 2, ...<IMG
+ WIDTH="62" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img226.gif"
+ ALT="$N_{groups}$">: the <A HREF=node4.html#tex2html412 NAME="19582">MMTK</A> indexes of each atom of groups 1, 2, ...<IMG
+ WIDTH="62" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img226.gif"
+ ALT="$N_{groups}$"> where 
+<IMG
+ WIDTH="62" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img226.gif"
+ ALT="$N_{groups}$"> is the number of groups selected for the analysis,
+</LI>
+<LI>quaternion: a matrix of dimension (<IMG
+ WIDTH="70" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img227.gif"
+ ALT="$N_{Frames}$">, <IMG
+ WIDTH="62" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img226.gif"
+ ALT="$N_{groups}$">, 4) where <IMG
+ WIDTH="70" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img227.gif"
+ ALT="$N_{Frames}$"> is the number of selected frames for the <A HREF=node4.html#tex2html413 NAME="19589"><I>RBT</I></A> 
+analysis. This matrix contains the quaternions produced by the <A HREF=node4.html#tex2html414 NAME="19596"><I>RBT</I></A> analysis at each frame and for each rigid-body,
+</LI>
+<LI>cms: a matrix of dimension (<IMG
+ WIDTH="70" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img227.gif"
+ ALT="$N_{Frames}$">, <IMG
+ WIDTH="62" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img226.gif"
+ ALT="$N_{groups}$">, 3) that contains the coordinates of the center of mass of each 
+rigid-body for each frame,
+</LI>
+<LI>fit: a matrix of dimension (<IMG
+ WIDTH="70" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img227.gif"
+ ALT="$N_{Frames}$">, <IMG
+ WIDTH="62" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img226.gif"
+ ALT="$N_{groups}$">) that contains the results of the fit produced by the <A HREF=node4.html#tex2html415 NAME="19603"><I>RBT</I></A> 
+fitting procedure at each frame and for each rigid-body.
+</LI>
+</UL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

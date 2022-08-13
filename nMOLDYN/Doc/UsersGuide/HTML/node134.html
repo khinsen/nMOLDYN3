@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node135.html">
+<LINK REL="previous" HREF="node133.html">
+<LINK REL="up" HREF="node133.html">
+<LINK REL="next" HREF="node135.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3049"
+  HREF="node135.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3045"
+  HREF="node133.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3039"
+  HREF="node133.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3047"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3050"
+  HREF="node135.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3046"
+  HREF="node133.html">Dynamic Incoherent Structure Factor</A>
+<B> Previous:</B> <A NAME="tex2html3040"
+  HREF="node133.html">Dynamic Incoherent Structure Factor</A>
+ &nbsp <B>  <A NAME="tex2html3048"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008255100000000000000"></A>
+<A NAME="disfar_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+<I>n</I>MOLDYN allows one to calculate the memory function related to the incoherent intermediate scattering function as well. 
+It is defined through the corresponding memory function equation
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\partial_t{\mathcal F_{inc}}(\mathbf{q},t) =
+-\int_{0}^{t}d\tau\,\xi(\mathbf{q},t-\tau){\mathcal F_{inc}}(\mathbf{q},\tau).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:mem_finc"></A><IMG
+ WIDTH="443" HEIGHT="46" BORDER="0"
+ SRC="img487.gif"
+ ALT="\begin{displaymath}
+\partial_t{\mathcal F_{inc}}(\mathbf{q},t) =
+-\int_{0}^{t}d\tau \xi(\mathbf{q},t-\tau){\mathcal F_{inc}}(\mathbf{q},\tau).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.164)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The memory function <!-- MATH
+ $\xi(\bf {q},t)$
+ -->
+<IMG
+ WIDTH="55" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img488.gif"
+ ALT="$\xi(\bf {q},t)$">, which depends on <I>q</I> as well as on time, permits the analysis of memory effects on 
+different length scales. As in the previuos cases, the numerical calculation of the memory function equation relevant to 
+the incoherent intermediate scattering function is based on the Autoregressive model, the discrete time signal being here
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\sum_{\alpha=1}^N b_{\alpha,\mathrm{inc}}\exp[-i{\bf q}\cdot{\bf R}_\alpha(t)].
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:disfar_rho"></A><IMG
+ WIDTH="378" HEIGHT="58" BORDER="0"
+ SRC="img489.gif"
+ ALT="\begin{displaymath}
+\sum_{\alpha=1}^N b_{\alpha,\mathrm{inc}}\exp[-i{\bf q}\cdot{\bf R}_\alpha(t)].
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.165)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+See section <A HREF="node94.html#ara">4.2.4.11</A> for more details about auto-regressive process.
+
+<P>
+In the framework of the Autoregressive model <I>n</I>MOLDYN allows the intermediate coherent scattering function, its Fourier spectrum 
+(the incoherent dynamical structure factor) and its memory function to be computed on a rectangular grid of equidistantly 
+spaced points along the time- and the <I>q</I>-axis, repectively. The user is referred to Section <A HREF="node95.html#ara_theory">4.2.4.11</A> for more theoretical 
+details. The dynamical variable of the correlation function under consideration
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\sum_{I=1}^{N_{species}} n_I \omega_I \sum^{nI}_{\alpha=1} \exp[-i{\bf q}\cdot{\bf R}_\alpha(n\Delta t)]
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="414" HEIGHT="61" BORDER="0"
+ SRC="img490.gif"
+ ALT="\begin{displaymath}
+\sum_{I=1}^{N_{species}} n_I \omega_I \sum^{nI}_{\alpha=1} \exp[-i{\bf q}\cdot{\bf R}_\alpha(n\Delta t)]
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.166)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+is considered as a discrete "signal", which 
+is modeled by an autoregressive stochastic process of order <I>P</I>. For each q-values the program calculates a set of P complex 
+coefficients <IMG
+ WIDTH="42" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img239.gif"
+ ALT="$\{a_n\}$"> for the <A HREF=node4.html#tex2html575 NAME="21165"><I>AR</I></A> model averaging aver all atoms of the system and over all cartesian components. The 
+correlation functions and their Fourier spectra are then computed according to the algorithm described in 
+Section <A HREF="node95.html#ara_theory">4.2.4.11</A>. Starting from the discretized memory function equation, whitch relates the time 
+evolution of the correlation function to its memory function (see Section <A HREF="node95.html#ara_theory">4.2.4.11</A>), and using the correlation function calculated by the <A HREF=node4.html#tex2html576 NAME="21172"><I>AR</I></A> model, the program computes for each q-value the discretized memory function.
+The program performs the above calculations isotropically.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3049"
+  HREF="node135.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3045"
+  HREF="node133.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3039"
+  HREF="node133.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3047"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3050"
+  HREF="node135.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3046"
+  HREF="node133.html">Dynamic Incoherent Structure Factor</A>
+<B> Previous:</B> <A NAME="tex2html3040"
+  HREF="node133.html">Dynamic Incoherent Structure Factor</A>
+ &nbsp <B>  <A NAME="tex2html3048"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

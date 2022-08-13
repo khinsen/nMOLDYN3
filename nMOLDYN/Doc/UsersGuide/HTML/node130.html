@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node131.html">
+<LINK REL="previous" HREF="node129.html">
+<LINK REL="up" HREF="node129.html">
+<LINK REL="next" HREF="node131.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3000"
+  HREF="node131.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2996"
+  HREF="node129.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2990"
+  HREF="node129.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2998"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3001"
+  HREF="node131.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2997"
+  HREF="node129.html">Dynamic Incoherent Structure Factor</A>
+<B> Previous:</B> <A NAME="tex2html2991"
+  HREF="node129.html">Dynamic Incoherent Structure Factor</A>
+ &nbsp <B>  <A NAME="tex2html2999"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008254100000000000000"></A>
+<A NAME="disf_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+Please refer to Section <A HREF="node120.html#scattering_introduction">4.2.5.1</A> for more details about the theoretical background related to the dynamic 
+incoherent structure factor. In this analysis, <I>n</I>MOLDYN proceeds in two steps. First, it computes the partial and total 
+intermediate incoherent scattering function <!-- MATH
+ ${\cal F}_{\mathrm{inc}}({\bf q},t)$
+ -->
+<IMG
+ WIDTH="75" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img481.gif"
+ ALT="${\cal F}_{\mathrm{inc}}({\bf q},t)$"> using equation <A HREF="node120.html#eq:finc">4.142</A>. Then, the partial 
+and total dynamic incoherent structure factors are obtained by performing the Fourier Transformation, defined 
+in Eq.<A HREF="node120.html#eq:sqw_2">4.134</A>, respectively on the total and partial intermediate incoherent scattering function.
+
+<P>
+<I>n</I>MOLDYN computes the incoherent intermediate scattering function on a rectangular grid of equidistantly spaced points 
+along the time-and the <I>q</I>-axis, repectively:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\cal F}_{\mathrm{inc}}(q_m,k\cdot\Delta t) \doteq \sum_{I = 1}^{N_{species}} n_I \omega_{I,\mathrm{inc}} F_{I,\mathrm{inc}}(q_m,k\cdot\Delta t),
+\qquad k = 0\ldots N_t - 1,\; m = 0\ldots N_q - 1.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="647" HEIGHT="61" BORDER="0"
+ SRC="img482.gif"
+ ALT="\begin{displaymath}
+{\cal F}_{\mathrm{inc}}(q_m,k\cdot\Delta t) \doteq \sum_{I =...
+...\Delta t),
+\qquad k = 0\ldots N_t - 1,\; m = 0\ldots N_q - 1.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.159)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="26" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.gif"
+ ALT="$N_t$"> is the number of time steps in the coordinate time series, <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img444.gif"
+ ALT="$N_q$"> is a user-defined number of <I>q</I>-shells, 
+<IMG
+ WIDTH="64" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.gif"
+ ALT="$N_{species}$"> is the number of selected species, <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.gif"
+ ALT="$n_I$"> the number of atoms of species <I>I</I>, <!-- MATH
+ $\omega_{I,\mathrm{inc}}$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img483.gif"
+ ALT="$\omega_{I,\mathrm{inc}}$"> 
+the weight for specie <I>I</I> (see Section <A HREF="node35.html#weighting_scheme">4.2.1</A> for more details) and <!-- MATH
+ $F_{I,\mathrm{inc}}(q_m,k\cdot\Delta t)$
+ -->
+<IMG
+ WIDTH="131" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img484.gif"
+ ALT="$F_{I,\mathrm{inc}}(q_m,k\cdot\Delta t)$"> is defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_{I, inc,\alpha}(q_m,k\cdot\Delta t) = \sum_{\alpha=1}^{n_I}\overline{\langle\exp[-i{\bf q}\cdot{\bf R}_\alpha(0)]\exp[i{\bf q}\cdot{\bf R}_\alpha(t)]\rangle}^q.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:disf_rho"></A><IMG
+ WIDTH="507" HEIGHT="56" BORDER="0"
+ SRC="img485.gif"
+ ALT="\begin{displaymath}
+F_{I, inc,\alpha}(q_m,k\cdot\Delta t) = \sum_{\alpha=1}^{n_I...
+...f R}_\alpha(0)]\exp[i{\bf q}\cdot{\bf R}_\alpha(t)]\rangle}^q.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.160)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The symbol <!-- MATH
+ $\overline{\rule{0pt}{5pt}\ldots}^{q}$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img448.gif"
+ ALT="$\overline{\rule{0pt}{5pt}\ldots}^{q}$"> in (<A HREF="node130.html#eq:disf_rho">4.160</A>) denotes an average over <I>q</I>-vectors having 
+<EM>approximately</EM> the same modulus <!-- MATH
+ $q_m = q_{min} + m\cdot\Delta q$
+ -->
+<IMG
+ WIDTH="156" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img449.gif"
+ ALT="$q_m = q_{min} + m\cdot\Delta q$">. The particle density must not change if jumps in 
+the particle trajectories due to periodic boundary conditions occcur. In addition the <EM>average</EM> particle density, 
+<IMG
+ WIDTH="44" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img450.gif"
+ ALT="$N/V$">, must not change. This can be achieved by choosing <I>q</I>-vectors on a lattice which is reciprocal to the lattice defined 
+by the <A HREF=node4.html#tex2html561 NAME="21040">MD</A> box. Let <!-- MATH
+ ${\bf b}_1,{\bf b}_2,{\bf b}_3$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img451.gif"
+ ALT="${\bf b}_1,{\bf b}_2,{\bf b}_3$"> be the basis vectors which span the <A HREF=node4.html#tex2html562 NAME="21047">MD</A> cell. Any position vector in the 
+<A HREF=node4.html#tex2html563 NAME="21054">MD</A> cell can be written as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\bf R} = x'{\bf b}_1 + y'{\bf b}_2 + z'{\bf b}_3,
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="372" HEIGHT="30" BORDER="0"
+ SRC="img452.gif"
+ ALT="\begin{displaymath}
+{\bf R} = x'{\bf b}_1 + y'{\bf b}_2 + z'{\bf b}_3,
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.161)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+with <IMG
+ WIDTH="63" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img203.gif"
+ ALT="$x',y',z'$"> having values between <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img453.gif"
+ ALT="$0$"> and <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img454.gif"
+ ALT="$1$">.  The primes indicate that the coordinates are box coordinates. A jump due 
+to periodic bounday conditions causes <IMG
+ WIDTH="63" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img203.gif"
+ ALT="$x',y',z'$"> to jump by <IMG
+ WIDTH="29" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img455.gif"
+ ALT="$\pm 1$">.  The set of dual basis vectors <!-- MATH
+ ${\bf b}^1,{\bf b}^2,{\bf b}^3$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img456.gif"
+ ALT="${\bf b}^1,{\bf b}^2,{\bf b}^3$"> 
+is defined by the relation
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\bf b}_i{\bf b}^j = \delta_i^j.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="319" HEIGHT="32" BORDER="0"
+ SRC="img457.gif"
+ ALT="\begin{displaymath}
+{\bf b}_i{\bf b}^j = \delta_i^j.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.162)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+If the <I>q</I>-vectors are now chosen as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\bf q} = 2\pi\left(k{\bf b}^1 + l{\bf b}^2 + m{\bf b}^3\right),
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:q_dual"></A><IMG
+ WIDTH="387" HEIGHT="37" BORDER="0"
+ SRC="img458.gif"
+ ALT="\begin{displaymath}
+{\bf q} = 2\pi\left(k{\bf b}^1 + l{\bf b}^2 + m{\bf b}^3\right),
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.163)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <I>k,l,m</I> are integer numbers, jumps in the particle trajectories produce phase changes of multiples of <IMG
+ WIDTH="26" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img459.gif"
+ ALT="$2\pi$"> in the 
+Fourier transformed particle density, i.e. leave it unchanged. One can define a grid of <I>q</I>-shells or a grid of <I>q</I>-vectors 
+along a given direction or on a given plane, giving in addition a <EM>tolerance</EM> for <I>q</I>. <I>n</I>MOLDYN looks then for 
+<I>q</I>-vectors of the form (<A HREF="node130.html#eq:q_dual">4.163</A>) whose moduli deviate within the prescribed tolerance from the equidistant <I>q</I>-grid. 
+From these <I>q</I>-vectors only a maximum number per grid-point (called generically <I>q</I>-shell also in the anisotropic case) is 
+kept.
+
+<P>
+The <I>q</I>-vectors can be generated isotropically, anisotropically or along user-defined directions.
+
+<P>
+The correlation functions defined in <A HREF="node130.html#eq:disf_rho">4.160</A> are computed via the <A HREF=node4.html#tex2html564 NAME="21061">FCA</A> technique described in Section <A HREF="node193.html#fca">A</A>.
+Although the efficient <A HREF=node4.html#tex2html565 NAME="21068">FCA</A> technique is used to compute the atomic time correlation functions, the program may consume a 
+considerable amount of CPU-time since the number of time correlation functions to be computed equals the number of 
+atoms times the total number of <I>q</I>-vectors. This analysis is actually one of the most time-consuming among all the analysis available in 
+<I>n</I>MOLDYN.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3000"
+  HREF="node131.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2996"
+  HREF="node129.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2990"
+  HREF="node129.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2998"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3001"
+  HREF="node131.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2997"
+  HREF="node129.html">Dynamic Incoherent Structure Factor</A>
+<B> Previous:</B> <A NAME="tex2html2991"
+  HREF="node129.html">Dynamic Incoherent Structure Factor</A>
+ &nbsp <B>  <A NAME="tex2html2999"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

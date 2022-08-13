@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Solution of the minimization problem.</TITLE>
+<META NAME="description" CONTENT="Solution of the minimization problem.">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="previous" HREF="node86.html">
+<LINK REL="up" HREF="node84.html">
+<LINK REL="next" HREF="node88.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2436"
+  HREF="node88.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2432"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2428"
+  HREF="node86.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2434"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2437"
+  HREF="node88.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2433"
+  HREF="node84.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2429"
+  HREF="node86.html">Quaternions and rotations.</A>
+ &nbsp <B>  <A NAME="tex2html2435"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H5><A NAME="SECTION008249130000000000000">
+Solution of the minimization problem.</A>
+</H5> In quaternion algebra, the rotational minimization problem may now be 
+phrased as follows:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+m({\bf q}) = \sum_\alpha \omega_\alpha 
+\|{\bf Q}{\bf R}^{(0)}_\alpha{\bf Q}^T - {\bf R}_\alpha\|^2
+\stackrel{!}{=} Min.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:minimize_rot_quat_1"></A><IMG
+ WIDTH="438" HEIGHT="46" BORDER="0"
+ SRC="img206.gif"
+ ALT="\begin{displaymath}
+m({\bf q}) = \sum_\alpha \omega_\alpha
+\Vert{\bf Q}{\bf R}^...
+...}_\alpha{\bf Q}^T - {\bf R}_\alpha\Vert^2
+\stackrel{!}{=} Min.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.60)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Since the matrix <IMG
+ WIDTH="22" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img197.gif"
+ ALT="${\bf Q}$"> representing a normalized quaternion is orthogonal this may also be written as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+m({\bf q}) = \sum_\alpha \omega_\alpha 
+\|{\bf Q}{\bf R}^{(0)}_\alpha - {\bf R}_\alpha{\bf Q}\|^2.
+\stackrel{!}{=} Min.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:minimize_rot_quat_2"></A><IMG
+ WIDTH="435" HEIGHT="46" BORDER="0"
+ SRC="img207.gif"
+ ALT="\begin{displaymath}
+m({\bf q}) = \sum_\alpha \omega_\alpha
+\Vert{\bf Q}{\bf R}^{(0)}_\alpha - {\bf R}_\alpha{\bf Q}\Vert^2.
+\stackrel{!}{=} Min.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.61)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+This follows from the simple fact that  <!-- MATH
+ $\|{\bf A}\| = \|{\bf A}{\bf Q}\|$
+ -->
+<IMG
+ WIDTH="109" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img208.gif"
+ ALT="$\Vert{\bf A}\Vert = \Vert{\bf A}{\bf Q}\Vert$">, if <IMG
+ WIDTH="22" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img197.gif"
+ ALT="${\bf Q}$"> is normalized. 
+Eq. (<A HREF="node87.html#eq:minimize_rot_quat_2">4.61</A>) shows that the target function to be minimized can be written as a simple quadratic 
+form in the quaternion parameters [<A
+ HREF="node192.html#Kneller:1991">55</A>], <BR>
+<DIV ALIGN="CENTER"><A NAME="eq:quad_form"></A>
+<!-- MATH
+ \begin{eqnarray}
+m({\bf q}) &= &{\bf q}\cdot{\bf M}{\bf q},\\
+{\bf M} &= &\sum_\alpha \omega_\alpha {\bf M}_\alpha.
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="46" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img209.gif"
+ ALT="$\displaystyle m({\bf q})$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="64" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img210.gif"
+ ALT="$\displaystyle {\bf q}\cdot{\bf M}{\bf q},$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.62)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="25" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img211.gif"
+ ALT="$\displaystyle {\bf M}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="86" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img212.gif"
+ ALT="$\displaystyle \sum_\alpha \omega_\alpha {\bf M}_\alpha.$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.63)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The matrices <!-- MATH
+ ${\bf M}_\alpha$
+ -->
+<IMG
+ WIDTH="35" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img213.gif"
+ ALT="${\bf M}_\alpha$"> are positive semi-definite matrices depending on the positions <!-- MATH
+ ${\bf r}_\alpha$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img214.gif"
+ ALT="${\bf r}_\alpha$"> and 
+<!-- MATH
+ ${\bf r}^{(0)}_\alpha$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img215.gif"
+ ALT="${\bf r}^{(0)}_\alpha$">:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\left.
+\begin{array}{lll}
+M_{\alpha,11} &= &
+  x_\alpha^2 + y_\alpha^2 + z_\alpha^2 
++ x_{0\alpha}^2 + y_{0\alpha}^2 + z_{0\alpha}^2   
+-2x_\alpha x_{0\alpha} -2y_\alpha y_{0\alpha} -2z_\alpha z_{0\alpha}
+\\
+M_{\alpha,12} &= &2(y_\alpha z_{0\alpha} - z_\alpha y_{0\alpha})\\
+M_{\alpha,13} &= &2(-x_\alpha z_{0\alpha} + z_\alpha x_{0\alpha})\\
+M_{\alpha,14} &= &2(x_\alpha y_{0\alpha} - y_\alpha x_{0\alpha})\\
+M_{\alpha,22} &= &
+  x_\alpha^2 + y_\alpha^2 + z_\alpha^2 
++ x_{0\alpha}^2 + y_{0\alpha}^2 + z_{0\alpha}^2   
+-2x_\alpha x_{0\alpha} +2y_\alpha y_{0\alpha} +2z_\alpha z_{0\alpha}
+\\
+M_{\alpha,23} &= &-2(x_\alpha y_{0\alpha} + y_\alpha x_{0\alpha})\\
+M_{\alpha,24} &= &-2(x_\alpha z_{0\alpha} + z_\alpha x_{0\alpha})\\
+M_{\alpha,33} &= &
+  x_\alpha^2 + y_\alpha^2 + z_\alpha^2 
++ x_{0\alpha}^2 + y_{0\alpha}^2 + z_{0\alpha}^2   
++2x_\alpha x_{0\alpha} -2y_\alpha y_{0\alpha} +2z_\alpha z_{0\alpha}
+\\
+M_{\alpha,44} &= &-2(y_\alpha z_{0\alpha} + z_\alpha y_{0\alpha})\\
+M_{\alpha,44} &= &
+  x_\alpha^2 + y_\alpha^2 + z_\alpha^2 
++ x_{0\alpha}^2 + y_{0\alpha}^2 + z_{0\alpha}^2   
++2x_\alpha x_{0\alpha} +2y_\alpha y_{0\alpha} -2z_\alpha z_{0\alpha}
+\\
+\end{array}
+\right\}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="580" HEIGHT="223" BORDER="0"
+ SRC="img216.gif"
+ ALT="\begin{displaymath}
+\left.
+\begin{array}{lll}
+M_{\alpha,11} &amp;= &amp;
+x_\alpha^2 + y...
+...pha y_{0\alpha} -2z_\alpha z_{0\alpha}
+\\
+\end{array}\right\}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.64)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+The rotational fit is now reduced to the problem of finding the minimum of a quadratic form with the constraint that the 
+quaternion to be determined must be normalized. Using the method of Lagrange multipliers to account for the normalization 
+constraint we have 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+m'({\bf q},\lambda) = {\bf q}\cdot{\bf M}{\bf q}
+- \lambda({\bf q}\cdot{\bf q} - 1) \stackrel{!}{=} Min.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="435" HEIGHT="31" BORDER="0"
+ SRC="img217.gif"
+ ALT="\begin{displaymath}
+m'({\bf q},\lambda) = {\bf q}\cdot{\bf M}{\bf q}
+- \lambda({\bf q}\cdot{\bf q} - 1) \stackrel{!}{=} Min.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.65)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+This leads immediately to the eigenvalue problem
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+{\bf M}{\bf q} &= &\lambda{\bf q},\\
+{\bf q}\cdot{\bf q} &= &1.
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img218.gif"
+ ALT="$\displaystyle {\bf M}{\bf q}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="32" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img219.gif"
+ ALT="$\displaystyle \lambda{\bf q},$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.66)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="40" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img220.gif"
+ ALT="$\displaystyle {\bf q}\cdot{\bf q}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img221.gif"
+ ALT="$\displaystyle 1.$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.67)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Now any normalized eigenvector <IMG
+ WIDTH="17" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img222.gif"
+ ALT="${\bf q}$"> fulfills the relation <!-- MATH
+ $\lambda = {\bf q}\cdot{\bf M}{\bf q} \equiv m({\bf q})$
+ -->
+<IMG
+ WIDTH="155" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img223.gif"
+ ALT="$\lambda = {\bf q}\cdot{\bf M}{\bf q} \equiv m({\bf q})$">. 
+Therefore the eigenvector belonging to the smallest eigenvalue, <IMG
+ WIDTH="42" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img224.gif"
+ ALT="$\lambda_{min}$">, is the desired solution. At the same 
+time <IMG
+ WIDTH="42" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img224.gif"
+ ALT="$\lambda_{min}$"> gives the average error per atom.
+
+<P>
+The result of <A HREF=node4.html#tex2html398 NAME="19475"><I>RBT</I></A> analysis is stored in a new trajectory file that contains only <A HREF=node4.html#tex2html399 NAME="19482"><I>RBT</I></A> motions.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2436"
+  HREF="node88.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2432"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2428"
+  HREF="node86.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2434"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2437"
+  HREF="node88.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2433"
+  HREF="node84.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2429"
+  HREF="node86.html">Quaternions and rotations.</A>
+ &nbsp <B>  <A NAME="tex2html2435"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

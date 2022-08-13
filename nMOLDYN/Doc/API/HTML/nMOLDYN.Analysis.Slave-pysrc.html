@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>nMOLDYN.Analysis.Slave</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="nMOLDYN-module.html">Package&nbsp;nMOLDYN</a> ::
+        <a href="nMOLDYN.Analysis-module.html">Package&nbsp;Analysis</a> ::
+        Module&nbsp;Slave
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="nMOLDYN.Analysis.Slave-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="nMOLDYN.Analysis.Slave-module.html">Module nMOLDYN.Analysis.Slave</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""This modules contains the functions used by Pyro slave to perform analysis remotely.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">Functions:</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">    * do_analysisPerElement: performs an analysis element-by-element.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Scientific</tt><tt class="py-op">.</tt><tt class="py-name">DistributedComputing</tt><tt class="py-op">.</tt><tt class="py-name">MasterSlave</tt> <tt class="py-keyword">import</tt> <tt class="py-name">startSlaveProcess</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment"># Define (or import) all the task handlers.</tt> </tt>
+<a name="do_analysisPerElement"></a><div id="do_analysisPerElement-def"><a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="do_analysisPerElement-toggle" onclick="return toggle('do_analysisPerElement');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.Analysis.Slave-module.html#do_analysisPerElement">do_analysisPerElement</a><tt class="py-op">(</tt><tt class="py-param">analysis</tt><tt class="py-op">,</tt> <tt class="py-param">element</tt><tt class="py-op">,</tt> <tt class="py-param">trajname</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="do_analysisPerElement-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="do_analysisPerElement-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">    <tt class="py-docstring">"""Performs the analysis element-by-element, the element being either</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">    an atom (atom-by-atom analysis), a frame index (frame-by-frame analysis),</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">    a group of atom (group-by-group analysis) or a set of q vectors.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">    @param analysis: the selected analysis.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">    @type analysis: a subclass of nMOLDYN.Analysis.Analysis.Analysis class</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">    @param element: the element on which the analysis is based.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">    @type element: MMTK.Atom|integer|MMTK.Collections.Collection|nMOLDYN.Mathematics.QVectors</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">    @param trajname: a string specifying the name of the trajectory.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">    @type trajname: string</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring">    @return: the results of the analysis performed on one element.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: depends on the analysis    </tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-0" class="py-name" targets="Variable nMOLDYN.Tests.BuildTestCases.analysis=nMOLDYN.Tests.BuildTestCases-module.html#analysis"><a title="nMOLDYN.Tests.BuildTestCases.analysis" class="py-name" href="#" onclick="return doclink('link-0', 'analysis', 'link-0');">analysis</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method nMOLDYN.Analysis.Dynamics.AngularCorrelation.calc()=nMOLDYN.Analysis.Dynamics.AngularCorrelation-class.html#calc,Method nMOLDYN.Analysis.Dynamics.AngularDensityOfStates.calc()=nMOLDYN.Analysis.Dynamics.AngularDensityOfStates-class.html#calc,Method nMOLDYN.Analysis.Dynamics.AngularVelocityAutoCorrelationFunction.calc()=nMOLDYN.Analysis.Dynamics.AngularVelocityAutoCorrelationFunction-class.html#calc,Method nMOLDYN.Analysis.Dynamics.AutoRegressiveAnalysis.calc()=nMOLDYN.Analysis.Dynamics.AutoRegressiveAnalysis-class.html#calc,Method nMOLDYN.Analysis.Dynamics.CartesianDensityOfStates.calc()=nMOLDYN.Analysis.Dynamics.CartesianDensityOfStates-class.html#calc,Method nMOLDYN.Analysis.Dynamics.CartesianVelocityAutoCorrelationFunction.calc()=nMOLDYN.Analysis.Dynamics.CartesianVelocityAutoCorrelationFunction-class.html#calc,Method nMOLDYN.Analysis.Dynamics.CenterOfMassTrajectory.calc()=nMOLDYN.Analysis.Dynamics.CenterOfMassTrajectory-class.html#calc,Method nMOLDYN.Analysis.Dynamics.GlobalMotionFilteredTrajectory.calc()=nMOLDYN.Analysis.Dynamics.GlobalMotionFilteredTrajectory-class.html#calc,Method nMOLDYN.Analysis.Dynamics.MeanSquareDisplacement.calc()=nMOLDYN.Analysis.Dynamics.MeanSquareDisplacement-class.html#calc,Method nMOLDYN.Analysis.Dynamics.PassBandFilteredTrajectory.calc()=nMOLDYN.Analysis.Dynamics.PassBandFilteredTrajectory-class.html#calc,Method nMOLDYN.Analysis.Dynamics.RadiusOfGyration.calc()=nMOLDYN.Analysis.Dynamics.RadiusOfGyration-class.html#calc,Method nMOLDYN.Analysis.Dynamics.ReorientationalCorrelationFunction.calc()=nMOLDYN.Analysis.Dynamics.ReorientationalCorrelationFunction-class.html#calc,Method nMOLDYN.Analysis.Dynamics.RigidBodyTrajectory.calc()=nMOLDYN.Analysis.Dynamics.RigidBodyTrajectory-class.html#calc,Method nMOLDYN.Analysis.Dynamics.RootMeanSquareDeviation.calc()=nMOLDYN.Analysis.Dynamics.RootMeanSquareDeviation-class.html#calc,Method nMOLDYN.Analysis.NMR.OrderParameter.calc()=nMOLDYN.Analysis.NMR.OrderParameter-class.html#calc,Method nMOLDYN.Analysis.NMR.OrderParameterContactModel.calc()=nMOLDYN.Analysis.NMR.OrderParameterContactModel-class.html#calc,Method nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor.calc()=nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor-class.html#calc,Method nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR.calc()=nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR-class.html#calc,Method nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor.calc()=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor-class.html#calc,Method nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR.calc()=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR-class.html#calc,Method nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian.calc()=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian-class.html#calc,Method nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor.calc()=nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor-class.html#calc,Method nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor.calc()=nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor-class.html#calc,Method nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor.calc()=nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor-class.html#calc,Method nMOLDYN.Analysis.Structure.CoordinationNumber.calc()=nMOLDYN.Analysis.Structure.CoordinationNumber-class.html#calc,Method nMOLDYN.Analysis.Structure.PairDistributionFunction.calc()=nMOLDYN.Analysis.Structure.PairDistributionFunction-class.html#calc,Method nMOLDYN.Analysis.Structure.ScrewFitAnalysis.calc()=nMOLDYN.Analysis.Structure.ScrewFitAnalysis-class.html#calc,Method nMOLDYN.Analysis.Structure.SpatialDensity.calc()=nMOLDYN.Analysis.Structure.SpatialDensity-class.html#calc"><a title="nMOLDYN.Analysis.Dynamics.AngularCorrelation.calc
+nMOLDYN.Analysis.Dynamics.AngularDensityOfStates.calc
+nMOLDYN.Analysis.Dynamics.AngularVelocityAutoCorrelationFunction.calc
+nMOLDYN.Analysis.Dynamics.AutoRegressiveAnalysis.calc
+nMOLDYN.Analysis.Dynamics.CartesianDensityOfStates.calc
+nMOLDYN.Analysis.Dynamics.CartesianVelocityAutoCorrelationFunction.calc
+nMOLDYN.Analysis.Dynamics.CenterOfMassTrajectory.calc
+nMOLDYN.Analysis.Dynamics.GlobalMotionFilteredTrajectory.calc
+nMOLDYN.Analysis.Dynamics.MeanSquareDisplacement.calc
+nMOLDYN.Analysis.Dynamics.PassBandFilteredTrajectory.calc
+nMOLDYN.Analysis.Dynamics.RadiusOfGyration.calc
+nMOLDYN.Analysis.Dynamics.ReorientationalCorrelationFunction.calc
+nMOLDYN.Analysis.Dynamics.RigidBodyTrajectory.calc
+nMOLDYN.Analysis.Dynamics.RootMeanSquareDeviation.calc
+nMOLDYN.Analysis.NMR.OrderParameter.calc
+nMOLDYN.Analysis.NMR.OrderParameterContactModel.calc
+nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor.calc
+nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR.calc
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor.calc
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR.calc
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian.calc
+nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor.calc
+nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor.calc
+nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor.calc
+nMOLDYN.Analysis.Structure.CoordinationNumber.calc
+nMOLDYN.Analysis.Structure.PairDistributionFunction.calc
+nMOLDYN.Analysis.Structure.ScrewFitAnalysis.calc
+nMOLDYN.Analysis.Structure.SpatialDensity.calc" class="py-name" href="#" onclick="return doclink('link-1', 'calc', 'link-1');">calc</a></tt><tt class="py-op">(</tt><tt class="py-name">element</tt><tt class="py-op">,</tt> <tt class="py-name">trajname</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-name">startSlaveProcess</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct  8 16:57:20 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

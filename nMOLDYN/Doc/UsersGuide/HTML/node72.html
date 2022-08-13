@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node73.html">
+<LINK REL="previous" HREF="node71.html">
+<LINK REL="up" HREF="node71.html">
+<LINK REL="next" HREF="node73.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2249"
+  HREF="node73.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2245"
+  HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2239"
+  HREF="node71.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2247"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2250"
+  HREF="node73.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2246"
+  HREF="node71.html">Density Of States</A>
+<B> Previous:</B> <A NAME="tex2html2240"
+  HREF="node71.html">Density Of States</A>
+ &nbsp <B>  <A NAME="tex2html2248"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008246100000000000000"></A>
+<A NAME="dos_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+<I>n</I>MOLDYN calculates the power spectrum of the <A HREF=node4.html#tex2html355 NAME="19084"><I>VACF</I></A>, which in case of the mass-weighted <A HREF=node4.html#tex2html356 NAME="19091"><I>VACF</I></A> defines the phonon 
+discrete <A HREF=node4.html#tex2html357 NAME="19098"><I>DOS</I></A>, (see Section <A HREF="node68.html#vacf_theory">4.2.4.5</A>) defined as:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+DOS(n\cdot\Delta \nu)  &\doteq &\sum_{\alpha} \omega_\alpha 
+\tilde C_{vv ; \alpha\alpha}(n\cdot\Delta \nu),\qquad n = 0\ldots N_t - 1.
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="108" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img155.gif"
+ ALT="$\displaystyle DOS(n\cdot\Delta \nu)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img156.gif"
+ ALT="$\textstyle \doteq$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="328" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img157.gif"
+ ALT="$\displaystyle \sum_{\alpha} \omega_\alpha
+\tilde C_{vv ; \alpha\alpha}(n\cdot\Delta \nu),\qquad n = 0\ldots N_t - 1.$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.43)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<IMG
+ WIDTH="26" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.gif"
+ ALT="$N_t$"> is the total number of time steps and <!-- MATH
+ $\Delta\nu = 1/(2N_t \Delta t)$
+ -->
+<IMG
+ WIDTH="134" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img158.gif"
+ ALT="$\Delta\nu = 1/(2N_t \Delta t)$"> is the frequency step. <!-- MATH
+ $DOS(n\cdot\Delta\nu)$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img159.gif"
+ ALT="$DOS(n\cdot\Delta\nu)$"> can 
+be computed either for the isotropic case or with respect to a user-defined axis. The spectrum <!-- MATH
+ $DOS(n\cdot\Delta \nu)$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img159.gif"
+ ALT="$DOS(n\cdot\Delta\nu)$"> is computed from the 
+<I>unnormalized</I> <A HREF=node4.html#tex2html358 NAME="19105"><I>VACF</I></A>, such that <I>DOS(0)</I> gives an approximate value for the diffusion constant 
+<!-- MATH
+ $D = \sum_\alpha D_\alpha$
+ -->
+<IMG
+ WIDTH="98" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img160.gif"
+ ALT="$D = \sum_\alpha D_\alpha$"> (see Eqs. <A HREF="node52.html#eq:d_vacf">4.21</A> and <A HREF="node52.html#eq:d_dos">4.22</A>). <!-- MATH
+ $DOS(n\cdot\Delta \nu)$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img159.gif"
+ ALT="$DOS(n\cdot\Delta\nu)$"> is smoothed by 
+applying a Gaussian window in the time domain [<A
+ HREF="node192.html#Harris">76</A>] (see Section <A HREF="node193.html#fca">A</A>). Its width in the time domain is 
+<!-- MATH
+ $\sigma_t=\alpha/T$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img161.gif"
+ ALT="$\sigma_t=\alpha/T$">, where <IMG
+ WIDTH="19" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img162.gif"
+ ALT="$T$"> is the length of 
+the simulation. We remark that the diffusion constant obtained from <A HREF=node4.html#tex2html359 NAME="19112"><I>DOS</I></A> is biased due to the spectral smoothing procedure since 
+the <A HREF=node4.html#tex2html360 NAME="19119"><I>VACF</I></A> is weighted by this window Gaussian function. <I>n</I>MOLDYN computes the density of states starting from both atomic velocities 
+and atomic coordinates. In this case the velocities are computed by numerical differentiation of the coordinate trajectories correcting 
+first for possible jumps due to periodic boundary conditions.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2249"
+  HREF="node73.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2245"
+  HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2239"
+  HREF="node71.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2247"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2250"
+  HREF="node73.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2246"
+  HREF="node71.html">Density Of States</A>
+<B> Previous:</B> <A NAME="tex2html2240"
+  HREF="node71.html">Density Of States</A>
+ &nbsp <B>  <A NAME="tex2html2248"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

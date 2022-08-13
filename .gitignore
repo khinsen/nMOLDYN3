@@ -3,7 +3,4 @@ build/
 dist/
 *.pyc
 *pycache*
-Lib
-nMOLDYN/Trajectories
 nMOLDYN/win32_files/*.exe
-nMOLDYN/Doc

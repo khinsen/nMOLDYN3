@@ -1,0 +1,584 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The FCA algorithm</TITLE>
+<META NAME="description" CONTENT="The FCA algorithm">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node194.html">
+<LINK REL="previous" HREF="node192.html">
+<LINK REL="up" HREF="nMOLDYN_for_HTML.html">
+<LINK REL="next" HREF="node194.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3783"
+  HREF="node194.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3779"
+  HREF="nMOLDYN_for_HTML.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3773"
+  HREF="node192.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3781"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3784"
+  HREF="node194.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html3780"
+  HREF="nMOLDYN_for_HTML.html">nMOLDYN_for_HTML</A>
+<B> Previous:</B> <A NAME="tex2html3774"
+  HREF="node192.html">Bibliography</A>
+ &nbsp <B>  <A NAME="tex2html3782"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION0011000000000000000000"></A>
+<A NAME="fca"></A>
+<BR>
+The FCA algorithm
+</H1>
+Most of the quantities which can be extracted from <A HREF=node4.html#tex2html827 NAME="23397">MD</A> simulations are time correlation functions. 
+Correlation functions of discrete time series can be efficiently calculated by using the Fast Fourier 
+Transform (FFT) [<A
+ HREF="node192.html#Brigham">74</A>]. The <A HREF=node4.html#tex2html828 NAME="23404">FCA</A> allows the number of multiplications (complexity) to be reduced from <IMG
+ WIDTH="48" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img638.gif"
+ ALT="$\propto N_t^2$"> to <!-- MATH
+ $\propto N_t \log_2(N_t)$
+ -->
+<IMG
+ WIDTH="111" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img639.gif"
+ ALT="$\propto N_t \log_2(N_t)$">. In 
+<I>n</I>MOLDYN all time correlation functions are computed using the <A HREF=node4.html#tex2html829 NAME="23411">FCA</A> method which will be outlined in the 
+following. We will also briefly comment on spectral smoothing of Fourier transformed correlation functions.
+
+<P>
+We consider two time series
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+a(k\cdot\Delta t),\qquad b(k\cdot\Delta t), \qquad k = 0\ldots N_t-1,
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="344" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img640.gif"
+ ALT="$\displaystyle a(k\cdot\Delta t),\qquad b(k\cdot\Delta t), \qquad k = 0\ldots N_t-1,$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+of length <!-- MATH
+ $T = (N_t-1)\cdot\Delta t$
+ -->
+<IMG
+ WIDTH="139" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img641.gif"
+ ALT="$T = (N_t-1)\cdot\Delta t$"> which are to be correlated. In the
+following the shorthands <IMG
+ WIDTH="39" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img642.gif"
+ ALT="$a(k)$"> and <IMG
+ WIDTH="37" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img643.gif"
+ ALT="$b(k)$"> will be used. The discrete
+correlation function of <IMG
+ WIDTH="39" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img642.gif"
+ ALT="$a(k)$"> and <IMG
+ WIDTH="37" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img643.gif"
+ ALT="$b(k)$"> is defined as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+c_{ab}(m) \doteq \left\{
+\begin{array}{ll}
+\frac{1}{N_t - m}\sum_{k=0}^{N_t-m-1}a^*(k)b(k+m),
+                 \qquad &m= 0\ldots N_t-1,\\
+&\\
+\frac{1}{N_t - |m|}\sum_{k=|m|}^{N_t-1}a^*(k)b(k-|m|),
+                 \qquad &m= -(N_t-1)\ldots -1.\\
+\end{array} \right.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:dacf"></A><IMG
+ WIDTH="534" HEIGHT="78" BORDER="0"
+ SRC="img644.gif"
+ ALT="\begin{displaymath}
+c_{ab}(m) \doteq \left\{
+\begin{array}{ll}
+\frac{1}{N_t - m}...
+...m\vert),
+\qquad &amp;m= -(N_t-1)\ldots -1.\\
+\end{array} \right.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.2)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The prefactors in front of the sums ensure the proper normalization of
+the individual channels, <!-- MATH
+ $m = -(N_t-1)\ldots N_t-1$
+ -->
+<IMG
+ WIDTH="198" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img645.gif"
+ ALT="$m = -(N_t-1)\ldots N_t-1$">.  The asterisk
+denotes a complex conjugate. According to (<A HREF="node193.html#eq:dacf">A.2</A>),
+<IMG
+ WIDTH="57" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img646.gif"
+ ALT="$c_{ab}(m)$"> has <IMG
+ WIDTH="65" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img647.gif"
+ ALT="$2N_t - 1$"> data points and obeys the symmetry relation
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+c_{ab}(m) = c^*_{ba}(-m).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="351" HEIGHT="31" BORDER="0"
+ SRC="img648.gif"
+ ALT="\begin{displaymath}
+c_{ab}(m) = c^*_{ba}(-m).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.3)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+In case that <IMG
+ WIDTH="39" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img642.gif"
+ ALT="$a(k)$"> and <IMG
+ WIDTH="37" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img643.gif"
+ ALT="$b(k)$"> are identical, the corresponding
+correlation function <IMG
+ WIDTH="58" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img649.gif"
+ ALT="$c_{aa}(m)$"> is called an <I>auto</I>correlation
+function. We define now the extended, periodic time series
+<BR>
+<DIV ALIGN="CENTER"><A NAME="eq:a"></A><A NAME="eq:b"></A>
+<!-- MATH
+ \begin{eqnarray}
+A(k) &= &\left\{\begin{array}{ll}
+                a(k) &k = 0\ldots N_t-1\\
+                0    &k = N_t \ldots 2N_t-1\\
+                \end{array}\right.,\\B(k) &= &\left\{\begin{array}{ll}
+                b(k) &k = 0\ldots N_t-1\\
+                0    &k = N_t \ldots 2N_t-1\\
+                \end{array}\right.,
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="43" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img650.gif"
+ ALT="$\displaystyle A(k)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="230" HEIGHT="67" ALIGN="MIDDLE" BORDER="0"
+ SRC="img651.gif"
+ ALT="$\displaystyle \left\{\begin{array}{ll}
+a(k) &amp;k = 0\ldots N_t-1\\
+0 &amp;k = N_t \ldots 2N_t-1\\
+\end{array}\right.,$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.4)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="44" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img652.gif"
+ ALT="$\displaystyle B(k)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="228" HEIGHT="67" ALIGN="MIDDLE" BORDER="0"
+ SRC="img653.gif"
+ ALT="$\displaystyle \left\{\begin{array}{ll}
+b(k) &amp;k = 0\ldots N_t-1\\
+0 &amp;k = N_t \ldots 2N_t-1\\
+\end{array}\right.,$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.5)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which have the period <IMG
+ WIDTH="35" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img654.gif"
+ ALT="$2N_t$">,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+A(k) = A(k + m\cdot 2N_t),\qquad
+B(k) = B(k + m\cdot 2N_t),\qquad m = 0,\pm 1,\pm 2,\ldots.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="557" HEIGHT="31" BORDER="0"
+ SRC="img655.gif"
+ ALT="\begin{displaymath}
+A(k) = A(k + m\cdot 2N_t),\qquad
+B(k) = B(k + m\cdot 2N_t),\qquad m = 0,\pm 1,\pm 2,\ldots.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.6)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The discrete, cyclic correlation of <IMG
+ WIDTH="43" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img656.gif"
+ ALT="$A(k)$"> and <IMG
+ WIDTH="44" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img657.gif"
+ ALT="$B(k)$"> is defined as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+S_{AB}(m) = \sum_{k=0}^{2N_t-1} A^*(k)B(k+m).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:s"></A><IMG
+ WIDTH="405" HEIGHT="59" BORDER="0"
+ SRC="img658.gif"
+ ALT="\begin{displaymath}
+S_{AB}(m) = \sum_{k=0}^{2N_t-1} A^*(k)B(k+m).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.7)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+It is easy to see that
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+c_{ab}(m) = \frac{1}{N_t-|m|}S_{AB}(m),\qquad -(N_t-1) \le m \le N_t-1.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:c-s"></A><IMG
+ WIDTH="500" HEIGHT="46" BORDER="0"
+ SRC="img659.gif"
+ ALT="\begin{displaymath}
+c_{ab}(m) = \frac{1}{N_t-\vert m\vert}S_{AB}(m),\qquad -(N_t-1) \le m \le N_t-1.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.8)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Using the correlation theorem of discrete periodic functions
+[<A
+ HREF="node192.html#Brigham">74</A>], <IMG
+ WIDTH="68" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img104.gif"
+ ALT="$S_{AB}(m)$"> can be written as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+S_{AB}(m) = \frac{1}{2N_t}\sum_{n=0}^{2N_t-1} 
+\exp\left[2\pi i\left(\frac{mn}{2N_t}\right)\right]\,
+\tilde A^*\left(\frac{n}{2N_t}\right)\tilde B\left(\frac{n}{2N_t}\right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:s_fft"></A><IMG
+ WIDTH="504" HEIGHT="58" BORDER="0"
+ SRC="img660.gif"
+ ALT="\begin{displaymath}
+S_{AB}(m) = \frac{1}{2N_t}\sum_{n=0}^{2N_t-1}
+\exp\left[2\p...
+...\left(\frac{n}{2N_t}\right)\tilde B\left(\frac{n}{2N_t}\right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.9)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <!-- MATH
+ $\tilde A\left(\frac{n}{2N_t}\right)$
+ -->
+<IMG
+ WIDTH="68" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img661.gif"
+ ALT="$\tilde A\left(\frac{n}{2N_t}\right)$"> and <!-- MATH
+ $\tilde
+B\left(\frac{n}{2N_t}\right)$
+ -->
+<IMG
+ WIDTH="69" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img662.gif"
+ ALT="$\tilde
+B\left(\frac{n}{2N_t}\right)$"> are the discrete  Fourier transforms of
+<IMG
+ WIDTH="43" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img656.gif"
+ ALT="$A(k)$"> and <IMG
+ WIDTH="44" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img657.gif"
+ ALT="$B(k)$">, respectively:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+\tilde A\left(\frac{n}{2N_t}\right) &=
+&\sum_{k=0}^{2N_t-1} \exp\left[-2\pi i\left(\frac{n k}{2N_t}\right)\right]
+\,A(k),\\
+\tilde B\left(\frac{n}{2N_t}\right) &=
+&\sum_{k=0}^{2N_t-1} \exp\left[-2\pi i\left(\frac{n k}{2N_t}\right)\right]
+\,B(k).
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="78" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img663.gif"
+ ALT="$\displaystyle \tilde A\left(\frac{n}{2N_t}\right)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="240" HEIGHT="72" ALIGN="MIDDLE" BORDER="0"
+ SRC="img664.gif"
+ ALT="$\displaystyle \sum_{k=0}^{2N_t-1} \exp\left[-2\pi i\left(\frac{n k}{2N_t}\right)\right]
+ A(k),$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.10)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="79" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img665.gif"
+ ALT="$\displaystyle \tilde B\left(\frac{n}{2N_t}\right)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="241" HEIGHT="72" ALIGN="MIDDLE" BORDER="0"
+ SRC="img666.gif"
+ ALT="$\displaystyle \sum_{k=0}^{2N_t-1} \exp\left[-2\pi i\left(\frac{n k}{2N_t}\right)\right]
+ B(k).$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.11)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+If the Fourier transforms of the signals <IMG
+ WIDTH="43" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img656.gif"
+ ALT="$A(k)$"> and <IMG
+ WIDTH="44" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img657.gif"
+ ALT="$B(k)$"> as well as
+the inverse transform in (<A HREF="node193.html#eq:s_fft">A.9</A>) are computed by FFT,
+<IMG
+ WIDTH="68" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img104.gif"
+ ALT="$S_{AB}(m)$"> can be computed by <!-- MATH
+ $\propto N_t\log_2(N_t)$
+ -->
+<IMG
+ WIDTH="111" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img639.gif"
+ ALT="$\propto N_t \log_2(N_t)$"> instead of
+<IMG
+ WIDTH="48" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img638.gif"
+ ALT="$\propto N_t^2$"> multiplications. It is sometimes said that the FFT
+method induces spurious correlations. We emphasize that this is only
+the case if the time series <IMG
+ WIDTH="39" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img642.gif"
+ ALT="$a(k)$"> and <IMG
+ WIDTH="37" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img643.gif"
+ ALT="$b(k)$"> are not properly
+extended, as indicated in Eqs. (<A HREF="node193.html#eq:a">A.4</A>) and (<A HREF="node193.html#eq:b">A.5</A>). The FFT
+method and the direct scheme (<A HREF="node193.html#eq:dacf">A.2</A>) give, apart from
+round-off errors, <I>identical results</I>.
+
+<P>
+In many cases not only the computation of a correlation function is
+required, but also the computation of its Fourier spectrum. In
+principle one could use the product <!-- MATH
+ $\tilde
+A^*\left(\frac{n}{2N_t}\right) \tilde B\left(\frac{n}{2N_t}\right)$
+ -->
+<IMG
+ WIDTH="141" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img667.gif"
+ ALT="$\tilde
+A^*\left(\frac{n}{2N_t}\right) \tilde B\left(\frac{n}{2N_t}\right)$">
+which is already available as an intermediate step in the computation
+of <IMG
+ WIDTH="68" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img104.gif"
+ ALT="$S_{AB}(m)$"> according to (<A HREF="node193.html#eq:s_fft">A.9</A>). This would, however, not
+be a good estimate for the spectrum of <IMG
+ WIDTH="57" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img646.gif"
+ ALT="$c_{ab}(m)$"> [<A
+ HREF="node192.html#Papoulis:1984">75</A>]. In
+<I>n</I>MOLDYN all spectra are smoothed by applying a window in the time
+domain [<A
+ HREF="node192.html#Papoulis:1984">75</A>]: 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+P_{ab}\left(\frac{n}{2N_t}\right) =
+\Delta t\cdot \sum_{m=-(N_t-1)}^{N_t-1} 
+\exp\left[-2\pi i\left(\frac{n m}{2N_t}\right)\right]
+\,W(m)\,\frac{1}{N-|m|}S_{AB}(m).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="556" HEIGHT="63" BORDER="0"
+ SRC="img668.gif"
+ ALT="\begin{displaymath}
+P_{ab}\left(\frac{n}{2N_t}\right) =
+\Delta t\cdot \sum_{m=-(...
+...2N_t}\right)\right]
+ W(m) \frac{1}{N-\vert m\vert}S_{AB}(m).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.12)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The time step <IMG
+ WIDTH="27" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img121.gif"
+ ALT="$\Delta t$"> in front of the sum yields the proper
+normalization of the spectrum. In <I>n</I>MOLDYN a Gaussian window
+[<A
+ HREF="node192.html#Harris">76</A>] is used:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+W(m) = \exp\left[
+-\frac{1}{2}\left(\alpha\frac{|m|}{N_t-1}\right)^2
+\right],
+\qquad m = -(N_t-1)\ldots N_t-1.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:gauss_window"></A><IMG
+ WIDTH="522" HEIGHT="54" BORDER="0"
+ SRC="img669.gif"
+ ALT="\begin{displaymath}
+W(m) = \exp\left[
+-\frac{1}{2}\left(\alpha\frac{\vert m\vert}{N_t-1}\right)^2
+\right],
+\qquad m = -(N_t-1)\ldots N_t-1.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(A.13)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Its widths in the time and frequency domain are <!-- MATH
+ $\sigma_t = \alpha/T$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img161.gif"
+ ALT="$\sigma_t=\alpha/T$">
+and <!-- MATH
+ $\sigma_\nu = 1/(2\pi\sigma_t)$
+ -->
+<IMG
+ WIDTH="114" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img670.gif"
+ ALT="$\sigma_\nu = 1/(2\pi\sigma_t)$">, respectively. We recall that <!-- MATH
+ $T =
+(N_t-1)\cdot\Delta t$
+ -->
+<IMG
+ WIDTH="139" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img641.gif"
+ ALT="$T = (N_t-1)\cdot\Delta t$"> is the length of the simulation. <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img671.gif"
+ ALT="$\sigma_\nu$"> 
+corresponds to the width of the resolution function of the Fourier spectrum.
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3783"
+  HREF="node194.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3779"
+  HREF="nMOLDYN_for_HTML.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3773"
+  HREF="node192.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3781"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3784"
+  HREF="node194.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html3780"
+  HREF="nMOLDYN_for_HTML.html">nMOLDYN_for_HTML</A>
+<B> Previous:</B> <A NAME="tex2html3774"
+  HREF="node192.html">Bibliography</A>
+ &nbsp <B>  <A NAME="tex2html3782"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

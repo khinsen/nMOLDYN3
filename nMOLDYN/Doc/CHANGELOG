@@ -1,0 +1,370 @@
+This is the nMOLDYN version history file.
+
+3.0.9 & 3.0.10 (March 2011):
+============================
+
+Bug fixes:
+----------
+    - some GUI dependancy in the core code removed
+    - small bug introduced in the version 3.0.8 in the MaterialsStudio converter
+    - TrajectoryConversionDialog.py: typo that makes VASP converter crash    
+    - GlobalMotionFilterTrajectory: the initial configuration changed at each step
+    - bug fix for running analyses in cluster mode
+    - bug fix in CDOS tests: wrong calculation for the energy fhwm corresponding to the 
+      old fft window length parameter
+    - bug in Master.py: taskName was not initialized for the Parallel classes.
+    - bugs in all scattering related analysis due to the adding of conversion factor.
+        
+News:
+-----
+    - the stability tests were rewritten much better
+    - made "MacPortable" (thanks to Konrad Hinsen for the port file)
+    - (re)introduced the possibility to perform a selection based on a function
+    - added a LAMMPS file converter
+    - added HBondSurvivalAnalysis analysis
+    - (Re)introduced the possibility to select different units (time, distance, frequency, q).
+    - new qvector generator (the anisotropic case is treated in reciprocal space)
+    - introduced a GlobalVariables modules to store a few global variables
+
+Updates:
+--------
+    - nMOLDYN compatible with Scientific >= 2.8.0
+    - some internal changes (directories renamed/moved, files renamed/moved ...)
+    - harmonized the output of some of the scattering related properties (DISF, DCSF, EISF, DISFGA)
+    - recomputed the fwhm_e for a correct comparison with nMOLDYN2.2.5
+    - some preferences variables removed
+    - no need to declare a path for acrobat reader on MacOS
+    - all the class are made python3 compatible (minimal inheritance from object)
+    - improved the Error handler. More information about the error that occured.
+    - simplified the PREFERENCES (not use singleton class anymore)
+    - added a PREFERENCE to select which DB to use (MMTK or nMOLDYN)
+    - GlobalMotionFilteredTrajectory: added the "target" parameter used to store in output a selection different from the one used to perform the global motion filtering
+    - the nMOLDYN analysis input script used for a parallel cluster run can be launched with the taskname as argument
+    - Materials Studio converters: the atoms are stored by block molecules with ascending xtd index order.
+    - cythonized the pyx files and the setup.py
+    - modified the setup script to suit for a Windows-64 bit build.
+    - moved out the test trajectories from the nMOLDYN/Tests directory to the nMOLDYN/Trajectories directory
+    - suppressed (thanks Konrad) all the global variables --> no need for Config.py file anymore
+    
+######################################################################
+
+3.0.8 (August 2010):
+====================
+
+Bug fixes:
+----------
+    - bug when setting the universe hierarchy for objects of MMTK Atom class: only the first 
+      atom name was retained preventing from selecting the other ones from the selection dialog.
+    - added events grabber for the parent dialog when closing the PyroServerDialog dialog.
+    - added events grabber for the parent dialog when closing the SelectionDialog dialog.
+    - Added an error message when the documentation in PDF format could not be opened.
+    - nMOLDYN/Core/Monitoring.py: bug when setting the number of free procs on windows for a non 
+      admin user.
+    - bug in the VASP converter when mapping the coordinates to the atomic contents
+    - bug in coordination number analysis when selecting a specific subset of atoms
+    
+News:
+-----
+    - added a CASTEP to MMTK NetCDF trajectory converter.
+    - added the cartesian position autocorrelation function (by Konrad Hinsen))
+      
+Updates:
+--------
+    - Changed the format for the file storing the datas exported from a plot: the 3 first lines 
+      start now with a '#' and there is no blank line between those 3 lines and the data block.
+    - some small modifications in the README file about a known bug when using Pyro server
+      on a windows machine    
+    - some code cleaning in nMOLDYN/Core/IO.py    
+    - the trajectory converters dialog were redesigned by adding a generic class in top of 
+      them.
+    - some changes in the repository structure
+    
+######################################################################
+
+3.0.7 (June 2010):
+======
+
+Bug fixes:
+----------
+    - all setup.cfg files are excluded from the MANIFEST when building a sdist distribution
+    - bug when exporting a plot to an ASCII file, the axis name were the ones of the last plot
+    - some bug fix in the Materials Studio converters
+    - the atom selection mechanism from a file was buggy when the full path contained some spaces
+    
+News:
+-----
+    - new converter from a PDB frame to a MMTK NetCDF single frame trajectory.
+    - new analysis: density profile used for reflectometry studies
+    - better guess of the atom type in the DL_POLY converter: based on the compulsory atomic 
+      mass stored in the FIELD file
+
+######################################################################
+
+3.0.6:
+======
+
+Bug fixes:
+----------
+    - the 'name' attribute of the object was not considered when assigning the nMOLDYN name to an object.
+    - bug fix in readXTDFile method of Discover/Forcite converter.
+    - GlobalMotionFilteredTrajectory: the principal axis transformation setup for the first frame was actually not performed. 
+
+
+News:
+-----
+    - nMOLDYN/Chemistry/Chemistry.py: added a look-up table from atomic mass (with one decimal) to atomic symbol
+    - nMOLDYN/Core/IO.py: improvements in DL_POLY converter when guessing atom symbol from FIELD topology file.
+
+
+######################################################################
+
+3.0.5:
+======
+    
+Bug fixes:
+----------
+    - The acroread_path configuration variable at start up was not set correctly on Windows
+    - Wrong formula implemented in PairDistributionFunction
+    - Smoothed Static Coherent Structur Factor analysis could not be launched
+    - Launching nMOLDYN on command-line using a script with -i options did not work properly
+    - When setting up the logfile, it was always put in the default location whatever the preferences values.
+    - When performing an analysis benchmark, when several test sets was run on a row, displaying the contents of a successful of
+      failed test of one of the test set always displayed the one of the last set.
+    - The group selection dialog was buggy
+    - The Reorientational Correlation Function was not properly normalized
+    - The Forcite trajectory converter did not work from the GUI
+    - The Discover trajectory converter did not work for system with no PBC
+    - Compatibility between 32/64 bit version (hopefully ...)
+
+News:
+-----
+    - A new documentation is available
+    - Parallelization is fully supported on Windows, Linux and hopefully Mac
+    - The Radial Distribution analysis has been renamed PairDistributionFunction
+    - Adding of DensityFunction calculation in PairDistributionFunction analysis
+    - Removed the "Check job status" onglet. It was not useful anymore because it
+      was redundant with the message displayed on the console and the logfile.
+      Moreover, it was not user-friendly to have to open a new nMOLDYN instance
+      to check for a running analysis o another instance ...
+    - Reintroduced the xrange and yrange settings in the plotting interface
+    - Some improvments in the Export plot functionnality
+    - Updated and refreshed the API (still many things to do here)
+    - Partial terms for msd, vacf and dos in cluded
+    - Internal code reorganization: Chemistry and Mathematics modules created.
+    - Back converter from NetCDF to VASP CONTCAR and XDATCAR
+    - New Windows installer
+    - nMOLDYN icon for windows version
+    - New version checker available in command-line and from the GUI.
+    - The CHANGELOG can be read from the GUI by settings in the preferences 
+      the path to a text editor
+
+To do:
+------
+    - New NetCDF plotter:
+          * several plots displayable
+          * do not use Tkagg anymore
+          * superplot button within a 2D plot
+          * Dialog with the variables name (+ None) and the settings
+    - Correct the paths that are not properly set with os.normpath
+    - Case of the paths defined in the preferences that does not exist
+      (e.g. PREFERENCES.outputfilepath triggers a crash at the end of 
+      the analysis if it does not exist)
+    - Create Write_Output_File_Header
+
+
+######################################################################
+
+3.0.4:
+======
+
+Bug fixes:
+----------
+    - Angular Correlation analysis
+    - Angular VACF analysis
+    - QHA analysis
+
+News:
+-----
+    - Lighter version for executables automatic search at start up. Should be faster now.
+    - New GUI for the effective mode viewer
+    - Added the 'groupinglevel' keyword in group selection in order to focus selection at 
+      different level in a molecule (e.g. for a protein: atom->chemical fragment->residue
+      ->chain->protein)
+    - DL_POLY trajectory conveerter: the keywords can now be in lower or upper case
+    - Added spatial density analysis (currently very slow)
+    - A version controller was implemented to check whether a nMOLDYN script is launched using
+      a newer version of nMOLDYN. This may trigger some conflicts when parsing some parameters
+      that have changed slightly.
+    - Added stability tests for AVACF, ISFG, EISF and ARA analysis
+
+To do:
+------
+
+######################################################################
+
+3.0.3:
+======
+
+Bug fixes:
+----------
+    - nMOLDYN could not be launched on machines where Tix was not installed.
+      The few Tix-widgets used in nMOLDYN were replaced by 
+      Tk equivalents:
+          * Tix.Meter --> TK.Scale
+          * Tix.NoteBook --> set of radiobuttons
+
+News:
+-----
+    - The extension files for some analysis are now provided 
+      in C. As a consequence, Pyrex does not necessary need to 
+      be installed.
+
+To do:
+------
+
+######################################################################
+
+3.0.2:
+======
+
+Bug fixes:
+----------
+    - The automatic search  for executables at start up did not work on Windows
+    - The Help menu was not disabled when acroread path was not set
+
+News:
+-----
+
+To do:
+------
+
+######################################################################
+
+3.0.1:
+======
+
+Bug fixes:
+----------
+
+News:
+-----
+    - Added the Angular Correlation analysis
+    - The ncdump and ncgen executables (3.6.1) are now provided with the installation on Windows
+
+To do:
+------
+
+######################################################################
+
+3.0.0:
+======
+
+Bug fixes:
+----------
+
+News:
+-----
+    - New analysis:
+      * Root Mean Square Deviation
+      * Radius Of Gyration
+      * Global Motion Filtered Trajectory
+      * Center Of Mass Trajectory
+      * Quasi Harmonic Analysis
+      * Static Coherent Structure Factor
+      * Radial Distribution Function
+      * Coordination Number
+      * ScrewFit Analysis
+      * NMR Order parameter
+      * NMR Order Parameter using Contact Model
+
+    - Others:
+      * global reorganization of the code
+      * brand new graphical user interface
+      * new plotting engine
+      * new trajectory converters
+      * new netCDF and ASCII converters
+      * preferences settings
+      * embedded documentation (HTML and  PDF formats)
+      * embedded API (HTML and PDF formats)
+      * embedded analysis benchmark
+      * online access to the mailing list
+      * job status
+
+To do:
+------
+
+######################################################################
+
+2.2.6:
+======
+
+Bug fixes:
+----------
+
+News:
+-----
+    - Calculation of Scattering Function can be made with isotropic, anisotropic 
+      and explicit list of Q vectors (See Documentation for details).
+
+    - Periodic Box dimensions (direct and reciprocal basis) are shown in "View" menu.
+
+    - DL_POLY trajectories can be opened directly from "File" menu.
+
+To do:
+------
+
+######################################################################
+
+2.2.4:
+======
+
+Bug fixes:
+----------
+
+News:
+-----
+    - Works under Windows using the standard Python for Windows (before it
+      worked only under Cygwin)
+
+To do:
+------
+
+######################################################################
+
+2.2.3:
+======
+
+Bug fixes:
+----------
+
+News:
+-----
+    - Compatibility with MMTK 2.5
+
+To do:
+------
+
+######################################################################
+
+2.0.1:
+======
+
+Bug fixes:
+----------
+
+    - The time information (first step/last step/skip) set in the 
+      graphical user interface was not taken into account in the
+      calculations.
+
+    - The graphical user interface (xMoldyn) did not work with
+      Python versions before 2.0.
+
+News:
+-----
+    - The scattering function plots (View-Display) show the
+      quantity and unit on the x-axis (time/frequency/q-length).
+
+To do:
+------
+
+######################################################################

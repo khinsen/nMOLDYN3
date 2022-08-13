@@ -1,0 +1,11 @@
+import os
+
+from nMOLDYN.GlobalVariables import GVAR
+
+pdb = os.path.join(GVAR['nmoldyn_trajs'], 'TrajectoryTest2_1.pdb')
+
+subset = [[3,4,5,1952,1953,1954,1955,1956,1957,1958,1959,1960]]
+
+frame = 0
+
+del os

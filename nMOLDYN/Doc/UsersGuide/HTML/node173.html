@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Parameters
+</TITLE>
+<META NAME="description" CONTENT="Parameters
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node174.html">
+<LINK REL="previous" HREF="node172.html">
+<LINK REL="up" HREF="node171.html">
+<LINK REL="next" HREF="node174.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3544"
+  HREF="node174.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3540"
+  HREF="node171.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3534"
+  HREF="node172.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3542"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3545"
+  HREF="node174.html">Output</A>
+<B> Up:</B> <A NAME="tex2html3541"
+  HREF="node171.html">Order Parameter</A>
+<B> Previous:</B> <A NAME="tex2html3535"
+  HREF="node172.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html3543"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008271200000000000000"></A>
+<A NAME="op_parameters"></A>
+<BR>
+Parameters
+<BR>
+</H4>
+Pressing the <B>Order Parameter</B> button will pop up the dialog shown on figure <A HREF="node173.html#fig:op">4.62</A>
+
+<DIV ALIGN="CENTER"><A NAME="fig:op"></A><A NAME="7720"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.62:</STRONG>
+The dialog from where the <I>OP</I> analysis will be set up and run.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="441" ALIGN="BOTTOM" BORDER="0"
+ SRC="img615.gif"
+ ALT="\includegraphics[width=10cm]{Figures/op.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The following input fields controls the parameters for the <A HREF=node4.html#tex2html758 NAME="22759"><I>OP</I></A> analysis:
+
+<P>
+
+<UL>
+<LI><B>Trajectory file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>traj_file</I> where <I>traj_file</I> is the name of the loaded trajectory
+<BR><B>Description:</B> the value of this widget can not be changed. It just recalls for information purpose the name
+of the trajectory file loaded for the analysis.
+
+<P>
+</LI>
+<LI><B>Frame selection</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>1:traj_length:1</I> where <I>traj_length</I> is the number of frames of the trajectory.
+<BR><B>Description:</B> this widget allows to select the trajectory frames that will be used for the analysis. This must
+be a string of the form:
+
+<BR>
+<BR><I>first:last:step</I>
+
+<BR>
+<BR>
+where <I>first</I> is an integer specifying the first frame number to consider, <I>last</I> is an integer specifying the last 
+frame number to consider and <I>step</I> is an integer specifying the step number between two frames.
+
+<P>
+For example,
+
+<UL>
+<LI><I>2:10:3</I> will select the frames 2, 5 and 8.
+</LI>
+<LI><I>1:5:1</I> will select the frames 1, 2, 3, 4 and 5.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>Bond selection</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>all</I>
+<BR><B>Description:</B> this widget allows the selection of the pairs of atoms from which Eq. <A HREF="node172.html#eq:op_cii">4.195</A> will 
+be computed. See section <A HREF="node45.html#group_selection">4.2.2.3</A> for more details. Any selection that does not contain exactly two atoms will be discarded.
+
+<P>
+</LI>
+<LI><B>Atom order</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>no</I>
+<BR><B>Description:</B> this widget allows to specify the order in which the atoms <B>a1</B>, <B>a2</B> should be 
+ordered. By default, the order will be defined by <I>n</I>MOLDYN by ranking for the atoms of each bond by their
+<A HREF=node4.html#tex2html759 NAME="22766">MMTK</A> name. Otherwise, the entered value must have the following specific format:
+
+<BR>
+<BR><I><A HREF=node4.html#tex2html756 NAME="22745">MMTK</A> name for <B>a1</B>,<A HREF=node4.html#tex2html757 NAME="22752">MMTK</A> name for <B>a2</B></I>
+
+<P>
+</LI>
+<LI><B>OP output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>OP_traj_file.nc</I> where <I>traj_file.nc</I> is the name of the input trajectory
+<BR><B>Description:</B> this widget allows to enter the name of the <A HREF=node4.html#tex2html760 NAME="22773">NetCDF</A> output file of the <A HREF=node4.html#tex2html761 NAME="22780"><I>OP</I></A> analysis. A <A HREF=node4.html#tex2html762 NAME="22787">CDL</A> 
+version of the <A HREF=node4.html#tex2html763 NAME="22794">NetCDF</A> output file is also automatically created with <I>OP_traj_file.cdl</I> name.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3544"
+  HREF="node174.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3540"
+  HREF="node171.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3534"
+  HREF="node172.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3542"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3545"
+  HREF="node174.html">Output</A>
+<B> Up:</B> <A NAME="tex2html3541"
+  HREF="node171.html">Order Parameter</A>
+<B> Previous:</B> <A NAME="tex2html3535"
+  HREF="node172.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html3543"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

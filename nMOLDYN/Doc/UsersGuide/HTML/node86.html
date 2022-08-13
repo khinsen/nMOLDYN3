@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Quaternions and rotations.</TITLE>
+<META NAME="description" CONTENT="Quaternions and rotations.">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node87.html">
+<LINK REL="previous" HREF="node85.html">
+<LINK REL="up" HREF="node84.html">
+<LINK REL="next" HREF="node87.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2426"
+  HREF="node87.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2422"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2416"
+  HREF="node85.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2424"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2427"
+  HREF="node87.html">Solution of the minimization</A>
+<B> Up:</B> <A NAME="tex2html2423"
+  HREF="node84.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2417"
+  HREF="node85.html">Optimal superposition.</A>
+ &nbsp <B>  <A NAME="tex2html2425"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H5><A NAME="SECTION008249120000000000000">
+Quaternions and rotations.</A>
+</H5> The rotational minimization problem can be elegantly solved by using quaternion algebra.
+Quaternions are so-called hypercomplex numbers, having a real unit, <IMG
+ WIDTH="16" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img186.gif"
+ ALT="${\bf 1}$">, and three imaginary units, 
+<IMG
+ WIDTH="14" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img187.gif"
+ ALT="${\bf I}$">, <IMG
+ WIDTH="17" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img188.gif"
+ ALT="${\bf J}$">, and <IMG
+ WIDTH="22" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img189.gif"
+ ALT="${\bf K}$">. Since <!-- MATH
+ ${\bf I}{\bf J} = {\bf K}$
+ -->
+<IMG
+ WIDTH="63" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img190.gif"
+ ALT="${\bf I}{\bf J} = {\bf K}$"> (cyclic), quaternion multiplication is not commutative. 
+A possible matrix representation of an arbitrary quaternion,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\bf A} = a_0\cdot{\bf 1} + a_1\cdot{\bf I} + a_2\cdot{\bf J} + 
+          a_3\cdot{\bf K},
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="415" HEIGHT="30" BORDER="0"
+ SRC="img191.gif"
+ ALT="\begin{displaymath}
+{\bf A} = a_0\cdot{\bf 1} + a_1\cdot{\bf I} + a_2\cdot{\bf J} +
+a_3\cdot{\bf K},
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.53)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+reads 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\bf A} = \left( \begin{array}{rrrr}
+                  a_0 &-a_1 &-a_2 &-a_3 \\
+                  a_1 & a_0 &-a_3 & a_2 \\
+                  a_2 & a_3 & a_0 &-a_1 \\
+                  a_3 &-a_2 & a_1 & a_0
+                  \end{array} 
+           \right).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:a_mat"></A><IMG
+ WIDTH="402" HEIGHT="93" BORDER="0"
+ SRC="img192.gif"
+ ALT="\begin{displaymath}
+{\bf A} = \left( \begin{array}{rrrr}
+a_0 &amp;-a_1 &amp;-a_2 &amp;-a_3...
+...&amp; a_0 &amp;-a_1 \\
+a_3 &amp;-a_2 &amp; a_1 &amp; a_0
+\end{array}
+\right).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.54)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The components <IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img193.gif"
+ ALT="$a_\nu$"> are real numbers. Similarly as normal complex numbers allow one to represent rotations in a plane, quaternions 
+allow one to represent rotations in space. Consider the quaternion representation of a vector <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img194.gif"
+ ALT="${\bf r}$">, which is given by 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\bf R} = x\cdot{\bf I} + y\cdot{\bf J} + z\cdot{\bf K},
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="373" HEIGHT="30" BORDER="0"
+ SRC="img195.gif"
+ ALT="\begin{displaymath}
+{\bf R} = x\cdot{\bf I} + y\cdot{\bf J} + z\cdot{\bf K},
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.55)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and perform the operation
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\bf R}' = {\bf Q}{\bf R}{\bf Q}^T,
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="332" HEIGHT="30" BORDER="0"
+ SRC="img196.gif"
+ ALT="\begin{displaymath}
+{\bf R}' = {\bf Q}{\bf R}{\bf Q}^T,
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.56)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="22" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img197.gif"
+ ALT="${\bf Q}$"> is a normalized quaternion,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\|{\bf Q}\|^2 \doteq
+q_0^2 + q_1^2 + q_2^2 + q_3^2 = \frac{1}{4}tr\{{\bf Q}^T{\bf Q}\} = 1.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="448" HEIGHT="42" BORDER="0"
+ SRC="img198.gif"
+ ALT="\begin{displaymath}
+\Vert{\bf Q}\Vert^2 \doteq
+q_0^2 + q_1^2 + q_2^2 + q_3^2 = \frac{1}{4}tr\{{\bf Q}^T{\bf Q}\} = 1.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.57)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The symbol <IMG
+ WIDTH="21" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img199.gif"
+ ALT="$tr$"> stands for `trace'. We note that a normalized quaternion is represented by an <EM>orthogonal</EM> <IMG
+ WIDTH="45" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img200.gif"
+ ALT="$4\times 4$"> 
+matrix. <IMG
+ WIDTH="26" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img201.gif"
+ ALT="${\bf R}'$"> may then be written  as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\bf R}' = x'\cdot{\bf I} + y'\cdot{\bf J} + z'\cdot{\bf K},
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="382" HEIGHT="30" BORDER="0"
+ SRC="img202.gif"
+ ALT="\begin{displaymath}
+{\bf R}' = x'\cdot{\bf I} + y'\cdot{\bf J} + z'\cdot{\bf K},
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.58)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where the components <IMG
+ WIDTH="63" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img203.gif"
+ ALT="$x',y',z'$">, abbreviated as <IMG
+ WIDTH="19" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img204.gif"
+ ALT="${\bf r}'$">, are given by
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\bf r}' = {\bf D}({\bf q}){\bf r}.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="324" HEIGHT="31" BORDER="0"
+ SRC="img205.gif"
+ ALT="\begin{displaymath}
+{\bf r}' = {\bf D}({\bf q}){\bf r}.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.59)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The matrix <!-- MATH
+ ${\bf D}({\bf q})$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img172.gif"
+ ALT="${\bf D}({\bf q})$"> is the rotation matrix defined in
+(<A HREF="node85.html#eq:d_quat">4.52</A>).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2426"
+  HREF="node87.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2422"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2416"
+  HREF="node85.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2424"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2427"
+  HREF="node87.html">Solution of the minimization</A>
+<B> Up:</B> <A NAME="tex2html2423"
+  HREF="node84.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2417"
+  HREF="node85.html">Optimal superposition.</A>
+ &nbsp <B>  <A NAME="tex2html2425"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

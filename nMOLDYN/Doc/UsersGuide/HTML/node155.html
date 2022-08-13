@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node156.html">
+<LINK REL="previous" HREF="node154.html">
+<LINK REL="up" HREF="node154.html">
+<LINK REL="next" HREF="node156.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3320"
+  HREF="node156.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3316"
+  HREF="node154.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3310"
+  HREF="node154.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3318"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3321"
+  HREF="node156.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3317"
+  HREF="node154.html">Pair Distribution Function</A>
+<B> Previous:</B> <A NAME="tex2html3311"
+  HREF="node154.html">Pair Distribution Function</A>
+ &nbsp <B>  <A NAME="tex2html3319"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008261100000000000000"></A>
+<A NAME="pdf_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+The <A HREF=node4.html#tex2html635 NAME="21762"><I>PDF</I></A> is an example of a pair correlation function, which describes how, on average, 
+the atoms in a system are radially packed around each other. This proves to be a particularly effective way of describing 
+the average structure of disordered molecular systems such as liquids. Also in systems like liquids, where there is 
+continual movement of the atoms and a single snapshot of the system shows only the instantaneous disorder, it is extremely 
+useful to be able to deal with the average structure.
+
+<P>
+The <A HREF=node4.html#tex2html636 NAME="21769"><I>PDF</I></A> is useful in other ways. For example, it is something that can be deduced experimentally from x-ray or neutron 
+diffraction studies, thus providing a direct comparison between experiment and simulation. It can also be used in 
+conjunction with the interatomic pair potential function to calculate the internal energy of the system, usually quite 
+accurately.
+
+<P>
+Mathematically, the <A HREF=node4.html#tex2html637 NAME="21776"><I>PDF</I></A> can be computed using the following formula:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+PDF(r)=\sum_{I = 1,J\ge I}^{N_{species}}n_In_J \omega_I \omega_J g_{IJ}(r)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="413" HEIGHT="64" BORDER="0"
+ SRC="img536.gif"
+ ALT="\begin{displaymath}
+PDF(r)=\sum_{I = 1,J\ge I}^{N_{species}}n_In_J \omega_I \omega_J g_{IJ}(r)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.186)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="64" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.gif"
+ ALT="$N_{species}$"> is the number of selected species, <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.gif"
+ ALT="$n_I$"> and <IMG
+ WIDTH="26" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img432.gif"
+ ALT="$n_J$"> are respectively the numbers of atoms of species 
+<I>I</I> and <I>J</I>, <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img445.gif"
+ ALT="$\omega_I$"> and <IMG
+ WIDTH="27" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img537.gif"
+ ALT="$\omega_J$"> respectively the weights for species <I>I</I> and <I>J</I> 
+(see Section <A HREF="node35.html#weighting_scheme">4.2.1</A> for more details) and <!-- MATH
+ $PDF_{\alpha\beta}(r)$
+ -->
+<IMG
+ WIDTH="86" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img538.gif"
+ ALT="$PDF_{\alpha\beta}(r)$"> is the partial <A HREF=node4.html#tex2html638 NAME="21783"><I>PDF</I></A> for <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img61.gif"
+ ALT="$I$"> 
+and <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img539.gif"
+ ALT="$J$"> species that can be defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+PDF_{IJ}(r) = \frac{\left\langle\sum_{\alpha = 1}^{n_I} n_{\alpha J}(r)\right\rangle}{n_I\rho_J 4\pi r^2dr}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:gij"></A><IMG
+ WIDTH="388" HEIGHT="47" BORDER="0"
+ SRC="img540.gif"
+ ALT="\begin{displaymath}
+PDF_{IJ}(r) = \frac{\left\langle\sum_{\alpha = 1}^{n_I} n_{\alpha J}(r)\right\rangle}{n_I\rho_J 4\pi r^2dr}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.187)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img541.gif"
+ ALT="$\rho_J$"> is the density of atom of specie <I>J</I> and <!-- MATH
+ $n_{\alpha J}(r)$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img542.gif"
+ ALT="$n_{\alpha J}(r)$"> is the mean number of atoms of specie 
+<I>J</I> in a shell of width <I>dr</I> at distance <I>r</I> of the atom <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.gif"
+ ALT="$\alpha$"> of specie <I>I</I>.
+
+<P>
+From the computation of <A HREF=node4.html#tex2html639 NAME="21790"><I>PDF</I></A>, two related quantities are computed in <I>n</I>MOLDYN, the <A HREF=node4.html#tex2html640 NAME="21797"><B>R</B>adial-<B>D</B>istribution <B>F</B>unction (<I>RDF</I>)</A> defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+RDF(r) = 4 \pi r^2 \rho_0 PDF(r)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="381" HEIGHT="31" BORDER="0"
+ SRC="img543.gif"
+ ALT="\begin{displaymath}
+RDF(r) = 4 \pi r^2 \rho_0 PDF(r)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.188)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and the <A HREF=node4.html#tex2html641 NAME="21804"><B>T</B>otal-<B>C</B>orrelation <B>F</B>unction (<I>TCF</I>)</A> defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+TCF(r) = 4\pi r \rho_0 (PDF(r) - 1.0)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="405" HEIGHT="31" BORDER="0"
+ SRC="img544.gif"
+ ALT="\begin{displaymath}
+TCF(r) = 4\pi r \rho_0 (PDF(r) - 1.0)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.189)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="23" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img545.gif"
+ ALT="$\rho_0$"> is the average atomic density defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\rho_0 = \frac{N}{V}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="309" HEIGHT="42" BORDER="0"
+ SRC="img546.gif"
+ ALT="\begin{displaymath}
+\rho_0 = \frac{N}{V}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.190)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <I>N</I> is the total number of atoms of the system and <IMG
+ WIDTH="20" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img547.gif"
+ ALT="$V$"> the volume of the simulation box.
+
+<P>
+In <I>n</I>MOLDYN, the <A HREF=node4.html#tex2html642 NAME="21811"><I>PDF</I></A>, the <A HREF=node4.html#tex2html643 NAME="21818"><I>RDF</I></A> and the <A HREF=node4.html#tex2html644 NAME="21825"><I>TCF</I></A> are further splitted into an intra-and inter-molecular parts 
+which added together give respectively the total <A HREF=node4.html#tex2html645 NAME="21832"><I>PDF</I></A>, <A HREF=node4.html#tex2html646 NAME="21839"><I>RDF</I></A> and <A HREF=node4.html#tex2html647 NAME="21846"><I>TCF</I></A>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3320"
+  HREF="node156.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3316"
+  HREF="node154.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3310"
+  HREF="node154.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3318"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3321"
+  HREF="node156.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3317"
+  HREF="node154.html">Pair Distribution Function</A>
+<B> Previous:</B> <A NAME="tex2html3311"
+  HREF="node154.html">Pair Distribution Function</A>
+ &nbsp <B>  <A NAME="tex2html3319"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

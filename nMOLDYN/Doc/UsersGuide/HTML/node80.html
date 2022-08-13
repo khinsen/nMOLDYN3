@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node81.html">
+<LINK REL="previous" HREF="node79.html">
+<LINK REL="up" HREF="node79.html">
+<LINK REL="next" HREF="node81.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2347"
+  HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2343"
+  HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2337"
+  HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2345"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2348"
+  HREF="node81.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2344"
+  HREF="node79.html">Global Motion Filtered Trajectory</A>
+<B> Previous:</B> <A NAME="tex2html2338"
+  HREF="node79.html">Global Motion Filtered Trajectory</A>
+ &nbsp <B>  <A NAME="tex2html2346"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008248100000000000000"></A>
+<A NAME="gmft_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+It is often of interest to separate global motion from internal motion, both for quantitative analysis 
+and for visualization by animated display. Obviously, this can be done under the hypothesis that global and internal 
+motions are decoupled within the length and timescales of the analysis. <I>n</I>MOLDYN can create <A HREF=node4.html#tex2html383 NAME="19291"><I>GMFT</I></A> by filtering out global 
+motions (made of the three translational and rotational degrees of freedom), either on the whole system or on an user-defined subset, 
+by fitting it to a reference structure (usually the first frame of the <A HREF=node4.html#tex2html384 NAME="19298">MD</A>). Global motion filtering uses a straightforward 
+algorithm:
+
+<UL>
+<LI>for the first frame, find the linear transformation such that the coordinate origin becomes the center of mass of 
+the system and its principal axes of inertia are parallel to the three coordinates axes (also called principal axes 
+transformation),
+</LI>
+<LI>this provides a reference configuration <!-- MATH
+ ${\cal C}_{ref}$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img165.gif"
+ ALT="${\cal C}_{ref}$">,
+</LI>
+<LI>for any other frames <I>f</I>, finds and applies the linear transformation that minimizes the RMS distance between 
+frame <I>f</I> and <!-- MATH
+ ${\cal C}_{ref}$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img165.gif"
+ ALT="${\cal C}_{ref}$">.
+</LI>
+</UL> 
+The result is stored in a new trajectory file that contains only internal motions. This analysis can be useful in case where diffusive 
+motions are not of interest or simply not accessible to the experiment (time resolution, powder analysis ...).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2347"
+  HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2343"
+  HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2337"
+  HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2345"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2348"
+  HREF="node81.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2344"
+  HREF="node79.html">Global Motion Filtered Trajectory</A>
+<B> Previous:</B> <A NAME="tex2html2338"
+  HREF="node79.html">Global Motion Filtered Trajectory</A>
+ &nbsp <B>  <A NAME="tex2html2346"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

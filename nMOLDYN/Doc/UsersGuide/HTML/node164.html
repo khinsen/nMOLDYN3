@@ -1,0 +1,397 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Parameters
+</TITLE>
+<META NAME="description" CONTENT="Parameters
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node165.html">
+<LINK REL="previous" HREF="node163.html">
+<LINK REL="up" HREF="node162.html">
+<LINK REL="next" HREF="node165.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3430"
+  HREF="node165.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3426"
+  HREF="node162.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3420"
+  HREF="node163.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3428"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3431"
+  HREF="node165.html">Output</A>
+<B> Up:</B> <A NAME="tex2html3427"
+  HREF="node162.html">Spatial Density</A>
+<B> Previous:</B> <A NAME="tex2html3421"
+  HREF="node163.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html3429"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008263200000000000000"></A>
+<A NAME="sd_parameters"></A>
+<BR>
+Parameters
+<BR>
+</H4>
+Pressing the <B>Spatial Density</B> button will pop up the dialog shown on figure <A HREF="node164.html#fig:sd">4.60</A>
+
+<DIV ALIGN="CENTER"><A NAME="fig:sd"></A><A NAME="7709"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.60:</STRONG>
+The dialog from where the <I>SD</I> analysis will be set up and run.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="606" ALIGN="BOTTOM" BORDER="0"
+ SRC="img583.gif"
+ ALT="\includegraphics[width=10cm]{Figures/sd.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The following input fields controls the parameters for the <A HREF=node4.html#tex2html722 NAME="22469"><I>SD</I></A> analysis:
+
+<P>
+
+<UL>
+<LI><B>Trajectory file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>traj_file</I> where <I>traj_file</I> is the name of the loaded trajectory
+<BR><B>Description:</B> the value of this widget can not be changed. It just recalls for information purpose the name
+of the trajectory file loaded for the analysis.
+
+<P>
+</LI>
+<LI><B>Frame selection</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>1:traj_length:1</I> where <I>traj_length</I> is the number of frames of the trajectory.
+<BR><B>Description:</B> this widget allows to select the trajectory frames that will be used for the analysis. This must
+be a string of the form:
+
+<BR>
+<BR><I>first:last:step</I>
+
+<BR>
+<BR>
+where <I>first</I> is an integer specifying the first frame number to consider, <I>last</I> is an integer specifying the last 
+frame number to consider and <I>step</I> is an integer specifying the step number between two frames.
+
+<P>
+For example,
+
+<UL>
+<LI><I>2:10:3</I> will select the frames 2, 5 and 8.
+</LI>
+<LI><I>1:5:1</I> will select the frames 1, 2, 3, 4 and 5.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>Distances (in nm)</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>0.0:1.0:0.1</I>.
+<BR><B>Description:</B> this widget allows to select distances in <I>nm</I> at which the <A HREF=node4.html#tex2html723 NAME="22476"><I>CN</I></A> will be computed. This must
+be a string of the form:
+
+<BR>
+<BR><!-- MATH
+ $r_{min}:r_{max}:r_{step}$
+ -->
+<IMG
+ WIDTH="137" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img549.gif"
+ ALT="$r_{min}:r_{max}:r_{step}$">
+
+<BR>
+<BR>
+In this way, the <A HREF=node4.html#tex2html724 NAME="22483"><I>CN</I></A> will be calculated for discrete <I>r</I> defined as 
+<!-- MATH
+ $r_m = r_{min} + m \cdot r_{step}$
+ -->
+<IMG
+ WIDTH="166" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img550.gif"
+ ALT="$r_m = r_{min} + m \cdot r_{step}$"> where <IMG
+ WIDTH="40" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img551.gif"
+ ALT="$r_{min}$"> is the smallest <I>r</I> , <IMG
+ WIDTH="39" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img552.gif"
+ ALT="$r_{step}$"> is the 
+distance between two consecutive <I>r</I> values and with <I>m</I> running from 0 to <IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img553.gif"
+ ALT="$N_{rvalues}$"> 
+where <IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img553.gif"
+ ALT="$N_{rvalues}$"> is the number of selected <I>r</I> values defined as 
+<!-- MATH
+ $N_{rvalues}= E(\frac{r_{max} - r_{min}}{r_{step}}) + 1$
+ -->
+<IMG
+ WIDTH="221" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img554.gif"
+ ALT="$N_{rvalues}= E(\frac{r_{max} - r_{min}}{r_{step}}) + 1$"> where <IMG
+ WIDTH="42" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img555.gif"
+ ALT="$r_{max}$"> is the 
+radius of the biggest <I>r</I> value .
+
+<P>
+For example,
+
+<UL>
+<LI><I>0:10:1</I> will compute <A HREF=node4.html#tex2html725 NAME="22490"><I>PDF</I></A> for <I>r = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</I> <I>nm</I>.
+</LI>
+<LI><I>3:7:1.2</I> will compute <A HREF=node4.html#tex2html726 NAME="22497"><I>PDF</I></A> for <I>r = 3, 4.2, 5.4, 6.6</I> <I>nm</I>.
+</LI>
+</UL>
+
+</LI>
+<LI><B>Theta values (in deg)</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>0.0:180.0:10.0</I>.
+<BR><B>Description:</B> this widget allows to select the spherical <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img404.gif"
+ ALT="$\theta$"> angle in <IMG
+ WIDTH="33" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img584.gif"
+ ALT="$\deg$"> at which the <A HREF=node4.html#tex2html727 NAME="22504"><I>SD</I></A> will be computed. 
+This must be a string of the form:
+
+<BR>
+<BR><!-- MATH
+ $\theta_{min}:\theta_{max}:\theta_{step}$
+ -->
+<IMG
+ WIDTH="138" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img585.gif"
+ ALT="$\theta_{min}:\theta_{max}:\theta_{step}$">
+
+<BR>
+<BR>
+In this way, the <A HREF=node4.html#tex2html728 NAME="22511"><I>SD</I></A> will be calculated for discrete <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img404.gif"
+ ALT="$\theta$"> values defined as 
+<!-- MATH
+ $\theta_m = \theta_{min} + m \cdot \theta_{step}$
+ -->
+<IMG
+ WIDTH="167" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img586.gif"
+ ALT="$\theta_m = \theta_{min} + m \cdot \theta_{step}$"> where <IMG
+ WIDTH="40" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img587.gif"
+ ALT="$\theta_{min}$"> is the minimum <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img404.gif"
+ ALT="$\theta$"> value, <IMG
+ WIDTH="40" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img588.gif"
+ ALT="$\theta_{step}$"> is 
+the step between two consecutive <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img404.gif"
+ ALT="$\theta$"> values and with <I>m</I> running from 0 to <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img569.gif"
+ ALT="$N_{\theta}$"> 
+where <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img569.gif"
+ ALT="$N_{\theta}$"> is the number of selected <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img404.gif"
+ ALT="$\theta$"> values defined as 
+<!-- MATH
+ $N_{\theta}= E(\frac{\theta_{max} - \theta_{min}}{\theta_{step}}) + 1$
+ -->
+<IMG
+ WIDTH="183" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img589.gif"
+ ALT="$N_{\theta}= E(\frac{\theta_{max} - \theta_{min}}{\theta_{step}}) + 1$"> where <IMG
+ WIDTH="42" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img590.gif"
+ ALT="$\theta_{max}$"> is the 
+maximum <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img404.gif"
+ ALT="$\theta$"> value.
+
+<P>
+</LI>
+<LI><B>Phi values (in deg)</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>-180.0:180.0:10.0</I>.
+<BR><B>Description:</B> this widget allows to select the spherical <IMG
+ WIDTH="17" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img571.gif"
+ ALT="$\phi$"> angle in <IMG
+ WIDTH="33" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img584.gif"
+ ALT="$\deg$"> at which the <A HREF=node4.html#tex2html729 NAME="22518"><I>SD</I></A> will be computed. 
+This must be a string of the form:
+
+<BR>
+<BR><!-- MATH
+ $\phi_{min}:\phi_{max}:\phi_{step}$
+ -->
+<IMG
+ WIDTH="145" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img591.gif"
+ ALT="$\phi_{min}:\phi_{max}:\phi_{step}$">
+
+<BR>
+<BR>
+In this way, the <A HREF=node4.html#tex2html730 NAME="22525"><I>SD</I></A> will be calculated for discrete <IMG
+ WIDTH="17" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img571.gif"
+ ALT="$\phi$"> values defined as 
+<!-- MATH
+ $\phi_m = \phi_{min} + m \cdot \phi_{step}$
+ -->
+<IMG
+ WIDTH="173" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img592.gif"
+ ALT="$\phi_m = \phi_{min} + m \cdot \phi_{step}$"> where <IMG
+ WIDTH="42" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img593.gif"
+ ALT="$\phi_{min}$"> is the minimum <IMG
+ WIDTH="17" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img571.gif"
+ ALT="$\phi$"> value, <IMG
+ WIDTH="42" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img594.gif"
+ ALT="$\phi_{step}$"> is 
+the step between two consecutive <IMG
+ WIDTH="17" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img571.gif"
+ ALT="$\phi$"> values and with <I>m</I> running from 0 to <IMG
+ WIDTH="29" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img570.gif"
+ ALT="$N_{\phi}$"> 
+where <IMG
+ WIDTH="29" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img570.gif"
+ ALT="$N_{\phi}$"> is the number of selected <IMG
+ WIDTH="17" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img571.gif"
+ ALT="$\phi$"> values defined as 
+<!-- MATH
+ $N_{\phi}= E(\frac{\phi_{max} - \phi_{min}}{\phi_{step}}) + 1$
+ -->
+<IMG
+ WIDTH="188" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img595.gif"
+ ALT="$N_{\phi}= E(\frac{\phi_{max} - \phi_{min}}{\phi_{step}}) + 1$"> where <IMG
+ WIDTH="44" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img596.gif"
+ ALT="$\phi_{max}$"> is the 
+maximum <IMG
+ WIDTH="17" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img571.gif"
+ ALT="$\phi$"> value.
+
+<P>
+</LI>
+<LI><B>Triplet selection</B>
+<BR><B>Format:</B> group selection string
+<BR><B>Default:</B> <I>all</I>
+<BR><B>Description:</B> this widget allows the selection of the triplets of atoms from which the analysis will be 
+performed. See Section <A HREF="node45.html#group_selection">4.2.2.3</A> for more details about this kind of selection. Any selection that does not 
+contain exactly three atoms will be discarded.
+
+<P>
+</LI>
+<LI><B>Atom order</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>no</I>
+<BR><B>Description:</B> this widget allows to specify the order in which the atoms <B>a1</B>, <B>a2</B> and <B>a3</B> should be 
+ordered. By default, the order will be defined by <I>n</I>MOLDYN by ranking for the atoms of each triplet by their
+<A HREF=node4.html#tex2html731 NAME="22532">MMTK</A> name. Otherwise, the entered value must have the following specific format:
+
+<BR>
+<BR><I><A HREF=node4.html#tex2html719 NAME="22448">MMTK</A> name for <B>a1</B>,<A HREF=node4.html#tex2html720 NAME="22455">MMTK</A> name for <B>a2</B>,<A HREF=node4.html#tex2html721 NAME="22462">MMTK</A> name for <B>a3</B></I>
+
+<P>
+</LI>
+<LI><B>Group selection</B>
+<BR><B>Format:</B> group selection string
+<BR><B>Default:</B> <I>all</I>
+<BR><B>Description:</B> this widget allows the selection of the group of atoms to consider in the analysis 
+(see Section <A HREF="node163.html#sd_theory">4.2.6.3</A>). See Section <A HREF="node45.html#group_selection">4.2.2.3</A> for more details about group selection.
+
+<P>
+</LI>
+<LI><B>SD output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>SD_traj_file.nc</I> where <I>traj_file.nc</I> is the name of the input trajectory
+<BR><B>Description:</B> this widget allows to enter the name of the <A HREF=node4.html#tex2html732 NAME="22539">NetCDF</A> output file of the <A HREF=node4.html#tex2html733 NAME="22546"><I>SD</I></A> analysis. A <A HREF=node4.html#tex2html734 NAME="22553">CDL</A> 
+version of the <A HREF=node4.html#tex2html735 NAME="22560">NetCDF</A> output file is also automatically created with <I>SD_traj_file.cdl</I> name.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3430"
+  HREF="node165.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3426"
+  HREF="node162.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3420"
+  HREF="node163.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3428"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3431"
+  HREF="node165.html">Output</A>
+<B> Up:</B> <A NAME="tex2html3427"
+  HREF="node162.html">Spatial Density</A>
+<B> Previous:</B> <A NAME="tex2html3421"
+  HREF="node163.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html3429"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

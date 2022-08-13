@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>nMOLDYN.GUI.ASCIIToNetCDFConversionDialog</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="nMOLDYN-module.html">Package&nbsp;nMOLDYN</a> ::
+        <a href="nMOLDYN.GUI-module.html">Package&nbsp;GUI</a> ::
+        Module&nbsp;ASCIIToNetCDFConversionDialog
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog-module.html">Module nMOLDYN.GUI.ASCIIToNetCDFConversionDialog</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""This modules implements I{File--&gt;Convert ASCII to NetCDF} dialog.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">Classes:</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">    * ASCIIToNetCDFConversionDialog: creates I{File--&gt;Convert ASCII to NetCDF} dialog used to </tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">      convert a file in ASCII format to a file in NetCDF format.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># The python distribution modules</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Method nMOLDYN.GUI.HTMLReader.mfxutil.Struct.copy()=nMOLDYN.GUI.HTMLReader.mfxutil.Struct-class.html#copy"><a title="nMOLDYN.GUI.HTMLReader.mfxutil.Struct.copy" class="py-name" href="#" onclick="return doclink('link-0', 'copy', 'link-0');">copy</a></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment"># The Tcl/Tk modules</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">from</tt> <tt class="py-name">tkFileDialog</tt> <tt class="py-keyword">import</tt> <tt class="py-name">askopenfilename</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Tkinter</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"># The ScientificPython modules</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">from</tt> <tt class="py-name">Scientific</tt><tt class="py-op">.</tt><tt class="py-name">IO</tt><tt class="py-op">.</tt><tt class="py-name">NetCDF</tt> <tt class="py-keyword">import</tt> <tt class="py-name">NetCDFFile</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Scientific</tt> <tt class="py-keyword">import</tt> <tt class="py-name">N</tt> <tt class="py-keyword">as</tt> <tt class="py-name">Num</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment"># The nMOLDYN modules</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Package nMOLDYN=nMOLDYN-module.html"><a title="nMOLDYN" class="py-name" href="#" onclick="return doclink('link-1', 'nMOLDYN', 'link-1');">nMOLDYN</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package nMOLDYN.Core=nMOLDYN.Core-module.html"><a title="nMOLDYN.Core" class="py-name" href="#" onclick="return doclink('link-2', 'Core', 'link-2');">Core</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module nMOLDYN.Core.Error=nMOLDYN.Core.Error-module.html,Class nMOLDYN.Core.Error.Error=nMOLDYN.Core.Error.Error-class.html"><a title="nMOLDYN.Core.Error
+nMOLDYN.Core.Error.Error" class="py-name" href="#" onclick="return doclink('link-3', 'Error', 'link-3');">Error</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name"><a title="nMOLDYN.Core.Error
+nMOLDYN.Core.Error.Error" class="py-name" href="#" onclick="return doclink('link-4', 'Error', 'link-3');">Error</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name"><a title="nMOLDYN" class="py-name" href="#" onclick="return doclink('link-5', 'nMOLDYN', 'link-1');">nMOLDYN</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="nMOLDYN.Core" class="py-name" href="#" onclick="return doclink('link-6', 'Core', 'link-2');">Core</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Module nMOLDYN.Core.IOFiles=nMOLDYN.Core.IOFiles-module.html"><a title="nMOLDYN.Core.IOFiles" class="py-name" href="#" onclick="return doclink('link-7', 'IOFiles', 'link-7');">IOFiles</a></tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Function nMOLDYN.Core.IOFiles.convertASCIIToNetCDF()=nMOLDYN.Core.IOFiles-module.html#convertASCIIToNetCDF,Method nMOLDYN.GUI.MainDialog.MainDialog.convertASCIIToNetCDF()=nMOLDYN.GUI.MainDialog.MainDialog-class.html#convertASCIIToNetCDF"><a title="nMOLDYN.Core.IOFiles.convertASCIIToNetCDF
+nMOLDYN.GUI.MainDialog.MainDialog.convertASCIIToNetCDF" class="py-name" href="#" onclick="return doclink('link-8', 'convertASCIIToNetCDF', 'link-8');">convertASCIIToNetCDF</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-9" class="py-name"><a title="nMOLDYN" class="py-name" href="#" onclick="return doclink('link-9', 'nMOLDYN', 'link-1');">nMOLDYN</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="nMOLDYN.Core" class="py-name" href="#" onclick="return doclink('link-10', 'Core', 'link-2');">Core</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Module nMOLDYN.Core.Logger=nMOLDYN.Core.Logger-module.html"><a title="nMOLDYN.Core.Logger" class="py-name" href="#" onclick="return doclink('link-11', 'Logger', 'link-11');">Logger</a></tt> <tt class="py-keyword">import</tt> <tt id="link-12" class="py-name" targets="Function nMOLDYN.Core.Logger.LogMessage()=nMOLDYN.Core.Logger-module.html#LogMessage"><a title="nMOLDYN.Core.Logger.LogMessage" class="py-name" href="#" onclick="return doclink('link-12', 'LogMessage', 'link-12');">LogMessage</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-13" class="py-name"><a title="nMOLDYN" class="py-name" href="#" onclick="return doclink('link-13', 'nMOLDYN', 'link-1');">nMOLDYN</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="nMOLDYN.Core" class="py-name" href="#" onclick="return doclink('link-14', 'Core', 'link-2');">Core</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Module nMOLDYN.Core.Preferences=nMOLDYN.Core.Preferences-module.html"><a title="nMOLDYN.Core.Preferences" class="py-name" href="#" onclick="return doclink('link-15', 'Preferences', 'link-15');">Preferences</a></tt> <tt class="py-keyword">import</tt> <tt id="link-16" class="py-name" targets="Variable nMOLDYN.Core.Preferences.PREFERENCES=nMOLDYN.Core.Preferences-module.html#PREFERENCES"><a title="nMOLDYN.Core.Preferences.PREFERENCES" class="py-name" href="#" onclick="return doclink('link-16', 'PREFERENCES', 'link-16');">PREFERENCES</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-17" class="py-name"><a title="nMOLDYN" class="py-name" href="#" onclick="return doclink('link-17', 'nMOLDYN', 'link-1');">nMOLDYN</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Package nMOLDYN.GUI=nMOLDYN.GUI-module.html"><a title="nMOLDYN.GUI" class="py-name" href="#" onclick="return doclink('link-18', 'GUI', 'link-18');">GUI</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Module nMOLDYN.GUI.Widgets=nMOLDYN.GUI.Widgets-module.html"><a title="nMOLDYN.GUI.Widgets" class="py-name" href="#" onclick="return doclink('link-19', 'Widgets', 'link-19');">Widgets</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="ASCIIToNetCDFConversionDialog"></a><div id="ASCIIToNetCDFConversionDialog-def"><a name="L28"></a><tt class="py-lineno"> 28</tt> <a class="py-toggle" href="#" id="ASCIIToNetCDFConversionDialog-toggle" onclick="return toggle('ASCIIToNetCDFConversionDialog');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html">ASCIIToNetCDFConversionDialog</a><tt class="py-op">(</tt><tt class="py-base-class">Toplevel</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ASCIIToNetCDFConversionDialog-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ASCIIToNetCDFConversionDialog-expanded"><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-docstring">"""Sets up a dialog from where the user can convert a file with numeric data in ASCII or CDL format to NetCDF format.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">    The ASCII file may contain some comments introduced with the # character. These comments will also be written </tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    in the NetCDF output file (|comment| attribute). The numeric datas have to be organized by column. The only </tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">    restriction is that all the columns should have the same length.</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="ASCIIToNetCDFConversionDialog.__init__"></a><div id="ASCIIToNetCDFConversionDialog.__init__-def"><a name="L36"></a><tt class="py-lineno"> 36</tt> <a class="py-toggle" href="#" id="ASCIIToNetCDFConversionDialog.__init__-toggle" onclick="return toggle('ASCIIToNetCDFConversionDialog.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">parent</tt><tt class="py-op">,</tt> <tt class="py-param">title</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ASCIIToNetCDFConversionDialog.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ASCIIToNetCDFConversionDialog.__init__-expanded"><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-docstring">"""The constructor.</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">        @param parent: the parent widget.</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">        @param title: a string specifying the title of the dialog.</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">        @type title: string</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-name">Toplevel</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method nMOLDYN.Analysis.Analysis.Analysis.__init__()=nMOLDYN.Analysis.Analysis.Analysis-class.html#__init__,Method nMOLDYN.Analysis.Analysis.QVectors.__init__()=nMOLDYN.Analysis.Analysis.QVectors-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.AngularCorrelation.__init__()=nMOLDYN.Analysis.Dynamics.AngularCorrelation-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.AngularDensityOfStates.__init__()=nMOLDYN.Analysis.Dynamics.AngularDensityOfStates-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.AngularVelocity.__init__()=nMOLDYN.Analysis.Dynamics.AngularVelocity-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.AngularVelocityAutoCorrelationFunction.__init__()=nMOLDYN.Analysis.Dynamics.AngularVelocityAutoCorrelationFunction-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.AutoRegressiveAnalysis.__init__()=nMOLDYN.Analysis.Dynamics.AutoRegressiveAnalysis-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.CartesianDensityOfStates.__init__()=nMOLDYN.Analysis.Dynamics.CartesianDensityOfStates-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.CartesianVelocityAutoCorrelationFunction.__init__()=nMOLDYN.Analysis.Dynamics.CartesianVelocityAutoCorrelationFunction-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.CenterOfMassTrajectory.__init__()=nMOLDYN.Analysis.Dynamics.CenterOfMassTrajectory-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.GlobalMotionFilteredTrajectory.__init__()=nMOLDYN.Analysis.Dynamics.GlobalMotionFilteredTrajectory-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.MeanSquareDisplacement.__init__()=nMOLDYN.Analysis.Dynamics.MeanSquareDisplacement-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.PassBandFilteredTrajectory.__init__()=nMOLDYN.Analysis.Dynamics.PassBandFilteredTrajectory-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.QuasiHarmonicAnalysis.__init__()=nMOLDYN.Analysis.Dynamics.QuasiHarmonicAnalysis-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.RadiusOfGyration.__init__()=nMOLDYN.Analysis.Dynamics.RadiusOfGyration-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.ReorientationalCorrelationFunction.__init__()=nMOLDYN.Analysis.Dynamics.ReorientationalCorrelationFunction-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.RigidBodyTrajectory.__init__()=nMOLDYN.Analysis.Dynamics.RigidBodyTrajectory-class.html#__init__,Method nMOLDYN.Analysis.Dynamics.RootMeanSquareDeviation.__init__()=nMOLDYN.Analysis.Dynamics.RootMeanSquareDeviation-class.html#__init__,Method nMOLDYN.Analysis.NMR.OrderParameter.__init__()=nMOLDYN.Analysis.NMR.OrderParameter-class.html#__init__,Method nMOLDYN.Analysis.NMR.OrderParameterContactModel.__init__()=nMOLDYN.Analysis.NMR.OrderParameterContactModel-class.html#__init__,Method nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor.__init__()=nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor-class.html#__init__,Method nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR.__init__()=nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR-class.html#__init__,Method nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor.__init__()=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor-class.html#__init__,Method nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR.__init__()=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR-class.html#__init__,Method nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian.__init__()=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian-class.html#__init__,Method nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor.__init__()=nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor-class.html#__init__,Method nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor.__init__()=nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor-class.html#__init__,Method nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor.__init__()=nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor-class.html#__init__,Method nMOLDYN.Analysis.Structure.CoordinationNumber.__init__()=nMOLDYN.Analysis.Structure.CoordinationNumber-class.html#__init__,Method nMOLDYN.Analysis.Structure.PairDistributionFunction.__init__()=nMOLDYN.Analysis.Structure.PairDistributionFunction-class.html#__init__,Method nMOLDYN.Analysis.Structure.ScrewFitAnalysis.__init__()=nMOLDYN.Analysis.Structure.ScrewFitAnalysis-class.html#__init__,Method nMOLDYN.Analysis.Structure.SpatialDensity.__init__()=nMOLDYN.Analysis.Structure.SpatialDensity-class.html#__init__,Method nMOLDYN.Core.Error.Error.__init__()=nMOLDYN.Core.Error.Error-class.html#__init__,Method nMOLDYN.Core.IOFiles.AmberNetCDFConverter.__init__()=nMOLDYN.Core.IOFiles.AmberNetCDFConverter-class.html#__init__,Method nMOLDYN.Core.IOFiles.CHARMMConverter.__init__()=nMOLDYN.Core.IOFiles.CHARMMConverter-class.html#__init__,Method nMOLDYN.Core.IOFiles.DCDFile.__init__()=nMOLDYN.Core.IOFiles.DCDFile-class.html#__init__,Method nMOLDYN.Core.IOFiles.DL_POLYConverter.__init__()=nMOLDYN.Core.IOFiles.DL_POLYConverter-class.html#__init__,Method nMOLDYN.Core.IOFiles.FortranBinaryFile.__init__()=nMOLDYN.Core.IOFiles.FortranBinaryFile-class.html#__init__,Method nMOLDYN.Core.IOFiles.MaterialsStudioConverter.__init__()=nMOLDYN.Core.IOFiles.MaterialsStudioConverter-class.html#__init__,Method nMOLDYN.Core.IOFiles.NAMDConverter.__init__()=nMOLDYN.Core.IOFiles.NAMDConverter-class.html#__init__,Method nMOLDYN.Core.IOFiles.TemporaryFile.__init__()=nMOLDYN.Core.IOFiles.TemporaryFile-class.html#__init__,Method nMOLDYN.Core.IOFiles.VASPConverter.__init__()=nMOLDYN.Core.IOFiles.VASPConverter-class.html#__init__,Method nMOLDYN.Core.Logger.LogToConsole.__init__()=nMOLDYN.Core.Logger.LogToConsole-class.html#__init__,Method nMOLDYN.Core.Logger.LogToFile.__init__()=nMOLDYN.Core.Logger.LogToFile-class.html#__init__,Method nMOLDYN.Core.Logger.LogToGUI.__init__()=nMOLDYN.Core.Logger.LogToGUI-class.html#__init__,Method nMOLDYN.Core.Preferences.nMOLDYNPreferences.__Singleton.__init__()=nMOLDYN.Core.Preferences.nMOLDYNPreferences.__Singleton-class.html#__init__,Method nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.__init__()=nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#__init__,Method nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.__init__()=nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog-class.html#__init__,Method nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.__init__()=nMOLDYN.GUI.AnalysisDialog.AnalysisDialog-class.html#__init__,Method nMOLDYN.GUI.AnimationDialog.AnimationDialog.__init__()=nMOLDYN.GUI.AnimationDialog.AnimationDialog-class.html#__init__,Method nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.__init__()=nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog-class.html#__init__,Method nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.__init__()=nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.mfxutil.KwStruct.__init__()=nMOLDYN.GUI.HTMLReader.mfxutil.KwStruct-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.mfxutil.Struct.__init__()=nMOLDYN.GUI.HTMLReader.mfxutil.Struct-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkhtml.MfxReadonlyScrolledText.__init__()=nMOLDYN.GUI.HTMLReader.tkhtml.MfxReadonlyScrolledText-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkhtml.MfxScrolledText.__init__()=nMOLDYN.GUI.HTMLReader.tkhtml.MfxScrolledText-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLViewer.__init__()=nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLViewer-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.__init__()=nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxDialog.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxDialog-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxExceptionDialog.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxExceptionDialog-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxScrolledCanvas.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxScrolledCanvas-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleEntry.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleEntry-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleSlider.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleSlider-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxTooltip.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxTooltip-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.tkwidget._ToplevelDialog.__init__()=nMOLDYN.GUI.HTMLReader.tkwidget._ToplevelDialog-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.util.DataLoader.__init__()=nMOLDYN.GUI.HTMLReader.util.DataLoader-class.html#__init__,Method nMOLDYN.GUI.HTMLReader.util.Timer.__init__()=nMOLDYN.GUI.HTMLReader.util.Timer-class.html#__init__,Method nMOLDYN.GUI.MainDialog.MainDialog.__init__()=nMOLDYN.GUI.MainDialog.MainDialog-class.html#__init__,Method nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.__init__()=nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog-class.html#__init__,Method nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.__init__()=nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog-class.html#__init__,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.__init__()=nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog-class.html#__init__,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.__init__()=nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog-class.html#__init__,Method nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.__init__()=nMOLDYN.GUI.PreferencesDialog.PreferencesDialog-class.html#__init__,Method nMOLDYN.GUI.PreferencesDialog.dummy.__init__()=nMOLDYN.GUI.PreferencesDialog.dummy-class.html#__init__,Method nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.__init__()=nMOLDYN.GUI.PyroServerDialog.PyroServerDialog-class.html#__init__,Method nMOLDYN.GUI.SelectionDialog.SelectionDialog.__init__()=nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog-class.html#__init__,Method nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.__init__()=nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog-class.html#__init__,Method nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.__init__()=nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboButton.__init__()=nMOLDYN.GUI.Widgets.ComboButton-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboCheckbutton.__init__()=nMOLDYN.GUI.Widgets.ComboCheckbutton-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboFileBrowser.__init__()=nMOLDYN.GUI.Widgets.ComboFileBrowser-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboFloatEntry.__init__()=nMOLDYN.GUI.Widgets.ComboFloatEntry-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboFrame.__init__()=nMOLDYN.GUI.Widgets.ComboFrame-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboIntegerEntry.__init__()=nMOLDYN.GUI.Widgets.ComboIntegerEntry-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboLabel.__init__()=nMOLDYN.GUI.Widgets.ComboLabel-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboListbox.__init__()=nMOLDYN.GUI.Widgets.ComboListbox-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboOptionMenu.__init__()=nMOLDYN.GUI.Widgets.ComboOptionMenu-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboRadiobutton.__init__()=nMOLDYN.GUI.Widgets.ComboRadiobutton-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboScale.__init__()=nMOLDYN.GUI.Widgets.ComboScale-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboSpinbox.__init__()=nMOLDYN.GUI.Widgets.ComboSpinbox-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboStringEntry.__init__()=nMOLDYN.GUI.Widgets.ComboStringEntry-class.html#__init__,Method nMOLDYN.GUI.Widgets.ComboText.__init__()=nMOLDYN.GUI.Widgets.ComboText-class.html#__init__,Method nMOLDYN.GUI.Widgets.StatusBar.__init__()=nMOLDYN.GUI.Widgets.StatusBar-class.html#__init__,Method nMOLDYN.GUI.Widgets.StringEntry.__init__()=nMOLDYN.GUI.Widgets.StringEntry-class.html#__init__,Method nMOLDYN.GUI.Widgets.ValidatingEntry.__init__()=nMOLDYN.GUI.Widgets.ValidatingEntry-class.html#__init__"><a title="nMOLDYN.Analysis.Analysis.Analysis.__init__
+nMOLDYN.Analysis.Analysis.QVectors.__init__
+nMOLDYN.Analysis.Dynamics.AngularCorrelation.__init__
+nMOLDYN.Analysis.Dynamics.AngularDensityOfStates.__init__
+nMOLDYN.Analysis.Dynamics.AngularVelocity.__init__
+nMOLDYN.Analysis.Dynamics.AngularVelocityAutoCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.AutoRegressiveAnalysis.__init__
+nMOLDYN.Analysis.Dynamics.CartesianDensityOfStates.__init__
+nMOLDYN.Analysis.Dynamics.CartesianVelocityAutoCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.CenterOfMassTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.GlobalMotionFilteredTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.MeanSquareDisplacement.__init__
+nMOLDYN.Analysis.Dynamics.PassBandFilteredTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.QuasiHarmonicAnalysis.__init__
+nMOLDYN.Analysis.Dynamics.RadiusOfGyration.__init__
+nMOLDYN.Analysis.Dynamics.ReorientationalCorrelationFunction.__init__
+nMOLDYN.Analysis.Dynamics.RigidBodyTrajectory.__init__
+nMOLDYN.Analysis.Dynamics.RootMeanSquareDeviation.__init__
+nMOLDYN.Analysis.NMR.OrderParameter.__init__
+nMOLDYN.Analysis.NMR.OrderParameterContactModel.__init__
+nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR.__init__
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian.__init__
+nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor.__init__
+nMOLDYN.Analysis.Structure.CoordinationNumber.__init__
+nMOLDYN.Analysis.Structure.PairDistributionFunction.__init__
+nMOLDYN.Analysis.Structure.ScrewFitAnalysis.__init__
+nMOLDYN.Analysis.Structure.SpatialDensity.__init__
+nMOLDYN.Core.Error.Error.__init__
+nMOLDYN.Core.IOFiles.AmberNetCDFConverter.__init__
+nMOLDYN.Core.IOFiles.CHARMMConverter.__init__
+nMOLDYN.Core.IOFiles.DCDFile.__init__
+nMOLDYN.Core.IOFiles.DL_POLYConverter.__init__
+nMOLDYN.Core.IOFiles.FortranBinaryFile.__init__
+nMOLDYN.Core.IOFiles.MaterialsStudioConverter.__init__
+nMOLDYN.Core.IOFiles.NAMDConverter.__init__
+nMOLDYN.Core.IOFiles.TemporaryFile.__init__
+nMOLDYN.Core.IOFiles.VASPConverter.__init__
+nMOLDYN.Core.Logger.LogToConsole.__init__
+nMOLDYN.Core.Logger.LogToFile.__init__
+nMOLDYN.Core.Logger.LogToGUI.__init__
+nMOLDYN.Core.Preferences.nMOLDYNPreferences.__Singleton.__init__
+nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.__init__
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.__init__
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.__init__
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.__init__
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.__init__
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.__init__
+nMOLDYN.GUI.HTMLReader.mfxutil.KwStruct.__init__
+nMOLDYN.GUI.HTMLReader.mfxutil.Struct.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.MfxReadonlyScrolledText.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.MfxScrolledText.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLViewer.__init__
+nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxDialog.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxExceptionDialog.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxScrolledCanvas.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleEntry.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxSimpleSlider.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxTooltip.__init__
+nMOLDYN.GUI.HTMLReader.tkwidget._ToplevelDialog.__init__
+nMOLDYN.GUI.HTMLReader.util.DataLoader.__init__
+nMOLDYN.GUI.HTMLReader.util.Timer.__init__
+nMOLDYN.GUI.MainDialog.MainDialog.__init__
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.__init__
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.__init__
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.__init__
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.__init__
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.__init__
+nMOLDYN.GUI.PreferencesDialog.dummy.__init__
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.__init__
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.__init__
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.__init__
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.__init__
+nMOLDYN.GUI.Widgets.ComboButton.__init__
+nMOLDYN.GUI.Widgets.ComboCheckbutton.__init__
+nMOLDYN.GUI.Widgets.ComboFileBrowser.__init__
+nMOLDYN.GUI.Widgets.ComboFloatEntry.__init__
+nMOLDYN.GUI.Widgets.ComboFrame.__init__
+nMOLDYN.GUI.Widgets.ComboIntegerEntry.__init__
+nMOLDYN.GUI.Widgets.ComboLabel.__init__
+nMOLDYN.GUI.Widgets.ComboListbox.__init__
+nMOLDYN.GUI.Widgets.ComboOptionMenu.__init__
+nMOLDYN.GUI.Widgets.ComboRadiobutton.__init__
+nMOLDYN.GUI.Widgets.ComboScale.__init__
+nMOLDYN.GUI.Widgets.ComboSpinbox.__init__
+nMOLDYN.GUI.Widgets.ComboStringEntry.__init__
+nMOLDYN.GUI.Widgets.ComboText.__init__
+nMOLDYN.GUI.Widgets.StatusBar.__init__
+nMOLDYN.GUI.Widgets.StringEntry.__init__
+nMOLDYN.GUI.Widgets.ValidatingEntry.__init__" class="py-name" href="#" onclick="return doclink('link-20', '__init__', 'link-20');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">parent</tt><tt class="py-op">)</tt>         </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">transient</tt><tt class="py-op">(</tt><tt class="py-name">parent</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">         </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">title</tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">title</tt><tt class="py-op">(</tt><tt class="py-name">title</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">parent</tt> <tt class="py-op">=</tt> <tt class="py-name">parent</tt>        </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt id="link-21" class="py-name" targets="Method nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.body()=nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#body,Method nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.body()=nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog-class.html#body,Method nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.body()=nMOLDYN.GUI.AnalysisDialog.AnalysisDialog-class.html#body,Method nMOLDYN.GUI.AnimationDialog.AnimationDialog.body()=nMOLDYN.GUI.AnimationDialog.AnimationDialog-class.html#body,Method nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.body()=nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog-class.html#body,Method nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.body()=nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog-class.html#body,Method nMOLDYN.GUI.MainDialog.MainDialog.body()=nMOLDYN.GUI.MainDialog.MainDialog-class.html#body,Method nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.body()=nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog-class.html#body,Method nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.body()=nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog-class.html#body,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.body()=nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog-class.html#body,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.body()=nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog-class.html#body,Method nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.body()=nMOLDYN.GUI.PreferencesDialog.PreferencesDialog-class.html#body,Method nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.body()=nMOLDYN.GUI.PyroServerDialog.PyroServerDialog-class.html#body,Method nMOLDYN.GUI.SelectionDialog.SelectionDialog.body()=nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#body,Method nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.body()=nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog-class.html#body,Method nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.body()=nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog-class.html#body,Method nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.body()=nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog-class.html#body,Method nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.body()=nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog-class.html#body,Method nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.body()=nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog-class.html#body,Method nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.body()=nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog-class.html#body,Method nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.body()=nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog-class.html#body"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.body
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.body
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.body
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.body
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.body
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.body
+nMOLDYN.GUI.MainDialog.MainDialog.body
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.body
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.body
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.body
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.body
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.body
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.body
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.body
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.body" class="py-name" href="#" onclick="return doclink('link-21', 'body', 'link-21');">body</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Frame</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">initial_focus</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.body
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.body
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.body
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.body
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.body
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.body
+nMOLDYN.GUI.MainDialog.MainDialog.body
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.body
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.body
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.body
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.body
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.body
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.body
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.body
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.body" class="py-name" href="#" onclick="return doclink('link-22', 'body', 'link-21');">body</a></tt><tt class="py-op">(</tt><tt id="link-23" class="py-name"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.body
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.body
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.body
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.body
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.body
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.body
+nMOLDYN.GUI.MainDialog.MainDialog.body
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.body
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.body
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.body
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.body
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.body
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.body
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.body
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.body" class="py-name" href="#" onclick="return doclink('link-23', 'body', 'link-21');">body</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt id="link-24" class="py-name"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.body
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.body
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.body
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.body
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.body
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.body
+nMOLDYN.GUI.MainDialog.MainDialog.body
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.body
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.body
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.body
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.body
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.body
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.body
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.body
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.body
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.body" class="py-name" href="#" onclick="return doclink('link-24', 'body', 'link-21');">body</a></tt><tt class="py-op">.</tt><tt class="py-name">grid</tt><tt class="py-op">(</tt><tt class="py-name">row</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">column</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">sticky</tt> <tt class="py-op">=</tt> <tt class="py-name">EW</tt><tt class="py-op">)</tt>   </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.buttonbox()=nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#buttonbox,Method nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.buttonbox()=nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog-class.html#buttonbox,Method nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.buttonbox()=nMOLDYN.GUI.AnalysisDialog.AnalysisDialog-class.html#buttonbox,Method nMOLDYN.GUI.AnimationDialog.AnimationDialog.buttonbox()=nMOLDYN.GUI.AnimationDialog.AnimationDialog-class.html#buttonbox,Method nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.buttonbox()=nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog-class.html#buttonbox,Method nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.buttonbox()=nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog-class.html#buttonbox,Method nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.buttonbox()=nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog-class.html#buttonbox,Method nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.buttonbox()=nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog-class.html#buttonbox,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.buttonbox()=nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog-class.html#buttonbox,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.buttonbox()=nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog-class.html#buttonbox,Method nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.buttonbox()=nMOLDYN.GUI.PreferencesDialog.PreferencesDialog-class.html#buttonbox,Method nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.buttonbox()=nMOLDYN.GUI.PyroServerDialog.PyroServerDialog-class.html#buttonbox,Method nMOLDYN.GUI.SelectionDialog.SelectionDialog.buttonbox()=nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#buttonbox,Method nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.buttonbox()=nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog-class.html#buttonbox,Method nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.buttonbox()=nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog-class.html#buttonbox,Method nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.buttonbox()=nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog-class.html#buttonbox,Method nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.buttonbox()=nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog-class.html#buttonbox,Method nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.buttonbox()=nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog-class.html#buttonbox,Method nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.buttonbox()=nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog-class.html#buttonbox,Method nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.buttonbox()=nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog-class.html#buttonbox"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.buttonbox
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.buttonbox
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.buttonbox
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.buttonbox
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.buttonbox
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.buttonbox
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.buttonbox
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.buttonbox
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.buttonbox
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.buttonbox
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.buttonbox
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.buttonbox
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.buttonbox
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.buttonbox
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.buttonbox
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.buttonbox
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.buttonbox
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.buttonbox
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.buttonbox
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.buttonbox" class="py-name" href="#" onclick="return doclink('link-25', 'buttonbox', 'link-25');">buttonbox</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt>         </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">         </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">grab_set</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">initial_focus</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">initial_focus</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">protocol</tt><tt class="py-op">(</tt><tt class="py-string">"WM_DELETE_WINDOW"</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Method nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.cancel()=nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#cancel,Method nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.cancel()=nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog-class.html#cancel,Method nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.cancel()=nMOLDYN.GUI.AnalysisDialog.AnalysisDialog-class.html#cancel,Method nMOLDYN.GUI.AnimationDialog.AnimationDialog.cancel()=nMOLDYN.GUI.AnimationDialog.AnimationDialog-class.html#cancel,Method nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.cancel()=nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog-class.html#cancel,Method nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.cancel()=nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog-class.html#cancel,Method nMOLDYN.GUI.MainDialog.MainDialog.cancel()=nMOLDYN.GUI.MainDialog.MainDialog-class.html#cancel,Method nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.cancel()=nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog-class.html#cancel,Method nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.cancel()=nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog-class.html#cancel,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.cancel()=nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog-class.html#cancel,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.cancel()=nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog-class.html#cancel,Method nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.cancel()=nMOLDYN.GUI.PreferencesDialog.PreferencesDialog-class.html#cancel,Method nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.cancel()=nMOLDYN.GUI.PyroServerDialog.PyroServerDialog-class.html#cancel,Method nMOLDYN.GUI.SelectionDialog.SelectionDialog.cancel()=nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#cancel,Method nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.cancel()=nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog-class.html#cancel,Method nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.cancel()=nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog-class.html#cancel,Method nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.cancel()=nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog-class.html#cancel,Method nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.cancel()=nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog-class.html#cancel,Method nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.cancel()=nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog-class.html#cancel,Method nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.cancel()=nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog-class.html#cancel,Method nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.cancel()=nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog-class.html#cancel"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.cancel
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.cancel
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.cancel
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.cancel
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.cancel
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.cancel
+nMOLDYN.GUI.MainDialog.MainDialog.cancel
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.cancel
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.cancel
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.cancel
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.cancel
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.cancel
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.cancel
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.cancel
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.cancel" class="py-name" href="#" onclick="return doclink('link-26', 'cancel', 'link-26');">cancel</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">resizable</tt><tt class="py-op">(</tt><tt class="py-name">width</tt> <tt class="py-op">=</tt> <tt class="py-name">NO</tt><tt class="py-op">,</tt> <tt class="py-name">height</tt> <tt class="py-op">=</tt> <tt class="py-name">NO</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">geometry</tt><tt class="py-op">(</tt><tt class="py-string">"+%d+%d"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">parent</tt><tt class="py-op">.</tt><tt class="py-name">winfo_rootx</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-number">50</tt><tt class="py-op">,</tt> <tt class="py-name">parent</tt><tt class="py-op">.</tt><tt class="py-name">winfo_rooty</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-number">50</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">initial_focus</tt><tt class="py-op">.</tt><tt class="py-name">focus_set</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">wait_window</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt>             </tt>
+</div><a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">     </tt>
+<a name="ASCIIToNetCDFConversionDialog.body"></a><div id="ASCIIToNetCDFConversionDialog.body-def"><a name="L74"></a><tt class="py-lineno"> 74</tt> <a class="py-toggle" href="#" id="ASCIIToNetCDFConversionDialog.body-toggle" onclick="return toggle('ASCIIToNetCDFConversionDialog.body');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#body">body</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">master</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ASCIIToNetCDFConversionDialog.body-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ASCIIToNetCDFConversionDialog.body-expanded"><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">        Create dialog body. Return widget that should have initial focus.</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                     </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">settingsFrame</tt> <tt class="py-op">=</tt> <tt class="py-name">LabelFrame</tt><tt class="py-op">(</tt><tt class="py-name">master</tt><tt class="py-op">,</tt> <tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">'Settings'</tt><tt class="py-op">,</tt> <tt class="py-name">bd</tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-name">relief</tt> <tt class="py-op">=</tt> <tt class="py-name">GROOVE</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-name">settingsFrame</tt><tt class="py-op">.</tt><tt class="py-name">grid</tt><tt class="py-op">(</tt><tt class="py-name">row</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">column</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">sticky</tt> <tt class="py-op">=</tt> <tt class="py-name">EW</tt><tt class="py-op">,</tt> <tt class="py-name">padx</tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt><tt class="py-op">,</tt> <tt class="py-name">pady</tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-name">settingsFrame</tt><tt class="py-op">.</tt><tt class="py-name">grid_columnconfigure</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">weight</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-comment"># The combo widget for the file browser.</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">inputFileBrowser</tt> <tt class="py-op">=</tt> <tt id="link-27" class="py-name" targets="Class nMOLDYN.GUI.Widgets.ComboFileBrowser=nMOLDYN.GUI.Widgets.ComboFileBrowser-class.html"><a title="nMOLDYN.GUI.Widgets.ComboFileBrowser" class="py-name" href="#" onclick="return doclink('link-27', 'ComboFileBrowser', 'link-27');">ComboFileBrowser</a></tt><tt class="py-op">(</tt><tt class="py-name">settingsFrame</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                                                 <tt class="py-name">frameLabel</tt> <tt class="py-op">=</tt> <tt class="py-string">"ASCII input file"</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                                                 <tt class="py-name">tagName</tt> <tt class="py-op">=</tt> <tt class="py-string">'convert_ascii_to_netcdf_ascii_input_file'</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                                                 <tt class="py-name">contents</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                                                 <tt class="py-name">save</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                                                 <tt class="py-name">command</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.openASCIIFile()=nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#openASCIIFile"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.openASCIIFile" class="py-name" href="#" onclick="return doclink('link-28', 'openASCIIFile', 'link-28');">openASCIIFile</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">inputFileBrowser</tt><tt class="py-op">.</tt><tt class="py-name">grid</tt><tt class="py-op">(</tt><tt class="py-name">row</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">column</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">sticky</tt> <tt class="py-op">=</tt> <tt class="py-name">EW</tt><tt class="py-op">,</tt> <tt class="py-name">padx</tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-name">pady</tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">inputFileBrowser</tt><tt class="py-op">.</tt><tt class="py-name">grid_columnconfigure</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">weight</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">inputFileBrowser</tt><tt class="py-op">.</tt><tt class="py-name">entry</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Function nMOLDYN.GUI.HTMLReader.tkutil.bind()=nMOLDYN.GUI.HTMLReader.tkutil-module.html#bind"><a title="nMOLDYN.GUI.HTMLReader.tkutil.bind" class="py-name" href="#" onclick="return doclink('link-29', 'bind', 'link-29');">bind</a></tt><tt class="py-op">(</tt><tt class="py-string">'&lt;Return&gt;'</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.openASCIIFile" class="py-name" href="#" onclick="return doclink('link-30', 'openASCIIFile', 'link-28');">openASCIIFile</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-comment"># The combo widget for the file browser.</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">outputFileBrowser</tt> <tt class="py-op">=</tt> <tt id="link-31" class="py-name"><a title="nMOLDYN.GUI.Widgets.ComboFileBrowser" class="py-name" href="#" onclick="return doclink('link-31', 'ComboFileBrowser', 'link-27');">ComboFileBrowser</a></tt><tt class="py-op">(</tt><tt class="py-name">settingsFrame</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                                                  <tt class="py-name">frameLabel</tt> <tt class="py-op">=</tt> <tt class="py-string">"NetCDF output file"</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                                                  <tt class="py-name">tagName</tt> <tt class="py-op">=</tt> <tt class="py-string">'convert_ascii_to_netcdf_netcdf_output_file'</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                                                  <tt class="py-name">contents</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                                                  <tt class="py-name">save</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                                                  <tt class="py-name">filetypes</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-string">"NetCDF file"</tt><tt class="py-op">,</tt> <tt class="py-string">".nc"</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">outputFileBrowser</tt><tt class="py-op">.</tt><tt class="py-name">grid</tt><tt class="py-op">(</tt><tt class="py-name">row</tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt><tt class="py-op">,</tt> <tt class="py-name">column</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">sticky</tt> <tt class="py-op">=</tt> <tt class="py-name">EW</tt><tt class="py-op">,</tt> <tt class="py-name">padx</tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-name">pady</tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">outputFileBrowser</tt><tt class="py-op">.</tt><tt class="py-name">grid_columnconfigure</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">weight</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">         </tt>
+<a name="ASCIIToNetCDFConversionDialog.buttonbox"></a><div id="ASCIIToNetCDFConversionDialog.buttonbox-def"><a name="L104"></a><tt class="py-lineno">104</tt> <a class="py-toggle" href="#" id="ASCIIToNetCDFConversionDialog.buttonbox-toggle" onclick="return toggle('ASCIIToNetCDFConversionDialog.buttonbox');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#buttonbox">buttonbox</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ASCIIToNetCDFConversionDialog.buttonbox-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ASCIIToNetCDFConversionDialog.buttonbox-expanded"><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">        Add standard button box.</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-comment"># The frame that contains the 'Cancel' and 'OK' buttons.</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">box</tt> <tt class="py-op">=</tt> <tt class="py-name">LabelFrame</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">'Actions'</tt><tt class="py-op">,</tt> <tt class="py-name">bd</tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-name">relief</tt> <tt class="py-op">=</tt> <tt class="py-name">GROOVE</tt><tt class="py-op">)</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-name">box</tt><tt class="py-op">.</tt><tt class="py-name">grid</tt><tt class="py-op">(</tt><tt class="py-name">row</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">column</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">sticky</tt> <tt class="py-op">=</tt> <tt class="py-name">EW</tt><tt class="py-op">,</tt> <tt class="py-name">padx</tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt><tt class="py-op">,</tt> <tt class="py-name">pady</tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-name">box</tt><tt class="py-op">.</tt><tt class="py-name">grid_columnconfigure</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">weight</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt class="py-name">Button</tt><tt class="py-op">(</tt><tt class="py-name">box</tt><tt class="py-op">,</tt> <tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"Cancel"</tt><tt class="py-op">,</tt> <tt class="py-name">width</tt><tt class="py-op">=</tt><tt class="py-number">10</tt><tt class="py-op">,</tt> <tt class="py-name">command</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.cancel
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.cancel
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.cancel
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.cancel
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.cancel
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.cancel
+nMOLDYN.GUI.MainDialog.MainDialog.cancel
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.cancel
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.cancel
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.cancel
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.cancel
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.cancel
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.cancel
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.cancel
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.cancel" class="py-name" href="#" onclick="return doclink('link-32', 'cancel', 'link-26');">cancel</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-name">w</tt><tt class="py-op">.</tt><tt class="py-name">grid</tt><tt class="py-op">(</tt><tt class="py-name">row</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">column</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">sticky</tt> <tt class="py-op">=</tt> <tt class="py-name">E</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt class="py-name">Button</tt><tt class="py-op">(</tt><tt class="py-name">box</tt><tt class="py-op">,</tt> <tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"OK"</tt><tt class="py-op">,</tt> <tt class="py-name">width</tt><tt class="py-op">=</tt><tt class="py-number">10</tt><tt class="py-op">,</tt> <tt class="py-name">command</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Method nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.ok()=nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#ok,Method nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.ok()=nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog-class.html#ok,Method nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.ok()=nMOLDYN.GUI.AnalysisDialog.AnalysisDialog-class.html#ok,Method nMOLDYN.GUI.AnimationDialog.AnimationDialog.ok()=nMOLDYN.GUI.AnimationDialog.AnimationDialog-class.html#ok,Method nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.ok()=nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog-class.html#ok,Method nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.ok()=nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog-class.html#ok,Method nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.ok()=nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog-class.html#ok,Method nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.ok()=nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog-class.html#ok,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.ok()=nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog-class.html#ok,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.ok()=nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog-class.html#ok,Method nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.ok()=nMOLDYN.GUI.PreferencesDialog.PreferencesDialog-class.html#ok,Method nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.ok()=nMOLDYN.GUI.PyroServerDialog.PyroServerDialog-class.html#ok,Method nMOLDYN.GUI.SelectionDialog.SelectionDialog.ok()=nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#ok,Method nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.ok()=nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog-class.html#ok,Method nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.ok()=nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog-class.html#ok,Method nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.ok()=nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog-class.html#ok,Method nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.ok()=nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog-class.html#ok,Method nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.ok()=nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog-class.html#ok,Method nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.ok()=nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog-class.html#ok,Method nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.ok()=nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog-class.html#ok"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.ok
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.ok
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.ok
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.ok
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.ok
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.ok
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.ok
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.ok
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.ok
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.ok
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.ok
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.ok
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.ok
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.ok" class="py-name" href="#" onclick="return doclink('link-33', 'ok', 'link-33');">ok</a></tt><tt class="py-op">,</tt> <tt id="link-34" class="py-name" targets="Variable nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor.default=nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor-class.html#default,Variable nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR.default=nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR-class.html#default,Variable nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor.default=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor-class.html#default,Variable nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR.default=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR-class.html#default,Variable nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian.default=nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian-class.html#default,Variable nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor.default=nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor-class.html#default,Variable nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor.default=nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor-class.html#default,Variable nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor.default=nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor-class.html#default"><a title="nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactor.default
+nMOLDYN.Analysis.Scattering.DynamicCoherentStructureFactorAR.default
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactor.default
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorAR.default
+nMOLDYN.Analysis.Scattering.DynamicIncoherentStructureFactorGaussian.default
+nMOLDYN.Analysis.Scattering.ElasticIncoherentStructureFactor.default
+nMOLDYN.Analysis.Scattering.SmoothedStaticCoherentStructureFactor.default
+nMOLDYN.Analysis.Scattering.StaticCoherentStructureFactor.default" class="py-name" href="#" onclick="return doclink('link-34', 'default', 'link-34');">default</a></tt><tt class="py-op">=</tt><tt class="py-name">ACTIVE</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-name">w</tt><tt class="py-op">.</tt><tt class="py-name">grid</tt><tt class="py-op">(</tt><tt class="py-name">row</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">column</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">sticky</tt> <tt class="py-op">=</tt> <tt class="py-name">E</tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">         </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="nMOLDYN.GUI.HTMLReader.tkutil.bind" class="py-name" href="#" onclick="return doclink('link-35', 'bind', 'link-29');">bind</a></tt><tt class="py-op">(</tt><tt class="py-string">"&lt;Return&gt;"</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.ok
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.ok
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.ok
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.ok
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.ok
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.ok
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.ok
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.ok
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.ok
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.ok
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.ok
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.ok
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.ok
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.ok
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.ok" class="py-name" href="#" onclick="return doclink('link-36', 'ok', 'link-33');">ok</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="nMOLDYN.GUI.HTMLReader.tkutil.bind" class="py-name" href="#" onclick="return doclink('link-37', 'bind', 'link-29');">bind</a></tt><tt class="py-op">(</tt><tt class="py-string">"&lt;Escape&gt;"</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.cancel
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.cancel
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.cancel
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.cancel
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.cancel
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.cancel
+nMOLDYN.GUI.MainDialog.MainDialog.cancel
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.cancel
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.cancel
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.cancel
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.cancel
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.cancel
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.cancel
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.cancel
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.cancel" class="py-name" href="#" onclick="return doclink('link-38', 'cancel', 'link-26');">cancel</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">    <tt class="py-comment"># Standard button semantics.</tt> </tt>
+<a name="ASCIIToNetCDFConversionDialog.ok"></a><div id="ASCIIToNetCDFConversionDialog.ok-def"><a name="L123"></a><tt class="py-lineno">123</tt> <a class="py-toggle" href="#" id="ASCIIToNetCDFConversionDialog.ok-toggle" onclick="return toggle('ASCIIToNetCDFConversionDialog.ok');">-</a><tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#ok">ok</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">event</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ASCIIToNetCDFConversionDialog.ok-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ASCIIToNetCDFConversionDialog.ok-expanded"><a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Method nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.validate()=nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#validate,Method nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.validate()=nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog-class.html#validate,Method nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.validate()=nMOLDYN.GUI.AnalysisDialog.AnalysisDialog-class.html#validate,Method nMOLDYN.GUI.AnimationDialog.AnimationDialog.validate()=nMOLDYN.GUI.AnimationDialog.AnimationDialog-class.html#validate,Method nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.validate()=nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog-class.html#validate,Method nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.validate()=nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog-class.html#validate,Method nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.validate()=nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog-class.html#validate,Method nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.validate()=nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog-class.html#validate,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.validate()=nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog-class.html#validate,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.validate()=nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog-class.html#validate,Method nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.validate()=nMOLDYN.GUI.PreferencesDialog.PreferencesDialog-class.html#validate,Method nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.validate()=nMOLDYN.GUI.PyroServerDialog.PyroServerDialog-class.html#validate,Method nMOLDYN.GUI.SelectionDialog.SelectionDialog.validate()=nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#validate,Method nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.validate()=nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog-class.html#validate,Method nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.validate()=nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog-class.html#validate,Method nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.validate()=nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog-class.html#validate,Method nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.validate()=nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog-class.html#validate,Method nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.validate()=nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog-class.html#validate,Method nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.validate()=nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog-class.html#validate,Method nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.validate()=nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog-class.html#validate"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.validate
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.validate
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.validate
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.validate
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.validate
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.validate
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.validate
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.validate
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.validate
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.validate
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.validate
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.validate
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.validate
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.validate
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.validate
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.validate
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.validate
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.validate
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.validate
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.validate" class="py-name" href="#" onclick="return doclink('link-39', 'validate', 'link-39');">validate</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">initial_focus</tt><tt class="py-op">.</tt><tt class="py-name">focus_set</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">withdraw</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">update_idletasks</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.apply()=nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#apply,Method nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.apply()=nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog-class.html#apply,Method nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.apply()=nMOLDYN.GUI.AnalysisDialog.AnalysisDialog-class.html#apply,Method nMOLDYN.GUI.AnimationDialog.AnimationDialog.apply()=nMOLDYN.GUI.AnimationDialog.AnimationDialog-class.html#apply,Method nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.apply()=nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog-class.html#apply,Method nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.apply()=nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog-class.html#apply,Method nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.apply()=nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog-class.html#apply,Method nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.apply()=nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog-class.html#apply,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.apply()=nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog-class.html#apply,Method nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.apply()=nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog-class.html#apply,Method nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.apply()=nMOLDYN.GUI.PreferencesDialog.PreferencesDialog-class.html#apply,Method nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.apply()=nMOLDYN.GUI.PyroServerDialog.PyroServerDialog-class.html#apply,Method nMOLDYN.GUI.SelectionDialog.SelectionDialog.apply()=nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#apply,Method nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.apply()=nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog-class.html#apply,Method nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.apply()=nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog-class.html#apply,Method nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.apply()=nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog-class.html#apply,Method nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.apply()=nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog-class.html#apply,Method nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.apply()=nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog-class.html#apply,Method nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.apply()=nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog-class.html#apply,Method nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.apply()=nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog-class.html#apply"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.apply
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.apply
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.apply
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.apply
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.apply
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.apply
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.apply
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.apply
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.apply
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.apply
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.apply
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.apply
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.apply
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.apply
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.apply
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.apply
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.apply
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.apply
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.apply
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.apply" class="py-name" href="#" onclick="return doclink('link-40', 'apply', 'link-40');">apply</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">         </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog.cancel
+nMOLDYN.GUI.AnalysisBenchmarkDialog.AnalysisBenchmarkDialog.cancel
+nMOLDYN.GUI.AnalysisDialog.AnalysisDialog.cancel
+nMOLDYN.GUI.AnimationDialog.AnimationDialog.cancel
+nMOLDYN.GUI.CheckJobsStatusDialog.CheckJobsStatusDialog.cancel
+nMOLDYN.GUI.GeneralInformationsDialog.GeneralInformationsDialog.cancel
+nMOLDYN.GUI.MainDialog.MainDialog.cancel
+nMOLDYN.GUI.NetCDFToASCIIConversionDialog.NetCDFToASCIIConversionDialog.cancel
+nMOLDYN.GUI.PDBSnapshotGeneratorDialog.PDBSnapshotGeneratorDialog.cancel
+nMOLDYN.GUI.PlotNetCDFVariableDialog.PlotNetCDFVariableDialog.cancel
+nMOLDYN.GUI.PlotNetCDFVariableDialog.SettingsDialog.cancel
+nMOLDYN.GUI.PreferencesDialog.PreferencesDialog.cancel
+nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.cancel
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.AmberNetCDFConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.CHARMMConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.DL_POLYConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.MaterialsStudioConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.NAMDConverterDialog.cancel
+nMOLDYN.GUI.TrajectoryConversionDialog.VASPConverterDialog.cancel
+nMOLDYN.GUI.ViewEffectiveModeDialog.ViewEffectiveModeDialog.cancel" class="py-name" href="#" onclick="return doclink('link-41', 'cancel', 'link-26');">cancel</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"> </tt>
+<a name="ASCIIToNetCDFConversionDialog.cancel"></a><div id="ASCIIToNetCDFConversionDialog.cancel-def"><a name="L136"></a><tt class="py-lineno">136</tt> <a class="py-toggle" href="#" id="ASCIIToNetCDFConversionDialog.cancel-toggle" onclick="return toggle('ASCIIToNetCDFConversionDialog.cancel');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#cancel">cancel</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">event</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ASCIIToNetCDFConversionDialog.cancel-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ASCIIToNetCDFConversionDialog.cancel-expanded"><a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-comment"># Put focus back to the parent window</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">parent</tt><tt class="py-op">.</tt><tt class="py-name">focus_set</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name" targets="Method nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLViewer.destroy()=nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLViewer-class.html#destroy,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxScrolledCanvas.destroy()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxScrolledCanvas-class.html#destroy,Method nMOLDYN.GUI.HTMLReader.tkwidget.MfxTooltip.destroy()=nMOLDYN.GUI.HTMLReader.tkwidget.MfxTooltip-class.html#destroy,Method nMOLDYN.GUI.HTMLReader.tkwidget._ToplevelDialog.destroy()=nMOLDYN.GUI.HTMLReader.tkwidget._ToplevelDialog-class.html#destroy"><a title="nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLViewer.destroy
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxScrolledCanvas.destroy
+nMOLDYN.GUI.HTMLReader.tkwidget.MfxTooltip.destroy
+nMOLDYN.GUI.HTMLReader.tkwidget._ToplevelDialog.destroy" class="py-name" href="#" onclick="return doclink('link-42', 'destroy', 'link-42');">destroy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">    <tt class="py-comment"># Command hooks</tt> </tt>
+<a name="ASCIIToNetCDFConversionDialog.validate"></a><div id="ASCIIToNetCDFConversionDialog.validate-def"><a name="L143"></a><tt class="py-lineno">143</tt> <a class="py-toggle" href="#" id="ASCIIToNetCDFConversionDialog.validate-toggle" onclick="return toggle('ASCIIToNetCDFConversionDialog.validate');">-</a><tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#validate">validate</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ASCIIToNetCDFConversionDialog.validate-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ASCIIToNetCDFConversionDialog.validate-expanded"><a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-comment"># An intput file must have been set.</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">inputFile</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">inputFileBrowser</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Method nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.getValue()=nMOLDYN.GUI.PyroServerDialog.PyroServerDialog-class.html#getValue,Method nMOLDYN.GUI.SelectionDialog.SelectionDialog.getValue()=nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#getValue,Method nMOLDYN.GUI.Widgets.ComboButton.getValue()=nMOLDYN.GUI.Widgets.ComboButton-class.html#getValue,Method nMOLDYN.GUI.Widgets.ComboCheckbutton.getValue()=nMOLDYN.GUI.Widgets.ComboCheckbutton-class.html#getValue,Method nMOLDYN.GUI.Widgets.ComboFileBrowser.getValue()=nMOLDYN.GUI.Widgets.ComboFileBrowser-class.html#getValue,Method nMOLDYN.GUI.Widgets.ComboFloatEntry.getValue()=nMOLDYN.GUI.Widgets.ComboFloatEntry-class.html#getValue,Method nMOLDYN.GUI.Widgets.ComboIntegerEntry.getValue()=nMOLDYN.GUI.Widgets.ComboIntegerEntry-class.html#getValue,Method nMOLDYN.GUI.Widgets.ComboLabel.getValue()=nMOLDYN.GUI.Widgets.ComboLabel-class.html#getValue,Method nMOLDYN.GUI.Widgets.ComboOptionMenu.getValue()=nMOLDYN.GUI.Widgets.ComboOptionMenu-class.html#getValue,Method nMOLDYN.GUI.Widgets.ComboRadiobutton.getValue()=nMOLDYN.GUI.Widgets.ComboRadiobutton-class.html#getValue,Method nMOLDYN.GUI.Widgets.ComboScale.getValue()=nMOLDYN.GUI.Widgets.ComboScale-class.html#getValue,Method nMOLDYN.GUI.Widgets.ComboSpinbox.getValue()=nMOLDYN.GUI.Widgets.ComboSpinbox-class.html#getValue,Method nMOLDYN.GUI.Widgets.ComboStringEntry.getValue()=nMOLDYN.GUI.Widgets.ComboStringEntry-class.html#getValue,Method nMOLDYN.GUI.Widgets.FloatEntry.getValue()=nMOLDYN.GUI.Widgets.FloatEntry-class.html#getValue,Method nMOLDYN.GUI.Widgets.IntegerEntry.getValue()=nMOLDYN.GUI.Widgets.IntegerEntry-class.html#getValue,Method nMOLDYN.GUI.Widgets.StringEntry.getValue()=nMOLDYN.GUI.Widgets.StringEntry-class.html#getValue,Method nMOLDYN.GUI.Widgets.ValidatingEntry.getValue()=nMOLDYN.GUI.Widgets.ValidatingEntry-class.html#getValue"><a title="nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.getValue
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.getValue
+nMOLDYN.GUI.Widgets.ComboButton.getValue
+nMOLDYN.GUI.Widgets.ComboCheckbutton.getValue
+nMOLDYN.GUI.Widgets.ComboFileBrowser.getValue
+nMOLDYN.GUI.Widgets.ComboFloatEntry.getValue
+nMOLDYN.GUI.Widgets.ComboIntegerEntry.getValue
+nMOLDYN.GUI.Widgets.ComboLabel.getValue
+nMOLDYN.GUI.Widgets.ComboOptionMenu.getValue
+nMOLDYN.GUI.Widgets.ComboRadiobutton.getValue
+nMOLDYN.GUI.Widgets.ComboScale.getValue
+nMOLDYN.GUI.Widgets.ComboSpinbox.getValue
+nMOLDYN.GUI.Widgets.ComboStringEntry.getValue
+nMOLDYN.GUI.Widgets.FloatEntry.getValue
+nMOLDYN.GUI.Widgets.IntegerEntry.getValue
+nMOLDYN.GUI.Widgets.StringEntry.getValue
+nMOLDYN.GUI.Widgets.ValidatingEntry.getValue" class="py-name" href="#" onclick="return doclink('link-43', 'getValue', 'link-43');">getValue</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">inputFile</tt><tt class="py-op">:</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-44" class="py-name"><a title="nMOLDYN.Core.Error
+nMOLDYN.Core.Error.Error" class="py-name" href="#" onclick="return doclink('link-44', 'Error', 'link-3');">Error</a></tt><tt class="py-op">(</tt><tt class="py-string">'Please enter an ASCII input file.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">outputFile</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">outputFileBrowser</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.getValue
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.getValue
+nMOLDYN.GUI.Widgets.ComboButton.getValue
+nMOLDYN.GUI.Widgets.ComboCheckbutton.getValue
+nMOLDYN.GUI.Widgets.ComboFileBrowser.getValue
+nMOLDYN.GUI.Widgets.ComboFloatEntry.getValue
+nMOLDYN.GUI.Widgets.ComboIntegerEntry.getValue
+nMOLDYN.GUI.Widgets.ComboLabel.getValue
+nMOLDYN.GUI.Widgets.ComboOptionMenu.getValue
+nMOLDYN.GUI.Widgets.ComboRadiobutton.getValue
+nMOLDYN.GUI.Widgets.ComboScale.getValue
+nMOLDYN.GUI.Widgets.ComboSpinbox.getValue
+nMOLDYN.GUI.Widgets.ComboStringEntry.getValue
+nMOLDYN.GUI.Widgets.FloatEntry.getValue
+nMOLDYN.GUI.Widgets.IntegerEntry.getValue
+nMOLDYN.GUI.Widgets.StringEntry.getValue
+nMOLDYN.GUI.Widgets.ValidatingEntry.getValue" class="py-name" href="#" onclick="return doclink('link-45', 'getValue', 'link-43');">getValue</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt>         </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">        <tt class="py-comment"># An output file must have been set.</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">outputFile</tt><tt class="py-op">:</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-46" class="py-name"><a title="nMOLDYN.Core.Error
+nMOLDYN.Core.Error.Error" class="py-name" href="#" onclick="return doclink('link-46', 'Error', 'link-3');">Error</a></tt><tt class="py-op">(</tt><tt class="py-string">'Please enter a NetCDF output file.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">                         </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+</div><a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">    <tt class="py-comment"># Command hooks</tt> </tt>
+<a name="ASCIIToNetCDFConversionDialog.apply"></a><div id="ASCIIToNetCDFConversionDialog.apply-def"><a name="L157"></a><tt class="py-lineno">157</tt> <a class="py-toggle" href="#" id="ASCIIToNetCDFConversionDialog.apply-toggle" onclick="return toggle('ASCIIToNetCDFConversionDialog.apply');">-</a><tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#apply">apply</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ASCIIToNetCDFConversionDialog.apply-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ASCIIToNetCDFConversionDialog.apply-expanded"><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">        This method is called when the user clicks on the OK button of the conversion dialog. It performs the </tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">        conversion from the loaded NetCDF file to the selected ASCII file.</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt id="link-47" class="py-name"><a title="nMOLDYN.Core.IOFiles.convertASCIIToNetCDF
+nMOLDYN.GUI.MainDialog.MainDialog.convertASCIIToNetCDF" class="py-name" href="#" onclick="return doclink('link-47', 'convertASCIIToNetCDF', 'link-8');">convertASCIIToNetCDF</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">inputFile</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">outputFile</tt><tt class="py-op">)</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt id="link-48" class="py-name"><a title="nMOLDYN.Core.Logger.LogMessage" class="py-name" href="#" onclick="return doclink('link-48', 'LogMessage', 'link-12');">LogMessage</a></tt><tt class="py-op">(</tt><tt class="py-string">'info'</tt><tt class="py-op">,</tt> <tt class="py-string">'Conversion successful'</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-string">'gui'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"> </tt>
+<a name="ASCIIToNetCDFConversionDialog.openASCIIFile"></a><div id="ASCIIToNetCDFConversionDialog.openASCIIFile-def"><a name="L166"></a><tt class="py-lineno">166</tt> <a class="py-toggle" href="#" id="ASCIIToNetCDFConversionDialog.openASCIIFile-toggle" onclick="return toggle('ASCIIToNetCDFConversionDialog.openASCIIFile');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="nMOLDYN.GUI.ASCIIToNetCDFConversionDialog.ASCIIToNetCDFConversionDialog-class.html#openASCIIFile">openASCIIFile</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">event</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ASCIIToNetCDFConversionDialog.openASCIIFile-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ASCIIToNetCDFConversionDialog.openASCIIFile-expanded"><a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-docstring">        This method/callback is called when the user press Return on the entry of the input file browser </tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-docstring">        or browse directlry from the file browser. It will set the filebrowser entry to the name of the browsed</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-docstring">        file and propose and set a name for the output file based on the basename of the browsed file.</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-comment"># Case where the user enters a file name directly in the entry widget without using the browser.</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">if</tt> <tt class="py-name">event</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">event</tt><tt class="py-op">.</tt><tt class="py-name">widget</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">inputFileBrowser</tt><tt class="py-op">.</tt><tt class="py-name">entry</tt><tt class="py-op">:</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">                <tt class="py-name">filename</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">inputFileBrowser</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="nMOLDYN.GUI.PyroServerDialog.PyroServerDialog.getValue
+nMOLDYN.GUI.SelectionDialog.SelectionDialog.getValue
+nMOLDYN.GUI.Widgets.ComboButton.getValue
+nMOLDYN.GUI.Widgets.ComboCheckbutton.getValue
+nMOLDYN.GUI.Widgets.ComboFileBrowser.getValue
+nMOLDYN.GUI.Widgets.ComboFloatEntry.getValue
+nMOLDYN.GUI.Widgets.ComboIntegerEntry.getValue
+nMOLDYN.GUI.Widgets.ComboLabel.getValue
+nMOLDYN.GUI.Widgets.ComboOptionMenu.getValue
+nMOLDYN.GUI.Widgets.ComboRadiobutton.getValue
+nMOLDYN.GUI.Widgets.ComboScale.getValue
+nMOLDYN.GUI.Widgets.ComboSpinbox.getValue
+nMOLDYN.GUI.Widgets.ComboStringEntry.getValue
+nMOLDYN.GUI.Widgets.FloatEntry.getValue
+nMOLDYN.GUI.Widgets.IntegerEntry.getValue
+nMOLDYN.GUI.Widgets.StringEntry.getValue
+nMOLDYN.GUI.Widgets.ValidatingEntry.getValue" class="py-name" href="#" onclick="return doclink('link-49', 'getValue', 'link-43');">getValue</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">             </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">            <tt class="py-comment"># The name of the ASCII file to load.</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">filename</tt> <tt class="py-op">=</tt> <tt class="py-name">askopenfilename</tt><tt class="py-op">(</tt><tt class="py-name">parent</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">                                       <tt class="py-name">filetypes</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-string">'CDL file'</tt><tt class="py-op">,</tt><tt class="py-string">'.cdl'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-string">'All files'</tt><tt class="py-op">,</tt> <tt class="py-string">'.*'</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">                                       <tt class="py-name">initialdir</tt> <tt class="py-op">=</tt> <tt id="link-50" class="py-name"><a title="nMOLDYN.Core.Preferences.PREFERENCES" class="py-name" href="#" onclick="return doclink('link-50', 'PREFERENCES', 'link-16');">PREFERENCES</a></tt><tt class="py-op">.</tt><tt class="py-name">outputfile_path</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">filename</tt><tt class="py-op">:</tt>             </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">            <tt class="py-comment"># The filebrowser entry is updated with the loaded filename.</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">inputFileBrowser</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name" targets="Method nMOLDYN.GUI.Widgets.ComboButton.setValue()=nMOLDYN.GUI.Widgets.ComboButton-class.html#setValue,Method nMOLDYN.GUI.Widgets.ComboCheckbutton.setValue()=nMOLDYN.GUI.Widgets.ComboCheckbutton-class.html#setValue,Method nMOLDYN.GUI.Widgets.ComboFileBrowser.setValue()=nMOLDYN.GUI.Widgets.ComboFileBrowser-class.html#setValue,Method nMOLDYN.GUI.Widgets.ComboFloatEntry.setValue()=nMOLDYN.GUI.Widgets.ComboFloatEntry-class.html#setValue,Method nMOLDYN.GUI.Widgets.ComboIntegerEntry.setValue()=nMOLDYN.GUI.Widgets.ComboIntegerEntry-class.html#setValue,Method nMOLDYN.GUI.Widgets.ComboLabel.setValue()=nMOLDYN.GUI.Widgets.ComboLabel-class.html#setValue,Method nMOLDYN.GUI.Widgets.ComboOptionMenu.setValue()=nMOLDYN.GUI.Widgets.ComboOptionMenu-class.html#setValue,Method nMOLDYN.GUI.Widgets.ComboRadiobutton.setValue()=nMOLDYN.GUI.Widgets.ComboRadiobutton-class.html#setValue,Method nMOLDYN.GUI.Widgets.ComboScale.setValue()=nMOLDYN.GUI.Widgets.ComboScale-class.html#setValue,Method nMOLDYN.GUI.Widgets.ComboSpinbox.setValue()=nMOLDYN.GUI.Widgets.ComboSpinbox-class.html#setValue,Method nMOLDYN.GUI.Widgets.ComboStringEntry.setValue()=nMOLDYN.GUI.Widgets.ComboStringEntry-class.html#setValue,Method nMOLDYN.GUI.Widgets.FloatEntry.setValue()=nMOLDYN.GUI.Widgets.FloatEntry-class.html#setValue,Method nMOLDYN.GUI.Widgets.IntegerEntry.setValue()=nMOLDYN.GUI.Widgets.IntegerEntry-class.html#setValue,Method nMOLDYN.GUI.Widgets.StatusBar.setValue()=nMOLDYN.GUI.Widgets.StatusBar-class.html#setValue,Method nMOLDYN.GUI.Widgets.ValidatingEntry.setValue()=nMOLDYN.GUI.Widgets.ValidatingEntry-class.html#setValue"><a title="nMOLDYN.GUI.Widgets.ComboButton.setValue
+nMOLDYN.GUI.Widgets.ComboCheckbutton.setValue
+nMOLDYN.GUI.Widgets.ComboFileBrowser.setValue
+nMOLDYN.GUI.Widgets.ComboFloatEntry.setValue
+nMOLDYN.GUI.Widgets.ComboIntegerEntry.setValue
+nMOLDYN.GUI.Widgets.ComboLabel.setValue
+nMOLDYN.GUI.Widgets.ComboOptionMenu.setValue
+nMOLDYN.GUI.Widgets.ComboRadiobutton.setValue
+nMOLDYN.GUI.Widgets.ComboScale.setValue
+nMOLDYN.GUI.Widgets.ComboSpinbox.setValue
+nMOLDYN.GUI.Widgets.ComboStringEntry.setValue
+nMOLDYN.GUI.Widgets.FloatEntry.setValue
+nMOLDYN.GUI.Widgets.IntegerEntry.setValue
+nMOLDYN.GUI.Widgets.StatusBar.setValue
+nMOLDYN.GUI.Widgets.ValidatingEntry.setValue" class="py-name" href="#" onclick="return doclink('link-51', 'setValue', 'link-51');">setValue</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">            <tt class="py-comment"># A default filename for the output NetCDF file is built.</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">outputFileBrowser</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="nMOLDYN.GUI.Widgets.ComboButton.setValue
+nMOLDYN.GUI.Widgets.ComboCheckbutton.setValue
+nMOLDYN.GUI.Widgets.ComboFileBrowser.setValue
+nMOLDYN.GUI.Widgets.ComboFloatEntry.setValue
+nMOLDYN.GUI.Widgets.ComboIntegerEntry.setValue
+nMOLDYN.GUI.Widgets.ComboLabel.setValue
+nMOLDYN.GUI.Widgets.ComboOptionMenu.setValue
+nMOLDYN.GUI.Widgets.ComboRadiobutton.setValue
+nMOLDYN.GUI.Widgets.ComboScale.setValue
+nMOLDYN.GUI.Widgets.ComboSpinbox.setValue
+nMOLDYN.GUI.Widgets.ComboStringEntry.setValue
+nMOLDYN.GUI.Widgets.FloatEntry.setValue
+nMOLDYN.GUI.Widgets.IntegerEntry.setValue
+nMOLDYN.GUI.Widgets.StatusBar.setValue
+nMOLDYN.GUI.Widgets.ValidatingEntry.setValue" class="py-name" href="#" onclick="return doclink('link-52', 'setValue', 'link-51');">setValue</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">splitext</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-string">'.nc'</tt><tt class="py-op">)</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">             </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'break'</tt> </tt>
+</div></div><a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct  8 16:57:11 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

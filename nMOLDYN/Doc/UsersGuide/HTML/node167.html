@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node168.html">
+<LINK REL="previous" HREF="node166.html">
+<LINK REL="up" HREF="node166.html">
+<LINK REL="next" HREF="node168.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3465"
+  HREF="node168.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3461"
+  HREF="node166.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3455"
+  HREF="node166.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3463"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3466"
+  HREF="node168.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3462"
+  HREF="node166.html">ScrewFit analysis</A>
+<B> Previous:</B> <A NAME="tex2html3456"
+  HREF="node166.html">ScrewFit analysis</A>
+ &nbsp <B>  <A NAME="tex2html3464"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008264100000000000000"></A>
+<A NAME="sfa_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+The <A HREF=node4.html#tex2html741 NAME="22618"><B>S</B>crew<B>F</B>it <B>A</B>nalysis (<I>SFA</I>)</A> is based on the superposition of molecular structures, defined by atomic coordinates, 
+combining quaternionic representation of rotation matrices and Chasles' theorem on rigid-body displacements. 
+When applied to subsequent peptide planes in protein structures, <A HREF=node4.html#tex2html742 NAME="22625"><I>SFA</I></A> gives local helical parameters of the
+protein backbone winding.
+
+<P>
+<A HREF=node4.html#tex2html743 NAME="22632"><I>SFA</I></A> takes into consideration three structural parameters: the orientational distance, the helix radius of screw motion, and the 
+straightness. The orientational distance, <IMG
+ WIDTH="21" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img597.gif"
+ ALT="$\Delta$">, refers to the relative orientation of two subsequent peptide planes. The radius of 
+screw motion, <IMG
+ WIDTH="15" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img598.gif"
+ ALT="$\rho$">, is related to the distances between the C-atoms, in the reference and target peptide planes, and the local
+axis of screwmotion. The radius <IMG
+ WIDTH="15" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img598.gif"
+ ALT="$\rho$"> is a measure of the local curling of the backbone conformation. In a flat backbone conformation, 
+like an extended <IMG
+ WIDTH="17" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img534.gif"
+ ALT="$\beta$">-strand, <IMG
+ WIDTH="15" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img598.gif"
+ ALT="$\rho$"> is close to zero ; when the local backbone conformation is curled, as in the case of 
+<IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.gif"
+ ALT="$\alpha$">-helices and <IMG
+ WIDTH="17" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img534.gif"
+ ALT="$\beta$">-turns, <IMG
+ WIDTH="15" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img598.gif"
+ ALT="$\rho$"> increases. The maximum observed values usually do not exceed 0.3. Straightness, <IMG
+ WIDTH="17" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img313.gif"
+ ALT="$\sigma$">, 
+is the scalar product between the unit vectors of the axis of screwmotion, relative to four consecutive peptide planes, it 
+gives information about local curvatures or kinks of a protein backbone tract. For each pair of consecutive peptide planes
+represented by their atoms C, O, N, ScrewFit defines these three parameters indicating their relative orientation and distance 
+from a common axis of rotation (the axis of screw motion)
+
+<P>
+Given the definition of <A HREF=node4.html#tex2html744 NAME="22639"><I>SFA</I></A> your system must contain at least one protein to perform this analysis.
+
+<P>
+For more detailed and technical information about this analysis please refers to the original paper [<A
+ HREF="node192.html#Calligari">38</A>].
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3465"
+  HREF="node168.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3461"
+  HREF="node166.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3455"
+  HREF="node166.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3463"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3466"
+  HREF="node168.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3462"
+  HREF="node166.html">ScrewFit analysis</A>
+<B> Previous:</B> <A NAME="tex2html3456"
+  HREF="node166.html">ScrewFit analysis</A>
+ &nbsp <B>  <A NAME="tex2html3464"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

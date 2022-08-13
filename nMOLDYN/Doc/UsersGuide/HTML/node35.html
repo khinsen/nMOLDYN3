@@ -1,0 +1,456 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Weighting scheme</TITLE>
+<META NAME="description" CONTENT="Weighting scheme">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node36.html">
+<LINK REL="previous" HREF="node34.html">
+<LINK REL="up" HREF="node34.html">
+<LINK REL="next" HREF="node36.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1716"
+  HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1712"
+  HREF="node34.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1706"
+  HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1714"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1717"
+  HREF="node36.html">Atom selection</A>
+<B> Up:</B> <A NAME="tex2html1713"
+  HREF="node34.html">The Analysis menu</A>
+<B> Previous:</B> <A NAME="tex2html1707"
+  HREF="node34.html">The Analysis menu</A>
+ &nbsp <B>  <A NAME="tex2html1715"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION008210000000000000000"></A>
+<A NAME="weighting_scheme"></A>
+<BR>
+Weighting scheme
+</H2>
+In quantities that are averages over all atoms, <I>n</I>MOLDYN gives the possibility to choose between differents atomic weighting 
+schemes. Presently, <I>n</I>MOLDYN implements the following schemes:
+
+<P>
+
+<UL>
+<LI>Equal weighting:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\omega_{\alpha}=\frac{1}{N_{atoms}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:equal"></A><IMG
+ WIDTH="330" HEIGHT="44" BORDER="0"
+ SRC="img33.gif"
+ ALT="\begin{displaymath}
+\omega_{\alpha}=\frac{1}{N_{atoms}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.1)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+</LI>
+<LI>Mass weighting: 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\omega_{\alpha}=\frac{m_\alpha}{\sum_{\alpha=1}^{N_{atoms}} m_\alpha}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:mass"></A><IMG
+ WIDTH="348" HEIGHT="46" BORDER="0"
+ SRC="img34.gif"
+ ALT="\begin{displaymath}
+\omega_{\alpha}=\frac{m_\alpha}{\sum_{\alpha=1}^{N_{atoms}} m_\alpha}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.2)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+</LI>
+<LI>Atomic number weighting: 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\omega_{\alpha}=\frac{Z_\alpha}{\sum_{\alpha=1}^{N_{atoms}} Z_\alpha}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:atomic_number"></A><IMG
+ WIDTH="347" HEIGHT="49" BORDER="0"
+ SRC="img35.gif"
+ ALT="\begin{displaymath}
+\omega_{\alpha}=\frac{Z_\alpha}{\sum_{\alpha=1}^{N_{atoms}} Z_\alpha}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.3)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+</LI>
+<LI>Incoherent neutron scattering: 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\omega_{\alpha}=\frac{b_{\alpha,\mathrm{inc}}^2}{\sum_{\alpha=1}^{N_{atoms}} b_{\alpha,\mathrm{inc}}^2}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:incoherent"></A><IMG
+ WIDTH="355" HEIGHT="57" BORDER="0"
+ SRC="img36.gif"
+ ALT="\begin{displaymath}
+\omega_{\alpha}=\frac{b_{\alpha,\mathrm{inc}}^2}{\sum_{\alpha=1}^{N_{atoms}} b_{\alpha,\mathrm{inc}}^2}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.4)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+</LI>
+<LI>Coherent neutron scattering: 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\sqrt{\omega_{\alpha}}=\frac{b_{\alpha,\mathrm{coh}}}{\sqrt{\sum_{\alpha=1}^{N_{atoms}} b_{\alpha,\mathrm{coh}}^2}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:coherent"></A><IMG
+ WIDTH="372" HEIGHT="58" BORDER="0"
+ SRC="img37.gif"
+ ALT="\begin{displaymath}
+\sqrt{\omega_{\alpha}}=\frac{b_{\alpha,\mathrm{coh}}}{\sqrt{\sum_{\alpha=1}^{N_{atoms}} b_{\alpha,\mathrm{coh}}^2}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.5)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+</LI>
+</UL>
+
+<P>
+where <IMG
+ WIDTH="27" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.gif"
+ ALT="$\omega_\alpha$"> is the weight for atom <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.gif"
+ ALT="$\alpha$">, <IMG
+ WIDTH="58" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.gif"
+ ALT="$N_{atoms}$"> is the number of (selected) atoms in the system (or in 
+the subsystem) for which the analysis is performed and <IMG
+ WIDTH="31" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img41.gif"
+ ALT="$m_\alpha$">, <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img42.gif"
+ ALT="$Z_\alpha$">, <!-- MATH
+ $b_{\alpha,\mathrm{inc}}$
+ -->
+<IMG
+ WIDTH="44" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img43.gif"
+ ALT="$b_{\alpha,\mathrm{inc}}$">, and <!-- MATH
+ $b_{\alpha,\mathrm{coh}}$
+ -->
+<IMG
+ WIDTH="47" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.gif"
+ ALT="$b_{\alpha,\mathrm{coh}}$"> are respectively the 
+mass, the atomic number, the incoherent scattering length and the coherent scattering length of atom <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.gif"
+ ALT="$\alpha$"> where
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+b_{\alpha,\mathrm{coh}}&=&\overline{b_\alpha} \\
+b_{\alpha,\mathrm{inc}}&=&\sqrt{\overline{b_\alpha^2}-\overline{b_\alpha}^2}
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="47" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img45.gif"
+ ALT="$\displaystyle b_{\alpha,\mathrm{coh}}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="23" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.gif"
+ ALT="$\displaystyle \overline{b_\alpha}$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.6)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="44" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.gif"
+ ALT="$\displaystyle b_{\alpha,\mathrm{inc}}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="85" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.gif"
+ ALT="$\displaystyle \sqrt{\overline{b_\alpha^2}-\overline{b_\alpha}^2}$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.7)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P> 
+
+<P>
+the average being done over isotopes and relative spin orientations of neutrons and nucleus. 
+
+<P>
+Using such a definition, we have <!-- MATH
+ $\sum_{\alpha=1}^N \omega_\alpha=1$
+ -->
+<IMG
+ WIDTH="105" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img50.gif"
+ ALT="$\sum_{\alpha=1}^N \omega_\alpha=1$">.
+
+<P>
+If we now group atoms into their different species <I>A</I>, <I>B</I> ...(e.g. oxygens, hydrogens ...) such that:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+N = \sum^{N_{species}}_{I = 1}n_I
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="336" HEIGHT="61" BORDER="0"
+ SRC="img51.gif"
+ ALT="\begin{displaymath}
+N = \sum^{N_{species}}_{I = 1}n_I
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.8)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+where <IMG
+ WIDTH="64" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.gif"
+ ALT="$N_{species}$"> is the total number of selected species and <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.gif"
+ ALT="$n_I$"> is the number of atoms of specie <I>I</I>. Then, we can 
+define the weight for a given atomic specie <I>I</I> as:
+
+<P>
+
+<UL>
+<LI>Equal weighting (per specie):
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\cal W_I}=\frac{n_I}{N_{atoms}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:equal_specie"></A><IMG
+ WIDTH="332" HEIGHT="41" BORDER="0"
+ SRC="img54.gif"
+ ALT="\begin{displaymath}
+{\cal W_I}=\frac{n_I}{N_{atoms}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.9)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+</LI>
+<LI>Mass weighting (per specie): 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\cal W_I}=\frac{n_{I}m_{I}}{\sum^{N_{species}}_{I=1} n_{I}m_{I}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:mass_specie"></A><IMG
+ WIDTH="363" HEIGHT="48" BORDER="0"
+ SRC="img55.gif"
+ ALT="\begin{displaymath}
+{\cal W_I}=\frac{n_{I}m_{I}}{\sum^{N_{species}}_{I=1} n_{I}m_{I}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.10)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+</LI>
+<LI>Atomic number weighting: 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\cal W_I}=\frac{n_{I}Z_{I}}{\sum^{N_{species}}_{I=1} n_{I}Z_{I}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:atomic_number_specie"></A><IMG
+ WIDTH="360" HEIGHT="52" BORDER="0"
+ SRC="img56.gif"
+ ALT="\begin{displaymath}
+{\cal W_I}=\frac{n_{I}Z_{I}}{\sum^{N_{species}}_{I=1} n_{I}Z_{I}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.11)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+</LI>
+<LI>Incoherent neutron scattering: 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\cal W_I}=\frac{n_{I}b_{I,\mathrm{inc}}^2}{\sum^{N_{species}}_{I=1} b_{I,\mathrm{inc}}^2}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:incoherent_specie"></A><IMG
+ WIDTH="360" HEIGHT="59" BORDER="0"
+ SRC="img57.gif"
+ ALT="\begin{displaymath}
+{\cal W_I}=\frac{n_{I}b_{I,\mathrm{inc}}^2}{\sum^{N_{species}}_{I=1} b_{I,\mathrm{inc}}^2}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.12)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+</LI>
+<LI>Coherent neutron scattering: 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\sqrt{{\cal W_I}}=\frac{n_{I}b_{I,\mathrm{coh}}}{\sqrt{\sum^{N_{species}}_{I=1} b_{I,\mathrm{coh}}^2}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:coherent_specie"></A><IMG
+ WIDTH="378" HEIGHT="58" BORDER="0"
+ SRC="img58.gif"
+ ALT="\begin{displaymath}
+\sqrt{{\cal W_I}}=\frac{n_{I}b_{I,\mathrm{coh}}}{\sqrt{\sum^{N_{species}}_{I=1} b_{I,\mathrm{coh}}^2}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.13)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+</LI>
+</UL>
+and we have <!-- MATH
+ $\sum_{I=1}^{N_{species}} {\cal W_I}=\sum_{I=1}^{N_{species}}\sum_{\alpha=1}^{n_I} \omega_{\alpha,I}= 1$
+ -->
+<IMG
+ WIDTH="306" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img59.gif"
+ ALT="$\sum_{I=1}^{N_{species}} {\cal W_I}=\sum_{I=1}^{N_{species}}\sum_{\alpha=1}^{n_I} \omega_{\alpha,I}= 1$"> where 
+<!-- MATH
+ $\omega_{\alpha,I}$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img60.gif"
+ ALT="$\omega_{\alpha,I}$"> is the atomic weight of atom <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.gif"
+ ALT="$\alpha$"> of specie <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img61.gif"
+ ALT="$I$"> defined in equations 
+<A HREF="node35.html#eq:equal">4.1</A> to <A HREF="node35.html#eq:mass">4.2</A>. The weigthing scheme based on specie will be useful when dealing with analysis for which 
+partial terms can be defined.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1716"
+  HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1712"
+  HREF="node34.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1706"
+  HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1714"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1717"
+  HREF="node36.html">Atom selection</A>
+<B> Up:</B> <A NAME="tex2html1713"
+  HREF="node34.html">The Analysis menu</A>
+<B> Previous:</B> <A NAME="tex2html1707"
+  HREF="node34.html">The Analysis menu</A>
+ &nbsp <B>  <A NAME="tex2html1715"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

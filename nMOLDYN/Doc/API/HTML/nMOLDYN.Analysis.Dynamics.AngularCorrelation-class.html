@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>nMOLDYN.Analysis.Dynamics.AngularCorrelation</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="nMOLDYN-module.html">Package&nbsp;nMOLDYN</a> ::
+        <a href="nMOLDYN.Analysis-module.html">Package&nbsp;Analysis</a> ::
+        <a href="nMOLDYN.Analysis.Dynamics-module.html">Module&nbsp;Dynamics</a> ::
+        Class&nbsp;AngularCorrelation
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="nMOLDYN.Analysis.Dynamics.AngularCorrelation-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class AngularCorrelation</h1><p class="nomargin-top"><span class="codelink"><a href="nMOLDYN.Analysis.Dynamics-pysrc.html#AngularCorrelation">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+<a href="nMOLDYN.Analysis.Analysis.Analysis-class.html">Analysis.Analysis</a> --+
+                    |
+                   <strong class="uidshort">AngularCorrelation</strong>
+</pre>
+
+<hr />
+<pre class="literalblock">
+Sets up an Angular Correlation analysis.
+
+A Subclass of nMOLDYN.Analysis.Analysis. 
+
+Constructor: AngularCorrelation(|parameters| = None)
+
+Arguments:
+
+    - |parameters| -- a dictionnary of the input parameters, or 'None' to set up the analysis without parameters.
+        * trajectory      -- a trajectory file name or an instance of MMTK.Trajectory.Trajectory class.
+        * timeinfo        -- a string of the form 'first:last:step' where 'first' is an integer specifying the first frame 
+                             number to consider, 'last' is an integer specifying the last frame number to consider and 
+                             'step' is an integer specifying the step number between two frames.
+        * triplet         -- a selection string specifying the groups of three atoms that will define the plane on 
+                             which the angular correlation will be computed.
+        * atomorder       -- a string of the form 'atom1,atom2,atom3' where 'atom1', 'atom2' and 'atom3' are 
+                             respectively the MMTK atom names of the atoms in the way they should be ordered.
+        * ac              -- the output NetCDF file name. A CDL version of this file will also be generated with the '.cdl' extension
+                             instead of the '.nc' extension.
+        * pyroserver      -- a string specifying if Pyro will be used and how to run the analysis.
+    
+Running modes:
+
+    - To run the analysis do: a.runAnalysis() where a is the analysis object.
+    - To estimate the analysis do: a.estimateAnalysis() where a is the analysis object.
+    - To save the analysis to 'file' file name do: a.saveAnalysis(file) where a is the analysis object.
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Analysis.Dynamics.AngularCorrelation-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      The constructor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Analysis.Dynamics-pysrc.html#AngularCorrelation.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Analysis.Dynamics.AngularCorrelation-class.html#initialize" class="summary-sig-name">initialize</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Initializes the analysis (e.g.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Analysis.Dynamics-pysrc.html#AngularCorrelation.initialize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Analysis.Dynamics.AngularCorrelation-class.html#calc" class="summary-sig-name">calc</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">tripletIndex</span>,
+        <span class="summary-sig-arg">trajname</span>)</span><br />
+      Calculates the contribution for one group.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Analysis.Dynamics-pysrc.html#AngularCorrelation.calc">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="combine"></a><span class="summary-sig-name">combine</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">tripletIndex</span>,
+        <span class="summary-sig-arg">x</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Analysis.Dynamics-pysrc.html#AngularCorrelation.combine">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Analysis.Dynamics.AngularCorrelation-class.html#finalize" class="summary-sig-name">finalize</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Finalizes the calculations (e.g.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Analysis.Dynamics-pysrc.html#AngularCorrelation.finalize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html">Analysis.Analysis</a></code></b>:
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#analysisTime">analysisTime</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#buildJobInfo">buildJobInfo</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#buildTimeInfo">buildTimeInfo</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#deuterationSelection">deuterationSelection</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#groupSelection">groupSelection</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#parseInputParameters">parseInputParameters</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#preLoadTrajectory">preLoadTrajectory</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#runAnalysis">runAnalysis</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#saveAnalysis">saveAnalysis</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#setInputParameters">setInputParameters</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#subsetSelection">subsetSelection</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#updateJobProgress">updateJobProgress</a></code>,
+      <code><a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#weightingScheme">weightingScheme</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Analysis.Dynamics.AngularCorrelation-class.html#inputParametersNames" class="summary-name">inputParametersNames</a> = <code title="'trajectory', 'timeinfo', 'triplet', 'atomorder', 'ac', 'pyroserver',">'trajectory', 'timeinfo', 'triplet', 'a<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="shortName"></a><span class="summary-name">shortName</span> = <code title="'AC'">'AC'</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="canBeEstimated"></a><span class="summary-name">canBeEstimated</span> = <code title="True">True</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Analysis.Dynamics-pysrc.html#AngularCorrelation.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The constructor. Insures that the class can not be instanciated 
+  directly from here.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> - a dictionnary that contains parameters of the selected analysis.</li>
+        <li><strong class="pname"><code>statusBar</code></strong> - if not None, an instance of nMOLDYN.GUI.Widgets.StatusBar. Will 
+          attach a status bar to the selected analysis.</li>
+    </ul></dd>
+    <dt>Overrides:
+        <a href="nMOLDYN.Analysis.Analysis.Analysis-class.html#__init__">Analysis.Analysis.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="initialize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">initialize</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Analysis.Dynamics-pysrc.html#AngularCorrelation.initialize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Initializes the analysis (e.g. parses and checks input parameters, set
+  some variables ...).</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="calc"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">calc</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">tripletIndex</span>,
+        <span class="sig-arg">trajname</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Analysis.Dynamics-pysrc.html#AngularCorrelation.calc">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Calculates the contribution for one group.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>tripletIndex</code></strong> (integer.) - the index of the triplet in |self.triplet| list.</li>
+        <li><strong class="pname"><code>trajname</code></strong> (string) - the name of the trajectory file name.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="finalize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">finalize</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Analysis.Dynamics-pysrc.html#AngularCorrelation.finalize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Finalizes the calculations (e.g. averaging the total term, output 
+  files creations ...).</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="inputParametersNames"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">inputParametersNames</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+'trajectory', 'timeinfo', 'triplet', 'atomorder', 'ac', 'pyroserver',
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct  8 16:56:55 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

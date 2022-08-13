@@ -1,0 +1,335 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Discrete memory function of the VACF within the AR model</TITLE>
+<META NAME="description" CONTENT="Discrete memory function of the VACF within the AR model">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node99.html">
+<LINK REL="previous" HREF="node97.html">
+<LINK REL="up" HREF="node95.html">
+<LINK REL="next" HREF="node99.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2580"
+  HREF="node99.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2576"
+  HREF="node95.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2570"
+  HREF="node97.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2578"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2581"
+  HREF="node99.html">MSD within the AR</A>
+<B> Up:</B> <A NAME="tex2html2577"
+  HREF="node95.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2571"
+  HREF="node97.html">Density of states within</A>
+ &nbsp <B>  <A NAME="tex2html2579"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H5><A NAME="SECTION0082411130000000000000">
+Discrete memory function of the VACF within the AR model</A>
+</H5>
+Starting from the memory function equation of the <A HREF=node4.html#tex2html433 NAME="19803"><I>VACF</I></A> (Eq. <A HREF="node96.html#eq:memory_function_equation">4.72</A>), the first step towards a 
+numerical computation of the memory function consists in discretizing Eq. <A HREF="node96.html#eq:memory_function_equation">4.72</A> 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{VACF(n+1)-VACF(n)}{\Delta t} = -\sum_{k=0}^{n-1} 
+\Delta t\,\xi(n-k)\psi(k),
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:memory_function_discrete"></A><IMG
+ WIDTH="484" HEIGHT="58" BORDER="0"
+ SRC="img262.gif"
+ ALT="\begin{displaymath}
+\frac{VACF(n+1)-VACF(n)}{\Delta t} = -\sum_{k=0}^{n-1}
+\Delta t \xi(n-k)\psi(k),
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.79)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Eq. (<A HREF="node98.html#eq:memory_function_discrete">4.79</A>) is now subjected to a <EM>one-sided</EM> z-transform. Using that
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Z_{>}\left\{f(n+1)-f(n)\right\} = 
+zF_{>}(z) - zf(0)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="431" HEIGHT="31" BORDER="0"
+ SRC="img263.gif"
+ ALT="\begin{displaymath}
+Z_{&gt;}\left\{f(n+1)-f(n)\right\} =
+zF_{&gt;}(z) - zf(0)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.80)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+for any discrete function <IMG
+ WIDTH="41" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img248.gif"
+ ALT="$f(n)$"> whose one-sided z-transform exists, one obtains from (<A HREF="node98.html#eq:memory_function_discrete">4.79</A>)
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\Xi_{>}(z) = \frac{1}{\Delta t^2} \left(\frac{z}{\mathrm{VACF}_{>}(z)} + 1 -
+z\right),
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:xi_z"></A><IMG
+ WIDTH="421" HEIGHT="46" BORDER="0"
+ SRC="img264.gif"
+ ALT="\begin{displaymath}
+\Xi_{&gt;}(z) = \frac{1}{\Delta t^2} \left(\frac{z}{\mathrm{VACF}_{&gt;}(z)} + 1 -
+z\right),
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.81)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+using that <IMG
+ WIDTH="115" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img265.gif"
+ ALT="$VACF(0)=1$">. The one-sided z-transform of an arbitrary discrete function <IMG
+ WIDTH="41" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img248.gif"
+ ALT="$f(n)$"> is defined as 
+<!-- MATH
+ $F_{>}(z) = \sum_{n=0}^{\infty} f(n) z^{-n}$
+ -->
+<IMG
+ WIDTH="183" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img266.gif"
+ ALT="$F_{&gt;}(z) = \sum_{n=0}^{\infty} f(n) z^{-n}$">.
+Here it has been used that the one-sided z-transform of the discrete convolution integral is just the product 
+<!-- MATH
+ $\Xi_{>}(z)\mathrm{VACF}_{>}(z)$
+ -->
+<IMG
+ WIDTH="133" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img267.gif"
+ ALT="$\Xi_{&gt;}(z)\mathrm{VACF}_{&gt;}(z)$">. Inserting the definition of the one-sided <I>z</I>-transform for <IMG
+ WIDTH="52" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img268.gif"
+ ALT="$\Xi_{&gt;}(z)$"> and 
+<!-- MATH
+ $\mathrm{VACF}_{>}(z)$
+ -->
+<IMG
+ WIDTH="88" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img269.gif"
+ ALT="$\mathrm{VACF}_{&gt;}(z)$">, this equation can be rewritten as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\sum_{j=0}^\infty ~ \xi(j) \, z^{-j} = \frac{1}{\Delta t^2} \,
+  \frac{\sum_{j=0}^\infty \, \left[VACF(j) - VACF(j+1)\right] \, z^{-j}}
+  { \sum_{j=0}^\infty \, VACF(j) \, z^{-j} }.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:m_t"></A><IMG
+ WIDTH="505" HEIGHT="58" BORDER="0"
+ SRC="img270.gif"
+ ALT="\begin{displaymath}
+\sum_{j=0}^\infty&nbsp; \xi(j)   z^{-j} = \frac{1}{\Delta t^2}...
+...ight]   z^{-j}}
+{ \sum_{j=0}^\infty   VACF(j)   z^{-j} }.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.82)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Note that the term proportional to <I>z</I> cancels out.  The time dependent memory function is, in principle, obtained by 
+comparing the coefficients of the series on the <EM>lhs</EM> and the <EM>rhs</EM> of Eq. (<A HREF="node98.html#eq:m_t">4.82</A>). To construct a numerical method, 
+we replace the series by polynomials of order <I>N</I>, where <IMG
+ WIDTH="73" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img271.gif"
+ ALT="$t=N\Delta t$"> defines the time window for the memory function to be computed. 
+After this first step a polynomial division is performed on the <EM>rhs</EM> of Eq. (<A HREF="node98.html#eq:m_t">4.82</A>), and after a subsequent multiplication 
+of both sides with <IMG
+ WIDTH="39" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img272.gif"
+ ALT="$z^{-N}$"> one obtains the time dependent memory function, <IMG
+ WIDTH="37" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img273.gif"
+ ALT="$\xi(j)$">, by comparison of coefficients,
+<BR>
+<DIV ALIGN="CENTER"><A NAME="eq:xi_division"></A>
+<!-- MATH
+ \begin{eqnarray}
+\frac{z^{-N}}{\Delta t^2}\,\frac{\sum_{j=0}^N \, \left[VACF(j) -
+    VACF(j+1)\right] \, z^{N-j}} { \sum_{j=0}^N \, VACF(j) \,
+    z^{-j}} &=&
+  z^{-N} \left(\sum_{j=0}^N \, c_j \, z^{N-j} + R \right)\nonumber\\
+  &=& \sum_{j=0}^N \xi(j) \, z^{-j}.
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="354" HEIGHT="69" ALIGN="MIDDLE" BORDER="0"
+ SRC="img274.gif"
+ ALT="$\displaystyle \frac{z^{-N}}{\Delta t^2} \frac{\sum_{j=0}^N   \left[VACF(j) -
+VACF(j+1)\right]   z^{N-j}} { \sum_{j=0}^N   VACF(j)  
+z^{-j}}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="189" HEIGHT="77" ALIGN="MIDDLE" BORDER="0"
+ SRC="img275.gif"
+ ALT="$\displaystyle z^{-N} \left(\sum_{j=0}^N   c_j   z^{N-j} + R \right)$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="97" HEIGHT="72" ALIGN="MIDDLE" BORDER="0"
+ SRC="img276.gif"
+ ALT="$\displaystyle \sum_{j=0}^N \xi(j)   z^{-j}.$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.83)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+Within <I>n</I>MOLDYN <IMG
+ WIDTH="85" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img277.gif"
+ ALT="$VACF(n)$"> is replaced by the autocorrelation function calculated in the framework of the autoregressive model, 
+<!-- MATH
+ $VACF^{(AR)}(n)$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img254.gif"
+ ALT="$VACF^{(AR)}(n)$">, as in Eqs. <A HREF="node96.html#eq:psi_n">4.75</A> and <A HREF="node96.html#eq:beta_j">4.76</A>. The coefficients <IMG
+ WIDTH="21" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img278.gif"
+ ALT="$c_j$"> are obtained by polynomial division and 
+<IMG
+ WIDTH="20" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img279.gif"
+ ALT="$R$"> is a rest which does not contain information on the memory function within the time interval <!-- MATH
+ $t\in [0,N\Delta t]$
+ -->
+<IMG
+ WIDTH="97" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img280.gif"
+ ALT="$t\in [0,N\Delta t]$">. The discrete 
+memory function is therefore given by <!-- MATH
+ $\xi(j) = c_{N-j}$
+ -->
+<IMG
+ WIDTH="97" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img281.gif"
+ ALT="$\xi(j) = c_{N-j}$">.
+
+<P>
+A remark concerning the discretization scheme (<A HREF="node98.html#eq:memory_function_discrete">4.79</A>) is in place here. The discrete convolution 
+sum is effectively a first order approximation of the convolution integral. More sophisticated approximations could be used,
+but they would lead to less convenient expressions upon z-transformation. Correspondingly, we have chosen a first order 
+approximation for the differentiation on the left-hand side of (<A HREF="node96.html#eq:memory_function_equation">4.72</A>). In this way the first order 
+(integro-)differential equation (<A HREF="node96.html#eq:memory_function_equation">4.72</A>) is transformed into the first order difference equation 
+(<A HREF="node98.html#eq:memory_function_discrete">4.79</A>).
+
+<P>
+However, this simple discretization scheme together with the use of the one-sided <I>z</I>-transform leads to a significant 
+error in <IMG
+ WIDTH="37" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img282.gif"
+ ALT="$\xi(0)$">. It is clear from Eq. (<A HREF="node96.html#eq:memory_function_equation">4.72</A>) that due to the symmetry of the autocorrelation function 
+(<!-- MATH
+ $\psi(t)=\psi(-t)$
+ -->
+<IMG
+ WIDTH="107" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img283.gif"
+ ALT="$\psi(t)=\psi(-t)$">), the derivative <IMG
+ WIDTH="52" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img284.gif"
+ ALT="$d\psi/dt$"> should vanish at <IMG
+ WIDTH="50" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img285.gif"
+ ALT="$t=0.$"> However, in the discretized version it is 
+approximated by a forward difference that is always negative. A higher-order calculation shows that the estimate for 
+<IMG
+ WIDTH="37" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img282.gif"
+ ALT="$\xi(0)$"> that results from the procedure described above should be doubled.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2580"
+  HREF="node99.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2576"
+  HREF="node95.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2570"
+  HREF="node97.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2578"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2581"
+  HREF="node99.html">MSD within the AR</A>
+<B> Up:</B> <A NAME="tex2html2577"
+  HREF="node95.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2571"
+  HREF="node97.html">Density of states within</A>
+ &nbsp <B>  <A NAME="tex2html2579"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

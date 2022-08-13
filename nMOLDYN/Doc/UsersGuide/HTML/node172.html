@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node173.html">
+<LINK REL="previous" HREF="node171.html">
+<LINK REL="up" HREF="node171.html">
+<LINK REL="next" HREF="node173.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3532"
+  HREF="node173.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3528"
+  HREF="node171.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3522"
+  HREF="node171.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3530"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3533"
+  HREF="node173.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3529"
+  HREF="node171.html">Order Parameter</A>
+<B> Previous:</B> <A NAME="tex2html3523"
+  HREF="node171.html">Order Parameter</A>
+ &nbsp <B>  <A NAME="tex2html3531"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008271100000000000000"></A>
+<A NAME="op_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+Adequate and accurate cross comparison of the NMR and <A HREF=node4.html#tex2html754 NAME="22733">MD</A> simulation data is of crucial importance in versatile studies
+conformational dynamics of proteins. NMR relaxation spectroscopy has proven to be a unique approach for a site-specific
+investigation of both global tumbling and internal motions of proteins. The molecular motions modulate the magnetic 
+interactions between the nuclear spins and lead for each nuclear spin to a relaxation behavior which reflects its environment. 
+Since its first applications to the study of protein dynamics, a wide variety of experiments has been proposed to 
+investigate backbone as well as side chain dynamics. Among them, the heteronuclear relaxation measurement of amide 
+backbone <IMG
+ WIDTH="21" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img600.gif"
+ ALT="$^{15}$">N nuclei is one of the most widespread techniques. The relationship between microscopic motions and measured
+spin relaxation rates is given by Redfield's theory [<A
+ HREF="node192.html#Refield">70</A>]. Under the hypothesis that <IMG
+ WIDTH="21" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img600.gif"
+ ALT="$^{15}$">N relaxation occurs through 
+dipole-dipole interactions with the directly bonded <IMG
+ WIDTH="14" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img601.gif"
+ ALT="$^{1}$">H atom and chemical shift anisotropy (CSA), and assuming that the 
+tensor describing the CSA is axially symmetric with its axis parallel to the N-H bond, the relaxation rates of the <IMG
+ WIDTH="21" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img600.gif"
+ ALT="$^{15}$">N 
+nuclei are determined by a time correlation function,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+C_{ii}(t) = \left\langle P_2(\mu_i(0) \cdot \mu_i(t)) \right\rangle
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:op_cii"></A><IMG
+ WIDTH="379" HEIGHT="31" BORDER="0"
+ SRC="img602.gif"
+ ALT="\begin{displaymath}
+C_{ii}(t) = \left\langle P_2(\mu_i(0) \cdot \mu_i(t)) \right\rangle
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.195)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+which describes the dynamics of a unit vector <IMG
+ WIDTH="42" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img603.gif"
+ ALT="$\mu_i(t)$"> pointing along the <IMG
+ WIDTH="21" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img600.gif"
+ ALT="$^{15}$">N-<IMG
+ WIDTH="14" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img601.gif"
+ ALT="$^{1}$">H bond of the residue <I>i</I> in the laboratory 
+frame. Here <IMG
+ WIDTH="44" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img604.gif"
+ ALT="$P_2(.)$"> is the second order Legendre polynomial.
+The Redfield theory shows that relaxation measurements probe the relaxation dynamics of a selected nuclear spin only at a 
+few frequencies. Moreover, only a limited number of independent observables are accessible. Hence, to relate relaxation 
+data to protein dynamics one has to postulate either a dynamical model for molecular motions or a functional form 
+for <IMG
+ WIDTH="49" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img605.gif"
+ ALT="$C_{ii}(t)$">, yet depending on a limited number of adjustable parameters.
+Usually, the tumbling motion of proteins in solution is assumed isotropic and uncorrelated with the internal motions, 
+such that:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+C_{ii}(t) = C^G(t) \cdot C^I_{ii}(t)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="362" HEIGHT="31" BORDER="0"
+ SRC="img606.gif"
+ ALT="\begin{displaymath}
+C_{ii}(t) = C^G(t) \cdot C^I_{ii}(t)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.196)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="51" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img607.gif"
+ ALT="$C^G(t)$"> and <IMG
+ WIDTH="49" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img608.gif"
+ ALT="$C^I_{ii}(t)$"> denote the global and the internal time correlation function, respectively. Within
+the so-called model free approach [<A
+ HREF="node192.html#Szabo:1982">71</A>,<A
+ HREF="node192.html#Szabo:1982bis">72</A>] the internal correlation function is modeled by an 
+exponential, 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+C^I_{ii}(t) = S^2_i +(1 - S^2_i)exp\left(-\frac{t}{\tau_{eff,i}}\right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="418" HEIGHT="54" BORDER="0"
+ SRC="img609.gif"
+ ALT="\begin{displaymath}
+C^I_{ii}(t) = S^2_i +(1 - S^2_i)exp\left(-\frac{t}{\tau_{eff,i}}\right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.197)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Here the asymptotic value <!-- MATH
+ $S^2_i =C_{ii}(+\infty)$
+ -->
+<IMG
+ WIDTH="116" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img610.gif"
+ ALT="$S^2_i =C_{ii}(+\infty)$"> is the so-called generalized order parameter, which indicates the 
+degree of spatial restriction of the internal motions of a bond vector, while the characteristic time <IMG
+ WIDTH="45" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img611.gif"
+ ALT="$\tau_{eff,i}$"> is an 
+effective correlation time, setting the time scale of the internal relaxation processes. <IMG
+ WIDTH="26" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img612.gif"
+ ALT="$S^2_i$"> can adopt values ranging from 
+0 (completely disordered) to 1 (fully ordered). So, <IMG
+ WIDTH="26" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img612.gif"
+ ALT="$S^2_i$"> is the appropriate indicator of protein backbone motions in 
+computationally feasible timescales as it describes the spatial aspects of the reorientational motion of N-H peptidic 
+bonds vector.
+
+<P>
+When performing Order Parameter analysis, <I>n</I>MOLDYN computes for each residue <I>i</I> both <IMG
+ WIDTH="49" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img605.gif"
+ ALT="$C_{ii}(t)$"> and <IMG
+ WIDTH="26" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img612.gif"
+ ALT="$S^2_i$">. 
+It also computes a correlation function averaged over all the selected bondsdefined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+C^I(t) = \sum_{i = 1}^{N_{bonds}} C^I_{ii}(t)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:op_cii_avg"></A><IMG
+ WIDTH="355" HEIGHT="59" BORDER="0"
+ SRC="img613.gif"
+ ALT="\begin{displaymath}
+C^I(t) = \sum_{i = 1}^{N_{bonds}} C^I_{ii}(t)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.198)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="55" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img614.gif"
+ ALT="$N_{bonds}$"> is the number of selected bonds for the analysis.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3532"
+  HREF="node173.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3528"
+  HREF="node171.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3522"
+  HREF="node171.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3530"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3533"
+  HREF="node173.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3529"
+  HREF="node171.html">Order Parameter</A>
+<B> Previous:</B> <A NAME="tex2html3523"
+  HREF="node171.html">Order Parameter</A>
+ &nbsp <B>  <A NAME="tex2html3531"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

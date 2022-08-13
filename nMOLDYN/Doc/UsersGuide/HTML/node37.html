@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Subset selection</TITLE>
+<META NAME="description" CONTENT="Subset selection">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node41.html">
+<LINK REL="previous" HREF="node36.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node38.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1752"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1748"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1742"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1750"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1753"
+  HREF="node38.html">selection from a selection</A>
+<B> Up:</B> <A NAME="tex2html1749"
+  HREF="node36.html">Atom selection</A>
+<B> Previous:</B> <A NAME="tex2html1743"
+  HREF="node36.html">Atom selection</A>
+ &nbsp <B>  <A NAME="tex2html1751"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION008221000000000000000"></A>
+<A NAME="subset_selection"></A>
+<BR>
+Subset selection
+</H3>
+This kind of selection is used when one wants to narrow an analysis on a given subset of atoms of the 
+system. For instance, assuming that you performed a <A HREF=node4.html#tex2html214 NAME="17898">MD</A> of a protein in a water box and that 
+you are interested in calculating the diffusion constant of the protein via a <A HREF=node4.html#tex2html215 NAME="17905"><B>M</B>ean-<B>S</B>quare <B>D</B>isplacement (<I>MSD</I>)</A> analysis. In that case, 
+it will be necessary to perform the analysis only on the atoms of the protein. 
+
+By default, <I>n</I>MOLDYN consider all the atoms for an analysis. The dialog from which a subset selection is performed 
+is displayed in figure <A HREF="node37.html#fig:subset_selection">4.19</A>.
+
+<DIV ALIGN="CENTER"><A NAME="fig:subset_selection"></A><A NAME="1392"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.19:</STRONG>
+The dialog from where a subset selection is performed.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="290" ALIGN="BOTTOM" BORDER="0"
+ SRC="img62.gif"
+ ALT="\includegraphics[width=10cm]{Figures/subset_selection.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+At the bottom of the dialog, the <B>Actions</B> frame contains the <B>Cancel</B> button to cancel the selection and 
+the <B>OK</B> button to validate the selecton.
+
+<P>
+On the top of the dialog, three radiobuttons allows to select from which media the selection will be performed. This can 
+be:
+
+<UL>
+<LI><B>from a selection file</B>: this will perform the selection from a <I>n</I>MOLDYN subset selection file,
+</LI>
+<LI><B>from the loaded trajectory</B>: this will perform the selection directly from the contents of the universe contained 
+in the loaded trajectory,
+</LI>
+<LI><B>from an expression string</B>: this will perform the selection from a valid python expression declaring a list 
+of  atoms to include in the selection.
+</LI>
+</UL>
+When clicking on one of these radiobutton, a media-specific dialog will be displayed in the underneath frame.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1754"
+  HREF="node38.html">selection from a selection file
+<BR></A>
+<LI><A NAME="tex2html1755"
+  HREF="node39.html">selection from the loaded trajectory
+<BR></A>
+<LI><A NAME="tex2html1756"
+  HREF="node40.html">selection from an expression string
+<BR></A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1752"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1748"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1742"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1750"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1753"
+  HREF="node38.html">selection from a selection</A>
+<B> Up:</B> <A NAME="tex2html1749"
+  HREF="node36.html">Atom selection</A>
+<B> Previous:</B> <A NAME="tex2html1743"
+  HREF="node36.html">Atom selection</A>
+ &nbsp <B>  <A NAME="tex2html1751"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

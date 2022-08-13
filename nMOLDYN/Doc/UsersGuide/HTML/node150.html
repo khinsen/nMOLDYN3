@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node151.html">
+<LINK REL="previous" HREF="node149.html">
+<LINK REL="up" HREF="node149.html">
+<LINK REL="next" HREF="node151.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3243"
+  HREF="node151.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3239"
+  HREF="node149.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3233"
+  HREF="node149.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3241"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3244"
+  HREF="node151.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3240"
+  HREF="node149.html">Smoothed Static Coherent Structure</A>
+<B> Previous:</B> <A NAME="tex2html3234"
+  HREF="node149.html">Smoothed Static Coherent Structure</A>
+ &nbsp <B>  <A NAME="tex2html3242"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008259100000000000000"></A>
+<A NAME="sscsf_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+This analysis differs from most of the other scattering-related analysis available in <I>n</I>MOLDYN in the sense that it does not 
+use a discrete <I>q</I>-vectors generation but results from a integration over all the <I>q</I>-vectors for a given <I>q</I>-shell. In that 
+context, the static coherent structure factor is defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+S_{\mathrm{coh}}(q) = \sum^{N_{species}}_{I,J \ge I}\sqrt{n_I n_J \omega_{I,\mathrm{coh}}\omega_{J,\mathrm{coh}}} S_{IJ}(q)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="438" HEIGHT="64" BORDER="0"
+ SRC="img529.gif"
+ ALT="\begin{displaymath}
+S_{\mathrm{coh}}(q) = \sum^{N_{species}}_{I,J \ge I}\sqrt{n_I n_J \omega_{I,\mathrm{coh}}\omega_{J,\mathrm{coh}}} S_{IJ}(q)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.184)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="64" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.gif"
+ ALT="$N_{species}$"> is the number of selected species, <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.gif"
+ ALT="$n_I$">, <IMG
+ WIDTH="26" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img432.gif"
+ ALT="$n_J$"> are respectively the number of atoms of species <I>I</I> and <I>J</I>, 
+<!-- MATH
+ $\omega_{I,\mathrm{coh}}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img530.gif"
+ ALT="$\omega_{I,\mathrm{coh}}$"> and <!-- MATH
+ $\omega_{J,\mathrm{coh}}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img531.gif"
+ ALT="$\omega_{J,\mathrm{coh}}$"> are respectively the weights for species <I>I</I> and <I>J</I> (see Section <A HREF="node35.html#weighting_scheme">4.2.1</A> for more 
+details) and:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+S_{IJ,\mathrm{coh}} = \delta_{IJ} + \frac{1}{\sqrt{n_In_I}}\left\langle\sum_{\alpha, \beta\neq\alpha}^{n_I,n_J} 
+\frac{sin(qr_{\alpha\beta})}{qr_{\alpha\beta}}\right\rangle
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="440" HEIGHT="59" BORDER="0"
+ SRC="img532.gif"
+ ALT="\begin{displaymath}
+S_{IJ,\mathrm{coh}} = \delta_{IJ} + \frac{1}{\sqrt{n_In_I}}\...
+...}
+\frac{sin(qr_{\alpha\beta})}{qr_{\alpha\beta}}\right\rangle
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.185)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <I>q</I> is the radius of the <I>q</I>-shell under process, and <!-- MATH
+ $r_{\alpha\beta}$
+ -->
+<IMG
+ WIDTH="32" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img533.gif"
+ ALT="$r_{\alpha\beta}$"> is the distance between atoms <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.gif"
+ ALT="$\alpha$"> and 
+<IMG
+ WIDTH="17" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img534.gif"
+ ALT="$\beta$">. For more detials about <A HREF=node4.html#tex2html625 NAME="21663"><I>SSCSF</I></A> analysis please refer to Ref. [<A
+ HREF="node192.html#Salmon">69</A>]
+
+<P>
+<BR><HR>
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

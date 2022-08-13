@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node101.html">
+<LINK REL="previous" HREF="node94.html">
+<LINK REL="up" HREF="node94.html">
+<LINK REL="next" HREF="node96.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2539"
+  HREF="node96.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2535"
+  HREF="node94.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2529"
+  HREF="node94.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2537"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2540"
+  HREF="node96.html">VACF within the AR</A>
+<B> Up:</B> <A NAME="tex2html2536"
+  HREF="node94.html">Auto-Regressive Analysis</A>
+<B> Previous:</B> <A NAME="tex2html2530"
+  HREF="node94.html">Auto-Regressive Analysis</A>
+ &nbsp <B>  <A NAME="tex2html2538"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION0082411100000000000000"></A>
+<A NAME="ara_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+The concept of <A HREF=node4.html#tex2html426 NAME="19695"><B>A</B>uto-<B>R</B>egressive <B>A</B>nalysis (<I>ARA</I>)</A> analysis is intimitely related to the one of memory function. Memory functions have 
+been used for a long time in theoretical statistical physics to describe the time dependence of autocorrelation
+functions. Nevertheless, the use of memory functions in the context of <A HREF=node4.html#tex2html427 NAME="19702">MD</A> simulations has been hindered by the lack of a 
+suitable numerical algorithm for their calculation. Such an algorithm has been published and is now implemented in 
+<I>n</I>MOLDYN [<A
+ HREF="node192.html#Hinsen:2001">57</A>]. The key point is that a reliable estimates for memory functions can be obtained by assuming 
+an <A HREF=node4.html#tex2html428 NAME="19709"><B>A</B>uto-<B>R</B>egressive (<I>AR</I>)</A> model for the underlying stochastic process and not for the memory function itself.
+
+<P>
+To compute the memory function <IMG
+ WIDTH="35" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img229.gif"
+ ALT="$\xi(t)$"> from a discrete time serie <!-- MATH
+ $x(n) \equiv x(n\Delta t)$
+ -->
+<IMG
+ WIDTH="118" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img230.gif"
+ ALT="$x(n) \equiv x(n\Delta t)$"> the latter is modelled by an 
+<EM>autoregressive stochastic process</EM> of order <I>P</I> [<A
+ HREF="node192.html#Papoulis:1991">58</A>,<A
+ HREF="node192.html#Makhoul:1975">59</A>],
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+x(t) = \sum_{n=1}^P a^{(P)}_n x(t- n \Delta t) + \epsilon_P(t).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:ar"></A><IMG
+ WIDTH="409" HEIGHT="58" BORDER="0"
+ SRC="img231.gif"
+ ALT="\begin{displaymath}
+x(t) = \sum_{n=1}^P a^{(P)}_n x(t- n \Delta t) + \epsilon_P(t).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.68)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Here <IMG
+ WIDTH="45" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img232.gif"
+ ALT="$\epsilon_P(t)$"> is <EM>white noise</EM> with zero mean and amplitude
+<IMG
+ WIDTH="28" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img233.gif"
+ ALT="$\sigma_P$">. The coeffients <IMG
+ WIDTH="55" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img234.gif"
+ ALT="$\{a^{(P)}_n\}$"> are fitted to the discrete time serie using Burg's algorithm [<A
+ HREF="node192.html#Burg">60</A>,<A
+ HREF="node192.html#Makhoul:1977">61</A>], 
+and <IMG
+ WIDTH="28" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img233.gif"
+ ALT="$\sigma_P$"> is given by
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\sigma_P^2=r(0)-\sum_{n=1}^P a_n^{(P)} \mathrm(n\Delta t),
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="383" HEIGHT="58" BORDER="0"
+ SRC="img235.gif"
+ ALT="\begin{displaymath}
+\sigma_P^2=r(0)-\sum_{n=1}^P a_n^{(P)} \mathrm(n\Delta t),
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.69)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="35" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img236.gif"
+ ALT="$r(t)$"> is the autocorrelation function of <IMG
+ WIDTH="36" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img237.gif"
+ ALT="$x(t)$">
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+r(t) :=\langle x(t)x(0)\rangle.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="348" HEIGHT="31" BORDER="0"
+ SRC="img238.gif"
+ ALT="\begin{displaymath}
+r(t) :=\langle x(t)x(0)\rangle.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.70)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+In all following calculations <I>n</I>MOLDYN works with a set of coefficients <IMG
+ WIDTH="42" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img239.gif"
+ ALT="$\{a_n\}$"> which has been averaged over all 
+selected atoms and the three Cartesian coordinates.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2541"
+  HREF="node96.html">VACF within the AR model</A>
+<LI><A NAME="tex2html2542"
+  HREF="node97.html">Density of states within the AR model</A>
+<LI><A NAME="tex2html2543"
+  HREF="node98.html">Discrete memory function of the VACF within the AR model</A>
+<LI><A NAME="tex2html2544"
+  HREF="node99.html">MSD within the AR model</A>
+<LI><A NAME="tex2html2545"
+  HREF="node100.html">Friction coefficient within the AR model</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2539"
+  HREF="node96.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2535"
+  HREF="node94.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2529"
+  HREF="node94.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2537"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2540"
+  HREF="node96.html">VACF within the AR</A>
+<B> Up:</B> <A NAME="tex2html2536"
+  HREF="node94.html">Auto-Regressive Analysis</A>
+<B> Previous:</B> <A NAME="tex2html2530"
+  HREF="node94.html">Auto-Regressive Analysis</A>
+ &nbsp <B>  <A NAME="tex2html2538"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

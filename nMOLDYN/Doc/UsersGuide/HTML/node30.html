@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Convert NetCDF to ASCII</TITLE>
+<META NAME="description" CONTENT="Convert NetCDF to ASCII">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node31.html">
+<LINK REL="previous" HREF="node29.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node31.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1514"
+  HREF="node31.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1510"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1504"
+  HREF="node29.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1512"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1515"
+  HREF="node31.html">Convert ASCII to NetCDF</A>
+<B> Up:</B> <A NAME="tex2html1511"
+  HREF="node19.html">The File menu</A>
+<B> Previous:</B> <A NAME="tex2html1505"
+  HREF="node29.html">Frame snapshot</A>
+ &nbsp <B>  <A NAME="tex2html1513"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION008140000000000000000"></A>
+<A NAME="convert_netcdf_ascii"></A>
+<BR>
+Convert NetCDF to ASCII
+</H2>
+The <B>Convert NetCDF to ASCII</B> option allows the conversion of any kind of <A HREF=node4.html#tex2html183 NAME="17656">NetCDF</A> file to a <A HREF=node4.html#tex2html184 NAME="17663">network <B>C</B>ommon <B>D</B>ata <B>L</B>anguage (CDL)</A> file [<A
+ HREF="node192.html#CDL">77</A>]. 
+Clicking on it, the dialog shown in figure <A HREF="node30.html#fig:convert_netcdf_ascii">4.13</A> will pop up. 
+
+<DIV ALIGN="CENTER"><A NAME="fig:convert_netcdf_ascii"></A><A NAME="1005"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.13:</STRONG>
+The dialog used to convert files in NetCDF format to CDL format.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="405" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.gif"
+ ALT="\includegraphics[width=10cm]{Figures/convert_netcdf_ascii.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+To use this functionnality, the <B>ncdump</B> program [<A
+ HREF="node192.html#ncdump">36</A>] provided with the <A HREF=node4.html#tex2html185 NAME="17670">NetCDF</A> library must be installed and the path to the 
+<B>ncdump</B> executable must be defined in the <I>n</I>MOLDYN preferences. If <B>ncdump</B> is not installed, 
+this functionnality will be disabled.
+
+<P>
+To perform the conversion, the following input fields must be filled:
+
+<UL>
+<LI><B>NetCDF file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> a <A HREF=node4.html#tex2html186 NAME="17677">NetCDF</A> file must be provided for the conversion. If a <A HREF=node4.html#tex2html187 NAME="17684">NetCDF</A> file is currently loaded (a <A HREF=node4.html#tex2html188 NAME="17691">MMTK</A> 
+trajectory or other kind of <A HREF=node4.html#tex2html189 NAME="17698">NetCDF</A> file), it will be proposed by default for conversion. Once the <A HREF=node4.html#tex2html190 NAME="17705">NetCDF</A> file is loaded 
+all the variables found in the <A HREF=node4.html#tex2html191 NAME="17712">NetCDF</A> file will be displayed in the <B>Available variables</B> field.
+
+<P>
+</LI>
+<LI><B>Available variables</B>
+<BR><B>Format:</B> Not an editable field
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> this field displays all the variables contained in the <A HREF=node4.html#tex2html192 NAME="17719">NetCDF</A> file. It contains two columns: 
+the first one displays the checkbuttons that will allow to unselect/select which <A HREF=node4.html#tex2html193 NAME="17726">NetCDF</A> variable (displayed on the right column) 
+should be considered for conversion.
+
+<P>
+</LI>
+<LI><B>Float precision</B>
+<BR><B>Format:</B> integer
+<BR><B>Default:</B> <I>9</I>
+<BR><B>Description:</B> this field stores the precision at which floating numbers will be written in the ASCII/CDL output file.
+
+<P>
+</LI>
+<LI><B>Double precision</B>
+<BR><B>Format:</B> integer
+<BR><B>Default:</B> <I>17</I>
+<BR><B>Description:</B> this field stores the precision at which double numbers will be written in the ASCII/CDL output file.
+
+<P>
+</LI>
+<LI><B>ASCII/CDL output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> this field stores the name of the ASCII/CDL output file.
+<BR></LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1514"
+  HREF="node31.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1510"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1504"
+  HREF="node29.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1512"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1515"
+  HREF="node31.html">Convert ASCII to NetCDF</A>
+<B> Up:</B> <A NAME="tex2html1511"
+  HREF="node19.html">The File menu</A>
+<B> Previous:</B> <A NAME="tex2html1505"
+  HREF="node29.html">Frame snapshot</A>
+ &nbsp <B>  <A NAME="tex2html1513"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>nMOLDYN input files</TITLE>
+<META NAME="description" CONTENT="nMOLDYN input files">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="previous" HREF="node190.html">
+<LINK REL="up" HREF="node189.html">
+<LINK REL="next" HREF="node192.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3759"
+  HREF="node192.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3755"
+  HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3751"
+  HREF="node190.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3757"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3760"
+  HREF="node192.html">Bibliography</A>
+<B> Up:</B> <A NAME="tex2html3756"
+  HREF="node189.html">Using nMOLDYN from the</A>
+<B> Previous:</B> <A NAME="tex2html3752"
+  HREF="node190.html">nMOLDYN autostart files</A>
+ &nbsp <B>  <A NAME="tex2html3758"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION009200000000000000000"></A>
+<A NAME="nmoldyn_input_files"></A>
+<BR>
+<I>n</I>MOLDYN input files
+</H1>
+The <I>n</I>MOLDYN input files (extension <B>.nmi</B>) are ASCII files that must be run through <I>n</I>MOLDYN. To run such a file, 
+just type:
+
+<BR>
+<BR><TT>./nMOLDYNStart.py -i <I>file.py</I></TT> on unix
+
+<BR>
+<BR>
+or
+
+<BR>
+<BR><TT>nMOLDYNStart.py <I>file.py</I></TT> on Windows
+
+<BR>
+<BR>
+where <I>file.py</I> is the name of the <I>n</I>MOLDYN input file.
+
+<P>
+An <I>n</I>MOLDYN input file must have the following format:
+
+<BR>
+<BR>
+1. <TT>analysis = <I>analysis_name</I></TT>
+<BR>
+<BR>
+2. <TT>version = "<I>nmoldyn_version</I>"</TT>
+<BR>
+3. <TT>estimate = "no"</TT>
+<BR>
+<BR>
+4. <TT><I>name1</I> = <I>value1</I></TT>
+
+<BR>
+<BR>
+
+<BR>
+<BR>
+5. <TT><I>nameN</I> = <I>valueN</I></TT>
+
+<BR>
+<BR>
+some explanations are necessary about the structure of this file:
+
+<UL>
+<LI>Line 1.: <I>analysis_name</I> is the <I>n</I>MOLDYN internal name of the analysis to run. A comprehensive list of the 
+<I>n</I>MOLDYN analysis internal names associated to each analysis is showed in Tab. <A HREF="node190.html#tab:nmoldyn_analysis_name">5.1</A>.
+</LI>
+<LI>Line 2.: <I>nmoldyn_version</I> is the version number of <I>n</I>MOLDYN. This line is optional.
+</LI>
+<LI>Line 3.: if set to "yes" instead of "no". the analysis will be run in estimate mode (see Section <A HREF="node49.html#running_modes">4.2.3</A> 
+for details). If "no" the full analysis will be run. If this parameter is omitted, the full analysis will be run.
+</LI>
+<LI>Line 4.: <I>name1</I> is the name in lower case of the first parameters of the analysis with value equal to <I>value1</I>. 
+Idem for Line 5.. The order in which the parameters appear is not relevant. A comprehensive list of the parameters names and 
+expected values associated to each analysis can be found using the right column of Tab. <A HREF="node190.html#tab:nmoldyn_analysis_name">5.1</A>.
+</LI>
+</UL>
+
+The figure <A HREF="node191.html#fig:msd_input_file">5.2</A> shows an example of a <I>n</I>MOLDYN input file for the <A HREF=node4.html#tex2html824 NAME="23313"><I>MSD</I></A> analysis. It was direclty 
+generated from <I>n</I>MOLDYN <A HREF=node4.html#tex2html825 NAME="23320"><I>GUI</I></A>. Saving an input file from the <A HREF=node4.html#tex2html826 NAME="23327"><I>GUI</I></A> (see Section <A HREF="node49.html#running_modes">4.2.3</A>) is often the 
+easiest way to get such file. This file providing then  a convenient starting point for customization. 
+
+<DIV ALIGN="CENTER"><A NAME="fig:msd_input_file"></A><A NAME="7741"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.2:</STRONG>
+Example of a <I>n</I>MOLDYN input file derived for a <I>MSD</I> analysis.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="281" ALIGN="BOTTOM" BORDER="0"
+ SRC="img637.gif"
+ ALT="\includegraphics[width=10cm]{Figures/msd_input_file.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+For those familiar with <I>n</I>MOLDYN 2, the <I>n</I>MOLDYN input files are the equivalent of the input file through <I>p</I>MOLDYN.
+They have been kept in <I>n</I>MOLDYN 3 for historical reasons even if the authors think that the <I>n</I>MOLDYN autostart are a little 
+bit more convenient.
+
+<P>
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3759"
+  HREF="node192.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3755"
+  HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3751"
+  HREF="node190.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3757"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3760"
+  HREF="node192.html">Bibliography</A>
+<B> Up:</B> <A NAME="tex2html3756"
+  HREF="node189.html">Using nMOLDYN from the</A>
+<B> Previous:</B> <A NAME="tex2html3752"
+  HREF="node190.html">nMOLDYN autostart files</A>
+ &nbsp <B>  <A NAME="tex2html3758"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

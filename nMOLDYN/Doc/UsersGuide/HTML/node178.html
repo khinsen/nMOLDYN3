@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Output
+</TITLE>
+<META NAME="description" CONTENT="Output
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="previous" HREF="node177.html">
+<LINK REL="up" HREF="node175.html">
+<LINK REL="next" HREF="node179.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3601"
+  HREF="node179.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3597"
+  HREF="node175.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3593"
+  HREF="node177.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3599"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3602"
+  HREF="node179.html">The View menu</A>
+<B> Up:</B> <A NAME="tex2html3598"
+  HREF="node175.html">Order Parameter (Contact Model)</A>
+<B> Previous:</B> <A NAME="tex2html3594"
+  HREF="node177.html">Parameters</A>
+ &nbsp <B>  <A NAME="tex2html3600"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008272300000000000000">
+Output
+<BR></A>
+</H4>
+The results of an <A HREF=node4.html#tex2html773 NAME="22877"><I>OPCM</I></A> analysis are stored in a <A HREF=node4.html#tex2html774 NAME="22884">NetCDF</A> file whose main variables are namely:
+
+<UL>
+<LI>time: the times in <I>ps</I> at which all the time-dependent <A HREF=node4.html#tex2html775 NAME="22891"><I>OPCM</I></A> defined in Eq. <A HREF="node176.html#eq:opcm_s2i">4.199</A> is computed,
+</LI>
+</UL>
+and for each protein chain <I>name</I> found in the system
+
+<UL>
+<LI><I>name</I>_sequence: the residue numbers of the chain <I>name</I>,
+</LI>
+<LI><I>name</I>_s2: the time-dependent generalized order parameter defined for each residue of chain 
+<I>name</I> as defined in Eq. <A HREF="node176.html#eq:opcm_s2i">4.199</A>,
+</LI>
+<LI><I>name</I>_s2_timeavg: the time-averaged generalized order parameter defined for each residue of chain 
+<I>name</I> as defined in Eq. <A HREF="node176.html#eq:opcm_s2i_avg">4.200</A>.
+</LI>
+</UL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

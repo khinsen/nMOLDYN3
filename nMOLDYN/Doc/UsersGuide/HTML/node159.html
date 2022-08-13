@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node160.html">
+<LINK REL="previous" HREF="node158.html">
+<LINK REL="up" HREF="node158.html">
+<LINK REL="next" HREF="node160.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3369"
+  HREF="node160.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3365"
+  HREF="node158.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3359"
+  HREF="node158.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3367"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3370"
+  HREF="node160.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3366"
+  HREF="node158.html">Coordination number</A>
+<B> Previous:</B> <A NAME="tex2html3360"
+  HREF="node158.html">Coordination number</A>
+ &nbsp <B>  <A NAME="tex2html3368"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008262100000000000000"></A>
+<A NAME="cn_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+In chemistry, the <A HREF=node4.html#tex2html675 NAME="22061"><I>CN</I></A> is the total number of neighbours of a central atom in a molecule or ion. The definition used in <I>n</I>MOLDYN is somewhat 
+different and can be seen as an extension of as the former definition. Indeed, in <I>n</I>MOLDYN, the <A HREF=node4.html#tex2html676 NAME="22068"><I>CN</I></A> is not defined over one defined central atom but around 
+the centers of gravity of a set of group of atoms. So, if only one group made of only atom is selected for the analysis, then, the 
+definition is the same as the original definition. In that context, the <A HREF=node4.html#tex2html677 NAME="22075"><I>CN</I></A> is defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+n(r, r+dr) = \frac{1}{N_{G}}\sum_{g=1}^{N_{G}}\sum_{I=1}^{N_{species}} n_{gI}(r, r+dr)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="441" HEIGHT="63" BORDER="0"
+ SRC="img556.gif"
+ ALT="\begin{displaymath}
+n(r, r+dr) = \frac{1}{N_{G}}\sum_{g=1}^{N_{G}}\sum_{I=1}^{N_{species}} n_{gI}(r, r+dr)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.191)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="32" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img557.gif"
+ ALT="$N_{G}$"> is the number of groups of atoms, <IMG
+ WIDTH="64" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.gif"
+ ALT="$N_{species}$"> is the number of species found in the system and 
+<IMG
+ WIDTH="53" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img558.gif"
+ ALT="$n_{gI}(r)$"> is the <A HREF=node4.html#tex2html678 NAME="22082"><I>CN</I></A> defined for specie <I>I</I> defined as the number of atoms of species <I>I</I> found 
+in a shell of width <I>dr</I> at a distance <I>r</I> of the center of gravity of the group of atom <I>g</I>.
+
+<P>
+<I>n</I>MOLDYN allows one to compute the <A HREF=node4.html#tex2html679 NAME="22089"><I>CN</I></A> on a set of equidistantly spaced distances at different times:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CN(r_m) \doteq \frac{1}{N_{frames}}\frac{1}{N_{G}}\sum_{f=1}^{N_{frames}}\sum_{g=1}^{N_{G}}\sum_{I=1}^{N_{species}} CN_{gI}(r_m, t_f),
+\qquad m = 0\ldots N_r - 1,\; n = 0\ldots N_{frames} - 1.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:cn_total"></A><IMG
+ WIDTH="748" HEIGHT="64" BORDER="0"
+ SRC="img559.gif"
+ ALT="\begin{displaymath}
+CN(r_m) \doteq \frac{1}{N_{frames}}\frac{1}{N_{G}}\sum_{f=1}...
+..._f),
+\qquad m = 0\ldots N_r - 1,\; n = 0\ldots N_{frames} - 1.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.192)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img560.gif"
+ ALT="$N_r$"> and <IMG
+ WIDTH="67" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img311.gif"
+ ALT="$N_{frames}$"> are respectively the number of distances and times at which the <A HREF=node4.html#tex2html680 NAME="22096"><I>CN</I></A> is evaluated and
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CN_{gI}(r_m, t_f) = n_{gI}(r_m, t_f),
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:cn_number"></A><IMG
+ WIDTH="385" HEIGHT="32" BORDER="0"
+ SRC="img561.gif"
+ ALT="\begin{displaymath}
+CN_{gI}(r_m, t_f) = n_{gI}(r_m, t_f),
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.193)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+is the number of atoms of specie <I>I</I> found within <!-- MATH
+ $[r_m,r_m + dr]$
+ -->
+<IMG
+ WIDTH="104" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img562.gif"
+ ALT="$[r_m,r_m + dr]$"> at frame <I>f</I> from the center of gravity of group <I>g</I>.
+
+<P>
+From these expression, several remarks can be done. Firstly, the Eqs <A HREF="node159.html#eq:cn_total">4.192</A> and <A HREF="node159.html#eq:cn_number">4.193</A> can be restricted 
+to intramolecular and intermolecular distances only. Secondly, these equations can be averaged over the selected frames providing a time averaged intra and intermolecular 
+<A HREF=node4.html#tex2html681 NAME="22103"><I>CN</I></A>. Finally, the same equations (time-dependent and time-averaged) can be integrated over <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img563.gif"
+ ALT="$r$"> to provide a 
+cumulative <A HREF=node4.html#tex2html682 NAME="22110"><I>CN</I></A>. <I>n</I>MOLDYN computes all these variations. 
+
+<P>
+The concept of <A HREF=node4.html#tex2html683 NAME="22117"><I>CN</I></A> is useful for structure-related analysis. It can reveal for instance some packing effects that may have 
+occured during the simulation.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3369"
+  HREF="node160.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3365"
+  HREF="node158.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3359"
+  HREF="node158.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3367"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3370"
+  HREF="node160.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3366"
+  HREF="node158.html">Coordination number</A>
+<B> Previous:</B> <A NAME="tex2html3360"
+  HREF="node158.html">Coordination number</A>
+ &nbsp <B>  <A NAME="tex2html3368"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

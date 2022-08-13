@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Effective mode</TITLE>
+<META NAME="description" CONTENT="Effective mode">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="previous" HREF="node181.html">
+<LINK REL="up" HREF="node179.html">
+<LINK REL="next" HREF="node183.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3650"
+  HREF="node183.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3646"
+  HREF="node179.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3642"
+  HREF="node181.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3648"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3651"
+  HREF="node183.html">The Help menu</A>
+<B> Up:</B> <A NAME="tex2html3647"
+  HREF="node179.html">The View menu</A>
+<B> Previous:</B> <A NAME="tex2html3643"
+  HREF="node181.html">Animation</A>
+ &nbsp <B>  <A NAME="tex2html3649"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION008330000000000000000"></A>
+<A NAME="effective_mode"></A>
+<BR>
+Effective mode
+</H2>
+This option allows one to visualize the results of a <A HREF=node4.html#tex2html795 NAME="23027"><I>QHA</I></A> analysis (see Section <A HREF="node103.html#qha">4.2.4.12</A>) as an animation of a selected 
+effective mode coming out the analysis using <A HREF=node4.html#tex2html796 NAME="23034">VMD</A>. To do so, <A HREF=node4.html#tex2html797 NAME="23041">VMD</A> must be installed and the preferences variables 
+<B>vmd_path</B> storing the path for <A HREF=node4.html#tex2html798 NAME="23048">VMD</A> reader executable must be correctly set. 
+
+<P>
+Pressing the <B>Effective mode viewer</B> button will pop up the dialog shown on figure <A HREF="node182.html#fig:effective_mode_viewer">4.68</A>
+
+<DIV ALIGN="CENTER"><A NAME="fig:effective_mode_viewer"></A><A NAME="6830"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.68:</STRONG>
+The dialog from where a the pseudo-trajectory associated to a selected effective 
+can be animated using <A HREF=node4.html#tex2html793 NAME="23019">VMD</A></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="408" ALIGN="BOTTOM" BORDER="0"
+ SRC="img633.gif"
+ ALT="\includegraphics[width=10cm]{Figures/effective_mode_viewer.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The following input fields controls the parameters necessary to visualize the animation through <A HREF=node4.html#tex2html799 NAME="23055">VMD</A>:
+
+<P>
+
+<UL>
+<LI><B>QHA input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> the name of the <A HREF=node4.html#tex2html800 NAME="23062"><I>QHA</I></A> analysis output file if one such file is already currently loaded. Nothing otherwise
+<BR><B>Description:</B> this widget allows to select the name of the <A HREF=node4.html#tex2html801 NAME="23069"><I>QHA</I></A> analysis output file to visualize.
+
+<P>
+</LI>
+<LI><B>Quasi-Harmonic mode</B>
+<BR><B>Format:</B> not an editable entry
+<BR><B>Default:</B> no effective mode selected
+<BR><B>Description:</B> this widget allows to select which combination of effective modes to visualize.
+
+<P>
+</LI>
+<LI><B>Number of frames</B>
+<BR><B>Format:</B> strictly positive integer
+<BR><B>Default:</B> <I>10</I> if one <A HREF=node4.html#tex2html802 NAME="23076"><I>QHA</I></A> file is currently loaded. Nothing otherwise
+<BR><B>Description:</B> this widget allows to specify the number of frames the pseudo-trajectory should contain.
+Calling <A HREF=node4.html#tex2html803 NAME="23083">VMD</A> from <I>n</I>MOLDYN is quite time-consuming, the entered value should not be too high.
+
+<P>
+</LI>
+<LI><B>Amplitude</B>
+<BR><B>Format:</B> strictly positive float
+<BR><B>Default:</B> <I>0.1</I> if one <A HREF=node4.html#tex2html804 NAME="23090"><I>QHA</I></A> file is currently loaded. Nothing otherwise
+<BR><B>Description:</B> this widget allows to specify the amplitude in <I>nm</I> of the motion associated to the selected 
+effective mode (see Eq. <A HREF="node104.html#eq:qha_trajectory">4.109</A>).
+</LI>
+</UL>
+Pressing the <B>OK</B> button will run the animation, pressing the <B>Cancel</B> button will close the dialog.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3650"
+  HREF="node183.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3646"
+  HREF="node179.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3642"
+  HREF="node181.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3648"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3651"
+  HREF="node183.html">The Help menu</A>
+<B> Up:</B> <A NAME="tex2html3647"
+  HREF="node179.html">The View menu</A>
+<B> Previous:</B> <A NAME="tex2html3643"
+  HREF="node181.html">Animation</A>
+ &nbsp <B>  <A NAME="tex2html3649"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

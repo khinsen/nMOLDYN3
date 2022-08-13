@@ -1,0 +1,636 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node109.html">
+<LINK REL="previous" HREF="node107.html">
+<LINK REL="up" HREF="node107.html">
+<LINK REL="next" HREF="node109.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2700"
+  HREF="node109.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2696"
+  HREF="node107.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2690"
+  HREF="node107.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2698"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2701"
+  HREF="node109.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2697"
+  HREF="node107.html">Reorientational Correlation Function</A>
+<B> Previous:</B> <A NAME="tex2html2691"
+  HREF="node107.html">Reorientational Correlation Function</A>
+ &nbsp <B>  <A NAME="tex2html2699"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION0082413100000000000000"></A>
+<A NAME="rcf_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+The molecular reorientational correlation function is defined as the conditional probability to find a molecule with 
+orientation <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img338.gif"
+ ALT="${\bf\Omega}_1$"> at time <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img339.gif"
+ ALT="$t_1$">, given it had the orientation <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img340.gif"
+ ALT="${\bf\Omega}_0$"> at time <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img85.gif"
+ ALT="$t_0$">.  In the following 
+this probability will be denoted by <!-- MATH
+ $p({\bf\Omega}_1,t_1|{\bf\Omega}_0,t_0)$
+ -->
+<IMG
+ WIDTH="121" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img341.gif"
+ ALT="$p({\bf\Omega}_1,t_1\vert{\bf\Omega}_0,t_0)$">.  Here <IMG
+ WIDTH="21" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img342.gif"
+ ALT="${\bf\Omega}$"> denotes a set of angular 
+coordinates, as Euler angles or quaternion parameters. The joint probability <!-- MATH
+ $p({\bf\Omega}_1,t_1;{\bf\Omega}_0,t_0)$
+ -->
+<IMG
+ WIDTH="124" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img343.gif"
+ ALT="$p({\bf\Omega}_1,t_1;{\bf\Omega}_0,t_0)$"> which 
+gives the probablity to find a molecule with orientation <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img340.gif"
+ ALT="${\bf\Omega}_0$"> at time <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img85.gif"
+ ALT="$t_0$"> and with orientation <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img338.gif"
+ ALT="${\bf\Omega}_1$"> 
+at time <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img339.gif"
+ ALT="$t_1$">, can be expressed as 
+<!-- MATH
+ $p({\bf\Omega}_1,t_1;{\bf\Omega}_0,t_0) = p({\bf\Omega}_1,t_1|{\bf\Omega}_0,t_0)\cdot p({\bf\Omega}_0,t_0)$
+ -->
+<IMG
+ WIDTH="340" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img344.gif"
+ ALT="$p({\bf\Omega}_1,t_1;{\bf\Omega}_0,t_0) = p({\bf\Omega}_1,t_1\vert{\bf\Omega}_0,t_0)\cdot p({\bf\Omega}_0,t_0)$">.
+Here <!-- MATH
+ $p({\bf\Omega}_0,t_0)$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img345.gif"
+ ALT="$p({\bf\Omega}_0,t_0)$"> is the probability to find a molecule with orientation <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img340.gif"
+ ALT="${\bf\Omega}_0$"> at time <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img85.gif"
+ ALT="$t_0$">. If we 
+consider an isotropic system in thermal equilibrium the reorientational correlation function depends only on the time 
+<EM>difference</EM>, <IMG
+ WIDTH="85" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img346.gif"
+ ALT="$t = t_1-t_0$">, and the <EM>change</EM> in orientation, <IMG
+ WIDTH="21" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img342.gif"
+ ALT="${\bf\Omega}$">, i.e. 
+<!-- MATH
+ $p({\bf\Omega}_1,t_1|{\bf\Omega}_0,t_0) = p({\bf\Omega},t|{\bf0},0)$
+ -->
+<IMG
+ WIDTH="226" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img347.gif"
+ ALT="$p({\bf\Omega}_1,t_1\vert{\bf\Omega}_0,t_0) = p({\bf\Omega},t\vert{\bf0},0)$">. In addition we have 
+<!-- MATH
+ $p({\bf\Omega}_0,t_0) = 1/(8\pi^2)$
+ -->
+<IMG
+ WIDTH="153" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img348.gif"
+ ALT="$p({\bf\Omega}_0,t_0) = 1/(8\pi^2)$">, where <IMG
+ WIDTH="33" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img349.gif"
+ ALT="$8\pi^2$"> is the volume of the angular space.
+
+<P>
+The reorientational correlation function may now be expanded in Wigner rotation matrices [<A
+ HREF="node192.html#Stone">62</A>] which form a complete 
+set of basis functions in <IMG
+ WIDTH="21" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img342.gif"
+ ALT="${\bf\Omega}$"> [<A
+ HREF="node192.html#Edmonds">63</A>,<A
+ HREF="node192.html#Satchler">64</A>]:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+p({\bf\Omega},t|{\bf0},0) = \sum_{j m n}  \frac{2j +
+1}{8\pi^2}\,p^j_{m n}(t) D^{*\,j}_{m n}({\bf\Omega}).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:p_expansion"></A><IMG
+ WIDTH="433" HEIGHT="54" BORDER="0"
+ SRC="img350.gif"
+ ALT="\begin{displaymath}
+p({\bf\Omega},t\vert{\bf0},0) = \sum_{j m n} \frac{2j +
+1}{8\pi^2} p^j_{m n}(t) D^{* j}_{m n}({\bf\Omega}).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.110)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+In the following the coefficients <IMG
+ WIDTH="56" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img351.gif"
+ ALT="$p^j_{m n}(t)$"> are called p-coefficients. Using the orthogonality of the Wigner functions,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\int d\Omega\,D^{*\,j}_{m n}({\bf\Omega})D^{j'}_{m' n'}({\bf\Omega})
+= \frac{8\pi^2}{2j + 1}\delta_{jj'}\delta_{mm'}\delta_{nn'},
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:d_ortho"></A><IMG
+ WIDTH="455" HEIGHT="48" BORDER="0"
+ SRC="img352.gif"
+ ALT="\begin{displaymath}
+\int d\Omega D^{* j}_{m n}({\bf\Omega})D^{j'}_{m' n'}({\bf...
+...)
+= \frac{8\pi^2}{2j + 1}\delta_{jj'}\delta_{mm'}\delta_{nn'},
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.111)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Eq. (<A HREF="node108.html#eq:p_expansion">4.110</A>) can be inverted to give:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+p^j_{m n}(t) = \int d\Omega\,p({\bf\Omega},t|{\bf0},0)
+D^{j}_{m n}({\bf\Omega}).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:p_coeff_p"></A><IMG
+ WIDTH="413" HEIGHT="42" BORDER="0"
+ SRC="img353.gif"
+ ALT="\begin{displaymath}
+p^j_{m n}(t) = \int d\Omega p({\bf\Omega},t\vert{\bf0},0)
+D^{j}_{m n}({\bf\Omega}).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.112)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Writing the reorientational correlation function as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+p({\bf\Omega},t|{\bf0},0) = \frac{1}{N}
+\sum_\alpha \langle\delta[{\bf\Omega} - {\bf\Omega}_\alpha(t)]\rangle,
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="414" HEIGHT="49" BORDER="0"
+ SRC="img354.gif"
+ ALT="\begin{displaymath}
+p({\bf\Omega},t\vert{\bf0},0) = \frac{1}{N}
+\sum_\alpha \langle\delta[{\bf\Omega} - {\bf\Omega}_\alpha(t)]\rangle,
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.113)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <!-- MATH
+ ${\bf\Omega}_\alpha(t)$
+ -->
+<IMG
+ WIDTH="50" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img355.gif"
+ ALT="${\bf\Omega}_\alpha(t)$"> is the orientation of molecule <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.gif"
+ ALT="$\alpha$"> with respect to its initial orientation and 
+<!-- MATH
+ $\langle\ldots\rangle$
+ -->
+<IMG
+ WIDTH="40" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img356.gif"
+ ALT="$\langle\ldots\rangle$"> is a thermal average, relation (<A HREF="node108.html#eq:p_coeff_p">4.112</A>) can be written as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+p^j_{m n}(t) =  \frac{1}{N}
+\sum_\alpha \langle D^{j}_{m n}({\bf\Omega}_\alpha(t))\rangle.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="394" HEIGHT="49" BORDER="0"
+ SRC="img357.gif"
+ ALT="\begin{displaymath}
+p^j_{m n}(t) = \frac{1}{N}
+\sum_\alpha \langle D^{j}_{m n}({\bf\Omega}_\alpha(t))\rangle.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.114)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The p-coefficients can also be expressed as time correlation functions of irreducible tensor components. This is convenient 
+for numerical purposes since time correlation functions of discrete and finite time series can be very efficiently computed 
+by Fast Fourier Transform techniques (see Section <A HREF="node193.html#fca">A</A>). Consider the general form of the time correlation function
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\langle T^j_m(t_1) T^{*\,j}_n(t_0) \rangle =
+\int\int d\Omega_1 d\Omega_0\,p({\bf\Omega}_1,t_1;{\bf\Omega}_0,t_0)
+T^j_m({\bf\Omega}_1)T^{*\,j}_n({\bf\Omega}_0),
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:tt_t_correl"></A><IMG
+ WIDTH="524" HEIGHT="42" BORDER="0"
+ SRC="img358.gif"
+ ALT="\begin{displaymath}
+\langle T^j_m(t_1) T^{* j}_n(t_0) \rangle =
+\int\int d\Omeg...
+...f\Omega}_0,t_0)
+T^j_m({\bf\Omega}_1)T^{* j}_n({\bf\Omega}_0),
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.115)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="29" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img359.gif"
+ ALT="$T^j_m$"> are the components of an <EM>irreducible tensor</EM> [<A
+ HREF="node192.html#Edmonds">63</A>,<A
+ HREF="node192.html#Satchler">64</A>]. From the transformation properties of
+irreducible tensors it follows that
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+T^j_m({\bf\Omega}_1) = \sum_k D^{j}_{m k}({\bf\Omega})
+T^j_k({\bf\Omega}_0).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="395" HEIGHT="48" BORDER="0"
+ SRC="img360.gif"
+ ALT="\begin{displaymath}
+T^j_m({\bf\Omega}_1) = \sum_k D^{j}_{m k}({\bf\Omega})
+T^j_k({\bf\Omega}_0).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.116)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+For an isotropic system in thermal equilibrium we may now write
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+p({\bf\Omega}_1,t_1;{\bf\Omega}_0,t_0) =  
+p({\bf\Omega},t|{\bf0},0)\cdot\frac{1}{8\pi^2}.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="415" HEIGHT="42" BORDER="0"
+ SRC="img361.gif"
+ ALT="\begin{displaymath}
+p({\bf\Omega}_1,t_1;{\bf\Omega}_0,t_0) =
+p({\bf\Omega},t\vert{\bf0},0)\cdot\frac{1}{8\pi^2}.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.117)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Inserting this in (<A HREF="node108.html#eq:tt_t_correl">4.115</A>), performing a change in the integration variables from 
+<!-- MATH
+ $({\bf\Omega}_1,{\bf\Omega}_0)$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img362.gif"
+ ALT="$({\bf\Omega}_1,{\bf\Omega}_0)$"> to <!-- MATH
+ $({\bf\Omega},{\bf\Omega}_0)$
+ -->
+<IMG
+ WIDTH="64" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img363.gif"
+ ALT="$({\bf\Omega},{\bf\Omega}_0)$">, and using the orthogonality of the Wigner functions one 
+can show that
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\langle T^j_m(t) T^{*\,j}_n(0) \rangle =
+p^j_{m n}(t) \cdot \frac{1}{2j + 1} \sum_{l}|\hat T^j_l|^2,
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:p_tt"></A><IMG
+ WIDTH="438" HEIGHT="51" BORDER="0"
+ SRC="img364.gif"
+ ALT="\begin{displaymath}
+\langle T^j_m(t) T^{* j}_n(0) \rangle =
+p^j_{m n}(t) \cdot \frac{1}{2j + 1} \sum_{l}\vert\hat T^j_l\vert^2,
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.118)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where the components <IMG
+ WIDTH="26" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img365.gif"
+ ALT="$\hat T^j_l$"> are referred to a convenient reference frame. In practice only tensors with integer <IMG
+ WIDTH="15" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img366.gif"
+ ALT="$j$"> 
+are relevant. In this case, the well known spherical harmonics  [<A
+ HREF="node192.html#Edmonds">63</A>,<A
+ HREF="node192.html#Satchler">64</A>] may be used to define irreducible tensors.
+They are related to the Wigner functions by
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Y^j_m(\alpha,\beta) = \sqrt{\frac{2j+1}{4\pi}}
+D^j_{m 0}(\alpha,\beta,\gamma),
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:y_d"></A><IMG
+ WIDTH="408" HEIGHT="55" BORDER="0"
+ SRC="img367.gif"
+ ALT="\begin{displaymath}
+Y^j_m(\alpha,\beta) = \sqrt{\frac{2j+1}{4\pi}}
+D^j_{m 0}(\alpha,\beta,\gamma),
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.119)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <!-- MATH
+ $\alpha,\beta,\gamma$
+ -->
+<IMG
+ WIDTH="54" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img368.gif"
+ ALT="$\alpha,\beta,\gamma$"> are Euler angles. Following R<SMALL>OSE</SMALL> [<A
+ HREF="node192.html#Rose">65</A>] the Wigner functions can be expressed  as 
+complex polynomials in the quaternion parameters:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\begin{array}{ll}
+ &D^{j}_{m n}({\bf q}) = 
+        \sum_{p}(-1)^{p}
+        \frac{\left[(j+m)!(j-m)!(j+n)!(j-n)!\right]^{1/2}}
+             {(j+m-p)!(j-n-p)!p!(p+n-m)!}\\
+  &\\
+  &\qquad\times (q_0+iq_3)^{j+m-p}(q_0-iq_3)^{j-n-p}
+   (q_2+iq_1)^{p+n-m}(q_2-iq_1)^{p}.
+\end{array}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:wig_q"></A><IMG
+ WIDTH="530" HEIGHT="81" BORDER="0"
+ SRC="img369.gif"
+ ALT="\begin{displaymath}
+\begin{array}{ll}
+&amp;D^{j}_{m n}({\bf q}) =
+\sum_{p}(-1)^{p...
+..._0-iq_3)^{j-n-p}
+(q_2+iq_1)^{p+n-m}(q_2-iq_1)^{p}.
+\end{array}\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.120)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Here the quaternion parameters describe the rotation of the space-fixed coordinate system into the body-fixed coordinate 
+system. The corresponding rotation matrix is given in Eq.  (<A HREF="node85.html#eq:d_quat">4.52</A>). According to Eq.  (<A HREF="node108.html#eq:y_d">4.119</A>) the spherical 
+harmonics are just special cases of the Wigner functions,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\begin{array}{ll}
+ &Y^j_m({\bf q}) = \sqrt{\frac{2j+1}{4\pi}} 
+        \sum_{p}(-1)^{p}
+        \frac{\left[(j+m)!(j-m)!\right]^{1/2} j!}
+             {(j+m-p)!(j-p)!p!(j-m)!}\\
+  &\\&\qquad\times(q_0+iq_3)^{j+m-p}(q_0-iq_3)^{j-p}
+   (q_2+iq_1)^{p-m}(q_2-iq_1)^{p}.
+\end{array}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:y_q"></A><IMG
+ WIDTH="512" HEIGHT="81" BORDER="0"
+ SRC="img370.gif"
+ ALT="\begin{displaymath}
+\begin{array}{ll}
+&amp;Y^j_m({\bf q}) = \sqrt{\frac{2j+1}{4\pi}...
+...p}(q_0-iq_3)^{j-p}
+(q_2+iq_1)^{p-m}(q_2-iq_1)^{p}.
+\end{array}\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.121)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Using the normalization of the spherical harmonics  and Eq.
+(<A HREF="node108.html#eq:p_tt">4.118</A>) one arrives at the following expression
+for the p-coefficients
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+p^j_{m n}(t) = 4\pi \langle Y^j_m[{\bf q}(t)]Y^{* j}_n[{\bf q}(0)]\rangle.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="p_jmn_y"></A><IMG
+ WIDTH="401" HEIGHT="31" BORDER="0"
+ SRC="img371.gif"
+ ALT="\begin{displaymath}
+p^j_{m n}(t) = 4\pi \langle Y^j_m[{\bf q}(t)]Y^{* j}_n[{\bf q}(0)]\rangle.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.122)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The following relations for the p-coefficients hold:
+<BR>
+<DIV ALIGN="CENTER"><A NAME="eq:p_initial"></A><A NAME="eq:p_cc"></A>
+<!-- MATH
+ \begin{eqnarray}
+p^j_{m n}(0)     &= &\delta^j_{mn},\\p^{* j}_{m n}(t) &= &p^{j}_{-m -n}(t) = p^j_{n m}(-t).
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="58" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img372.gif"
+ ALT="$\displaystyle p^j_{m n}(0)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="40" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img373.gif"
+ ALT="$\displaystyle \delta^j_{mn},$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.123)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="56" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img374.gif"
+ ALT="$\displaystyle p^{* j}_{m n}(t)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="168" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img375.gif"
+ ALT="$\displaystyle p^{j}_{-m -n}(t) = p^j_{n m}(-t).$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.124)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The coefficients <IMG
+ WIDTH="35" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img376.gif"
+ ALT="$\delta^j_{mn}$"> are the components of the <!-- MATH
+ $(2j + 1)\times(2j + 1)$
+ -->
+<IMG
+ WIDTH="149" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img377.gif"
+ ALT="$(2j + 1)\times(2j + 1)$"> unit matrix. The initial value of the 
+the p-coefficients is an immediate consequence of definition (<A HREF="node108.html#eq:p_coeff_p">4.112</A>) and 
+<!-- MATH
+ $p({\bf\Omega},0|{\bf0},0) = \delta({\bf\Omega})$
+ -->
+<IMG
+ WIDTH="151" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img378.gif"
+ ALT="$p({\bf\Omega},0\vert{\bf0},0) = \delta({\bf\Omega})$">. Eq. (<A HREF="node108.html#eq:p_cc">4.124</A>) follows from the symmetry of the Wigner functions 
+and the symmetry of classical time correlation functions. 
+
+<P>
+Since measurable quantities must be real it follows from (<A HREF="node108.html#eq:p_cc">4.124</A>) that only p-coefficients with <IMG
+ WIDTH="87" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img379.gif"
+ ALT="$m = n = 0$"> can be
+directly measured. <IMG
+ WIDTH="49" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img380.gif"
+ ALT="$p^1_{0 0}(t)$"> is measured by infrared spectroscopy (dipole-dipole correlation function) and 
+<IMG
+ WIDTH="49" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img381.gif"
+ ALT="$p^2_{0 0}(t)$"> by relaxation NMR experiments. Here one measures in most cases the integral over <IMG
+ WIDTH="49" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img381.gif"
+ ALT="$p^2_{0 0}(t)$">.
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2700"
+  HREF="node109.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2696"
+  HREF="node107.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2690"
+  HREF="node107.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2698"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2701"
+  HREF="node109.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2697"
+  HREF="node107.html">Reorientational Correlation Function</A>
+<B> Previous:</B> <A NAME="tex2html2691"
+  HREF="node107.html">Reorientational Correlation Function</A>
+ &nbsp <B>  <A NAME="tex2html2699"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

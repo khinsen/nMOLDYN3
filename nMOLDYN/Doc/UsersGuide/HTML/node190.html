@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>nMOLDYN autostart files</TITLE>
+<META NAME="description" CONTENT="nMOLDYN autostart files">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node191.html">
+<LINK REL="previous" HREF="node189.html">
+<LINK REL="up" HREF="node189.html">
+<LINK REL="next" HREF="node191.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3749"
+  HREF="node191.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3745"
+  HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3739"
+  HREF="node189.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3747"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3750"
+  HREF="node191.html">nMOLDYN input files</A>
+<B> Up:</B> <A NAME="tex2html3746"
+  HREF="node189.html">Using nMOLDYN from the</A>
+<B> Previous:</B> <A NAME="tex2html3740"
+  HREF="node189.html">Using nMOLDYN from the</A>
+ &nbsp <B>  <A NAME="tex2html3748"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION009100000000000000000"></A>
+<A NAME="nmoldyn_autostart_files"></A>
+<BR>
+<I>n</I>MOLDYN autostart files
+</H1>
+The <I>n</I>MOLDYN autostart files (extension <B>.py</B>) are Python scripts that can be direclty run without an explicit call to <I>n</I>MOLDYN. To run such a file, 
+just type:
+
+<BR>
+<BR><TT>./file.py</TT> on unix
+
+<BR>
+<BR>
+or
+
+<BR>
+<BR><TT>file.py</TT> on Windows
+
+<BR>
+<BR>
+where <TT>file.py</TT> is the name of the <I>n</I>MOLDYN autostart file.
+
+<P>
+A <I>n</I>MOLDYN autostart file must have the following format:
+
+<BR>
+<BR>
+1. <TT>#!<I>path_to_your_python_executable</I></TT>
+<BR>
+<BR>
+2. <TT>from nMOLDYN.Analysis.Template import <I>analysis_name</I></TT>
+<BR>
+<BR>
+3. <TT>parameters = {}</TT>
+<BR>
+<BR>
+4. <TT>parameters["version"] = "<I>nmoldyn_version</I>"</TT>
+<BR>
+5. <TT>parameters["estimate"] = "no"</TT>
+<BR>
+<BR>
+6. <TT>parameters["<I>name1</I>"] = <I>value1</I></TT>
+
+<BR>
+<BR>
+
+<BR>
+<BR>
+7. <TT>parameters["<I>nameN</I>"] = <I>valueN</I></TT>
+<BR>
+<BR>
+8. <TT>analysis = <I>analysis_name</I>(parameters)</TT>
+<BR>
+9. <TT>analysis.runAnalysis()</TT>
+
+some explanations are necessary about the structure of this file:
+
+<UL>
+<LI>Line 1.: <I>path_to_your_python_executable</I> is the path to the Python executable of the Python distribution 
+where <I>n</I>MOLDYN is installed. This line is optional on Windows.
+</LI>
+<LI>Line 2.: <I>analysis_name</I> is the <I>n</I>MOLDYN internal name of the analysis to run. A comprehensive list of the 
+<I>n</I>MOLDYN analysis internal names associated to each analysis is showed in Tab. <A HREF="node190.html#tab:nmoldyn_analysis_name">5.1</A>.
+</LI>
+<LI>Line 3.: this line initalizes the dictionnary that will stores the analysis input parameters.
+</LI>
+<LI>Line 4.: <I>nmoldyn_version</I> is the version number of <I>n</I>MOLDYN. This line is optional.
+</LI>
+<LI>Line 5.: if set to "yes" instead of "no". the analysis will be run in estimate mode (see Section <A HREF="node49.html#running_modes">4.2.3</A> 
+for details). If "no" the full analysis will be run. If this parameter is omitted, the full analysis will be run.
+</LI>
+<LI>Line 6.: <I>name1</I> is the name in lower case of the first parameters of the analysis with value equal to <I>value1</I>. 
+Idem for Line 7.. The order in which the parameters appear is not relevant. A comprehensive list of the parameters names and 
+expected values associated to each analysis can be found using the right column of Tab. <A HREF="node190.html#tab:nmoldyn_analysis_name">5.1</A>.
+</LI>
+<LI>Line 8.: <I>analysis_name</I> is the same that in Line 2..
+</LI>
+<LI>Line 9.: this line runs the analysis.
+</LI>
+</UL>
+
+<P>
+The figure <A HREF="node190.html#fig:msd_autostart_file">5.1</A> shows an example of an autostart file for the <A HREF=node4.html#tex2html820 NAME="23287"><I>MSD</I></A> analysis. It was direclty 
+generated from <I>n</I>MOLDYN <A HREF=node4.html#tex2html821 NAME="23294"><I>GUI</I></A>. Saving an autostart file from the <A HREF=node4.html#tex2html822 NAME="23301"><I>GUI</I></A> (see Section <A HREF="node49.html#running_modes">4.2.3</A>) is often the 
+easiest way to get such file. This file providing then  a convenient starting point for customization. 
+
+<DIV ALIGN="CENTER"><A NAME="fig:msd_autostart_file"></A><A NAME="7733"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.1:</STRONG>
+Example of a <I>n</I>MOLDYN autostart file derived for a <I>MSD</I> analysis.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="314" ALIGN="BOTTOM" BORDER="0"
+ SRC="img636.gif"
+ ALT="\includegraphics[width=10cm]{Figures/msd_autostart_file.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="6981"></A>
+<TABLE>
+<CAPTION><STRONG>Table 5.1:</STRONG>
+List of the <I>n</I>MOLDYN analysis internal names.</CAPTION>
+<TR><TD>    <DIV ALIGN="CENTER">    <TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Analysis</TD>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH=227><I>n</I>MOLDYN internal name</TH>
+<TD ALIGN="CENTER">Section</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Mean-Square Displacement</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>MeanSquareDisplacement_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node53.html#msd_parameters">4.2.4.1</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Root Mean-Square Deviation</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>RootMeanSquareDeviation_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node57.html#rmsd_parameters">4.2.4.2</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Radius of gyration</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>RadiusOfGyration_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node61.html#rog_parameters">4.2.4.3</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Angular Correlation</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>AngularCorrelation_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node65.html#ac_parameters">4.2.4.4</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Velocity Autocorrelation Function</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>CartesianVelocityAutoCorrelationFunction_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node69.html#vacf_parameters">4.2.4.5</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Density Of States</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>CartesianDensityOfStates_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node73.html#dos_parameters">4.2.4.6</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Pass-Band Filtered Trajectory</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>PassBandFilteredTrajectory_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node77.html#pbft_parameters">4.2.4.7</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Global Motion Filtered Trajectory</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>GlobalMotionFilteredTrajectory_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node81.html#gmft_parameters">4.2.4.8</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Rigid-Body Trajectory</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>RigidBodyTrajectory_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node88.html#rbt_parameters">4.2.4.9</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Center Of Mass Trajectory</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>CenterOfMassTrajectory_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node92.html#comt_parameters">4.2.4.10</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Auto-Regressive Analysis</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>AutoRegressiveAnalysis_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node101.html#ara_parameters">4.2.4.11</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Quasi Harmonic Analysis</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>QuasiHarmonicAnalysis_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node105.html#qha_parameters">4.2.4.12</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Reorientational Correlation Function</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>ReorientationalCorrelationFunction_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node109.html#rcf_parameters">4.2.4.13</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Angular Velocity AutoCorrelation Function</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>AngularVelocityAutoCorrelationFunction_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node113.html#avacf_parameters">4.2.4.14</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Angular Density Of States</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>AngularDensityOfStates_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node117.html#ados_parameters">4.2.4.15</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Dynamic Coherent Structure Factor</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>DynamicCoherentStructureFactor_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node123.html#dcsf_parameters">4.2.5.2</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Dynamic Coherent Structure Factor (AR Model)</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>DynamicCoherentStructureFactorAR_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node127.html#dcsfar_parameters">4.2.5.3</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Dynamic Incoherent Structure Factor</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>DynamicIncoherentStructureFactor_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node131.html#disf_parameters">4.2.5.4</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Dynamic Incoherent Structure Factor (AR Model)</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>DynamicIncoherentStructureFactorAR_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node135.html#disfar_parameters">4.2.5.5</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Dynamic Incoherent Structure Factor (Gaussian Approximation)</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>DynamicIncoherentStructureFactorGaussian_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node139.html#disfg_parameters">4.2.5.6</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Elastic Incoherent Structure Factor</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>ElasticIncoherentStructureFactor_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node143.html#eisf_parameters">4.2.5.7</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Static Coherent Structure Factor</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>StaticCoherentStructureFactor_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node147.html#scsf_parameters">4.2.5.8</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Smoothed Static Coherent Structure Factor</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>SmoothedStaticCoherentStructureFactor_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node151.html#sscsf_parameters">4.2.5.9</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Pair Distribution Function</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>PairDistributionFunction_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node156.html#pdf_parameters">4.2.6.1</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Coordination number</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>CoordinationNumber_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node160.html#cn_parameters">4.2.6.2</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Spatial Density</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>SpatialDensity_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node164.html#sd_parameters">4.2.6.3</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>ScrewFit analysis</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>ScrewFitAnalysis_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node168.html#sfa_parameters">4.2.6.4</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Order Parameter</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>OrderParameter_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node173.html#op_parameters">4.2.7.1</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>Order Parameter (Contact Model)</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>OrderParameterContactModel_serial</TD>
+<TD ALIGN="CENTER"><A HREF="node177.html#opcm_parameters">4.2.7.2</A></TD>
+</TR>
+</TABLE>
+    
+    <A NAME="tab:nmoldyn_analysis_name"></A></DIV></TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3749"
+  HREF="node191.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3745"
+  HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3739"
+  HREF="node189.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3747"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3750"
+  HREF="node191.html">nMOLDYN input files</A>
+<B> Up:</B> <A NAME="tex2html3746"
+  HREF="node189.html">Using nMOLDYN from the</A>
+<B> Previous:</B> <A NAME="tex2html3740"
+  HREF="node189.html">Using nMOLDYN from the</A>
+ &nbsp <B>  <A NAME="tex2html3748"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

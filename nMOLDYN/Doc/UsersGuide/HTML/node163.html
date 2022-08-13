@@ -1,0 +1,291 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node164.html">
+<LINK REL="previous" HREF="node162.html">
+<LINK REL="up" HREF="node162.html">
+<LINK REL="next" HREF="node164.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3418"
+  HREF="node164.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3414"
+  HREF="node162.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3408"
+  HREF="node162.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3416"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3419"
+  HREF="node164.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3415"
+  HREF="node162.html">Spatial Density</A>
+<B> Previous:</B> <A NAME="tex2html3409"
+  HREF="node162.html">Spatial Density</A>
+ &nbsp <B>  <A NAME="tex2html3417"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008263100000000000000"></A>
+<A NAME="sd_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+The <A HREF=node4.html#tex2html713 NAME="22370"><I>SD</I></A> can be seen as an generalization of the pair distribution function. Indeed, pair distribution functions are defined 
+as orientionally averaged distribution functions. are  in the sense that,  Altough these correlation functions reflects many 
+key features of the short-range order in molecular systems, it should be realized that an average spatial assembly of 
+non-spherical particles can not be uniquely characterized from these one-dimensionals functions. So, structural models 
+postulated for the molecular ordering in nonsimple systems based only on one-dimensional <A HREF=node4.html#tex2html714 NAME="22377"><I>PDF</I></A> will always be somewhat 
+ambiguous. The goal of <A HREF=node4.html#tex2html715 NAME="22384"><I>SD</I></A> analysis is to provide greater clarity in the structual analysis of molecular systems by utilizing 
+distribution function which span both the radial and angular coordinates of the separation vector. This can provide useful 
+information about the average local structure in a complex system.
+
+<P>
+<I>n</I>MOLDYN allows one to compute the <A HREF=node4.html#tex2html716 NAME="22391"><I>SD</I></A> in spherical coordinates on a set of concentrics shells surrounding the centers of 
+mass of selected triplets of atoms using the formula:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+SD(r_l,\theta_m ,\phi_n) \doteq \frac{1}{N_{triplets N_{groups}}}\sum_{t = 1}^{N_{triplets}}\sum_{g = 1}^{N_{groups}} \left\langle n_{tg}(r_l,\theta_m,\phi_n)\right\rangle,
+\qquad l = 0\ldots N_r - 1, m = 0\ldots N_{\theta} - 1, n = 0\ldots N_{\phi} - 1.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:sd"></A><IMG
+ WIDTH="876" HEIGHT="63" BORDER="0"
+ SRC="img565.gif"
+ ALT="\begin{displaymath}
+SD(r_l,\theta_m ,\phi_n) \doteq \frac{1}{N_{triplets N_{grou...
+...N_r - 1, m = 0\ldots N_{\theta} - 1, n = 0\ldots N_{\phi} - 1.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.194)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img136.gif"
+ ALT="$N_{triplets}$"> and <IMG
+ WIDTH="62" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img226.gif"
+ ALT="$N_{groups}$"> are respectively the number of triplets and groups, <IMG
+ WIDTH="19" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img566.gif"
+ ALT="$r_l$">, <IMG
+ WIDTH="27" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img567.gif"
+ ALT="$\theta_m$"> and <IMG
+ WIDTH="26" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img568.gif"
+ ALT="$\phi_n$"> are the spherical coordinates at which the <A HREF=node4.html#tex2html717 NAME="22398"><I>SD</I></A> is evaluated, 
+<IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img560.gif"
+ ALT="$N_r$">, <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img569.gif"
+ ALT="$N_{\theta}$"> and <IMG
+ WIDTH="29" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img570.gif"
+ ALT="$N_{\phi}$"> are respectively the number of discrete <I>r</I>, <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img404.gif"
+ ALT="$\theta$"> and <IMG
+ WIDTH="17" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img571.gif"
+ ALT="$\phi$"> values and 
+<!-- MATH
+ $n_{tg}(r_l,\theta_m,\phi_n)$
+ -->
+<IMG
+ WIDTH="112" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img572.gif"
+ ALT="$n_{tg}(r_l,\theta_m,\phi_n)$"> is the number of group of atoms of type <I>g</I> whose centers of mass is found 
+to be in the volume element defined by <IMG
+ WIDTH="78" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img573.gif"
+ ALT="$[r, r+dr]$">, <!-- MATH
+ $[\theta , \theta + d\theta]$
+ -->
+<IMG
+ WIDTH="80" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img574.gif"
+ ALT="$[\theta , \theta + d\theta]$"> and <!-- MATH
+ $[\phi , \phi + d\phi]$
+ -->
+<IMG
+ WIDTH="85" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img575.gif"
+ ALT="$[\phi , \phi + d\phi]$"> in the 
+spherical coordinates basis centered on the center of mass of triplet <I>t</I>.
+
+<P>
+So technically, <I>n</I>MOLDYN proceeds more or less on the following way:
+
+<UL>
+<LI>defines the center of mass <!-- MATH
+ $c^t_i \qquad i = 1, 2 \ldots N_{triplets}$
+ -->
+<IMG
+ WIDTH="194" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img576.gif"
+ ALT="$c^t_i \qquad i = 1, 2 \ldots N_{triplets}$"> for each triplet of atoms,
+</LI>
+<LI>defines the center of mass <!-- MATH
+ $c^g_i \qquad i = 1, 2 \ldots N_{groups}$
+ -->
+<IMG
+ WIDTH="193" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img577.gif"
+ ALT="$c^g_i \qquad i = 1, 2 \ldots N_{groups}$"> for each group of atoms,
+</LI>
+<LI>constructs an oriented orthonormal basis <!-- MATH
+ ${\cal R}^t_i i = 1, 2 \ldots N_{triplets}$
+ -->
+<IMG
+ WIDTH="167" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img578.gif"
+ ALT="${\cal R}^t_i i = 1, 2 \ldots N_{triplets}$"> centered on each <IMG
+ WIDTH="20" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img579.gif"
+ ALT="$c^t$">, this 
+basis is defined from the three vectors <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img127.gif"
+ ALT="${\bf v}_1$">, <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img128.gif"
+ ALT="${\bf v}_2$">, <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img129.gif"
+ ALT="${\bf v}_3$">,
+
+<UL>
+<LI><!-- MATH
+ ${\bf v}_1 = \frac{{\bf n}_{1} + {\bf n}_{2}}{||{\bf n}_{1} + {\bf n}_{2}||}$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img130.gif"
+ ALT="${\bf v}_1 = \frac{{\bf n}_{1} + {\bf n}_{2}}{\vert\vert{\bf n}_{1} + {\bf n}_{2}\vert\vert}$">
+where <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img131.gif"
+ ALT="${\bf n}_{1}$"> and <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img132.gif"
+ ALT="${\bf n}_{2}$"> are respectively the normalized vectors in (<B>a1</B>,<B>a2</B>) 
+and (<B>a1</B>,<B>a3</B>) directions where (<B>a1</B>,<B>a2</B>,<B>a3</B>) are the three atoms of the triplet <I>t</I>,
+</LI>
+<LI><IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img128.gif"
+ ALT="${\bf v}_2$"> is defined as the clockwise normal vector orthogonal to <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img127.gif"
+ ALT="${\bf v}_1$"> that belongs to the plane 
+defined by <B>a1</B>, <B>a2</B> and <B>a3</B> atoms,
+</LI>
+<LI><!-- MATH
+ $\vec{v_3} = \vec{v_1} \times \vec{v_2}$
+ -->
+<IMG
+ WIDTH="99" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img133.gif"
+ ALT="$\vec{v_3} = \vec{v_1} \times \vec{v_2}$">
+</LI>
+</UL>
+</LI>
+<LI>expresses the cartesian coordinates of each <IMG
+ WIDTH="22" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img580.gif"
+ ALT="$c^g$"> in each <IMG
+ WIDTH="27" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img581.gif"
+ ALT="${\cal R}^t$">,
+</LI>
+<LI>transforms these coordinates in spherical coordinates,
+</LI>
+<LI>discretizes the spherical coordinates in <IMG
+ WIDTH="19" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img566.gif"
+ ALT="$r_l$">, <IMG
+ WIDTH="27" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img567.gif"
+ ALT="$\theta_m$"> and <IMG
+ WIDTH="26" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img568.gif"
+ ALT="$\phi_n$">,
+</LI>
+<LI>does <!-- MATH
+ $n_{tg}(r_l,\theta_m,\phi_n) = n_{tg}(r_l,\theta_m,\phi_n) + 1$
+ -->
+<IMG
+ WIDTH="270" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img582.gif"
+ ALT="$n_{tg}(r_l,\theta_m,\phi_n) = n_{tg}(r_l,\theta_m,\phi_n) + 1$">.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3418"
+  HREF="node164.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3414"
+  HREF="node162.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3408"
+  HREF="node162.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3416"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3419"
+  HREF="node164.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3415"
+  HREF="node162.html">Spatial Density</A>
+<B> Previous:</B> <A NAME="tex2html3409"
+  HREF="node162.html">Spatial Density</A>
+ &nbsp <B>  <A NAME="tex2html3417"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

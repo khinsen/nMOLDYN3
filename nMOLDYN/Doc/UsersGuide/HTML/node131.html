@@ -1,0 +1,381 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Parameters
+</TITLE>
+<META NAME="description" CONTENT="Parameters
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node132.html">
+<LINK REL="previous" HREF="node130.html">
+<LINK REL="up" HREF="node129.html">
+<LINK REL="next" HREF="node132.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3012"
+  HREF="node132.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3008"
+  HREF="node129.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3002"
+  HREF="node130.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3010"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3013"
+  HREF="node132.html">Output</A>
+<B> Up:</B> <A NAME="tex2html3009"
+  HREF="node129.html">Dynamic Incoherent Structure Factor</A>
+<B> Previous:</B> <A NAME="tex2html3003"
+  HREF="node130.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html3011"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008254200000000000000"></A>
+<A NAME="disf_parameters"></A>
+<BR>
+Parameters
+<BR>
+</H4>
+Pressing the <B>Dynamic Incoherent Structure Factor</B> button will pop up the dialog shown on figure <A HREF="node131.html#fig:disf">4.52</A>
+
+<DIV ALIGN="CENTER"><A NAME="fig:disf"></A><A NAME="7606"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.52:</STRONG>
+The dialog from where the <I>DISF</I> analysis will be set up and run.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="744" ALIGN="BOTTOM" BORDER="0"
+ SRC="img486.gif"
+ ALT="\includegraphics[width=10cm]{Figures/disf.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The following input fields controls the parameters for the <A HREF=node4.html#tex2html567 NAME="21100"><B>D</B>ynamic <B>I</B>ncoherent <B>S</B>tructure <B>F</B>actor (<I>DISF</I>)</A> analysis:
+
+<P>
+
+<UL>
+<LI><B>Trajectory file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>traj_file</I> where <I>traj_file</I> is the name of the loaded trajectory
+<BR><B>Description:</B> the value of this widget can not be changed. It just recalls for information purpose the name
+of the trajectory file loaded for the analysis.
+
+<P>
+</LI>
+<LI><B>Frame selection</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>1:traj_length:1</I> where <I>traj_length</I> is the number of frames of the trajectory.
+<BR><B>Description:</B> this widget allows to select the trajectory frames that will be used for the analysis. This must
+be a string of the form:
+
+<BR>
+<BR><I>first:last:step</I>
+
+<BR>
+<BR>
+where <I>first</I> is an integer specifying the first frame number to consider, <I>last</I> is an integer specifying the last 
+frame number to consider and <I>step</I> is an integer specifying the step number between two frames.
+
+<P>
+For example,
+
+<UL>
+<LI><I>2:10:3</I> will select the frames 2, 5 and 8.
+</LI>
+<LI><I>1:5:1</I> will select the frames 1, 2, 3, 4 and 5.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>Q values (in nm-1)</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>0:100:1.</I>
+<BR><B>Description:</B> this widget allows to select the modulii of the <I>q</I>-vectors. This must
+be a string of the form:
+
+<BR>
+<BR><!-- MATH
+ $q_{min}:q_{max}:q_{step}$
+ -->
+<IMG
+ WIDTH="137" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img464.gif"
+ ALT="$q_{min}:q_{max}:q_{step}$">
+
+<BR>
+<BR>
+In this way, the intermediate scattering function will be calculated for discrete <I>q</I> defined as 
+<!-- MATH
+ $q_m = q_{min} + m \cdot q_{step}$
+ -->
+<IMG
+ WIDTH="166" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img465.gif"
+ ALT="$q_m = q_{min} + m \cdot q_{step}$"> where <IMG
+ WIDTH="40" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img466.gif"
+ ALT="$q_{min}$"> is the radius of the smallest <I>q</I>-shell, <IMG
+ WIDTH="39" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img467.gif"
+ ALT="$q_{step}$"> is the 
+distance between two consecutive <I>q</I>-shells and with <I>m</I> running from 0 to <IMG
+ WIDTH="50" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img468.gif"
+ ALT="$N_{shell}$"> where <IMG
+ WIDTH="50" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img468.gif"
+ ALT="$N_{shell}$"> is the 
+number of selected <I>q</I>-shells defined as <!-- MATH
+ $N_{shell}= E(\frac{q_{max} - q_{min}}{q_{step}}) + 1$
+ -->
+<IMG
+ WIDTH="204" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img469.gif"
+ ALT="$N_{shell}= E(\frac{q_{max} - q_{min}}{q_{step}}) + 1$"> where <IMG
+ WIDTH="42" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img470.gif"
+ ALT="$q_{max}$"> is the 
+radius of the biggest <I>q</I>-shell.
+
+<P>
+For example,
+
+<UL>
+<LI><I>0:10:1</I> will generate <I>q</I>-shells of radii 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.
+</LI>
+<LI><I>3:12:2</I> will generate <I>q</I>-shells of radii 3, 5, 7, 9, 11.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>Q shell width (in nm-1)</B>
+<BR><B>Format:</B> strictly positive float
+<BR><B>Default:</B> <I>1.0</I>
+<BR><B>Description:</B> this widget allows to define the tolerance <I>dq</I> on the <I>q</I>-modulii. So, for each <I>q</I>-shell of 
+modulus <I>q</I>, <I>n</I>MOLDYN will accept a <I>q</I>-vector to belong to that shell if its modulus falls in the range 
+<I>[q-dq/2,q+dq/2]</I>. This parameter fix the <I>q</I>-resolution.
+
+<P>
+</LI>
+<LI><B>Q vectors per shell</B>
+<BR><B>Format:</B> strictly positive integer
+<BR><B>Default:</B> <I>50</I>
+<BR><B>Description:</B> this widget allows to specify the number of <I>q</I>-vectors , <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img444.gif"
+ ALT="$N_q$"> to generate for each <I>q</I>-shell. Indeed, 
+when generating <I>q</I>-vectors, <I>n</I>MOLDYN will try to generate <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img444.gif"
+ ALT="$N_q$"> <I>q</I>-vectors for each <I>q</I>-shell in order to carry out the averages 
+of Eq. <A HREF="node122.html#eq:dcsf_rho">4.151</A>. For a given <I>q</I>-shell, if <I>n</I>MOLDYN could generate less <I>q</I>-vectors than <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img444.gif"
+ ALT="$N_q$">, it will only use the 
+number of generated <I>q</I>-vectors instead of <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img444.gif"
+ ALT="$N_q$"> and if <I>n</I>MOLDYN could generate more <I>q</I>-vectors than <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img444.gif"
+ ALT="$N_q$">, it will pick up
+randomly <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img444.gif"
+ ALT="$N_q$"> <I>q</I>-vectors among the generated <I>q</I>-vectors. The higher this parameter is the smoother will be the computed 
+intermediate scattering function but at the cost of a slower analysis.
+
+<P>
+</LI>
+<LI><B>Q vectors generator</B>
+<BR><B>Format:</B> string equal to <I>3D isotropic</I>, <I>2D isotropic</I> or <I>anisotropic</I>
+<BR><B>Default:</B> <I>3D isotropic</I>
+<BR><B>Description:</B> this option allows to specify how the <I>q</I>-vectors should be generated:
+
+<UL>
+<LI>3D isotropic the <I>q</I>-vectors are generated randomly on concentric spheres.
+</LI>
+<LI>2D isotropic the <I>q</I>-vectors are generated randomly on concentric rings in a given plane.
+</LI>
+<LI>anisotropic the <I>q</I>-vectors are generated randomly on one or several defined directions.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>Q vectors direction</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>no</I>
+<BR><B>Description:</B> this widget allows to specify one or several preferential directions along which the <I>q</I>-vectors have to
+be generated. Depening on the <I>q</I>-vectors generation type, the entered value will take different values:
+
+<UL>
+<LI>3D isotropic the default value <I>no</I> must be used.
+
+<P>
+</LI>
+<LI>2D isotropic a string of the form
+
+<BR>
+<BR><!-- MATH
+ $q1_x,q1_y,q1_z;q2_x,q2_y,q2_z$
+ -->
+<IMG
+ WIDTH="196" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img471.gif"
+ ALT="$q1_x,q1_y,q1_z;q2_x,q2_y,q2_z$">
+
+<BR>
+<BR>
+where <!-- MATH
+ $q1_x,q1_y,q1_z$
+ -->
+<IMG
+ WIDTH="97" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img472.gif"
+ ALT="$q1_x,q1_y,q1_z$"> and <!-- MATH
+ $q2_x,q2_y,q2_z$
+ -->
+<IMG
+ WIDTH="97" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img473.gif"
+ ALT="$q2_x,q2_y,q2_z$"> are respectively the <I>x,y,z</I> components of <I>q</I>-vector 
+<I><B>q1</B></I> and <I><B>q2</B></I>, <I>(<B>q1</B>,<B>q2</B>)</I> defining the plane on which the <I>q</I>-vectors will be generated.
+
+<P>
+</LI>
+<LI>anisotropic a string of the form
+
+<BR>
+<BR><!-- MATH
+ $q1_x,q1_y,q1_z;q2_x,q2_y,q2_z;\ldots$
+ -->
+<IMG
+ WIDTH="224" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img474.gif"
+ ALT="$q1_x,q1_y,q1_z;q2_x,q2_y,q2_z;\ldots$">
+
+<BR>
+<BR>
+where <!-- MATH
+ $q1_x,q1_y,q1_z$
+ -->
+<IMG
+ WIDTH="97" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img472.gif"
+ ALT="$q1_x,q1_y,q1_z$">, <!-- MATH
+ $q2_x,q2_y,q2_z$
+ -->
+<IMG
+ WIDTH="97" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img473.gif"
+ ALT="$q2_x,q2_y,q2_z$"> ...are respectively the <I>x,y,z</I> components of <I>q</I>-vector 
+<I><B>q1</B></I>, <I><B>q2</B></I> ..., the <I>q</I>-vector generation being performed along each defined direction.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>FFT window</B>
+<BR><B>Format:</B> float in [0.0,100.0]
+<BR><B>Default:</B> <I>10.0</I>
+<BR><B>Description:</B> this widget allows to define the width in percentage of the trajectory length of the Gaussian 
+function to be used in the smoothing procedure for the calculation of the coherent structure factor out of the intermediate 
+scattering function. See Appendix <A HREF="node193.html#fca">A</A> for more details.
+
+<P>
+</LI>
+<LI><B>Subset selection</B>
+<BR><B>Format:</B> subset selection string
+<BR><B>Default:</B> <I>all</I>
+<BR><B>Description:</B> this widget allows the selection of a subset of the system for the analysis. 
+See Section <A HREF="node37.html#subset_selection">4.2.2.1</A> for more details.
+
+<P>
+</LI>
+<LI><B>Deuteration selection</B>
+<BR><B>Format:</B> deuteration selection string
+<BR><B>Default:</B> <I>no</I>
+<BR><B>Description:</B> this widget allows the selection of a subset hydrogen atoms that will take the atomic parameters 
+of deuterium. See Section <A HREF="node41.html#deuteration_selection">4.2.2.2</A> for more details.
+
+<P>
+</LI>
+<LI><B>Weights</B>
+<BR><B>Format:</B> string equal to <I>equal</I>, <I>mass</I>, <I>coherent</I>, <I>incoherent</I> or <I>atomicNumber</I>
+<BR><B>Default:</B> <I>incoherent</I>
+<BR><B>Description:</B> this widget allows the selection of the weighting scheme to apply on each atomic contribution 
+to the <A HREF=node4.html#tex2html568 NAME="21107"><I>DISF</I></A>. See Section <A HREF="node35.html#weighting_scheme">4.2.1</A> for more details. 
+
+<P>
+</LI>
+<LI><B>DISF output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>DISF_traj_file.nc</I> where <I>traj_file.nc</I> is the name of the input trajectory
+<BR><B>Description:</B> this widget allows to enter the name of the <A HREF=node4.html#tex2html569 NAME="21114">NetCDF</A> output file of the <A HREF=node4.html#tex2html570 NAME="21121"><I>DISF</I></A> analysis. A <A HREF=node4.html#tex2html571 NAME="21128">CDL</A> 
+version of the <A HREF=node4.html#tex2html572 NAME="21135">NetCDF</A> output file is also automatically created with <I>DISF_traj_file.cdl</I> name.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3012"
+  HREF="node132.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3008"
+  HREF="node129.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3002"
+  HREF="node130.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3010"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3013"
+  HREF="node132.html">Output</A>
+<B> Up:</B> <A NAME="tex2html3009"
+  HREF="node129.html">Dynamic Incoherent Structure Factor</A>
+<B> Previous:</B> <A NAME="tex2html3003"
+  HREF="node130.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html3011"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

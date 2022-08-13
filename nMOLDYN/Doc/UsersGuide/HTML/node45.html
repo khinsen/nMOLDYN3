@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Group selection</TITLE>
+<META NAME="description" CONTENT="Group selection">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="previous" HREF="node41.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node46.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1848"
+  HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1844"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1840"
+  HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1846"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1849"
+  HREF="node46.html">selection from a selection</A>
+<B> Up:</B> <A NAME="tex2html1845"
+  HREF="node36.html">Atom selection</A>
+<B> Previous:</B> <A NAME="tex2html1841"
+  HREF="node44.html">selection from an expression</A>
+ &nbsp <B>  <A NAME="tex2html1847"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION008223000000000000000"></A>
+<A NAME="group_selection"></A>
+<BR>
+Group selection
+</H3>
+This kind of selection is especially desgned for analysis based on group of atoms on which a given operation is performed 
+collectively. By collectively, we mean that the selected group of atoms will be treated as it was one object. For example, 
+in rigid-body based analysis, selecting a group of atoms will mean that this group will be considered as a single rigid-body 
+that will be used to derve the rigid-body trajectory. Another example, the study where one needs to define the center of mass 
+of a group of atoms in order to derive a property such as coordination number or spatial density (see Sections <A HREF="node158.html#cn">4.2.6.2</A> and 
+<A HREF="node162.html#sd">4.2.6.3</A>). In that case, a center of mass will be defined for each selected group of atoms.
+
+<P>
+By default, <I>n</I>MOLDYN consider all the atoms for a group selection. The dialog from which a group selection is performed is 
+displayed in figure <A HREF="node45.html#fig:group_selection">4.29</A>.
+
+<DIV ALIGN="CENTER"><A NAME="fig:group_selection"></A><A NAME="1624"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.29:</STRONG>
+The dialog from where a group selection is performed.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="290" ALIGN="BOTTOM" BORDER="0"
+ SRC="img72.gif"
+ ALT="\includegraphics[width=10cm]{Figures/group_selection.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+At the bottom of the dialog, the <B>Actions</B> frame contains the <B>Cancel</B> button to cancel the selection and 
+the <B>OK</B> button to validate the selecton.
+
+<P>
+On the top of the dialog, three radiobuttons allows to select from which media the selection will be performed. This can be:
+
+<UL>
+<LI><B>from a selection file</B>: this will perform the selection from a <I>n</I>MOLDYN group selection file,
+</LI>
+<LI><B>from the loaded trajectory</B>: this will perform the selection directly from the contents of the universe contained 
+in the loaded trajectory,
+</LI>
+<LI><B>from an expression string</B>: this will perform the selection from a valid python expression declaring a list 
+of  atoms to include in the selection.
+</LI>
+</UL>
+When clicking on one of these radiobutton, a media-specific dialog will be displayed in the underneath frame.
+
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1850"
+  HREF="node46.html">selection from a selection file
+<BR></A>
+<LI><A NAME="tex2html1851"
+  HREF="node47.html">selection from the loaded trajectory
+<BR></A>
+<LI><A NAME="tex2html1852"
+  HREF="node48.html">selection from an expression string
+<BR></A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1848"
+  HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1844"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1840"
+  HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1846"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1849"
+  HREF="node46.html">selection from a selection</A>
+<B> Up:</B> <A NAME="tex2html1845"
+  HREF="node36.html">Atom selection</A>
+<B> Previous:</B> <A NAME="tex2html1841"
+  HREF="node44.html">selection from an expression</A>
+ &nbsp <B>  <A NAME="tex2html1847"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

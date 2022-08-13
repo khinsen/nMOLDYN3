@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Forcite to MMTK</TITLE>
+<META NAME="description" CONTENT="Forcite to MMTK">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node27.html">
+<LINK REL="previous" HREF="node25.html">
+<LINK REL="up" HREF="node21.html">
+<LINK REL="next" HREF="node27.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1468"
+  HREF="node27.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1464"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1458"
+  HREF="node25.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1466"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1469"
+  HREF="node27.html">NAMD to MMTK</A>
+<B> Up:</B> <A NAME="tex2html1465"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1459"
+  HREF="node25.html">Discover to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1467"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION008125000000000000000"></A>
+<A NAME="forcite_to_mmtk"></A>
+<BR>
+Forcite to MMTK
+</H3>
+This converter allows the conversion from a trajectory generated with Materials Studio Forcite module [<A
+ HREF="node192.html#Forcite">31</A>] to a 
+<A HREF=node4.html#tex2html139 NAME="17356">MMTK</A> <A HREF=node4.html#tex2html140 NAME="17363">NetCDF</A> trajectory file. Pressing the <B>Forcite to <A HREF=node4.html#tex2html137 NAME="17345">MMTK</A> </B> menubutton, the dialog shown in figure <A HREF="node26.html#fig:forcite_converter">4.9</A> will pop up.
+
+<DIV ALIGN="CENTER"><A NAME="fig:forcite_converter"></A><A NAME="845"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.9:</STRONG>
+The Forcite to MMTK converter dialog.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="295" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.gif"
+ ALT="\includegraphics[width=10cm]{Figures/forcite_converter.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+To perform the conversion, the following input fields must be filled:
+
+<UL>
+<LI><B>XTD/XSD input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> a XTD or XSD file of the system must be provided for the conversion. This file is necessary to build up 
+the <A HREF=node4.html#tex2html141 NAME="17370">MMTK</A> universe related to the <A HREF=node4.html#tex2html142 NAME="17377">MMTK</A> trajectory. XTD or XSD files are automatically generated during a simulation performed 
+with MaterialsStudio.
+
+<P>
+</LI>
+<LI><B>TRJ input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the Forcite TRJ file that stores the trajectory frames.
+
+<P>
+</LI>
+<LI><B>Subselection</B>:
+<BR><B>Format:</B> integer or Python expression or string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> it can happen that the molecular hierarchy is not correctly set in the XTD/XSD file or that 
+you do not want to include all the atoms of the Discover trajectory into the <A HREF=node4.html#tex2html143 NAME="17384">MMTK</A> trajectory. In that case, 
+it is possible to specify how the system should be organized.
+
+<P>
+The format for the <B>Subselection</B> field can be
+
+<UL>
+<LI>a single integer that specifies the index of the atom to select in the XSD/XTD file,
+</LI>
+<LI>a valid python expression that will generate nesteds list of integers where each list will generate a 
+distinct <A HREF=node4.html#tex2html144 NAME="17391">MMTK</A> AtomCluster made of the atoms whose indexes in the XSD/XTD match the integers of the list. As an example, 
+entering [[1,2,3,5],[10,20,21,23],[90,93]] will consider only atoms 1, 2, 3, 5, 10, 20, 21, 23, 90 and 93 of the XSD/XTD file when creating the <A HREF=node4.html#tex2html145 NAME="17398">MMTK</A> trajectory. Moreover, those atoms will be gathered 
+such as atoms 1, 2, 3 and 5 will be in a fist AtomCluster, atoms 10, 20, 21 and 23 will be in a second AtomCluster and atoms 
+90 and 93 will be gathered in a third AtomCluster,
+</LI>
+<LI>a string with the following format:
+<BR><I>min_1:max_1:skip_1 sep ... sep min_n:max_n:skip_n</I>
+<BR>
+where <I>sep</I> can be a white space, a comma or a semicolon and each block <I>min_i:max_i:skip_i</I> will specify a distinct <A HREF=node4.html#tex2html146 NAME="17405">MMTK</A> AtomCluster made of atoms 
+whose indexes in the XSD/XTD file ranges from <I>min_i</I> to <I>max_i</I> by jumps of <I>skip_i</I> atoms. For example, entering 2:5:1;20:30:3 will generate a first AtomCluster made of atoms 2,3,4,5 and a second AtomCluster made of atoms 20,23,26 and 29.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>MMTK NetCDF output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the name of the <A HREF=node4.html#tex2html147 NAME="17412">MMTK</A> <A HREF=node4.html#tex2html148 NAME="17419">NetCDF</A> trajectory that will be written. Once, a TRJ file has been 
+loaded, a default name for the <A HREF=node4.html#tex2html149 NAME="17426">MMTK</A> <A HREF=node4.html#tex2html150 NAME="17433">NetCDF</A> output file will be proposed. This default name will be 
+<I>file.nc</I> if <I>file.trj</I> is the TRJ trajectory file name.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1468"
+  HREF="node27.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1464"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1458"
+  HREF="node25.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1466"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1469"
+  HREF="node27.html">NAMD to MMTK</A>
+<B> Up:</B> <A NAME="tex2html1465"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1459"
+  HREF="node25.html">Discover to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1467"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

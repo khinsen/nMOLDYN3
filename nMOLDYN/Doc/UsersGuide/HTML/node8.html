@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Installing nMOLDYN</TITLE>
+<META NAME="description" CONTENT="Installing nMOLDYN">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node11.html">
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="nMOLDYN_for_HTML.html">
+<LINK REL="next" HREF="node9.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1065"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1061"
+  HREF="nMOLDYN_for_HTML.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1055"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1063"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1066"
+  HREF="node9.html">Unix users</A>
+<B> Up:</B> <A NAME="tex2html1062"
+  HREF="nMOLDYN_for_HTML.html">nMOLDYN_for_HTML</A>
+<B> Previous:</B> <A NAME="tex2html1056"
+  HREF="node7.html">User feedback</A>
+ &nbsp <B>  <A NAME="tex2html1064"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION006000000000000000000"></A>
+<A NAME="installing_nmoldyn"></A>
+<BR>
+Installing <I>n</I>MOLDYN
+</H1>
+When downloading <I>n</I>MOLDYN 3 from its website [<A
+ HREF="node192.html#nMOLDYN1">39</A>,<A
+ HREF="node192.html#nMOLDYN2">40</A>], you will get the full Python source code 
+which is covered by the CeCILL License [<A
+ HREF="node192.html#CeCILL">41</A>]. The current stable version of <I>n</I>MOLDYN is 3.0.4. One of the major 
+goal of the new <I>n</I>MOLDYN version targeted  an easier installation on the most current platforms respectively Win32 and Unix 
+(Linux and MacOS). This has been done with the development of plat-form specific installers.
+
+<P>
+<I>n</I>MOLDYN needs the following modules/libraries in order to work properly:
+
+<OL>
+<LI>Tcl/Tk version <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\geq$"> 8.0 [<A
+ HREF="node192.html#TclTk">78</A>],
+</LI>
+<LI>Python version <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\geq$"> 2.4 [<A
+ HREF="node192.html#python">17</A>],
+</LI>
+<LI>Numpy version <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\geq$"> 1.2 [<A
+ HREF="node192.html#NumPy">18</A>],
+</LI>
+<LI>matplotlib version <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\geq$"> 0.98 [<A
+ HREF="node192.html#matplotlib">25</A>],
+</LI>
+<LI>Pyro version <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\geq$"> 3.9 [<A
+ HREF="node192.html#Pyro">19</A>],
+</LI>
+<LI>Scientific Python version <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\geq$"> 2.8 [<A
+ HREF="node192.html#Scientific1">20</A>,<A
+ HREF="node192.html#Scientific2">21</A>],
+</LI>
+<LI><A HREF=node4.html#tex2html36 NAME="16641">MMTK</A> version <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\geq$"> 2.6.0  [<A
+ HREF="node192.html#Hinsen:2000">3</A>,<A
+ HREF="node192.html#MMTK">4</A>],
+</LI>
+<LI>pywin32 version <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\geq$"> 210 (for a win32 installation only) [<A
+ HREF="node192.html#pywin32">42</A>].
+</LI>
+</OL>
+
+<P>
+The version number is important (and even compulsory for python) and in case where you would decide to use older 
+versions of those packages, we can not guarantee that <I>n</I>MOLDYN will work properly or even work at all.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1067"
+  HREF="node9.html">Unix users</A>
+<LI><A NAME="tex2html1068"
+  HREF="node10.html">Windows users</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1065"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1061"
+  HREF="nMOLDYN_for_HTML.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1055"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1063"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1066"
+  HREF="node9.html">Unix users</A>
+<B> Up:</B> <A NAME="tex2html1062"
+  HREF="nMOLDYN_for_HTML.html">nMOLDYN_for_HTML</A>
+<B> Previous:</B> <A NAME="tex2html1056"
+  HREF="node7.html">User feedback</A>
+ &nbsp <B>  <A NAME="tex2html1064"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

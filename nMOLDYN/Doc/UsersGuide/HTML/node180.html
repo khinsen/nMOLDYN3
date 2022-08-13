@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Plot</TITLE>
+<META NAME="description" CONTENT="Plot">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node181.html">
+<LINK REL="previous" HREF="node179.html">
+<LINK REL="up" HREF="node179.html">
+<LINK REL="next" HREF="node181.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3628"
+  HREF="node181.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3624"
+  HREF="node179.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3618"
+  HREF="node179.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3626"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3629"
+  HREF="node181.html">Animation</A>
+<B> Up:</B> <A NAME="tex2html3625"
+  HREF="node179.html">The View menu</A>
+<B> Previous:</B> <A NAME="tex2html3619"
+  HREF="node179.html">The View menu</A>
+ &nbsp <B>  <A NAME="tex2html3627"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION008310000000000000000"></A>
+<A NAME="plot"></A>
+<BR>
+Plot
+</H2>
+This option allows one to plot the results of almost any <I>n</I>MOLDYN analysis. 
+
+<P>
+Pressing the <B>Plot</B> button will pop up the dialog shown on figure <A HREF="node180.html#fig:plot">4.64</A>
+
+<DIV ALIGN="CENTER"><A NAME="fig:plot"></A><A NAME="6713"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.64:</STRONG>
+The dialog from where the results of <I>n</I>MOLDYN analysis can be plotted.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="452" HEIGHT="590" ALIGN="BOTTOM" BORDER="0"
+ SRC="img622.gif"
+ ALT="\includegraphics[width=10cm]{Figures/plot.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The following input fields controls the parameters used to plot variables coming from a <A HREF=node4.html#tex2html779 NAME="22912">NetCDF</A> file:
+
+<P>
+
+<UL>
+<LI><B>NetCDF input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> the loaded <A HREF=node4.html#tex2html780 NAME="22919">NetCDF</A> filename if one is already currently loaded. Nothing otherwise
+<BR><B>Description:</B> this widget allows to specify the name of the <A HREF=node4.html#tex2html781 NAME="22926">NetCDF</A> file whose contents should be plotted.
+
+<P>
+</LI>
+<LI><B>Variables</B>
+<BR><B>Format:</B> not an editable etry
+<BR><B>Default:</B> no variable selected
+<BR><B>Description:</B> this widget allows to specify the <A HREF=node4.html#tex2html782 NAME="22933">NetCDF</A> variables that should be plotted. When loading the <A HREF=node4.html#tex2html783 NAME="22940">NetCDF</A> 
+file, <I>n</I>MOLDYN distinguish between 1D and 2D arrays. The 1D arrays are stored as X and Y variables and displayed into 
+their corresponding <B>X</B> and <B>Y</B> variables listboxes. The 2D arrays are stored as Z variables and displayed into 
+their corresponding <B>Z</B> variables listbox. In order to select for plotting a set of <A HREF=node4.html#tex2html784 NAME="22947">NetCDF</A> variables, click first on the X variable, 
+then on the Y variable and eventually on the Z variable you want to plot.
+
+<P>
+</LI>
+<LI><B>Plot</B>
+<BR><B>Format:</B> not an editable etry
+<BR><B>Default:</B> no plot displayed
+<BR><B>Description:</B> this widget contain the space allocated to display the plots. The plots are generated using 
+matplotlib python graphical library. At the botton of the widget, there are seven buttons that allows to perform 
+various actions on the displayed plot. These buttons are the following:
+
+<UL>
+<LI><IMG
+ WIDTH="42" HEIGHT="43" ALIGN="BOTTOM" BORDER="0"
+ SRC="img625.gif"
+ ALT="\includegraphics[width=1cm]{Figures/matplotlib_home.eps}"> takes you to the first view.
+
+<P>
+</LI>
+<LI><IMG
+ WIDTH="42" HEIGHT="43" ALIGN="BOTTOM" BORDER="0"
+ SRC="img626.gif"
+ ALT="\includegraphics[width=1cm]{Figures/matplotlib_back.eps}"> the <TT>Back</TT> is akin to the web browser 
+<TT>Back</TT> button. It is used to navigate back between previously defined views. It has no meaning unless, 
+the <TT>Pan/Zoom</TT> and <TT>Zoom to rect mode</TT> modes, defined below, have been used. This is analogous to trying to 
+click <TT>Back</TT> on your web browser before visiting a new page. Nothng happens.
+
+<P>
+</LI>
+<LI><IMG
+ WIDTH="42" HEIGHT="43" ALIGN="BOTTOM" BORDER="0"
+ SRC="img627.gif"
+ ALT="\includegraphics[width=1cm]{Figures/matplotlib_forward.eps}"> the <TT>Forward</TT> is akin to the web browser 
+<TT>Forward</TT> button. It is used to navigate forward between previously defined views. It has no meaning unless, 
+the <TT>Pan/Zoom</TT> and <TT>Zoom to rect mode</TT> modes, defined below, have been used. This is analogous to trying to 
+click <TT>Forward</TT> on your web browser before visiting a new page. Nothing happens.
+
+<P>
+</LI>
+<LI><IMG
+ WIDTH="42" HEIGHT="43" ALIGN="BOTTOM" BORDER="0"
+ SRC="img628.gif"
+ ALT="\includegraphics[width=1cm]{Figures/matplotlib_move.eps}"> activates the <TT>Pan/Zoom</TT> mode. 
+The <TT>Pan/Zoom</TT> button has two modes: pan and zoom. Then put your mouse somewhere over an axes.
+
+<UL>
+<LI>Pan mode: press the left mouse button and hold it, dragging it to a new position. When you release it, the data under 
+the point where you pressed will be moved to the point where you released. If you press 'x' or 'y' while panning, the motion 
+will be constrained to the x or y axis, respectively.
+</LI>
+<LI>Zoom mode: press the right mouse button, dragging it to a new position. The x axis will be zoomed in proportionate to 
+the rightward movement and zoomed out proportionate to the leftward movement. Ditto for the y axis and up/down motions. The 
+point under your mouse when you begin the zoom should remain in place, allowing you to zoom to an arbitrary point in the 
+figure. You can use the modifier keys 'x' and 'y' or 'CONTROL' to constrain the zoom to the x axis, y axis, or aspect ratio 
+preserve, respectively.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><IMG
+ WIDTH="42" HEIGHT="43" ALIGN="BOTTOM" BORDER="0"
+ SRC="img629.gif"
+ ALT="\includegraphics[width=1cm]{Figures/matplotlib_zoom_to_rect.eps}"> activates the 
+<TT>Zoom to rect</TT> mode. Put your mouse somewhere over the plot and press the left mouse button. Drag the mouse while 
+holding the button to a new location and release. The plots limits will be zoomed to the rectangle you have defined. There is 
+also a 'zoom out to rectangle' in this mode with the right button, which will place your entire plot in the region defined 
+by the rectangle you have defined.
+
+<P>
+</LI>
+<LI><IMG
+ WIDTH="44" HEIGHT="43" ALIGN="BOTTOM" BORDER="0"
+ SRC="img630.gif"
+ ALT="\includegraphics[width=1cm]{Figures/matplotlib_subplots.eps}"> pops up a dialog from 
+which you can adjust some basic positional plot parameters.
+</LI>
+<LI><IMG
+ WIDTH="42" HEIGHT="43" ALIGN="BOTTOM" BORDER="0"
+ SRC="img631.gif"
+ ALT="\includegraphics[width=1cm]{Figures/matplotlib_filesave.eps}"> pops up a file browser from which you can save the plot to a file. 
+You can save your plot to the following format:
+
+<UL>
+<LI>Portable Networks Graphics (.png)
+</LI>
+<LI>Enhance Metafile (.emf)
+</LI>
+<LI>Encapsulated Postscript (.eps)
+</LI>
+<LI>Portable Document Format (.pdf)
+</LI>
+<LI>Postscript (.ps)
+</LI>
+<LI>Raw RGBA bitmap (.raw,.rgba)
+</LI>
+<LI>Scalable Vector Graphics (.svg)
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+Pressing <B>Return</B> or clicking on the <B>OK</B> button will display the plot for the selected <A HREF=node4.html#tex2html785 NAME="22961">NetCDF</A> variables. Once a plot is 
+displayed, you can change some plot settings by clicking on <B>Settings</B> button that will pop up the dialog 
+shown in figure <A HREF="node180.html#fig:plot_settings">4.65</A>. 
+
+<DIV ALIGN="CENTER"><A NAME="fig:plot_settings"></A><A NAME="6766"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.65:</STRONG>
+The dialog from which the plot settings are defined.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="652" ALIGN="BOTTOM" BORDER="0"
+ SRC="img623.gif"
+ ALT="\includegraphics[width=10cm]{Figures/plot_settings.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+From this dialog you can change many plot parameters such as the plot title, the x and y labels, the x and y ticks size, 
+the x and y scales, the line colors, the line width ...
+
+You can also export the curent plot to an ASCII file by clicking on <B>Export plot</B>. This will pop up the dialog shown in figure 
+<A HREF="node180.html#fig:export_plot">4.66</A>.
+
+<DIV ALIGN="CENTER"><A NAME="fig:export_plot"></A><A NAME="6775"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.66:</STRONG>
+The dialog from which the current plot can be exported to an ASCII file.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="242" ALIGN="BOTTOM" BORDER="0"
+ SRC="img624.gif"
+ ALT="\includegraphics[width=10cm]{Figures/export_plot.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+From this dialog, you will be asked for the range of values to export and a file name for the output ASCII file.
+
+<P>
+Finally, pressing the <B>Cancel</B> button will close the plot dialog.
+
+<P>
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3628"
+  HREF="node181.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3624"
+  HREF="node179.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3618"
+  HREF="node179.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3626"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3629"
+  HREF="node181.html">Animation</A>
+<B> Up:</B> <A NAME="tex2html3625"
+  HREF="node179.html">The View menu</A>
+<B> Previous:</B> <A NAME="tex2html3619"
+  HREF="node179.html">The View menu</A>
+ &nbsp <B>  <A NAME="tex2html3627"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

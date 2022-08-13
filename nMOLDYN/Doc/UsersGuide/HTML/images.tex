@@ -1,0 +1,400 @@
+\batchmode
+\documentclass[a4paper,11pt]{report}
+\RequirePackage{ifthen}
+
+
+
+\usepackage{array}
+\usepackage{makeidx}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{appendix}
+\usepackage[acronym=true]{glossary}
+
+%
+\providecommand{\amu}{\textit{amu}}%
+\providecommand{\nm}{\textit{nm}}%
+\providecommand{\nmsquare}{$nm^2$}%
+\providecommand{\vacfunits}{$nm^2s^{-2}$}%
+\providecommand{\ps}{\textit{ps}}%
+\providecommand{\invnm}{$nm^{-1}$}%
+\providecommand{\ns}{\textit{ns}}%
+\providecommand{\thz}{\textit{THz}}%
+\providecommand{\qval}{\textit{q}}%
+\providecommand{\qvect}{\textit{q}-vector}%
+\providecommand{\qvects}{\textit{q}-vectors}%
+\providecommand{\qshell}{\textit{q}-shell}%
+\providecommand{\qshells}{\textit{q}-shells}%
+\providecommand{\NMOLDYN}{\textit{n}MOLDYN}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}%
+\renewcommand{\labelitemii}{$\star$}
+\makeacronym
+\newacronym[AC]{\textit{AC}}{\textbf{A}ngular \textbf{C}orrelation}{}
+\newacronym[AR]{\textit{AR}}{\textbf{A}uto-\textbf{R}egressive}{}
+\newacronym[ARA]{\textit{ARA}}{\textbf{A}uto-\textbf{R}egressive \textbf{A}nalysis}{}
+\newacronym[ADOS]{\textit{ADOS}}{\textbf{A}ngular \textbf{D}ensity \textbf{O}f \textbf{S}tates}{}
+\newacronym[AVACF]{\textit{AVACF}}{\textbf{A}ngular \textbf{V}elocity \textbf{A}uto\textbf{C}orrelation \textbf{F}unction}{}
+\newacronym[CHARMM]{CHARMM}{\textbf{C}hemistry at \textbf{HAR}vard \textbf{M}acromolecular \textbf{M}echanics}{}
+\newacronym[CDL]{CDL}{network \textbf{C}ommon \textbf{D}ata \textbf{L}anguage}{}
+\newacronym[CN]{\textit{CN}}{\textbf{C}oordination \textbf{N}umber}{}
+\newacronym[COMT]{\textit{COMT}}{\textbf{C}enter \textbf{O}f \textbf{M}ass \textbf{T}rajectory}{}
+\newacronym[DCSF]{\textit{DCSF}}{\textbf{D}ynamic \textbf{C}oherent \textbf{S}tructure \textbf{F}actor}{}
+\newacronym[DCSFAR]{\textit{DCSFAR}}{\textbf{D}ynamic \textbf{C}oherent \textbf{S}tructure \textbf{F}actor using an \textbf{A}uto-\textbf{R}egressive model}{}
+\newacronym[DISF]{\textit{DISF}}{\textbf{D}ynamic \textbf{I}ncoherent \textbf{S}tructure \textbf{F}actor}{}
+\newacronym[DISFAR]{\textit{DISFAR}}{\textbf{D}ynamic \textbf{I}ncoherent \textbf{S}tructure \textbf{F}actor using an \textbf{A}uto-\textbf{R}egressive model}{}
+\newacronym[DISFG]{\textit{DISFG}}{\textbf{D}ynamic \textbf{I}ncoherent \textbf{S}tructure \textbf{F}actor using an \textbf{G}aussian approximation}{}
+\newacronym[DOS]{\textit{DOS}}{\textbf{D}ensity \textbf{O}f \textbf{S}tates}{}
+\newacronym[FCA]{FCA}{\textbf{F}ast \textbf{C}orrelation \textbf{A}lgorithm}{}
+\newacronym[EISF]{\textit{EISF}}{\textbf{E}lastic \textbf{I}ncoherent \textbf{S}tructure \textbf{F}actor}{}
+\newacronym[GMFT]{\textit{GMFT}}{\textbf{G}lobal \textbf{M}otion \textbf{F}iltered \textbf{T}rajectory}{}
+\newacronym[GUI]{\textit{GUI}}{\textbf{G}raphical \textbf{U}ser \textbf{I}nterface}{}
+\newacronym[MD]{MD}{\textbf{M}olecular \textbf{D}ynamics}{}
+\newacronym[MMTK]{MMTK}{\textbf{M}olecular \textbf{M}odelling \textbf{T}ool\textbf{K}it}{}
+\newacronym[MSD]{\textit{MSD}}{\textbf{M}ean-\textbf{S}quare \textbf{D}isplacement}{}
+\newacronym[NAMD]{NAMD}{\textbf{NA}noscale \textbf{M}olecular \textbf{D}ynamics}{}
+\newacronym[NetCDF]{NetCDF}{\textbf{N}etwork \textbf{C}ommon \textbf{D}ata \textbf{F}orm}{}
+\newacronym[PBFT]{\textit{PBFT}}{\textbf{P}ass-\textbf{B}and \textbf{F}iltered \textbf{T}rajectory}{}
+\newacronym[OP]{\textit{OP}}{\textbf{O}rder \textbf{P}arameter}{}
+\newacronym[OPCM]{\textit{OPCM}}{\textbf{O}rder \textbf{P}arameter using \textbf{C}ontact \textbf{M}odel}{}
+\newacronym[PDF]{\textit{PDF}}{\textbf{P}air-\textbf{D}istribution \textbf{F}unction}{}
+\newacronym[PDB]{\textit{PDB}}{\textbf{P}rotein \textbf{D}ata \textbf{B}ank}{}
+\newacronym[QHA]{\textit{QHA}}{\textbf{Q}uasi-\textbf{H}armonic \textbf{A}nalysis}{}
+\newacronym[RBT]{\textit{RBT}}{\textbf{R}igid-\textbf{B}ody \textbf{T}rajectory}{}
+\newacronym[RCF]{\textit{RCF}}{\textbf{R}eorientational \textbf{C}orrelation \textbf{F}unction}{}
+\newacronym[RDF]{\textit{RDF}}{\textbf{R}adial-\textbf{D}istribution \textbf{F}unction}{}
+\newacronym[ROG]{\textit{ROG}}{\textbf{R}adius \textbf{O}f \textbf{G}yration}{}
+\newacronym[RMSD]{\textit{RMSD}}{\textbf{R}oot \textbf{M}ean-\textbf{S}quare \textbf{D}eviation}{}
+\newacronym[SCSF]{\textit{SCSF}}{\textbf{S}tatic \textbf{C}oherent \textbf{S}tructure \textbf{F}actor}{}
+\newacronym[SD]{\textit{SD}}{\textbf{S}patial \textbf{D}ensity}{}
+\newacronym[SFA]{\textit{SFA}}{\textbf{S}crew\textbf{F}it \textbf{A}nalysis}{}
+\newacronym[SSCSF]{\textit{SSCSF}}{\textbf{S}moothed \textbf{S}tatic \textbf{C}oherent \textbf{S}tructure \textbf{F}actor}{}
+\newacronym[TCF]{\textit{TCF}}{\textbf{T}otal-\textbf{C}orrelation \textbf{F}unction}{}
+\newacronym[UCAR]{\textit{UCAR}}{\textbf{U}niversity \textbf{C}orporation for \textbf{A}tmospheric \textbf{R}esearch}{}
+\newacronym[VACF]{\textit{VACF}}{\textbf{V}elocity \textbf{A}uto\textbf{C}orrelation \textbf{F}unction}{}
+\newacronym[VASP]{VASP}{\textbf{V}ienna \textbf{A}b-initio \textbf{S}imulation \textbf{P}ackage}{}
+\newacronym[VMD]{VMD}{\textbf{V}isual \textbf{M}olecular \textbf{D}ynamics}{}
+\newacronym[XST]{XST}{e\textbf{X}tended \textbf{S}ystem \textbf{T}rajectory}{}
+
+
+\usepackage[dvips]{color}
+
+
+\pagecolor[gray]{.7}
+
+\usepackage[latin1]{inputenc}
+
+
+
+\makeatletter
+
+\makeatletter
+\count@=\the\catcode`\_ \catcode`\_=8 
+\newenvironment{tex2html_wrap}{}{}%
+\catcode`\<=12\catcode`\_=\count@
+\newcommand{\providedcommand}[1]{\expandafter\providecommand\csname #1\endcsname}%
+\newcommand{\renewedcommand}[1]{\expandafter\providecommand\csname #1\endcsname{}%
+  \expandafter\renewcommand\csname #1\endcsname}%
+\newcommand{\newedenvironment}[1]{\newenvironment{#1}{}{}\renewenvironment{#1}}%
+\let\newedcommand\renewedcommand
+\let\renewedenvironment\newedenvironment
+\makeatother
+\let\mathon=$
+\let\mathoff=$
+\ifx\AtBeginDocument\undefined \newcommand{\AtBeginDocument}[1]{}\fi
+\newbox\sizebox
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\addtolength{\textheight}{\footskip}\setlength{\footskip}{0pt}
+\addtolength{\textheight}{\topmargin}\setlength{\topmargin}{0pt}
+\addtolength{\textheight}{\headheight}\setlength{\headheight}{0pt}
+\addtolength{\textheight}{\headsep}\setlength{\headsep}{0pt}
+\setlength{\textwidth}{349pt}
+\newwrite\lthtmlwrite
+\makeatletter
+\let\realnormalsize=\normalsize
+\global\topskip=2sp
+\def\preveqno{}\let\real@float=\@float \let\realend@float=\end@float
+\def\@float{\let\@savefreelist\@freelist\real@float}
+\def\liih@math{\ifmmode$\else\bad@math\fi}
+\def\end@float{\realend@float\global\let\@freelist\@savefreelist}
+\let\real@dbflt=\@dbflt \let\end@dblfloat=\end@float
+\let\@largefloatcheck=\relax
+\let\if@boxedmulticols=\iftrue
+\def\@dbflt{\let\@savefreelist\@freelist\real@dbflt}
+\def\adjustnormalsize{\def\normalsize{\mathsurround=0pt \realnormalsize
+ \parindent=0pt\abovedisplayskip=0pt\belowdisplayskip=0pt}%
+ \def\phantompar{\csname par\endcsname}\normalsize}%
+\def\lthtmltypeout#1{{\let\protect\string \immediate\write\lthtmlwrite{#1}}}%
+\newcommand\lthtmlhboxmathA{\adjustnormalsize\setbox\sizebox=\hbox\bgroup\kern.05em }%
+\newcommand\lthtmlhboxmathB{\adjustnormalsize\setbox\sizebox=\hbox to\hsize\bgroup\hfill }%
+\newcommand\lthtmlvboxmathA{\adjustnormalsize\setbox\sizebox=\vbox\bgroup %
+ \let\ifinner=\iffalse \let\)\liih@math }%
+\newcommand\lthtmlboxmathZ{\@next\next\@currlist{}{\def\next{\voidb@x}}%
+ \expandafter\box\next\egroup}%
+\newcommand\lthtmlmathtype[1]{\gdef\lthtmlmathenv{#1}}%
+\newcommand\lthtmllogmath{\lthtmltypeout{l2hSize %
+:\lthtmlmathenv:\the\ht\sizebox::\the\dp\sizebox::\the\wd\sizebox.\preveqno}}%
+\newcommand\lthtmlfigureA[1]{\let\@savefreelist\@freelist
+       \lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmlpictureA{\bgroup\catcode`\_=8 \lthtmlpictureB}%
+\newcommand\lthtmlpictureB[1]{\lthtmlmathtype{#1}\egroup
+       \let\@savefreelist\@freelist \lthtmlhboxmathB}%
+\newcommand\lthtmlpictureZ[1]{\hfill\lthtmlfigureZ}%
+\newcommand\lthtmlfigureZ{\lthtmlboxmathZ\lthtmllogmath\copy\sizebox
+       \global\let\@freelist\@savefreelist}%
+\newcommand\lthtmldisplayA{\bgroup\catcode`\_=8 \lthtmldisplayAi}%
+\newcommand\lthtmldisplayAi[1]{\lthtmlmathtype{#1}\egroup\lthtmlvboxmathA}%
+\newcommand\lthtmldisplayB[1]{\edef\preveqno{(\theequation)}%
+  \lthtmldisplayA{#1}\let\@eqnnum\relax}%
+\newcommand\lthtmldisplayZ{\lthtmlboxmathZ\lthtmllogmath\lthtmlsetmath}%
+\newcommand\lthtmlinlinemathA{\bgroup\catcode`\_=8 \lthtmlinlinemathB}
+\newcommand\lthtmlinlinemathB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA
+  \vrule height1.5ex width0pt }%
+\newcommand\lthtmlinlineA{\bgroup\catcode`\_=8 \lthtmlinlineB}%
+\newcommand\lthtmlinlineB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA}%
+\newcommand\lthtmlinlineZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetinline}
+\newcommand\lthtmlinlinemathZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetmath}
+\newcommand\lthtmlindisplaymathZ{\egroup %
+  \centerinlinemath\lthtmllogmath\lthtmlsetmath}
+\def\lthtmlsetinline{\hbox{\vrule width.1em \vtop{\vbox{%
+  \kern.1em\copy\sizebox}\ifdim\dp\sizebox>0pt\kern.1em\else\kern.3pt\fi
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\lthtmlsetmath{\hbox{\vrule width.1em\kern-.05em\vtop{\vbox{%
+  \kern.1em\kern0.8 pt\hbox{\hglue.17em\copy\sizebox\hglue0.8 pt}}\kern.3pt%
+  \ifdim\dp\sizebox>0pt\kern.1em\fi \kern0.8 pt%
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\centerinlinemath{%
+  \dimen1=\ifdim\ht\sizebox<\dp\sizebox \dp\sizebox\else\ht\sizebox\fi
+  \advance\dimen1by.5pt \vrule width0pt height\dimen1 depth\dimen1 
+ \dp\sizebox=\dimen1\ht\sizebox=\dimen1\relax}
+
+\def\lthtmlcheckvsize{\ifdim\ht\sizebox<\vsize 
+  \ifdim\wd\sizebox<\hsize\expandafter\hfill\fi \expandafter\vfill
+  \else\expandafter\vss\fi}%
+\providecommand{\selectlanguage}[1]{}%
+\makeatletter \tracingstats = 1 
+
+
+\begin{document}
+\pagestyle{empty}\thispagestyle{empty}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hsize=\the\hsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength vsize=\the\vsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hoffset=\the\hoffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength voffset=\the\voffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topmargin=\the\topmargin}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topskip=\the\topskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headheight=\the\headheight}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headsep=\the\headsep}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength parskip=\the\parskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength oddsidemargin=\the\oddsidemargin}\lthtmltypeout{}%
+\makeatletter
+\if@twoside\lthtmltypeout{latex2htmlLength evensidemargin=\the\evensidemargin}%
+\else\lthtmltypeout{latex2htmlLength evensidemargin=\the\oddsidemargin}\fi%
+\lthtmltypeout{}%
+\makeatother
+\setcounter{page}{1}
+\onecolumn
+
+% !!! IMAGES START HERE !!!
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+{\newpage\clearpage
+\lthtmlpictureA{tex2html_wrap16373}%
+\includegraphics[width=0.60\textwidth]{./Figures/logo.eps}%
+\lthtmlpictureZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{subparagraph}
+\stepcounter{subparagraph}
+\stepcounter{subparagraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{subparagraph}
+\stepcounter{subparagraph}
+\stepcounter{subparagraph}
+\stepcounter{subparagraph}
+\stepcounter{subparagraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsection}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsection}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\appendix
+\stepcounter{chapter}
+
+\end{document}

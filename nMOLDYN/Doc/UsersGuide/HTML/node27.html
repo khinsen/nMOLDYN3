@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>NAMD to MMTK</TITLE>
+<META NAME="description" CONTENT="NAMD to MMTK">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node28.html">
+<LINK REL="previous" HREF="node26.html">
+<LINK REL="up" HREF="node21.html">
+<LINK REL="next" HREF="node28.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1480"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1476"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1470"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1478"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1481"
+  HREF="node28.html">VASP to MMTK</A>
+<B> Up:</B> <A NAME="tex2html1477"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1471"
+  HREF="node26.html">Forcite to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1479"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION008126000000000000000"></A>
+<A NAME="namd_to_mmtk"></A>
+<BR>
+NAMD to MMTK
+</H3>
+This converter allows the conversion from a trajectory generated with <A HREF=node4.html#tex2html152 NAME="17445">NAMD</A> [<A
+ HREF="node192.html#NAMD">32</A>] to a <A HREF=node4.html#tex2html153 NAME="17452">MMTK</A> <A HREF=node4.html#tex2html154 NAME="17459">NetCDF</A> trajectory. 
+Pressing the <B>NAMD to MMTK</B> menubutton, the dialog shown in figure <A HREF="node27.html#fig:namd_converter">4.10</A> will pop up.
+
+<DIV ALIGN="CENTER"><A NAME="fig:namd_converter"></A><A NAME="890"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.10:</STRONG>
+The NAMD to MMTK converter dialog.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="295" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.gif"
+ ALT="\includegraphics[width=10cm]{Figures/namd_converter.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+To perform the conversion, the following input fields must be filled:
+
+<UL>
+<LI><B>PDB input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> a PDB file of the system must be provided for the conversion. This file is necessary to build up 
+the <A HREF=node4.html#tex2html155 NAME="17466">MMTK</A> universe related to the <A HREF=node4.html#tex2html156 NAME="17473">MMTK</A> trajectory. 
+
+<P>
+</LI>
+<LI><B>DCD input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the <A HREF=node4.html#tex2html157 NAME="17480">CHARMM</A> DCD trajectory file that stores the trajectory frames.
+
+<P>
+</LI>
+<LI><B>XST input file</B>:
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> The <A HREF=node4.html#tex2html158 NAME="17487">NAMD</A> <A HREF=node4.html#tex2html159 NAME="17494">e<B>X</B>tended <B>S</B>ystem <B>T</B>rajectory (XST)</A> file has to be provided to the converter.
+
+<P>
+</LI>
+<LI><B>MMTK NetCDF output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the name of the <A HREF=node4.html#tex2html160 NAME="17501">MMTK</A> <A HREF=node4.html#tex2html161 NAME="17508">NetCDF</A> trajectory that will be written. Once, a DCD file has been 
+loaded, a default name for the <A HREF=node4.html#tex2html162 NAME="17515">MMTK</A> <A HREF=node4.html#tex2html163 NAME="17522">NetCDF</A> output file will be proposed. This default name will be 
+<I>file.nc</I> if <I>file.dcd</I> is the DCD trajectory file name.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1480"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1476"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1470"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1478"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1481"
+  HREF="node28.html">VASP to MMTK</A>
+<B> Up:</B> <A NAME="tex2html1477"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1471"
+  HREF="node26.html">Forcite to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1479"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

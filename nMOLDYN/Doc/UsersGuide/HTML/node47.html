@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>selection from the loaded trajectory
+</TITLE>
+<META NAME="description" CONTENT="selection from the loaded trajectory
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node48.html">
+<LINK REL="previous" HREF="node46.html">
+<LINK REL="up" HREF="node45.html">
+<LINK REL="next" HREF="node48.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1875"
+  HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1871"
+  HREF="node45.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1865"
+  HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1873"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1876"
+  HREF="node48.html">selection from an expression</A>
+<B> Up:</B> <A NAME="tex2html1872"
+  HREF="node45.html">Group selection</A>
+<B> Previous:</B> <A NAME="tex2html1866"
+  HREF="node46.html">selection from a selection</A>
+ &nbsp <B>  <A NAME="tex2html1874"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008223200000000000000">
+selection from the loaded trajectory
+<BR></A>
+</H4>
+To perform a group selection from the loaded trajectory, you have to click on the <B>from the loaded trajectory</B> 
+radiobutton. A dialog will be displayed in the underneath frame from which you will construct your selection directly from 
+the contents of the universe related to the loaded trajectory (see Fig. <A HREF="node47.html#fig:group_selection_from_the_loaded_trajectory">4.32</A>).
+
+<DIV ALIGN="CENTER"><A NAME="fig:group_selection_from_the_loaded_trajectory"></A><A NAME="1666"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.32:</STRONG>
+The group selection dialog for a selection from the loaded trajectory.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="290" ALIGN="BOTTOM" BORDER="0"
+ SRC="img75.gif"
+ ALT="\includegraphics[width=10cm]{Figures/group_selection_from_the_loaded_trajectory.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+To construct the selection, it is compulsory to proceed in the following order:
+
+<OL>
+<LI>create a new type of group by clicking on <B>New group</B> button or overwrite an existing one by selecting it in the <B>Group number</B> listbox,
+</LI>
+<LI>select an object name among the ones displayed in the <B>Object name</B> listbox. This will 
+display the grouping levels associated to the selected object in the <B>Grouping level</B> listbox and the selection 
+keywords associated to the selected object in the <B>Selection keywords</B> listbox,
+</LI>
+<LI>select a grouping level among the ones displayed in the <B>Grouping level</B> listbox. This is specific to group 
+selection as when selecting a group of atoms, you must specify at which level the selected atoms will be grouped. For example, if you perform a group selection on a protein. If you set the grouping 
+level to <I>protein</I>, then the group will be the whole protein. But, if you set the grouping level to <I>residue</I>, then
+the group selection will results on a set of <IMG
+ WIDTH="72" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img76.gif"
+ ALT="$N_{residues}$"> group where <IMG
+ WIDTH="72" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img76.gif"
+ ALT="$N_{residues}$"> is the number of residues of the 
+protein.
+</LI>
+<LI>select a selection keyword among the ones displayed in <B>Selection keywords</B> listbox. This will display in the 
+<B>Selection value</B> listbox the values associated to the selected keyword.
+</LI>
+<LI>unselect/select one or several values among the ones displayed in the <B>Selection value</B> listbox.
+</LI>
+</OL>
+
+By doing so, you will construct a selection string with the following format:
+
+<BR>
+<BR><I>group1 groupinglevel level objectname name keyword value1,value2, ...</I>
+
+<BR>
+<BR>
+where <I>group1</I> is the name of the group, <I>level</I> is the selected grouping level, <I>name</I> is the selected object name (step 1), <I>keyword</I> is the selected keyword (step 2) and 
+<I>value1,value2,...</I> are the selected values (step 3). This constructed selection string is displayed in the <B>Selection preview</B> entry at the bottom of the dialog with highlighted keywords. 
+
+<P>
+You can associate several selection keywords to a given selected object by repeating steps 2,3. In that case, 
+the constructed selection string will have the following format:
+
+<BR>
+<BR><I>group1 groupinglevel level objectname name keyword1 value1,value2,...OR keyword2, value1,value2,value3...</I>
+
+<BR>
+<BR>
+where the keyword <I>OR</I> will be interpreted by <I>n</I>MOLDYN as an union operator in the sense that it will take the 
+union between the set of atoms generated by <I>keyword1 value1,value2</I>, <I>keyword2 value1,value2,value3</I> ...
+
+<P>
+You can also include several objects in the selection by repeating steps 1,2,3. In that case, the constructed selection 
+string will have the following format:
+
+<BR>
+<BR><I>group1 groupinglevel level objectname name1 keyword1 value1,...OR keyword2, value1,value2, ...OR objectname name2 keyword1 value1 ...</I>
+
+<BR>
+<BR>
+Finally, using the buttons within the <B>Linkers</B> frame each time a step 3 is completed allows to construct more complex selection strings using the 
+<B>(</B>, <B>)</B>, <B>AND</B>, <B>OR</B> linkers, the <B>AND</B> linker acting as an intersection operator while the 
+<B>OR</B> link, described above, acts as an union operator. The button <B>Clear</B> clears up the selection string under construction.
+
+<P>
+The table <A HREF="node39.html#tab:selection_keywords">4.1</A> lists the selection keywords and values depending on the <A HREF=node4.html#tex2html261 NAME="18299">MMTK</A> type of the object being processed.
+
+<P>
+Here are some examples of group selection strings constructed from a protein whose name is P892 and whose number of residues 
+is 58:
+
+<UL>
+<LI><I>group1 groupinglevel residue objectname P892 atomelement carbon</I>: will create 58 groups made of the carbon atoms of 
+each residue,
+</LI>
+<LI><I>group1 groupinglevel protein objectname P892 atomelement carbon,hydrogen</I>: will create 1 group made of the carbon 
+and hydrogens of the whole protein,
+</LI>
+<LI><I>group1 groupinglevel amine objectname P892 atomelement nitrogen group2 groupinglevel hydroxy objectname P892 atomelement oxygen</I>: 
+will create two families of groups. The first one contains groups made of the nitrogen atom of the each amine group of the protein. 
+The second one contains groups made of the oxygen atom of the each hydroxy group of the protein. 
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1875"
+  HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1871"
+  HREF="node45.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1865"
+  HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1873"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1876"
+  HREF="node48.html">selection from an expression</A>
+<B> Up:</B> <A NAME="tex2html1872"
+  HREF="node45.html">Group selection</A>
+<B> Previous:</B> <A NAME="tex2html1866"
+  HREF="node46.html">selection from a selection</A>
+ &nbsp <B>  <A NAME="tex2html1874"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

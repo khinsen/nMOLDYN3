@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>nMOLDYN.GUI.Widgets</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="nMOLDYN-module.html">Package&nbsp;nMOLDYN</a> ::
+        <a href="nMOLDYN.GUI-module.html">Package&nbsp;GUI</a> ::
+        Module&nbsp;Widgets
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="nMOLDYN.GUI.Widgets-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module Widgets</h1><p class="nomargin-top"><span class="codelink"><a href="nMOLDYN.GUI.Widgets-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+This module implements all classes used for the generation of combo widgets. 
+
+A combo widget can be defined as a label frame encapsulating several other Tkinter widgets.
+
+Classes:
+    * ValidatingEntry   : sets up a Tkinter Entry widget that checks its contents whenever it is changed.
+    * IntegerEntry      : sets up a Tkinter Entry widget that checks that the input is an integer.
+    * FloatEntry        : sets up a Tkinter Entry widget that checks that the input is a float.
+    * StringEntry       : sets up a Tkinter Entry widget that checks that the input is a string matching a given pattern.
+    * ComboLabelEntry   : sets up a combo widget made of a Tkinter Label widget embedded in a Tkinter LabelFrame widget.
+    * ComboIntegerEntry : sets up a combo widget made of a Tkinter Label widget and IntegerEntry combo widget embedded 
+      in a Tkinter LabelFrame widget.
+    * ComboFloatEntry   : sets up a combo widget made of a Tkinter Label widget and FloatEntry embedded in a Tkinter 
+      LabelFrame widget.
+    * ComboStringEntry  : sets up a combo widget made of a Tkinter Label widget and StringEntry embedded in a Tkinter 
+      LabelFrame widget.
+    * ComboRadiobutton  : sets up a combo widget made of a Tkinter Label widget and a set of Tkinter RadioButton widgets 
+      embedded in a Tkinter LabelFrame widget.
+    * ComboCheckbutton  : sets up a combo widget made of a Tkinter Label widget and a Tkinter CheckButton widget embedded 
+      in a Tkinter LabelFrame widget.
+    * ComboOptionMenu   : sets up a combo widget made of a Tkinter Label widget and a Tkinter OptionMenu widget embedded 
+      in a Tkinter LabelFrame widget.
+    * ComboSpinbox      : sets up a combo widget made of a Tkinter Label widget and a Tkinter Spinbox widget embedded in 
+      a Tkinter LabelFrame widget.
+    * ComboScale        : sets up a combo widget made of a Tkinter Label widget and a Tkinter Scale widget embedded in 
+      a Tkinter LabelFrame widget.
+    * ComboButton       : sets up a combo widget made of a Tkinter Button widget and optionnally a Tkinter Entry widget embedded 
+      in a Tkinter LabelFrame widget.
+    * ComboFileBrowser  : sets up a combo widget made of a Tkinter Label widget, a StringEntry widget and a Tkinter Button 
+      widget for file browsing embedded in a Tkinter LabelFrame widget.
+    * ComboText         : sets up a combo widget made of a Tkinter Text and a vertical Tkinter Scrollbar widget widget embedded in a 
+      Tkinter LabelFrame widget.
+    * ComboListbox      : sets up a combo widget made of a Tkinter Listbox widget and a vertical Tkinter Scrollbar widget embedded 
+      in a Tkinter LabelFrame widget.
+    * StatusBar         : sets up a combo widget made of a Tkinter Scale widget embedded in a Tkinter Frame 
+      widget.
+
+
+The following classes were adapted from the implementation of Frederic Lundh:
+    - ValidatingEntry
+    - IntegerEntry
+    - FloatEntry
+
+</pre>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ValidatingEntry-class.html" class="summary-name">ValidatingEntry</a><br />
+      Base class for |IntegerEntry|, |FloatEntry| and |StringEntry| widgets
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.IntegerEntry-class.html" class="summary-name">IntegerEntry</a><br />
+      Sets up a Tkinter Entry widget that accepts only integer values.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.FloatEntry-class.html" class="summary-name">FloatEntry</a><br />
+      Sets up a Tkinter Entry widget that accepts only float values.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.StringEntry-class.html" class="summary-name">StringEntry</a><br />
+      Sets up a Tkinter Entry widget that accepts only string values.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboFrame-class.html" class="summary-name">ComboFrame</a><br />
+      Sets up a Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboLabel-class.html" class="summary-name">ComboLabel</a><br />
+      Sets up a combo widget made of a Tkinter Label widget embedded in a 
+      Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboIntegerEntry-class.html" class="summary-name">ComboIntegerEntry</a><br />
+      Sets up a combo widget made of a Tkinter Label widget and a 
+      IntegerEntry widget embedded in a Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboFloatEntry-class.html" class="summary-name">ComboFloatEntry</a><br />
+      Sets up a combo widget made of a Tkinter Label widget and a 
+      FloatEntry widget embedded in a Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboStringEntry-class.html" class="summary-name">ComboStringEntry</a><br />
+      Sets up a combo widget made of a Tkinter Label widget and a 
+      StringEntry widget embedded in a Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboRadiobutton-class.html" class="summary-name">ComboRadiobutton</a><br />
+      Sets up a combo widget made of a Tkinter Label widget and a set of 
+      Tkinter RadioButton widgets embedded in a Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboCheckbutton-class.html" class="summary-name">ComboCheckbutton</a><br />
+      Sets up a combo widget made of a Tkinter Label widget and a set of 
+      Tkinter Checkbutton widget embedded in a Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboOptionMenu-class.html" class="summary-name">ComboOptionMenu</a><br />
+      Sets up a combo widget made of a Tkinter Label widget and a Tkinter 
+      OptionMenu widget embedded in a Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboSpinbox-class.html" class="summary-name">ComboSpinbox</a><br />
+      Sets up a combo widget made of a Tkinter Label widget and a Tkinter 
+      Spinbox widget embedded in a Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboScale-class.html" class="summary-name">ComboScale</a><br />
+      Sets up a combo widget made of a Tkinter Label widget and a Tkinter 
+      Scale widget embedded in a Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboButton-class.html" class="summary-name">ComboButton</a><br />
+      Sets up a combo widget made of a Tkinter Button widget and 
+      optionnally a Tkinter Entry widget embedded in a Tkinter LabelFrame 
+      widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboFileBrowser-class.html" class="summary-name">ComboFileBrowser</a><br />
+      Sets up a combo widget made of a Tkinter Label widget, a StringEntry 
+      widget and a Tkinter Button widget for file browsing embedded in a 
+      Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboText-class.html" class="summary-name">ComboText</a><br />
+      Sets up a combo widget made of a Tkinter Text widget and a vertical 
+      Tkinter Scrollbar widget embedded in a Tkinter LabelFrame widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.ComboListbox-class.html" class="summary-name">ComboListbox</a><br />
+      Sets up a combo widget made of a Tkinter Listbox widget and a 
+      vertical Tkinter Scrollbar widget embedded in a Tkinter LabelFrame 
+      widget.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets.StatusBar-class.html" class="summary-name">StatusBar</a><br />
+      Sets up a combo widget made of a Tkinter Scale widget embedded in a 
+      Tkinter Frame widget.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.Widgets-module.html#changeMouseCursor" class="summary-sig-name">changeMouseCursor</a>(<span class="summary-sig-arg">event</span>,
+        <span class="summary-sig-arg">cursor</span>)</span><br />
+      Changes the mouse cursor aspect.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.Widgets-pysrc.html#changeMouseCursor">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="loadHelpTree"></a><span class="summary-sig-name">loadHelpTree</span>()</span><br />
+      This method will load the XML file that stores the pdf and html links
+      for the help file and store its contents into the _helptree nMOLDYN 
+      global variables..</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.Widgets-pysrc.html#loadHelpTree">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.Widgets-module.html#informationAboutWidget" class="summary-sig-name">informationAboutWidget</a>(<span class="summary-sig-arg">event</span>)</span><br />
+      Checks the label of the Tkinter LabelFrame of a combo widget and 
+      displays the corresponding informations documented in nMOLDYN users 
+      guide.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.Widgets-pysrc.html#informationAboutWidget">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.GUI.Widgets-module.html#nmoldyn_package_path" class="summary-name">nmoldyn_package_path</a> = <code title="os.path.dirname(os.path.split(__file__) [0])">os.path.dirname(os.path.split(__file__)<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="nmoldyn_xml_tree"></a><span class="summary-name">nmoldyn_xml_tree</span> = <code title="{}">{}</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="changeMouseCursor"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">changeMouseCursor</span>(<span class="sig-arg">event</span>,
+        <span class="sig-arg">cursor</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.Widgets-pysrc.html#changeMouseCursor">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Changes the mouse cursor aspect.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (a Tkinter.Event object) - the event triggering the change of mouse cursor.</li>
+        <li><strong class="pname"><code>cursor</code></strong> (string) - the Tkinter name of the mouse cursor.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="informationAboutWidget"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">informationAboutWidget</span>(<span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.Widgets-pysrc.html#informationAboutWidget">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Checks the label of the Tkinter LabelFrame of a combo widget and 
+  displays the corresponding informations documented in nMOLDYN users 
+  guide.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (a Tkinter.Event object) - the event triggering the request for information about the combo 
+          widget.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="nmoldyn_package_path"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">nmoldyn_package_path</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+os.path.dirname(os.path.split(__file__) [0])
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct  8 16:56:54 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

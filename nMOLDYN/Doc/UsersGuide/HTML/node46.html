@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>selection from a selection file
+</TITLE>
+<META NAME="description" CONTENT="selection from a selection file
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node47.html">
+<LINK REL="previous" HREF="node45.html">
+<LINK REL="up" HREF="node45.html">
+<LINK REL="next" HREF="node47.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1863"
+  HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1859"
+  HREF="node45.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1853"
+  HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1861"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1864"
+  HREF="node47.html">selection from the loaded</A>
+<B> Up:</B> <A NAME="tex2html1860"
+  HREF="node45.html">Group selection</A>
+<B> Previous:</B> <A NAME="tex2html1854"
+  HREF="node45.html">Group selection</A>
+ &nbsp <B>  <A NAME="tex2html1862"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008223100000000000000"></A>
+<A NAME="group_selection_from_a_selection_file"></A>
+<BR>
+selection from a selection file
+<BR>
+</H4>
+To perform a group selection from a selection file, you have to click on the <B>from a selection file</B> radiobutton. 
+A dialog will be displayed in the underneath frame from which you will be asked for a group selection file 
+(see Fig. <A HREF="node46.html#fig:group_selection_from_a_selection_file">4.30</A>).
+
+<DIV ALIGN="CENTER"><A NAME="fig:group_selection_from_a_selection_file"></A><A NAME="1643"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.30:</STRONG>
+The group selection dialog for a selection from a selection file.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="290" ALIGN="BOTTOM" BORDER="0"
+ SRC="img73.gif"
+ ALT="\includegraphics[width=10cm]{Figures/group_selection_from_a_selection_file.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The format of a <I>n</I>MOLDYN group selection file is quite simple. It is an ASCII file with the <B>nms</B> extension whose 
+contents is a python script made of two lines. The first line must set the variable <I>pdb</I> to the path of a <A HREF=node4.html#tex2html257 NAME="18271"><I>PDB</I></A> file 
+of the first frame of the trajectory being processed (it can be obtained using the frame extractor tool described in 
+section <A HREF="node29.html#frame_snapshot">4.1.3</A> for example).The second line must set the variable <I>deuteration</I> to nested lists of 
+integers where each nested list will generate a group of atoms whose <A HREF=node4.html#tex2html258 NAME="18278"><I>PDB</I></A> serial number match the integer of the nested list. 
+An example of a deuteration selection file is shown in figure <A HREF="node46.html#fig:group_selection_file">4.31</A>.
+
+<DIV ALIGN="CENTER"><A NAME="fig:group_selection_file"></A><A NAME="1655"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.31:</STRONG>
+Example of a group file.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="281" ALIGN="BOTTOM" BORDER="0"
+ SRC="img74.gif"
+ ALT="\includegraphics[width=10cm]{Figures/group_selection_file.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+This example will create three groups. The first one made of atoms 1, 4, 9, 78, 101 and 134 of the <A HREF=node4.html#tex2html259 NAME="18285"><I>PDB</I></A> file, the second one made of the 
+atoms 12, 23 and 192 and the third one made of the atoms 11, 26, 1023, 245 and 234.
+
+<P>
+Once a selection file has been loaded, the constructed selection string that will be used by <I>n</I>MOLDYN for this kind of 
+selection is displayed in the <B>Selection preview</B> entry at the bottom of the dialog with highlighted keywords.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1863"
+  HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1859"
+  HREF="node45.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1853"
+  HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1861"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1864"
+  HREF="node47.html">selection from the loaded</A>
+<B> Up:</B> <A NAME="tex2html1860"
+  HREF="node45.html">Group selection</A>
+<B> Previous:</B> <A NAME="tex2html1854"
+  HREF="node45.html">Group selection</A>
+ &nbsp <B>  <A NAME="tex2html1862"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

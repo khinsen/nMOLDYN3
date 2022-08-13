@@ -1,0 +1,399 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node143.html">
+<LINK REL="previous" HREF="node141.html">
+<LINK REL="up" HREF="node141.html">
+<LINK REL="next" HREF="node143.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3147"
+  HREF="node143.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3143"
+  HREF="node141.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3137"
+  HREF="node141.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3145"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3148"
+  HREF="node143.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3144"
+  HREF="node141.html">Elastic Incoherent Structure Factor</A>
+<B> Previous:</B> <A NAME="tex2html3138"
+  HREF="node141.html">Elastic Incoherent Structure Factor</A>
+ &nbsp <B>  <A NAME="tex2html3146"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008257100000000000000"></A>
+<A NAME="eisf_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+The <A HREF=node4.html#tex2html597 NAME="21412"><B>E</B>lastic <B>I</B>ncoherent <B>S</B>tructure <B>F</B>actor (<I>EISF</I>)</A> is defined as the limit of the incoherent intermediate scattering function 
+for infinite time,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+EISF({\bf q}) \doteq \lim_{t \to \infty} {\cal F}_{\mathrm{inc}}({\bf q},t).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:eisf"></A><IMG
+ WIDTH="382" HEIGHT="39" BORDER="0"
+ SRC="img511.gif"
+ ALT="\begin{displaymath}
+EISF({\bf q}) \doteq \lim_{t \to \infty} {\cal F}_{\mathrm{inc}}({\bf q},t).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.174)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Using the above definition of the EISF one can decompose the incoherent intermediate scattering function as follows:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\cal F}_{\mathrm{inc}}({\bf q},t) = EISF({\bf q}) + {\cal F}_{\mathrm{inc}}'({\bf q},t),
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="410" HEIGHT="31" BORDER="0"
+ SRC="img512.gif"
+ ALT="\begin{displaymath}
+{\cal F}_{\mathrm{inc}}({\bf q},t) = EISF({\bf q}) + {\cal F}_{\mathrm{inc}}'({\bf q},t),
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.175)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <!-- MATH
+ ${\cal F}_{\mathrm{inc}}'({\bf q},t)$
+ -->
+<IMG
+ WIDTH="75" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img513.gif"
+ ALT="${\cal F}_{\mathrm{inc}}'({\bf q},t)$"> decays to zero for infinite time.
+Taking now the Fourier transform it follows immediately that
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\cal S}_{\mathrm{inc}}({\bf q},\omega) = EISF({\bf q})\delta(\omega) 
++ {\cal S}'_{\mathrm{inc}}({\bf q},\omega).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="429" HEIGHT="31" BORDER="0"
+ SRC="img514.gif"
+ ALT="\begin{displaymath}
+{\cal S}_{\mathrm{inc}}({\bf q},\omega) = EISF({\bf q})\delta(\omega)
++ {\cal S}'_{\mathrm{inc}}({\bf q},\omega).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.176)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The <A HREF=node4.html#tex2html598 NAME="21419"><I>EISF</I></A> appears as the amplitude of the <EM>elastic</EM> line in the neutron scattering spectrum. Elastic scattering is 
+only present for sytems in which the atomic motion is confined in space, as for solids. To understand which information 
+is contained in the <A HREF=node4.html#tex2html599 NAME="21426"><I>EISF</I></A> we consider for simplicity a system where only one sort of atoms is visible to the neutrons. 
+To a very good approximation this is the case for all systems containing a large amount of hydrogen atoms, as biological
+systems. Incoherent scattering from hydrogen dominates by far all other contributions. Using the definition of the van Hove 
+self-correlation function <!-- MATH
+ $G_s({\bf r},t)$
+ -->
+<IMG
+ WIDTH="63" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img515.gif"
+ ALT="$G_s({\bf r},t)$"> [<A
+ HREF="node192.html#Lovesey">7</A>],
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+b_{\mathrm{inc}}^2 G_s({\bf r},t) \doteq \frac{1}{2\pi^3}
+\int d^3q\,\exp[-i{\bf q}\cdot{\bf r}] {\cal F}_{inc}({\bf q},t),
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="456" HEIGHT="43" BORDER="0"
+ SRC="img516.gif"
+ ALT="\begin{displaymath}
+b_{\mathrm{inc}}^2 G_s({\bf r},t) \doteq \frac{1}{2\pi^3}
+\int d^3q \exp[-i{\bf q}\cdot{\bf r}] {\cal F}_{inc}({\bf q},t),
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.177)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+which can be interpreted as the conditional probability to find a tagged particle at the position <IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img194.gif"
+ ALT="${\bf r}$"> at time <IMG
+ WIDTH="13" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img118.gif"
+ ALT="$t$">, 
+given it started at <!-- MATH
+ ${\bf r} = {\bf0}$
+ -->
+<IMG
+ WIDTH="48" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img517.gif"
+ ALT="${\bf r} = {\bf0}$">,  one can write:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+EISF({\bf q}) = b_{\mathrm{inc}}^2\int d^3r\,\exp[i{\bf q}\cdot{\bf r}]\,
+G_s({\bf r},t=\infty).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:eisf_g_s"></A><IMG
+ WIDTH="456" HEIGHT="42" BORDER="0"
+ SRC="img518.gif"
+ ALT="\begin{displaymath}
+EISF({\bf q}) = b_{\mathrm{inc}}^2\int d^3r \exp[i{\bf q}\cdot{\bf r}] 
+G_s({\bf r},t=\infty).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.178)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The <A HREF=node4.html#tex2html600 NAME="21433"><I>EISF</I></A> gives the sampling distribution of the points in space in the limit of infinite time. In a real experiment this 
+means times longer than the time which is observable with a given instrument. The <A HREF=node4.html#tex2html601 NAME="21440"><I>EISF</I></A> vanishes for all systems in which 
+the particles can access an infinite volume since <!-- MATH
+ $G_s({\bf r},t)$
+ -->
+<IMG
+ WIDTH="63" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img515.gif"
+ ALT="$G_s({\bf r},t)$"> approaches <IMG
+ WIDTH="38" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img519.gif"
+ ALT="$1/V$"> for large times. This is the case for 
+molecules in liquids and gases.
+
+<P>
+For computational purposes it is convenient to use the following representation of the <A HREF=node4.html#tex2html602 NAME="21447"><I>EISF</I></A> [<A
+ HREF="node192.html#Smith:1992">14</A>]:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+EISF({\bf q}) = \sum^{N_{species}}_{I = 1} n_I \omega_{I,\mathrm{inc}} EISF_I(q)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:eisf_compute"></A><IMG
+ WIDTH="420" HEIGHT="61" BORDER="0"
+ SRC="img520.gif"
+ ALT="\begin{displaymath}
+EISF({\bf q}) = \sum^{N_{species}}_{I = 1} n_I \omega_{I,\mathrm{inc}} EISF_I(q)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.179)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="64" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.gif"
+ ALT="$N_{species}$"> is the number of selected species, <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.gif"
+ ALT="$n_I$"> the number of atoms of species <I>I</I>, <!-- MATH
+ $\omega_{I,\mathrm{inc}}$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img483.gif"
+ ALT="$\omega_{I,\mathrm{inc}}$"> the weight for 
+specie <I>I</I> (see Section <A HREF="node35.html#weighting_scheme">4.2.1</A> for more details) and for each specie the following expression for the elastic 
+incoherent scattering function is
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+EISF_I({\bf q}) = \frac{1}{n_I}\sum^{n_I}_{\alpha}  \langle|\exp[i{\bf q}\cdot{\bf R}_\alpha]|^2\rangle.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eisf_rho"></A><IMG
+ WIDTH="418" HEIGHT="54" BORDER="0"
+ SRC="img521.gif"
+ ALT="\begin{displaymath}
+EISF_I({\bf q}) = \frac{1}{n_I}\sum^{n_I}_{\alpha} \langle\vert\exp[i{\bf q}\cdot{\bf R}_\alpha]\vert^2\rangle.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.180)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+This expression is derived from definition (<A HREF="node142.html#eq:eisf">4.174</A>) of the <A HREF=node4.html#tex2html603 NAME="21454"><I>EISF</I></A> and expression (<A HREF="node120.html#eq:finc">4.142</A>) for the intermediate 
+scattering function, using that for infinite time the relation
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\langle\exp[-i{\bf q}\cdot{\bf R}_\alpha(0)]
+\exp[i{\bf q}\cdot{\bf R}_\alpha(t)]\rangle =
+\langle|\exp[i{\bf q}\cdot{\bf R}_\alpha]|^2 \rangle
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="479" HEIGHT="31" BORDER="0"
+ SRC="img522.gif"
+ ALT="\begin{displaymath}
+\langle\exp[-i{\bf q}\cdot{\bf R}_\alpha(0)]
+\exp[i{\bf q}\c...
+...
+\langle\vert\exp[i{\bf q}\cdot{\bf R}_\alpha]\vert^2 \rangle
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.181)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+holds. In this way the computation of the <A HREF=node4.html#tex2html604 NAME="21461"><I>EISF</I></A> is reduced to the computation of a static thermal average. We remark at this 
+point that the length of the <A HREF=node4.html#tex2html605 NAME="21468">MD</A> trajectory from which the <A HREF=node4.html#tex2html606 NAME="21475"><I>EISF</I></A> is computed should be long enough to allow for a representative 
+sampling of the conformational space.
+
+<P>
+<I>n</I>MOLDYN allows one to compute the elastic incoherent structure factor on a grid of equidistantly spaced points along the
+<I>q</I>-axis:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+EISF(q_m) \doteq \sum^{N_{species}}_{I = 1} n_I \omega_I EISF_I(q_m), m = 0\ldots N_q - 1.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="489" HEIGHT="61" BORDER="0"
+ SRC="img523.gif"
+ ALT="\begin{displaymath}
+EISF(q_m) \doteq \sum^{N_{species}}_{I = 1} n_I \omega_I EISF_I(q_m), m = 0\ldots N_q - 1.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.182)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img444.gif"
+ ALT="$N_q$"> is a user-defined number of <I>q</I>-shells, the values for <IMG
+ WIDTH="27" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img524.gif"
+ ALT="$q_m$"> are defined as <!-- MATH
+ $q_m = q_{min} + m\cdot\Delta q$
+ -->
+<IMG
+ WIDTH="156" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img449.gif"
+ ALT="$q_m = q_{min} + m\cdot\Delta q$">, 
+and for each specie the following expression for the elastic incoherent scattering function is:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+EISF_I(q_m) = \frac{1}{n_I}\sum^{n_I}_{\alpha} \overline{ \langle|\exp[i{\bf q}\cdot{\bf R}_\alpha]|^2\rangle}^q.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:eisf_q_average"></A><IMG
+ WIDTH="428" HEIGHT="54" BORDER="0"
+ SRC="img525.gif"
+ ALT="\begin{displaymath}
+EISF_I(q_m) = \frac{1}{n_I}\sum^{n_I}_{\alpha} \overline{ \langle\vert\exp[i{\bf q}\cdot{\bf R}_\alpha]\vert^2\rangle}^q.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.183)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Here the symbol <!-- MATH
+ $\overline{\rule{0pt}{5pt}\ldots}^{q}$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img448.gif"
+ ALT="$\overline{\rule{0pt}{5pt}\ldots}^{q}$"> denotes an average over the <I>q</I>-vectors having the same modulus
+<IMG
+ WIDTH="27" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img524.gif"
+ ALT="$q_m$">. The program corrects the atomic input trajectories for jumps due to periodic boundary conditions. 
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3147"
+  HREF="node143.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3143"
+  HREF="node141.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3137"
+  HREF="node141.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3145"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3148"
+  HREF="node143.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3144"
+  HREF="node141.html">Elastic Incoherent Structure Factor</A>
+<B> Previous:</B> <A NAME="tex2html3138"
+  HREF="node141.html">Elastic Incoherent Structure Factor</A>
+ &nbsp <B>  <A NAME="tex2html3146"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

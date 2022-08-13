@@ -1,0 +1,819 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Using nMOLDYNfrom the Graphical User Interface</TITLE>
+<META NAME="description" CONTENT="Using nMOLDYNfrom the Graphical User Interface">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node189.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="nMOLDYN_for_HTML.html">
+<LINK REL="next" HREF="node19.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1189"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1185"
+  HREF="nMOLDYN_for_HTML.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1179"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1187"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1190"
+  HREF="node19.html">The File menu</A>
+<B> Up:</B> <A NAME="tex2html1186"
+  HREF="nMOLDYN_for_HTML.html">nMOLDYN_for_HTML</A>
+<B> Previous:</B> <A NAME="tex2html1180"
+  HREF="node17.html">nMOLDYN input files</A>
+ &nbsp <B>  <A NAME="tex2html1188"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION008000000000000000000"></A>
+<A NAME="running_nmoldyn_from_the_graphical_user_interface"></A>
+<BR>
+Using <I>n</I>MOLDYNfrom the Graphical User Interface
+</H1>
+
+<P>
+Through the <I>n</I>MOLDYN graphical user interface, you will usually open a trajectory, then specify the parameters 
+for the analysis you wish to perform and finally start the calculation itself. But you can also perform some other 
+actions such as plotting the results of an analysis, performing some file conversions ...The graphical interface gives 
+access to most of the functionalities of <I>n</I>MOLDYN. 
+Moreover, from the graphical user interface it is possible to create an input file for the command-line interface or an 
+autostart analysis python script. Both kind of files provide a convenient starting point to set up and run new analysis direclty 
+from the command-line interface (see Section <A HREF="node189.html#running_nmoldyn_from_the_command_line_interface">5</A>).
+
+<BR>
+To run <I>n</I>MOLDYN from the <A HREF=node4.html#tex2html61 NAME="16824"><I>GUI</I></A>, type the following command line:
+
+<BR>
+<BR><TT><I>python-dir</I>/bin/nMOLDYNStart.py</TT> on unix
+
+<BR>
+<BR>
+or
+
+<BR>
+<BR><TT><I>python-dir</I>&#92;Scripts&#92;nMOLDYNStart.py</TT> on Windows
+
+<BR>
+<BR><I>python-dir</I> being the prefix of your python distribution. The command line accepts some arguments that can 
+change how <I>n</I>MOLDYN will start. The following arguments are currently supported by <I>n</I>MOLDYN:
+
+<UL>
+<LI><TT>-h/-help</TT>
+<BR><B>Format:</B> not an editable argument
+<BR><B>Value:</B> <I>None</I>
+<BR><B>Description:</B> displays the details of the command line arguments. <B>Will not start <I>n</I>MOLDYN in <A HREF=node4.html#tex2html55 NAME="16785"><I>GUI</I></A> mode.</B>
+
+<P>
+</LI>
+<LI><TT>-version</TT>
+<BR><B>Format:</B> not an editable argument
+<BR><B>Value:</B> <I>None</I>
+<BR><B>Description:</B> displays the version of <I>n</I>MOLDYN. <B>Will not start <I>n</I>MOLDYN in <A HREF=node4.html#tex2html56 NAME="16792"><I>GUI</I></A> mode.</B>
+
+<P>
+</LI>
+<LI><TT>-n/-netcdf=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>filename</I>
+<BR><B>Description:</B> starts <I>n</I>MOLDYN from the graphical user interface loading directly the <I>filename</I> <A HREF=node4.html#tex2html62 NAME="16831">NetCDF</A> file.
+
+<P>
+</LI>
+<LI><TT>-i/-input=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>filename</I>
+<BR><B>Description:</B> runs an analysis with the command-line interface using <I>filename</I> <I>n</I>MOLDYN input file (see 
+Section <A HREF="node191.html#nmoldyn_input_files">5.2</A> for details). <B>Will not start <I>n</I>MOLDYN in <A HREF=node4.html#tex2html57 NAME="16799"><I>GUI</I></A> mode.</B>
+
+<P>
+</LI>
+<LI><TT>-c/-contents=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>filename molname selkwd</I>
+<BR><B>Description:</B> if <I>file</I> provided, displays the contents of the trajectory file <I>file</I>. If 
+<I>file</I> and <I>molname</I> provided displays the selection keywords associated to <I>molname</I>. If 
+<I>file</I> and <I>molname</I> and <I>selkwd</I> provided displays the selection values associated to selection 
+keyword <I>selkwd</I>. <B>Will not start <I>n</I>MOLDYN in <A HREF=node4.html#tex2html58 NAME="16806"><I>GUI</I></A> mode.</B>
+
+<P>
+</LI>
+<LI><TT>-t/-test=</TT>
+<BR><B>Format: string</B> 
+<BR><B>Value:</B> <I>testname</I>
+<BR><B>Description:</B> runs one or several analysis benchmarks  <B>Will not start the <A HREF=node4.html#tex2html59 NAME="16813"><I>GUI</I></A>.</B> The format for 
+<I>testname</I> string is
+
+<BR>
+<BR><I>test1,test2,...</I>
+
+<BR>
+<BR>
+where <I>test1</I>, <I>test2</I> ...are the name of benchmark 1, 2 ...
+(see Section <A HREF="node187.html#analysis_benchmark">4.4.4</A> for a comprehensive list of the available benchmarks).
+
+<P>
+</LI>
+<LI><TT>-acroread_path=</TT>
+<BR><B>Format: string</B> 
+<BR><B>Value:</B> <I>filename</I>
+<BR><B>Description:</B> sets the path for Acrobat Reader executable to <I>filename</I>. It will overide the preferences settings.
+
+<P>
+</LI>
+<LI><TT>-vmd_path=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>filename</I>
+<BR><B>Description:</B> sets the path for VMD executable to <I>filename</I>. It will overide the preferences settings.
+
+<P>
+</LI>
+<LI><TT>-documentation_style=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>html</I> or <I>pdf</I>
+<BR><B>Description:</B> sets the format for the online documentation either to HTML (<I>html</I>) either to pdf 
+(<I>pdf</I>). It will overide the preferences settings.
+
+<P>
+</LI>
+<LI><TT>-ncdump_path=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>filename</I>
+<BR><B>Description:</B> sets the path for <B>ncdump</B> executable to <I>filename</I>. It will overide the preferences 
+settings.
+
+<P>
+</LI>
+<LI><TT>-ncgen_path=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>filename</I>
+<BR><B>Description:</B> sets the path for <B>ncgen</B> executable to <I>filename</I>. It will overide the preferences 
+settings.
+
+<P>
+</LI>
+<LI><TT>-outputfile_path=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>dirname</I>
+<BR><B>Description:</B> sets the directory where all the output files will be written to <I>dirname</I>. It will overide the 
+preferences settings.
+
+<P>
+</LI>
+<LI><TT>-trajfile_path=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>dirname</I>
+<BR><B>Description:</B> sets the default <A HREF=node4.html#tex2html63 NAME="16838">MMTK</A> trajectory input files directory search path to <I>dirname</I>. It will 
+overide the preferences settings.
+
+<P>
+</LI>
+<LI><TT>-warning_acroread=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>yes</I> or <I>no</I>
+<BR><B>Description:</B> if set to <I>yes</I>, will warn you if acrobat reader is not found on your system. It will 
+overide the preferences settings.
+
+<P>
+</LI>
+<LI><TT>-warning_ncdump=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>yes</I> or <I>no</I>
+<BR><B>Description:</B> if set to <I>yes</I>, will warn you if <B>ncdump</B> program is not found on your system. It will 
+overide the preferences settings.
+
+<P>
+</LI>
+<LI><TT>-warning_ncgen=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>yes</I> or <I>no</I>
+<BR><B>Description:</B> if set to <I>yes</I>, will warn you if <B>ncgen</B> program is not found on your system. It will 
+overide the preferences settings.
+
+<P>
+</LI>
+<LI><TT>-warning_vmd=</TT>
+<BR><B>Format:</B> string
+<BR><B>Value:</B> <I>yes</I> or <I>no</I>
+<BR><B>Description:</B> if set to <I>yes</I>, will warn you if <B>VMD</B> program is not found on your system. It will 
+overide the preferences settings.
+
+<P>
+</LI>
+<LI><TT>-progress_rate=</TT>
+<BR><B>Format:</B> integer in [0,100]
+<BR><B>Value:</B> <I>prog_rate</I>
+<BR><B>Description:</B> displays the progress of the analysis every <I>prog_rate</I> percents. It will overide the 
+preferences settings.
+</LI>
+</UL>
+
+<P>
+When starting <I>n</I>MOLDYN from the <A HREF=node4.html#tex2html64 NAME="16845"><I>GUI</I></A>, the start-up window shown in figure <A HREF="node18.html#fig:main_dialog">4.1</A> will pop up. This window contains 
+four drop down menu buttons,
+
+<UL>
+<LI><B>File</B>
+</LI>
+<LI><B>Analysis</B>
+</LI>
+<LI><B>View</B>
+</LI>
+<LI><B>Help</B>
+</LI>
+</UL>  
+and a text window.
+
+<DIV ALIGN="CENTER"><A NAME="fig:main_dialog"></A><A NAME="627"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.1:</STRONG>
+The <I>n</I>MOLDYN main window.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="328" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.gif"
+ ALT="\includegraphics[width=10cm]{Figures/main_dialog.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Everything concerning IO manipulations are done via the drop down menu button <B>File</B>.
+The drop down menu buttons <B>Analysis</B> allows to set up and start the analysis you are interested in.
+The <B>View</B> and <B>Help</B> buttons allow one to inspect input/output data and ask for help 
+respectively. All of these menus will be described below.Finally,  the text window will display all the information 
+concerning the loaded file and the main actions performed on it.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1191"
+  HREF="node19.html">The <B>File</B> menu</A>
+<UL>
+<LI><A NAME="tex2html1192"
+  HREF="node20.html">Load NetCDF file</A>
+<LI><A NAME="tex2html1193"
+  HREF="node21.html">Trajectory conversion</A>
+<UL>
+<LI><A NAME="tex2html1194"
+  HREF="node22.html">Amber to MMTK</A>
+<LI><A NAME="tex2html1195"
+  HREF="node23.html">CHARMM/X-PLOR to MMTK</A>
+<LI><A NAME="tex2html1196"
+  HREF="node24.html">DL_POLY to MMTK</A>
+<LI><A NAME="tex2html1197"
+  HREF="node25.html">Discover to MMTK</A>
+<LI><A NAME="tex2html1198"
+  HREF="node26.html">Forcite to MMTK</A>
+<LI><A NAME="tex2html1199"
+  HREF="node27.html">NAMD to MMTK</A>
+<LI><A NAME="tex2html1200"
+  HREF="node28.html">VASP to MMTK</A>
+</UL>
+<LI><A NAME="tex2html1201"
+  HREF="node29.html">Frame snapshot</A>
+<LI><A NAME="tex2html1202"
+  HREF="node30.html">Convert NetCDF to ASCII</A>
+<LI><A NAME="tex2html1203"
+  HREF="node31.html">Convert ASCII to NetCDF</A>
+<LI><A NAME="tex2html1204"
+  HREF="node32.html">Preferences</A>
+<LI><A NAME="tex2html1205"
+  HREF="node33.html">Quit</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1206"
+  HREF="node34.html">The <B>Analysis</B> menu</A>
+<UL>
+<LI><A NAME="tex2html1207"
+  HREF="node35.html">Weighting scheme</A>
+<LI><A NAME="tex2html1208"
+  HREF="node36.html">Atom selection</A>
+<UL>
+<LI><A NAME="tex2html1209"
+  HREF="node37.html">Subset selection</A>
+<UL>
+<LI><A NAME="tex2html1210"
+  HREF="node38.html">selection from a selection file
+<BR></A>
+<LI><A NAME="tex2html1211"
+  HREF="node39.html">selection from the loaded trajectory
+<BR></A>
+<LI><A NAME="tex2html1212"
+  HREF="node40.html">selection from an expression string
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1213"
+  HREF="node41.html">Deuteration selection</A>
+<UL>
+<LI><A NAME="tex2html1214"
+  HREF="node42.html">selection from a selection file
+<BR></A>
+<LI><A NAME="tex2html1215"
+  HREF="node43.html">selection from the loaded trajectory
+<BR></A>
+<LI><A NAME="tex2html1216"
+  HREF="node44.html">selection from an expression string
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1217"
+  HREF="node45.html">Group selection</A>
+<UL>
+<LI><A NAME="tex2html1218"
+  HREF="node46.html">selection from a selection file
+<BR></A>
+<LI><A NAME="tex2html1219"
+  HREF="node47.html">selection from the loaded trajectory
+<BR></A>
+<LI><A NAME="tex2html1220"
+  HREF="node48.html">selection from an expression string
+<BR></A>
+</UL>
+</UL>
+<LI><A NAME="tex2html1221"
+  HREF="node49.html">Running modes</A>
+<LI><A NAME="tex2html1222"
+  HREF="node50.html">The Dynamics menu</A>
+<UL>
+<LI><A NAME="tex2html1223"
+  HREF="node51.html">Mean-Square Displacement</A>
+<UL>
+<LI><A NAME="tex2html1224"
+  HREF="node52.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1225"
+  HREF="node53.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1226"
+  HREF="node54.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1227"
+  HREF="node55.html">Root Mean-Square Deviation</A>
+<UL>
+<LI><A NAME="tex2html1228"
+  HREF="node56.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1229"
+  HREF="node57.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1230"
+  HREF="node58.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1231"
+  HREF="node59.html">Radius of gyration</A>
+<UL>
+<LI><A NAME="tex2html1232"
+  HREF="node60.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1233"
+  HREF="node61.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1234"
+  HREF="node62.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1235"
+  HREF="node63.html">Angular Correlation</A>
+<UL>
+<LI><A NAME="tex2html1236"
+  HREF="node64.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1237"
+  HREF="node65.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1238"
+  HREF="node66.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1239"
+  HREF="node67.html">Velocity Autocorrelation Function</A>
+<UL>
+<LI><A NAME="tex2html1240"
+  HREF="node68.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1241"
+  HREF="node69.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1242"
+  HREF="node70.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1243"
+  HREF="node71.html">Density Of States</A>
+<UL>
+<LI><A NAME="tex2html1244"
+  HREF="node72.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1245"
+  HREF="node73.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1246"
+  HREF="node74.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1247"
+  HREF="node75.html">Pass-Band Filtered Trajectory</A>
+<UL>
+<LI><A NAME="tex2html1248"
+  HREF="node76.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1249"
+  HREF="node77.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1250"
+  HREF="node78.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1251"
+  HREF="node79.html">Global Motion Filtered Trajectory</A>
+<UL>
+<LI><A NAME="tex2html1252"
+  HREF="node80.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1253"
+  HREF="node81.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1254"
+  HREF="node82.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1255"
+  HREF="node83.html">Rigid-Body Trajectory</A>
+<UL>
+<LI><A NAME="tex2html1256"
+  HREF="node84.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1257"
+  HREF="node88.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1258"
+  HREF="node89.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1259"
+  HREF="node90.html">Center Of Mass Trajectory</A>
+<UL>
+<LI><A NAME="tex2html1260"
+  HREF="node91.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1261"
+  HREF="node92.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1262"
+  HREF="node93.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1263"
+  HREF="node94.html">Auto-Regressive Analysis</A>
+<UL>
+<LI><A NAME="tex2html1264"
+  HREF="node95.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1265"
+  HREF="node101.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1266"
+  HREF="node102.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1267"
+  HREF="node103.html">Quasi Harmonic Analysis</A>
+<UL>
+<LI><A NAME="tex2html1268"
+  HREF="node104.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1269"
+  HREF="node105.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1270"
+  HREF="node106.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1271"
+  HREF="node107.html">Reorientational Correlation Function</A>
+<UL>
+<LI><A NAME="tex2html1272"
+  HREF="node108.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1273"
+  HREF="node109.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1274"
+  HREF="node110.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1275"
+  HREF="node111.html">Angular Velocity AutoCorrelation Function</A>
+<UL>
+<LI><A NAME="tex2html1276"
+  HREF="node112.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1277"
+  HREF="node113.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1278"
+  HREF="node114.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1279"
+  HREF="node115.html">Angular Density Of States</A>
+<UL>
+<LI><A NAME="tex2html1280"
+  HREF="node116.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1281"
+  HREF="node117.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1282"
+  HREF="node118.html">Output
+<BR></A>
+</UL>
+</UL>
+<LI><A NAME="tex2html1283"
+  HREF="node119.html">The Scattering menu</A>
+<UL>
+<LI><A NAME="tex2html1284"
+  HREF="node120.html">Introduction
+<BR></A>
+<LI><A NAME="tex2html1285"
+  HREF="node121.html">Dynamic Coherent Structure Factor</A>
+<UL>
+<LI><A NAME="tex2html1286"
+  HREF="node122.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1287"
+  HREF="node123.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1288"
+  HREF="node124.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1289"
+  HREF="node125.html">Dynamic Coherent Structure Factor (AR Model)</A>
+<UL>
+<LI><A NAME="tex2html1290"
+  HREF="node126.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1291"
+  HREF="node127.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1292"
+  HREF="node128.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1293"
+  HREF="node129.html">Dynamic Incoherent Structure Factor</A>
+<UL>
+<LI><A NAME="tex2html1294"
+  HREF="node130.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1295"
+  HREF="node131.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1296"
+  HREF="node132.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1297"
+  HREF="node133.html">Dynamic Incoherent Structure Factor (AR Model)</A>
+<UL>
+<LI><A NAME="tex2html1298"
+  HREF="node134.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1299"
+  HREF="node135.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1300"
+  HREF="node136.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1301"
+  HREF="node137.html">Dynamic Incoherent Structure Factor (Gaussian Approximation)</A>
+<UL>
+<LI><A NAME="tex2html1302"
+  HREF="node138.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1303"
+  HREF="node139.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1304"
+  HREF="node140.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1305"
+  HREF="node141.html">Elastic Incoherent Structure Factor</A>
+<UL>
+<LI><A NAME="tex2html1306"
+  HREF="node142.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1307"
+  HREF="node143.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1308"
+  HREF="node144.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1309"
+  HREF="node145.html">Static Coherent Structure Factor</A>
+<UL>
+<LI><A NAME="tex2html1310"
+  HREF="node146.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1311"
+  HREF="node147.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1312"
+  HREF="node148.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1313"
+  HREF="node149.html">Smoothed Static Coherent Structure Factor</A>
+<UL>
+<LI><A NAME="tex2html1314"
+  HREF="node150.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1315"
+  HREF="node151.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1316"
+  HREF="node152.html">Output
+<BR></A>
+</UL>
+</UL>
+<LI><A NAME="tex2html1317"
+  HREF="node153.html">The Structure menu</A>
+<UL>
+<LI><A NAME="tex2html1318"
+  HREF="node154.html">Pair Distribution Function</A>
+<UL>
+<LI><A NAME="tex2html1319"
+  HREF="node155.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1320"
+  HREF="node156.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1321"
+  HREF="node157.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1322"
+  HREF="node158.html">Coordination number</A>
+<UL>
+<LI><A NAME="tex2html1323"
+  HREF="node159.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1324"
+  HREF="node160.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1325"
+  HREF="node161.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1326"
+  HREF="node162.html">Spatial Density</A>
+<UL>
+<LI><A NAME="tex2html1327"
+  HREF="node163.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1328"
+  HREF="node164.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1329"
+  HREF="node165.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1330"
+  HREF="node166.html">ScrewFit analysis</A>
+<UL>
+<LI><A NAME="tex2html1331"
+  HREF="node167.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1332"
+  HREF="node168.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1333"
+  HREF="node169.html">Output
+<BR></A>
+</UL>
+</UL>
+<LI><A NAME="tex2html1334"
+  HREF="node170.html">The NMR menu</A>
+<UL>
+<LI><A NAME="tex2html1335"
+  HREF="node171.html">Order Parameter</A>
+<UL>
+<LI><A NAME="tex2html1336"
+  HREF="node172.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1337"
+  HREF="node173.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1338"
+  HREF="node174.html">Output
+<BR></A>
+</UL>
+<LI><A NAME="tex2html1339"
+  HREF="node175.html">Order Parameter (Contact Model)</A>
+<UL>
+<LI><A NAME="tex2html1340"
+  HREF="node176.html">Theory and implementation
+<BR></A>
+<LI><A NAME="tex2html1341"
+  HREF="node177.html">Parameters
+<BR></A>
+<LI><A NAME="tex2html1342"
+  HREF="node178.html">Output
+<BR></A>
+</UL>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html1343"
+  HREF="node179.html">The <B>View</B> menu</A>
+<UL>
+<LI><A NAME="tex2html1344"
+  HREF="node180.html">Plot</A>
+<LI><A NAME="tex2html1345"
+  HREF="node181.html">Animation</A>
+<LI><A NAME="tex2html1346"
+  HREF="node182.html">Effective mode</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1347"
+  HREF="node183.html">The <B>Help</B> menu</A>
+<UL>
+<LI><A NAME="tex2html1348"
+  HREF="node184.html">Documentation</A>
+<LI><A NAME="tex2html1349"
+  HREF="node185.html">Mailing List</A>
+<LI><A NAME="tex2html1350"
+  HREF="node186.html">API</A>
+<LI><A NAME="tex2html1351"
+  HREF="node187.html">Analysis benchmark</A>
+<LI><A NAME="tex2html1352"
+  HREF="node188.html">About nMOLDYN</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1189"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1185"
+  HREF="nMOLDYN_for_HTML.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1179"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1187"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1190"
+  HREF="node19.html">The File menu</A>
+<B> Up:</B> <A NAME="tex2html1186"
+  HREF="nMOLDYN_for_HTML.html">nMOLDYN_for_HTML</A>
+<B> Previous:</B> <A NAME="tex2html1180"
+  HREF="node17.html">nMOLDYN input files</A>
+ &nbsp <B>  <A NAME="tex2html1188"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

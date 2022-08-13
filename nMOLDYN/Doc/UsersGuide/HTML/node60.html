@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node61.html">
+<LINK REL="previous" HREF="node59.html">
+<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node61.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2102"
+  HREF="node61.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2098"
+  HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2092"
+  HREF="node59.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2100"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2103"
+  HREF="node61.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2099"
+  HREF="node59.html">Radius of gyration</A>
+<B> Previous:</B> <A NAME="tex2html2093"
+  HREF="node59.html">Radius of gyration</A>
+ &nbsp <B>  <A NAME="tex2html2101"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008243100000000000000"></A>
+<A NAME="rog_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+<A HREF=node4.html#tex2html305 NAME="18674"><I>ROG</I></A> is the name of several related measures of the size of an object, a surface, or an ensemble of 
+points. It is calculated as the Root Mean Square Distance between the system and a reference that can be either 
+the center of gravity of the system either a given axis. In <I>n</I>MOLDYN, the reference is choosen to be the center 
+of gravity of the system under study. Mathematically, it can be defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+ROG(t) = \sqrt{\frac{\sum_{\alpha = 1}^{N_{\alpha}}({\bf r}_{\alpha}(t) - {\bf r}_{cms}(t))}{N_{\alpha}}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:rog"></A><IMG
+ WIDTH="418" HEIGHT="55" BORDER="0"
+ SRC="img123.gif"
+ ALT="\begin{displaymath}
+ROG(t) = \sqrt{\frac{\sum_{\alpha = 1}^{N_{\alpha}}({\bf r}_{\alpha}(t) - {\bf r}_{cms}(t))}{N_{\alpha}}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.32)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="30" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img115.gif"
+ ALT="$N_{\alpha}$"> is the number of atoms of the system, and <!-- MATH
+ ${\bf r}_{\alpha}(t)$
+ -->
+<IMG
+ WIDTH="44" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img116.gif"
+ ALT="${\bf r}_{\alpha}(t)$"> and <!-- MATH
+ ${\bf r}_{cms}(t)$
+ -->
+<IMG
+ WIDTH="60" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img124.gif"
+ ALT="${\bf r}_{cms}(t)$"> are 
+respectively the position of atom <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.gif"
+ ALT="$\alpha$"> and the center of mass of the system at time <IMG
+ WIDTH="13" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img118.gif"
+ ALT="$t$">.
+
+<P>
+<A HREF=node4.html#tex2html306 NAME="18681"><I>ROG</I></A> describes the overall spread of the molecule and as such is a good measure for the molecule compactness. For
+example, it can be useful when monitoring folding process.
+
+<P>
+In <I>n</I>MOLDYN, <A HREF=node4.html#tex2html307 NAME="18688"><I>ROG</I></A> is computed using the discretized version of equation <A HREF="node60.html#eq:rog">4.32</A>:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+ROG(n\cdot\Delta t) = \sqrt{\frac{\sum_{\alpha = 1}^{N_{\alpha}}({\bf r}_{\alpha}(t) - {\bf r}_{cms}(t))}{N_{\alpha}}},
+\qquad n = 0\ldots N_t - 1.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:rog_num"></A><IMG
+ WIDTH="517" HEIGHT="55" BORDER="0"
+ SRC="img125.gif"
+ ALT="\begin{displaymath}
+ROG(n\cdot\Delta t) = \sqrt{\frac{\sum_{\alpha = 1}^{N_{\alp...
+...- {\bf r}_{cms}(t))}{N_{\alpha}}},
+\qquad n = 0\ldots N_t - 1.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.33)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="26" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.gif"
+ ALT="$N_t$"> is the number of frames and <IMG
+ WIDTH="27" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img121.gif"
+ ALT="$\Delta t$"> is the time step.
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2102"
+  HREF="node61.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2098"
+  HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2092"
+  HREF="node59.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2100"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2103"
+  HREF="node61.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2099"
+  HREF="node59.html">Radius of gyration</A>
+<B> Previous:</B> <A NAME="tex2html2093"
+  HREF="node59.html">Radius of gyration</A>
+ &nbsp <B>  <A NAME="tex2html2101"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

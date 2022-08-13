@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>New features in version 3.0</TITLE>
+<META NAME="description" CONTENT="New features in version 3.0">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node7.html">
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="node5.html">
+<LINK REL="next" HREF="node7.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1043"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1039"
+  HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1033"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1041"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1044"
+  HREF="node7.html">User feedback</A>
+<B> Up:</B> <A NAME="tex2html1040"
+  HREF="node5.html">Introduction</A>
+<B> Previous:</B> <A NAME="tex2html1034"
+  HREF="node5.html">Introduction</A>
+ &nbsp <B>  <A NAME="tex2html1042"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION005100000000000000000"></A>
+<A NAME="new_features_in_version_3"></A>
+<BR>
+New features in version 3.0
+</H1>
+
+<P>
+
+<UL>
+<LI>Installers for MacOS X, Win32 and linux
+
+<P>
+</LI>
+<LI>A new Graphical interface
+A brand new graphical interface is implemented with Tk library [<A
+ HREF="node192.html#Tk">24</A>].
+
+<P>
+</LI>
+<LI>A new plotting engine
+A brand bew plotting engine is implemented using matplotlib python library [<A
+ HREF="node192.html#matplotlib">25</A>]. This allows to produce high 
+quality plots directly from <I>n</I>MOLDYN.
+
+<P>
+</LI>
+<LI>Trajectory converters
+Some trajectory converters are implemented and made directly accessible from <I>n</I>MOLDYN <A HREF=node4.html#tex2html16 NAME="16492"><I>GUI</I></A>. 
+Those converters allows the conversion of trajectory coming from Amber9 [<A
+ HREF="node192.html#Amber">26</A>], <A HREF=node4.html#tex2html17 NAME="16499"><B>C</B>hemistry at <B>HAR</B>vard <B>M</B>acromolecular <B>M</B>echanics (CHARMM)</A> [<A
+ HREF="node192.html#CHARMM">27</A>], DL_POLY [<A
+ HREF="node192.html#DL_POLY">28</A>], 
+MaterialsStudio [<A
+ HREF="node192.html#MaterialsStudio">29</A>], <A HREF=node4.html#tex2html18 NAME="16506"><B>NA</B>noscale <B>M</B>olecular <B>D</B>ynamics (NAMD)</A> [<A
+ HREF="node192.html#NAMD">32</A>], <A HREF=node4.html#tex2html19 NAME="16513"><B>V</B>ienna <B>A</B>b-initio <B>S</B>imulation <B>P</B>ackage (VASP)</A> [<A
+ HREF="node192.html#VASP">34</A>] and X-PLOR [<A
+ HREF="node192.html#X-PLOR">35</A>] to <I>n</I>MOLDYN <A HREF=node4.html#tex2html20 NAME="16520">MMTK</A> trajectory input formats.
+
+<P>
+</LI>
+<LI>Converter from NetCDF to ASCII
+A converter from <A HREF=node4.html#tex2html21 NAME="16527">NetCDF</A> to ASCII that wraps ncdump [<A
+ HREF="node192.html#ncdump">36</A>] program is implemented.
+
+<P>
+</LI>
+<LI>Converter from ASCII to NetCDF
+A converter from ASCII to <A HREF=node4.html#tex2html22 NAME="16534">NetCDF</A> that wraps ncgen [<A
+ HREF="node192.html#ncgen">37</A>] program is implemented.
+
+<P>
+</LI>
+<LI>Pair Distribution Function
+The <A HREF=node4.html#tex2html23 NAME="16541"><B>P</B>air-<B>D</B>istribution <B>F</B>unction (<I>PDF</I>)</A> analysis is implemented using Pyrex code for a faster analysis.
+
+<P>
+</LI>
+<LI>Coordination number
+The <A HREF=node4.html#tex2html24 NAME="16548"><B>C</B>oordination <B>N</B>umber (<I>CN</I>)</A> analysis is implemented using Pyrex code for a faster analysis.
+
+<P>
+</LI>
+<LI>Spatial Density
+The <A HREF=node4.html#tex2html25 NAME="16555"><B>S</B>patial <B>D</B>ensity (<I>SD</I>)</A> analysis is implemented using Pyrex code for a faster analysis.
+
+<P>
+</LI>
+<LI>Radius Of Gyration
+The <A HREF=node4.html#tex2html26 NAME="16562"><B>R</B>adius <B>O</B>f <B>G</B>yration (<I>ROG</I>)</A> analysis is implemented.
+
+<P>
+</LI>
+<LI>Root Mean Square Displacement
+The <A HREF=node4.html#tex2html27 NAME="16569"><B>R</B>oot <B>M</B>ean-<B>S</B>quare <B>D</B>eviation (<I>RMSD</I>)</A> analysis is implemented.
+
+<P>
+</LI>
+<LI>Center Of Mass Trajectory
+The <A HREF=node4.html#tex2html28 NAME="16576"><B>C</B>enter <B>O</B>f <B>M</B>ass <B>T</B>rajectory (<I>COMT</I>)</A> analysis is implemented. It determines the trajectory of the center of mass of one or several group of atoms.
+
+<P>
+</LI>
+<LI>Global Motion Filter
+The <A HREF=node4.html#tex2html29 NAME="16583"><B>G</B>lobal <B>M</B>otion <B>F</B>iltered <B>T</B>rajectory (<I>GMFT</I>)</A> analysis is implemented. It removes the global translation and rotation degrees of freedom from a trajectory.
+
+<P>
+</LI>
+<LI>Quasi Harmonic Analysis
+The <A HREF=node4.html#tex2html30 NAME="16590"><B>Q</B>uasi-<B>H</B>armonic <B>A</B>nalysis (<I>QHA</I>)</A> analysis is implemented. It allows for the decomposition of a system into its different modes of vibration.
+
+<P>
+</LI>
+<LI>Static Coherent Structure Factor
+The <A HREF=node4.html#tex2html31 NAME="16597"><B>S</B>tatic <B>C</B>oherent <B>S</B>tructure <B>F</B>actor (<I>SCSF</I>)</A> analysis is implemented. It allows for the direct computation of the static coherent structure factor.
+
+<P>
+</LI>
+<LI>Smoothed Static Coherent Structure Factor
+The <A HREF=node4.html#tex2html32 NAME="16604"><B>S</B>moothed <B>S</B>tatic <B>C</B>oherent <B>S</B>tructure <B>F</B>actor (<I>SSCSF</I>)</A> analysis is implemented. It allows for the direct computation of the static coherent structure factor withtout 
+any <I>q</I>-vectorsrandom generation. It is implemented using Pyrex code for a faster analysis.
+
+<P>
+</LI>
+<LI>Order parameter
+The <A HREF=node4.html#tex2html33 NAME="16611"><B>O</B>rder <B>P</B>arameter (<I>OP</I>)</A> analysis is implemented.
+
+<P>
+</LI>
+<LI>Order parameter using the contact model
+The <A HREF=node4.html#tex2html34 NAME="16618"><B>O</B>rder <B>P</B>arameter using <B>C</B>ontact <B>M</B>odel (<I>OPCM</I>)</A> analysis developped by Zhang <I>et al.</I> [<A
+ HREF="node192.html#Bruschweiler">73</A>] is implemented.
+
+<P>
+</LI>
+<LI>ScrewFit analysis
+The ScrewFit 2D methode developped by Paolo Calligari and Gerald Kneller [<A
+ HREF="node192.html#Calligari">38</A>] is implemented.
+
+<P>
+</LI>
+<LI>Partial terms
+The partials term for all scattering-related properties are now available.
+
+<P>
+</LI>
+<LI>A new atom selection engine
+A brand new and much more powerful atom selection engine is implemented. When setting up an anlysis, 
+it allows for the selection from the <A HREF=node4.html#tex2html35 NAME="16625"><I>GUI</I></A> of almost any kind of subset.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1043"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1039"
+  HREF="node5.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1033"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1041"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1044"
+  HREF="node7.html">User feedback</A>
+<B> Up:</B> <A NAME="tex2html1040"
+  HREF="node5.html">Introduction</A>
+<B> Previous:</B> <A NAME="tex2html1034"
+  HREF="node5.html">Introduction</A>
+ &nbsp <B>  <A NAME="tex2html1042"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

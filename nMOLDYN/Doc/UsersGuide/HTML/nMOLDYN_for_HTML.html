@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>nMOLDYN_for_HTML</TITLE>
+<META NAME="description" CONTENT="nMOLDYN_for_HTML">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html832"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_g.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev_g.gif"> 
+<A NAME="tex2html830"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html833"
+  HREF="node1.html">Contents</A>
+ &nbsp <B>  <A NAME="tex2html831"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<P>
+
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><A NAME="tex2html_wrap16373"
+<IMG WIDTH=500 HEIGHT=400 SRC="logo.gif">
+</DIV>
+<P>
+<DIV ALIGN="CENTER">
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">
+<BR>
+<BR>
+<FONT SIZE="+4"><B><I>n</I>MOLDYN User's Guide</B></FONT>
+<BR>
+<BR>
+<BR>
+<FONT SIZE="+3"><B>Version 3.4</B></FONT>
+<BR>
+<BR>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">
+<BR>
+<BR>
+<BR>
+<BR>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><FONT SIZE="+2">Eric Pellegrini<IMG
+ WIDTH="14" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.gif"
+ ALT="$^{a}$">, Paolo Calligari<IMG
+ WIDTH="13" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.gif"
+ ALT="$^{b}$">, Vania Calandrini<IMG
+ WIDTH="13" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.gif"
+ ALT="$^{c}$"></FONT>
+<BR>
+<BR>
+<BR>
+<FONT SIZE="+2">Konrad Hinsen<IMG
+ WIDTH="24" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.gif"
+ ALT="$^{c,d}$">, Gerald R. Kneller<IMG
+ WIDTH="34" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.gif"
+ ALT="$^{c,d,\dag }$"></FONT>
+<BR></DIV>
+<P>
+<DIV ALIGN="CENTER">
+<BR>
+<BR>
+<BR>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><FONT SIZE="+1">October 6, 2009</FONT>
+<BR></DIV>
+<P>
+<DIV ALIGN="CENTER">
+<BR>
+<BR>
+<BR>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><FONT SIZE="+1"><B>Description</B></FONT>
+<BR></DIV>
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+
+<P>
+The <I>n</I>MOLDYN User's Guide describes how to use the various features of the <A HREF=node4.html#tex2html6 NAME="16416">MD</A> analysis program 
+<I>n</I>MOLDYN. This guide includes a description of the capabilities of the program, how to use these capabilities, the necessary 
+input files and formats, and a comprehensive list of the analysis available in the program and how to set up an run these analysis.
+
+<P>
+<A NAME="tex2html1"
+  HREF="footnode.html#foot7415"><SUP>1</SUP></A>
+<P>
+
+<P>
+
+<H3>Abstract:</H3>
+<DIV>
+<I>n</I>MOLDYN is a modular program package for the analysis of <A HREF=node4.html#tex2html2 NAME="16387"><B>M</B>olecular <B>D</B>ynamics (MD)</A> trajectories, especially designed for 
+the computation and decomposition of neutron scattering spectra.  
+
+<P>
+The current release 3.0 of <I>n</I>MOLDYN is an upgrade of the version <I>n</I>MOLDYN 2.0 [<A
+ HREF="node192.html#Rog">1</A>], which extends the functionality of the
+original version <I>n</I>MOLDYN 1.0 [<A
+ HREF="node192.html#Schiller">2</A>]. It provides an improved user interface (both graphical/interactive 
+and batch), and can be used as a tool set for implementing new analysis modules.
+
+<P>
+<I>n</I>MOLDYN allows one to calculate several dynamics quantities such as the mean-square displacement, the velocity autocorrelation 
+function as well as its Fourier Transform (the density of states) and its memory functions, the angular velocity 
+autocorrelation function and its Fourier transform, the reorientational correlation function ...Moreover it
+can compute several quantities related to neutron scattering such as the coherent and incoherent intermediate scattering 
+functions with their Fourier transforms and their memory functions, the elastic incoherent structure factor, the static 
+coherent structure factor or the radial distribution function. Additionally, the <I>n</I>MOLDYN package allows one to construct 
+modified trajectories from an input trajectory; rigid-body trajectories, in which the internal motions of the molecules 
+(or parts thereof) are eliminated, frequency-filtered trajectories, from which motions outside a specified frequency 
+interval are eliminated, global motion filtered trajectory where the global rotation and translation are removed from 
+the input trajectory ...
+
+<P>
+All <I>n</I>MOLDYN calculations can be applied to a whole system or to arbitrary subsets. The most common subsets can be selected in 
+the graphical interface, less common selections can be specified by Python code via the command-line interface.
+
+<P>
+As <I>n</I>MOLDYN 2.0, <I>n</I>MOLDYN 3.0 uses <A HREF=node4.html#tex2html3 NAME="16394"><B>M</B>olecular <B>M</B>odelling <B>T</B>ool<B>K</B>it (MMTK)</A>[<A
+ HREF="node192.html#Hinsen:2000">3</A>,<A
+ HREF="node192.html#MMTK">4</A>], an Open Source program library for molecular 
+simulation applications, and expects trajectories to be in <A HREF=node4.html#tex2html4 NAME="16401">MMTK</A> format (<A HREF=node4.html#tex2html5 NAME="16408"><B>N</B>etwork <B>C</B>ommon <B>D</B>ata <B>F</B>orm (NetCDF)</A> [<A
+ HREF="node192.html#NetCDF">5</A>,<A
+ HREF="node192.html#Davies">6</A>]). However, many 
+trajectory converters are included in the distribution of <I>n</I>MOLDYN. <I>n</I>MOLDYN 3.0, was written by Eric Pellegrini.
+</DIV>
+<P>
+
+<P>
+
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html834"
+  HREF="node1.html">Contents</A>
+<LI><A NAME="tex2html835"
+  HREF="node2.html">List of Figures</A>
+<LI><A NAME="tex2html836"
+  HREF="node3.html">List of Tables</A>
+<LI><A NAME="tex2html837"
+  HREF="node4.html">List of Acronyms</A>
+<LI><A NAME="tex2html838"
+  HREF="node5.html">Introduction</A>
+<UL>
+<LI><A NAME="tex2html839"
+  HREF="node6.html">New features in version 3.0</A>
+<LI><A NAME="tex2html840"
+  HREF="node7.html">User feedback</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html841"
+  HREF="node8.html">Installing <I>n</I>MOLDYN</A>
+<UL>
+<LI><A NAME="tex2html842"
+  HREF="node9.html">Unix users</A>
+<LI><A NAME="tex2html843"
+  HREF="node10.html">Windows users</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html844"
+  HREF="node11.html">Input and output files</A>
+<UL>
+<LI><A NAME="tex2html845"
+  HREF="node12.html">NetCDF file format</A>
+<LI><A NAME="tex2html846"
+  HREF="node13.html">PDB file format</A>
+<LI><A NAME="tex2html847"
+  HREF="node14.html"><I>n</I>MOLDYN preference file</A>
+<LI><A NAME="tex2html848"
+  HREF="node15.html"><I>n</I>MOLDYN selection files</A>
+<LI><A NAME="tex2html849"
+  HREF="node16.html"><I>n</I>MOLDYN autostart files</A>
+<LI><A NAME="tex2html850"
+  HREF="node17.html"><I>n</I>MOLDYN input files</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html851"
+  HREF="node18.html">Using <I>n</I>MOLDYNfrom the Graphical User Interface</A>
+<UL>
+<LI><A NAME="tex2html852"
+  HREF="node19.html">The <B>File</B> menu</A>
+<UL>
+<LI><A NAME="tex2html853"
+  HREF="node20.html">Load NetCDF file</A>
+<LI><A NAME="tex2html854"
+  HREF="node21.html">Trajectory conversion</A>
+<UL>
+<LI><A NAME="tex2html855"
+  HREF="node22.html">Amber to MMTK</A>
+<LI><A NAME="tex2html856"
+  HREF="node23.html">CHARMM/X-PLOR to MMTK</A>
+<LI><A NAME="tex2html857"
+  HREF="node24.html">DL_POLY to MMTK</A>
+<LI><A NAME="tex2html858"
+  HREF="node25.html">Discover to MMTK</A>
+<LI><A NAME="tex2html859"
+  HREF="node26.html">Forcite to MMTK</A>
+<LI><A NAME="tex2html860"
+  HREF="node27.html">NAMD to MMTK</A>
+<LI><A NAME="tex2html861"
+  HRE

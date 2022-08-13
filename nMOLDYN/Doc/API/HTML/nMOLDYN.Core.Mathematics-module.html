@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>nMOLDYN.Core.Mathematics</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="nMOLDYN-module.html">Package&nbsp;nMOLDYN</a> ::
+        <a href="nMOLDYN.Core-module.html">Package&nbsp;Core</a> ::
+        Module&nbsp;Mathematics
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="nMOLDYN.Core.Mathematics-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module Mathematics</h1><p class="nomargin-top"><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+This modules implements the mathematics-related classes, functions and procedures.
+
+Classes:
+    * QVectors: the class that actually performs the q vectors generation.
+
+Functions:
+    * differentiate      : performs a numerical differentiation of 1D Numeric array
+    * correlation        : performs the numerical correlation between two 1D Numeric arrays
+    * convolution        : performs the numerical convolution between two 1D Numeric arrays
+    * FFT                : performs the FFT of a 1D Numeric array
+    * invFFT             : performs the inverse FFT of a 1D Numeric array
+    * gaussianWindow     : performs a Gaussian smoothing of 1D Numeric array.
+    * factorial          : computes factorial (n) where n is an integer.
+    * basisVectors       : computes the basis vectors of the simulation cell from a set of values defining its geometry (3 distances and 3 angles).
+    * randomPointInCircle: returns a vector within a circle of radius |r| and orthogonal to a given direction.
+    * randomDirection2D  : returns a normalized vector generated from a unit circle orthogonal to a given direction.
+    * randomPlane2D      : generates a normalized random q-vector on a plane defined by vect1, vect2.
+    * qVectorGenerator   : sets up and returns a set of q vectors generated from different user-defined parameters.
+    * sphericalHarmonics : calculates the spherical functions Y from a set of j, m, n Wigner indexes
+    * preparePP          : sets up the calculation of spherical harmonics.
+
+</pre>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">NumPy array</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#differentiate" class="summary-sig-name">differentiate</a>(<span class="summary-sig-arg">inputSeries</span>,
+        <span class="summary-sig-arg">order</span>,
+        <span class="summary-sig-arg">dx</span>)</span><br />
+      Returns the numerical derivative of order |order| of the signal 
+      |inputSeries| using the differentiation step |dx|.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#differentiate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="myautocorrelation"></a><span class="summary-sig-name">myautocorrelation</span>(<span class="summary-sig-arg">inputSeries</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#myautocorrelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">NumPy array</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#correlation" class="summary-sig-name">correlation</a>(<span class="summary-sig-arg">inputSeries1</span>,
+        <span class="summary-sig-arg">inputSeries2</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns the numerical correlation between |inputSeries1| and 
+      |inputSeries2| multidimensional NumPy arrays.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#correlation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">NumPy array</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#convolution" class="summary-sig-name">convolution</a>(<span class="summary-sig-arg">inputSeries1</span>,
+        <span class="summary-sig-arg">inputSeries2</span>)</span><br />
+      Returns the numerical convolution between |inputSeries1| and 
+      |inputSeries2| one-dimensional NumPy arrays.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#convolution">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">NumPy array</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#FFT" class="summary-sig-name">FFT</a>(<span class="summary-sig-arg">inputSeries</span>)</span><br />
+      Returns the FFT of |inputSeries| multidimensional NumPy array.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#FFT">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">NumPy array</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#invFFT" class="summary-sig-name">invFFT</a>(<span class="summary-sig-arg">inputSeries</span>)</span><br />
+      Returns the inverse FFT of |inputSeries| multidimensional NumPy 
+      array.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#invFFT">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">NumPy array</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#gaussianWindow" class="summary-sig-name">gaussianWindow</a>(<span class="summary-sig-arg">inputSeries</span>,
+        <span class="summary-sig-arg">alpha</span>)</span><br />
+      Returns a smoothed signal using |inputSeries| input signal and a 
+      gaussian kernel of width |alpha|.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#gaussianWindow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">integer</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#factorial" class="summary-sig-name">factorial</a>(<span class="summary-sig-arg">n</span>)</span><br />
+      Returns n!</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#factorial">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="preparePP"></a><span class="summary-sig-name">preparePP</span>(<span class="summary-sig-arg">j</span>,
+        <span class="summary-sig-arg">m</span>,
+        <span class="summary-sig-arg">n</span>)</span><br />
+      Intermediate function used to setup the calculation of spherical 
+      harmonics.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#preparePP">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">a list of three floats</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#sphericalCoordinates" class="summary-sig-name">sphericalCoordinates</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">z</span>)</span><br />
+      This function returns the r, theta and phi spherical coordinates from
+      the x, y z cartesian coordinates.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#sphericalCoordinates">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Scientific Vector</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#changeBasis" class="summary-sig-name">changeBasis</a>(<span class="summary-sig-arg">pt</span>,
+        <span class="summary-sig-arg">op</span>,
+        <span class="summary-sig-arg">ip</span>,
+        <span class="summary-sig-arg">jp</span>,
+        <span class="summary-sig-arg">kp</span>)</span><br />
+      This function return the coordinates</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#changeBasis">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#basisVectors" class="summary-sig-name">basisVectors</a>(<span class="summary-sig-arg">parameters</span>)</span><br />
+      Returns the basis vectors for the simulation cell from the six 
+      crystallographic parameters.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#basisVectors">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Scientific.Geometry.Vector object</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#randomPointInCircle" class="summary-sig-name">randomPointInCircle</a>(<span class="summary-sig-arg">r</span>,
+        <span class="summary-sig-arg">axis</span>)</span><br />
+      Returns a vector drawn from an uniform distribution within a circle 
+      of radius |r| and orthogonal to vector |axis|.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#randomPointInCircle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Scientific.Geometry.Vector object</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#randomDirection2D" class="summary-sig-name">randomDirection2D</a>(<span class="summary-sig-arg">axis</span>)</span><br />
+      Returns a normalized vector drawn from an uniform distribution on the
+      surface of a unit circle on a plane orthogonal to |axis|.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#randomDirection2D">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Scientific.Geometry.Vector object</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.Mathematics-module.html#randomVector" class="summary-sig-name">randomVector</a>(<span class="summary-sig-arg">directions</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns a normalized random vector on a plane or in space.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#randomVector">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="a2"></a><span class="summary-name">a2</span> = <code title="N.array([[-3., 4.,-1.], [-1., 0., 1.], [1.,-4., 3.]])">N.array([[-3., 4.,-1.], [-1., 0., 1.], [1.,-4., 3.]])</code><br />
+      a3 = array used to perform order 3 numerical differentiation scheme.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.Mathematics-module.html#a3" class="summary-name">a3</a> = <code title="N.array([[-11., 18.,-9., 2.], [-2.,-3., 6.,-1.], [1.,-6., 3., 2.], [-2\
+., 9.,-18., 11.]])">N.array([[-11., 18.,-9., 2.], [-2.,-3., 6.,-1.], [1.,-6.,<code class="variable-ellipsis">...</code></code><br />
+      a4 = array used to perform order 4 numerical differentiation scheme.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.Mathematics-module.html#a4" class="summary-name">a4</a> = <code title="N.array([[-50., 96.,-72., 32.,-6.], [-6.,-20., 36.,-12., 2.], [2.,-16.\
+, 0., 16.,-2.], [-2., 12.,-36., 20., 6.], [6.,-32., 72.,-96., 50.]])">N.array([[-50., 96.,-72., 32.,-6.], [-6.,-20., 36.,-12., <code class="variable-ellipsis">...</code></code><br />
+      a5 = N.array used to perform order 5 numerical differentiation 
+      scheme.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.Mathematics-module.html#a5" class="summary-name">a5</a> = <code title="N.array([[-274., 600.,-600., 400.,-150., 24.], [-24.,-130., 240.,-120.\
+, 40.,-6.], [6.,-60.,-40., 120.,-30., 4.], [-4., 30.,-120., 40., 60.,-\
+6.], [6.,-40., 120.,-240., 130., 24.], [-24., 150.,-400., 600.,-600., \
+274.]])">N.array([[-274., 600.,-600., 400.,-150., 24.], [-24.,-130<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="differentiate"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">differentiate</span>(<span class="sig-arg">inputSeries</span>,
+        <span class="sig-arg">order</span>,
+        <span class="sig-arg">dx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#differentiate">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the numerical derivative of order |order| of the signal 
+  |inputSeries| using the differentiation step |dx|.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>inputSeries</code></strong> - the signal to differentiate.</li>
+        <li><strong class="pname"><code>order</code></strong> - an integer in [1,5] specifying the numerical differentiation 
+          order.</li>
+        <li><strong class="pname"><code>dx</code></strong> - a float specifying the differentiation step. Assumed to be 
+          constant over all the spectrum.</li>
+    </ul></dd>
+    <dt>Returns: NumPy array</dt>
+        <dd>the differentiated signal.</dd>
+  </dl>
+<div class="fields">      <p><strong>See Also:</strong>
+        M. Abramowitz, I.A. Stegun; 'Handbook of mathematical functions', 
+        Dover, New-York, 1972 p.914.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="correlation"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">correlation</span>(<span class="sig-arg">inputSeries1</span>,
+        <span class="sig-arg">inputSeries2</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#correlation">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the numerical correlation between |inputSeries1| and 
+  |inputSeries2| multidimensional NumPy arrays.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>inputSeries1</code></strong> (NumPy array) - the first signal</li>
+        <li><strong class="pname"><code>inputSeries2</code></strong> (NumPy array) - if not None, the second signal to correlate with |inputSeries1| 
+          otherwise the correlation will be an autocorrelation.</li>
+    </ul></dd>
+    <dt>Returns: NumPy array</dt>
+        <dd>an array (length(|inputSeries1|)) storing the result of the 
+          correlation.</dd>
+  </dl>
+<div class="fields">      <strong>Notes:</strong>
+      <ul class="nomargin-top">
+        <li>
+        if |inputSeries1| is a multidimensional array the correlation 
+        calculation is performed on the first dimension.
+        </li>
+        <li>
+        The correlation is computed using the FCA algorithm.
+        </li>
+      </ul>
+</div></td></tr></table>
+</div>
+<a name="convolution"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">convolution</span>(<span class="sig-arg">inputSeries1</span>,
+        <span class="sig-arg">inputSeries2</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#convolution">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the numerical convolution between |inputSeries1| and 
+  |inputSeries2| one-dimensional NumPy arrays.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>inputSeries1</code></strong> (NumPy array) - the first signal</li>
+        <li><strong class="pname"><code>inputSeries2</code></strong> (NumPy array) - the second signal to convolve with |inputSeries1|.</li>
+    </ul></dd>
+    <dt>Returns: NumPy array</dt>
+        <dd>an array (length(|inputSeries1|)) storing the result of the 
+          convolution.</dd>
+  </dl>
+<div class="fields">      <strong>Notes:</strong>
+      <ul class="nomargin-top">
+        <li>
+        if |inputSeries1| is a multidimensional array the convolution 
+        calculation is performed on the first dimension.
+        </li>
+        <li>
+        the convolution is computed using the convolve function of NumPy 
+        package.
+        </li>
+      </ul>
+</div></td></tr></table>
+</div>
+<a name="FFT"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">FFT</span>(<span class="sig-arg">inputSeries</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#FFT">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the FFT of |inputSeries| multidimensional NumPy array.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>inputSeries</code></strong> (NumPy array) - the array on which to computes the FFT.</li>
+    </ul></dd>
+    <dt>Returns: NumPy array</dt>
+        <dd>the FFT transformed array.</dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        the FFT is computed using the fft function of Scientific.FFT 
+        package.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="invFFT"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">invFFT</span>(<span class="sig-arg">inputSeries</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#invFFT">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the inverse FFT of |inputSeries| multidimensional NumPy 
+  array.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>inputSeries</code></strong> (NumPy array) - the array on which to computes the inverse FFT.</li>
+    </ul></dd>
+    <dt>Returns: NumPy array</dt>
+        <dd>the inverse FFT transformed array.</dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        the inverse FFT is computed using the inverse_fft function of 
+        Scientific.FFT package.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="gaussianWindow"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">gaussianWindow</span>(<span class="sig-arg">inputSeries</span>,
+        <span class="sig-arg">alpha</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#gaussianWindow">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a smoothed signal using |inputSeries| input signal and a 
+  gaussian kernel of width |alpha|.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>inputSeries</code></strong> (NumPy array) - the signal to smooth.</li>
+        <li><strong class="pname"><code>alpha</code></strong> (float) - a float specifying the width of the Gaussian.</li>
+    </ul></dd>
+    <dt>Returns: NumPy array</dt>
+        <dd>an array (length = 2*len(|inputSeries|) - 1) containing the 
+          smoothed signal.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="factorial"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">factorial</span>(<span class="sig-arg">n</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#factorial">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns n!</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> - the n of n!.</li>
+    </ul></dd>
+    <dt>Returns: integer</dt>
+        <dd>n!.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="sphericalCoordinates"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">sphericalCoordinates</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">z</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#sphericalCoordinates">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This function returns the r, theta and phi spherical coordinates from 
+  the x, y z cartesian coordinates.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> (float) - the cartesian x.</li>
+        <li><strong class="pname"><code>y</code></strong> (float) - the cartesian y.</li>
+        <li><strong class="pname"><code>z</code></strong> (float) - the cartesian z.</li>
+    </ul></dd>
+    <dt>Returns: a list of three floats</dt>
+        <dd>the r, theta and phi spherical coordinates..</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="changeBasis"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">changeBasis</span>(<span class="sig-arg">pt</span>,
+        <span class="sig-arg">op</span>,
+        <span class="sig-arg">ip</span>,
+        <span class="sig-arg">jp</span>,
+        <span class="sig-arg">kp</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#changeBasis">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This function return the coordinates</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>pt</code></strong> (Scientific Vector) - the coordinates of the point in the old basis.</li>
+        <li><strong class="pname"><code>op</code></strong> (Scientific Vector) - the coordinates of the new origin in the old basis.</li>
+        <li><strong class="pname"><code>ip</code></strong> (Scientific Vector) - the coordinates of the new x axis in the old basis.</li>
+        <li><strong class="pname"><code>jp</code></strong> (Scientific Vector) - the coordinates of the new y axis in the old basis.</li>
+        <li><strong class="pname"><code>kp</code></strong> (Scientific Vector) - the coordinates of the new z axis in the old basis.</li>
+    </ul></dd>
+    <dt>Returns: Scientific Vector</dt>
+        <dd>the coordinates of the point in the new basis.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="basisVectors"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">basisVectors</span>(<span class="sig-arg">parameters</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#basisVectors">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the basis vectors for the simulation cell from the six 
+  crystallographic parameters.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> - a list of six floats defining the simulation cell geometry.</li>
+    </ul></dd>
+    <dt>Returns: list</dt>
+        <dd>a list of three Scientific.Geometry.Vector objects representing 
+          respectively a, b and c basis vectors.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="randomPointInCircle"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">randomPointInCircle</span>(<span class="sig-arg">r</span>,
+        <span class="sig-arg">axis</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#randomPointInCircle">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a vector drawn from an uniform distribution within a circle of
+  radius |r| and orthogonal to vector |axis|.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>r</code></strong> (float) - float specifying the radius of the circle.</li>
+        <li><strong class="pname"><code>axis</code></strong> (Scientific.Geometry.Vector object) - the axis orthogonal to the plane where the vectors have to be 
+          generated.</li>
+    </ul></dd>
+    <dt>Returns: Scientific.Geometry.Vector object</dt>
+        <dd>a vector pointing to a random point of the circle.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="randomDirection2D"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">randomDirection2D</span>(<span class="sig-arg">axis</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#randomDirection2D">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a normalized vector drawn from an uniform distribution on the 
+  surface of a unit circle on a plane orthogonal to |axis|.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>axis</code></strong> (Scientific.Geometry.Vector object) - the axis orthogonal to the plane where the vectors have to be 
+          generated.</li>
+    </ul></dd>
+    <dt>Returns: Scientific.Geometry.Vector object</dt>
+        <dd>A normalized vector defined in a unit disk orthogonal to |axis|</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="randomVector"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">randomVector</span>(<span class="sig-arg">directions</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.Mathematics-pysrc.html#randomVector">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a normalized random vector on a plane or in space.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>directions</code></strong> (list of 2 Scientific.Vector or None) - if not None, a list of 2 Scientific.Vector that will define the 
+          plane on which the vector should be generated.</li>
+    </ul></dd>
+    <dt>Returns: Scientific.Geometry.Vector object</dt>
+        <dd>a normalized random vector on a plane defined by |directions| or 
+          in space (|directions| = None).</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="a3"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">a3</h3>
+  <p>a4 = array used to perform order 4 numerical differentiation 
+  scheme.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+N.array([[-11., 18.,-9., 2.], [-2.,-3., 6.,-1.], [1.,-6., 3., 2.], [-2<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+., 9.,-18., 11.]])
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="a4"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">a4</h3>
+  <p>a5 = N.array used to perform order 5 numerical differentiation 
+  scheme.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+N.array([[-50., 96.,-72., 32.,-6.], [-6.,-20., 36.,-12., 2.], [2.,-16.<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+, 0., 16.,-2.], [-2., 12.,-36., 20., 6.], [6.,-32., 72.,-96., 50.]])
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="a5"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">a5</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+N.array([[-274., 600.,-600., 400.,-150., 24.], [-24.,-130., 240.,-120.<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+, 40.,-6.], [6.,-60.,-40., 120.,-30., 4.], [-4., 30.,-120., 40., 60.,-<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+6.], [6.,-40., 120.,-240., 130., 24.], [-24., 150.,-400., 600.,-600., <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+274.]])
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct  8 16:56:53 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

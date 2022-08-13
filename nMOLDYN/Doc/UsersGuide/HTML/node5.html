@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="nMOLDYN_for_HTML.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1029"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1025"
+  HREF="nMOLDYN_for_HTML.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1019"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1027"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1030"
+  HREF="node6.html">New features in version</A>
+<B> Up:</B> <A NAME="tex2html1026"
+  HREF="nMOLDYN_for_HTML.html">nMOLDYN_for_HTML</A>
+<B> Previous:</B> <A NAME="tex2html1020"
+  HREF="node4.html">List of Acronyms</A>
+ &nbsp <B>  <A NAME="tex2html1028"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION005000000000000000000"></A>
+<A NAME="global_introduction"></A>
+<BR>
+Introduction
+</H1>
+
+<P>
+Although <A HREF=node4.html#tex2html7 NAME="16428">MD</A> simulation techniques are widely used in physics, chemistry and biology, their possibilities 
+are often not fully exploited because of the lack of easy-to-use analysis tools. This is especially true for very complex 
+systems which force most computational scientists to use standard program packages containing only very limited 
+functionality to analyze <A HREF=node4.html#tex2html8 NAME="16435">MD</A> trajectories.
+
+<P>
+In this NOTE we present the new release 3.0 of the modular program package <I>n</I>MOLDYN, which replaces the original version 
+<I>n</I>MOLDYN 2.0, for the analysis of <A HREF=node4.html#tex2html9 NAME="16442">MD</A> trajectories.
+
+<P>
+The program <I>n</I>MOLDYN was developed mainly for use in connection with neutron scattering experiment, although many of 
+the quantities are also used in other contexts. The combination of neutron scattering experiments and <A HREF=node4.html#tex2html10 NAME="16449">MD</A> 
+simulations is a powerful tool to study the structure and dynamics of complex molecular systems. Neutron scattering 
+is sensitive to time and space correlations of atomic positions on the <I>ns</I> time scale and the &#197; length scale 
+[<A
+ HREF="node192.html#Lovesey">7</A>,<A
+ HREF="node192.html#Bee">8</A>]. These are exactly the time and space domains covered by classical <A HREF=node4.html#tex2html11 NAME="16456">MD</A> simulations. 
+On the length scale under consideration the neutron-target interaction can be modelled by pseudopotentials with zero range 
+which are centered on the atomic nuclei of the targets. The coupling between neutron and target is described by so-called
+scattering lengths describing the strength of the neutron-nucleus interaction [<A
+ HREF="node192.html#Lovesey">7</A>].  The differential scattering 
+cross section can be expressed in terms of quantum time correlation functions of the spatially Fourier transformed particle 
+density. The corresponding <I>classical</I> time correlation function can be easily obtained from <A HREF=node4.html#tex2html12 NAME="16463">MD</A> 
+simulations.  This enables a direct comparison between simulated and measured neutron scattering intensities for classical 
+systems if recoil effects in the scattering process are not dominant [<A
+ HREF="node192.html#Kneller:1994">9</A>]. The experimental data can be used 
+to test the quality of the <A HREF=node4.html#tex2html13 NAME="16470">MD</A> force field which is the central input for the simulations [<A
+ HREF="node192.html#Geiger:1989">10</A>,<A
+ HREF="node192.html#Geiger:1990">11</A>,<A
+ HREF="node192.html#Ahlrichs">12</A>,<A
+ HREF="node192.html#Yip:1987">13</A>]. 
+Conversely, the simulated intensities allow a detailed analysis of the dynamical and structural behaviour of the system 
+under consideration [<A
+ HREF="node192.html#Smith:1992">14</A>,<A
+ HREF="node192.html#Smith:1993">15</A>]. The latter is particularly important for complex systems for which 
+an interpretation of the measured intensities in terms of simple analytical models is difficult, if not impossible.
+
+<P>
+The program package <I>n</I>MOLDYN allows neutron scattering intensities to be efficiently calculated from <A HREF=node4.html#tex2html14 NAME="16477">MD</A> simulations. 
+The calculation of various space and time correlation functions permits a detailed analysis of the structure and dynamics 
+of the system under consideration.  <I>n</I>MOLDYN contains modules for the calculation of dynamics-related, scattering-related and 
+structure-related properties. In addition rigid body trajectories of subunits of the system can be extracted from molecular 
+dynamics trajectory files. These subunits can be arbitrarily defined, their size can range from a few atoms to a whole 
+domain in a macromolecule. From the rigid body trajectories angular correlation functions and reorientational correlation 
+functions can be obtained.
+
+<P>
+The third generation <I>n</I>MOLDYN presented here, offers an interactive graphical user interface for standard 
+calculations, highly flexible script-based processing for non-standard applications and a machine-independent 
+compact binary file format. These improvements were made possible by the use of
+
+<OL>
+<LI><B>python</B>, a high-level object oriented langage [<A
+ HREF="node192.html#vanRossum">16</A>,<A
+ HREF="node192.html#python">17</A>];
+</LI>
+<LI><B>NumPy</B>, a python package needed for scientific computing [<A
+ HREF="node192.html#NumPy">18</A>];
+</LI>
+<LI><B>NetCDF</B>, portable binary file format and its corresponding library [<A
+ HREF="node192.html#NetCDF">5</A>,<A
+ HREF="node192.html#Davies">6</A>];
+</LI>
+<LI><B>Scientific Python</B>, an additional scientific computing library [<A
+ HREF="node192.html#Scientific1">20</A>,<A
+ HREF="node192.html#Scientific2">21</A>];
+</LI>
+<LI><B>MMTK</B>, a molecular simulation library [<A
+ HREF="node192.html#Hinsen:2000">3</A>,<A
+ HREF="node192.html#MMTK">4</A>].
+</LI>
+</OL> 
+All of these packages are developped and distributed following the Open Source principles [<A
+ HREF="node192.html#OpenSource">22</A>]; anyone can use 
+and improve them without being hindered by licensing restricitons.
+All the time-consuming algorithms use efficient implementations in C or in Pyrex, a language that allows to 
+write code that mixes Python and C data types, and compiles it into a C extension for Python [<A
+ HREF="node192.html#Pyrex">23</A>].
+
+<P>
+This NOTE is organized as follows: 
+
+<P>
+Section <A HREF="node5.html#global_introduction">1</A> gives an overview of <I>n</I>MOLDYN.
+<BR>
+Section <A HREF="node8.html#installing_nmoldyn">2</A> gives the instruction to install <I>n</I>MOLDYN properly in an existing python distribution.
+<BR>
+Section <A HREF="node11.html#input_and_output_files">3</A> describes the different <I>n</I>MOLDYN file formats.
+<BR>
+Section <A HREF="node18.html#running_nmoldyn_from_the_graphical_user_interface">4</A> describes how to set up and run an analysis in <I>n</I>MOLDYN from the <A HREF=node4.html#tex2html15 NAME="16484"><B>G</B>raphical <B>U</B>ser <B>I</B>nterface (<I>GUI</I>)</A>.
+<BR>
+Section <A HREF="node189.html#running_nmoldyn_from_the_command_line_interface">5</A> describes how to set up and run an analysis in <I>n</I>MOLDYN from the command-line interface.
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1031"
+  HREF="node6.html">New features in version 3.0</A>
+<LI><A NAME="tex2html1032"
+  HREF="node7.html">User feedback</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1029"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1025"
+  HREF="nMOLDYN_for_HTML.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1019"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1027"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1030"
+  HREF="node6.html">New features in version</A>
+<B> Up:</B> <A NAME="tex2html1026"
+  HREF="nMOLDYN_for_HTML.html">nMOLDYN_for_HTML</A>
+<B> Previous:</B> <A NAME="tex2html1020"
+  HREF="node4.html">List of Acronyms</A>
+ &nbsp <B>  <A NAME="tex2html1028"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

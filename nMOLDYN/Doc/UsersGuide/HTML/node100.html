@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Friction coefficient within the AR model</TITLE>
+<META NAME="description" CONTENT="Friction coefficient within the AR model">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="previous" HREF="node99.html">
+<LINK REL="up" HREF="node95.html">
+<LINK REL="next" HREF="node101.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2602"
+  HREF="node101.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2598"
+  HREF="node95.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2594"
+  HREF="node99.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2600"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2603"
+  HREF="node101.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2599"
+  HREF="node95.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2595"
+  HREF="node99.html">MSD within the AR</A>
+ &nbsp <B>  <A NAME="tex2html2601"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H5><A NAME="SECTION0082411150000000000000">
+Friction coefficient within the AR model</A>
+</H5> The friction coefficient is defined as the integral over 
+the memory function. In the discrete case we write
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\xi_0 := \sum_{n=0}^{\infty}\Delta t\:\xi(n) = 
+\Delta t\,\Xi_{>}(1).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:xi_0"></A><IMG
+ WIDTH="392" HEIGHT="55" BORDER="0"
+ SRC="img300.gif"
+ ALT="\begin{displaymath}
+\xi_0 := \sum_{n=0}^{\infty}\Delta t\:\xi(n) =
+\Delta t \Xi_{&gt;}(1).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.96)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+As shown in [<A
+ HREF="node192.html#Hinsen:2001">57</A>], the <A HREF=node4.html#tex2html442 NAME="19899"><I>AR</I></A> model allows us to express <IMG
+ WIDTH="54" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img301.gif"
+ ALT="${\Psi_{&gt;}(z)}$"> as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\mathrm{VACF}^{(AR)}_{>}(z)=\sum_{n=0}^{\infty}VACF^{(AR)}(n) z^{-n} = \sum_{j=1}^{P}\beta_j \frac{z_j}{z-z_j},
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:psi_ar_z"></A><IMG
+ WIDTH="487" HEIGHT="61" BORDER="0"
+ SRC="img302.gif"
+ ALT="\begin{displaymath}
+\mathrm{VACF}^{(AR)}_{&gt;}(z)=\sum_{n=0}^{\infty}VACF^{(AR)}(n) z^{-n} = \sum_{j=1}^{P}\beta_j \frac{z_j}{z-z_j},
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.97)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where the coefficients <IMG
+ WIDTH="23" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img252.gif"
+ ALT="$\beta_j$"> are given by eq. (<A HREF="node96.html#eq:beta_j">4.76</A>), and the roots <IMG
+ WIDTH="22" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img303.gif"
+ ALT="$z_j$"> must fulfill the stability 
+criterion (<A HREF="node96.html#eq:stability">4.77</A>).
+Inserting (<A HREF="node100.html#eq:psi_ar_z">4.97</A>) into (<A HREF="node98.html#eq:xi_z">4.81</A>) yields <!-- MATH
+ $\Xi^{(AR)}_{>}(z)$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img304.gif"
+ ALT="$\Xi^{(AR)}_{&gt;}(z)$">, the z-transform of the discrete memory 
+function within the <A HREF=node4.html#tex2html443 NAME="19906"><I>AR</I></A> model,
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\Xi^{(AR)}_{>}(z) = \frac{1}{\Delta t^2}
+\left(\frac{z}{\mathrm{VACF}^{(AR)}_{>}(z)} + 1 - z\right).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:xi_ar_z"></A><IMG
+ WIDTH="441" HEIGHT="56" BORDER="0"
+ SRC="img305.gif"
+ ALT="\begin{displaymath}
+\Xi^{(AR)}_{&gt;}(z) = \frac{1}{\Delta t^2}
+\left(\frac{z}{\mathrm{VACF}^{(AR)}_{&gt;}(z)} + 1 - z\right).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.98)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Using (<A HREF="node100.html#eq:xi_ar_z">4.98</A>) we obtain thus within the <A HREF=node4.html#tex2html444 NAME="19913"><I>AR</I></A> model
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\xi^{(AR)}_0 = \frac{1}{\Delta t}
+\frac{1}{\sum_{j=1}^{P}\beta_j\frac{1}{1-z_j}}.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:xi_0_2"></A><IMG
+ WIDTH="375" HEIGHT="53" BORDER="0"
+ SRC="img306.gif"
+ ALT="\begin{displaymath}
+\xi^{(AR)}_0 = \frac{1}{\Delta t}
+\frac{1}{\sum_{j=1}^{P}\beta_j\frac{1}{1-z_j}}.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.99)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+This shows that <IMG
+ WIDTH="22" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img307.gif"
+ ALT="$\xi_0$"> can be obtained from the zeros <IMG
+ WIDTH="22" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img303.gif"
+ ALT="$z_j$"> of the characteristic polynomial <IMG
+ WIDTH="38" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img308.gif"
+ ALT="$p(z)$">, defined in (<A HREF="node96.html#eq:p_z">4.74</A>).
+
+<P>
+In the framework of the autoregressive model, <I>n</I>MOLDYN allows one to calculate the <A HREF=node4.html#tex2html445 NAME="19920"><I>VACF</I></A>, the <A HREF=node4.html#tex2html446 NAME="19927"><I>VACF</I></A> memory function, the 
+<A HREF=node4.html#tex2html447 NAME="19934"><I>DOS</I></A>, the <A HREF=node4.html#tex2html448 NAME="19941"><I>MSD</I></A>, and the <A HREF=node4.html#tex2html449 NAME="19948"><I>AR</I></A> coefficients <IMG
+ WIDTH="37" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img309.gif"
+ ALT="$a_n^{(P)}$"> of the velocity trajectory, averaged over all selected atoms 
+and three Cartesian coordinates. 
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2602"
+  HREF="node101.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2598"
+  HREF="node95.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2594"
+  HREF="node99.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2600"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2603"
+  HREF="node101.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2599"
+  HREF="node95.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2595"
+  HREF="node99.html">MSD within the AR</A>
+ &nbsp <B>  <A NAME="tex2html2601"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

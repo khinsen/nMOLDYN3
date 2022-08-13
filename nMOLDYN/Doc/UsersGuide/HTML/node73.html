@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Parameters
+</TITLE>
+<META NAME="description" CONTENT="Parameters
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node74.html">
+<LINK REL="previous" HREF="node72.html">
+<LINK REL="up" HREF="node71.html">
+<LINK REL="next" HREF="node74.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2261"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2257"
+  HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2251"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2259"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2262"
+  HREF="node74.html">Output</A>
+<B> Up:</B> <A NAME="tex2html2258"
+  HREF="node71.html">Density Of States</A>
+<B> Previous:</B> <A NAME="tex2html2252"
+  HREF="node72.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html2260"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008246200000000000000"></A>
+<A NAME="dos_parameters"></A>
+<BR>
+Parameters
+<BR>
+</H4>
+Pressing the <B>Density Of States</B> button will pop up the dialog shown on figure <A HREF="node73.html#fig:dos">4.40</A>
+
+<DIV ALIGN="CENTER"><A NAME="fig:dos"></A><A NAME="7501"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.40:</STRONG>
+The dialog from where the <I>DOS</I> analysis will be set up and run.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="624" ALIGN="BOTTOM" BORDER="0"
+ SRC="img163.gif"
+ ALT="\includegraphics[width=10cm]{Figures/dos.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The following input fields controls the parameters for the <A HREF=node4.html#tex2html362 NAME="19138"><I>DOS</I></A> analysis:
+
+<P>
+
+<UL>
+<LI><B>Trajectory file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>traj_file</I> where <I>traj_file</I> is the name of the loaded trajectory
+<BR><B>Description:</B> the value of this widget can not be changed. It just recalls for information purpose the name
+of the trajectory file loaded for the analysis.
+
+<P>
+</LI>
+<LI><B>Frame selection</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>1:traj_length:1</I> where <I>traj_length</I> is the number of frames of the trajectory.
+<BR><B>Description:</B> this widget allows to select the trajectory frames that will be used for the analysis. This must
+be a string of the form:
+
+<BR>
+<BR><I>first:last:step</I>
+
+<BR>
+<BR>
+where <I>first</I> is an integer specifying the first frame number to consider, <I>last</I> is an integer specifying the last 
+frame number to consider and <I>step</I> is an integer specifying the step number between two frames.
+
+<P>
+For example,
+
+<UL>
+<LI><I>2:10:3</I> will select the frames 2, 5 and 8.
+</LI>
+<LI><I>1:5:1</I> will select the frames 1, 2, 3, 4 and 5.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>Differentiation order</B>
+<BR><B>Format:</B> integer in [0,5]
+<BR><B>Default:</B> 0 if velocities are stored in the trajectory file, 1 otherwise
+<BR><B>Description:</B> this widget allows to specify the order of the derivation scheme used to get the velocities out 
+of the coordinates. If your trajectory <A HREF=node4.html#tex2html363 NAME="19145">NetCDF</A> file already contains the velocities then just select <I>0</I>.
+However, you can still decide to get the velocities out of the coordinates. In that case, <I>n</I>MOLDYN performs a numerical 
+differentiation of the input data. To do so, <I>n</I>MOLDYN can perform numerical differentiation from order <I>1</I> to 
+order <I>5</I>. Using order <I>1</I>, the first time derivative of each point <IMG
+ WIDTH="40" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img151.gif"
+ ALT="$r(t_i)$"> 
+is calculated as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\dot{r}(t_i)=\frac{r(t_{i+1})-r(t_{i})} {\Delta t},
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="366" HEIGHT="44" BORDER="0"
+ SRC="img152.gif"
+ ALT="\begin{displaymath}
+\dot{r}(t_i)=\frac{r(t_{i+1})-r(t_{i})} {\Delta t},
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.44)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="27" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img121.gif"
+ ALT="$\Delta t$"> is the time step. 
+Choosing order <I>N</I> with <I>N=2,...,5</I>, <I>n</I>MOLDYN calculates the first time-derivative of each point 
+<IMG
+ WIDTH="40" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img151.gif"
+ ALT="$r(t_i)$"> (<IMG
+ WIDTH="82" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img153.gif"
+ ALT="$r=x,y,z$">) using the <I>N</I>-order polynomial interpolating the <I>N+1</I> points across <IMG
+ WIDTH="40" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img151.gif"
+ ALT="$r(t_i)$">, where <IMG
+ WIDTH="40" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img151.gif"
+ ALT="$r(t_i)$"> 
+belongs to this set [<A
+ HREF="node192.html#Abramowitz">52</A>].
+
+<P>
+</LI>
+<LI><B>Project displacement on</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>no</I>
+<BR><B>Description:</B> this widget allows to specify a vector along which the <A HREF=node4.html#tex2html364 NAME="19152"><I>DOS</I></A> will be computed. This vector does not 
+need to be normalized as <I>n</I>MOLDYN will perform the normalization when processing it. The entered value must have the 
+following format:
+
+<BR>
+<BR><I>vx:vy:vz</I>
+
+<BR>
+<BR>
+where <I>vx</I>, <I>vy</I> and <I>vz</I> are floats that represent respectively the <I>x</I>, <I>y</I> and <I>z</I> coordinates of the vector.
+
+<P>
+</LI>
+<LI><B>FFT window</B>
+<BR><B>Format:</B> float in [0.0,100.0]
+<BR><B>Default:</B> <I>10.0</I>
+<BR><B>Description:</B> this widget allows to define the width in percentage of the trajectory length of the Gaussian 
+function to be used in the smoothing procedure for the calculation of the <A HREF=node4.html#tex2html365 NAME="19159"><I>DOS</I></A>. See Appendix <A HREF="node193.html#fca">A</A> for more details.
+
+<P>
+</LI>
+<LI><B>Subset selection</B>
+<BR><B>Format:</B> subset selection string
+<BR><B>Default:</B> <I>all</I>
+<BR><B>Description:</B> this widget allows the selection of a subset of the system for the analysis. 
+See Section <A HREF="node37.html#subset_selection">4.2.2.1</A> for more details.
+
+<P>
+</LI>
+<LI><B>Deuteration selection</B>
+<BR><B>Format:</B> deuteration selection string
+<BR><B>Default:</B> <I>no</I>
+<BR><B>Description:</B> this widget allows the selection of a subset hydrogen atoms that will take the atomic parameters 
+of deuterium. See Section <A HREF="node41.html#deuteration_selection">4.2.2.2</A> for more details.
+
+<P>
+</LI>
+<LI><B>Weights</B>
+<BR><B>Format:</B> string equal to <I>equal</I>, <I>mass</I>, <I>coherent</I>, <I>incoherent</I> or <I>atomicNumber</I>
+<BR><B>Default:</B> <I>equal</I>
+<BR><B>Description:</B> this widget allows the selection of the weighting scheme to apply on each atomic contribution 
+to the <A HREF=node4.html#tex2html366 NAME="19166"><I>DOS</I></A>. See Section <A HREF="node35.html#weighting_scheme">4.2.1</A> for more details. 
+
+<P>
+</LI>
+<LI><B>DOS Output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>DOS_traj_file.nc</I> where <I>traj_file.nc</I> is the name of the input trajectory
+<BR><B>Description:</B> this widget allows to enter the name of the <A HREF=node4.html#tex2html367 NAME="19173">NetCDF</A> output file of the <A HREF=node4.html#tex2html368 NAME="19180"><I>DOS</I></A> analysis. A <A HREF=node4.html#tex2html369 NAME="19187">CDL</A> 
+version of the <A HREF=node4.html#tex2html370 NAME="19194">NetCDF</A> output file is also automatically created with <I>DOS_traj_file.cdl</I> name.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2261"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2257"
+  HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2251"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2259"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2262"
+  HREF="node74.html">Output</A>
+<B> Up:</B> <A NAME="tex2html2258"
+  HREF="node71.html">Density Of States</A>
+<B> Previous:</B> <A NAME="tex2html2252"
+  HREF="node72.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html2260"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

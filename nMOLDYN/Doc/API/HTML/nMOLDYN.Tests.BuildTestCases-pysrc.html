@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>nMOLDYN.Tests.BuildTestCases</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="nMOLDYN-module.html">Package&nbsp;nMOLDYN</a> ::
+        <a href="nMOLDYN.Tests-module.html">Package&nbsp;Tests</a> ::
+        Module&nbsp;BuildTestCases
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="nMOLDYN.Tests.BuildTestCases-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="nMOLDYN.Tests.BuildTestCases-module.html">Module nMOLDYN.Tests.BuildTestCases</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># This python script creates automatically the test cases for a given analysis.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># It needs:</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#   -the file 'testContents.txt' located in REFERENCES\ANALYSIS directory where</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># ANALYSIS is the name of the analysis for which the test cases should be built (i.e. MSD, VACF ...).</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">MMTK</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Units</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable nMOLDYN.Analysis.Analysis.nmoldyn_package_path=nMOLDYN.Analysis.Analysis-module.html#nmoldyn_package_path,Variable nMOLDYN.Analysis.Template.nmoldyn_package_path=nMOLDYN.Analysis.Template-module.html#nmoldyn_package_path,Variable nMOLDYN.GUI.CheckJobsStatusDialog.nmoldyn_package_path=nMOLDYN.GUI.CheckJobsStatusDialog-module.html#nmoldyn_package_path,Variable nMOLDYN.GUI.GeneralInformationsDialog.nmoldyn_package_path=nMOLDYN.GUI.GeneralInformationsDialog-module.html#nmoldyn_package_path,Variable nMOLDYN.GUI.MainDialog.nmoldyn_package_path=nMOLDYN.GUI.MainDialog-module.html#nmoldyn_package_path,Variable nMOLDYN.GUI.Widgets.nmoldyn_package_path=nMOLDYN.GUI.Widgets-module.html#nmoldyn_package_path,Variable nMOLDYN.Tests.BuildTestCases.nmoldyn_package_path=nMOLDYN.Tests.BuildTestCases-module.html#nmoldyn_package_path,Variable nMOLDYN.nmoldyn_package_path=nMOLDYN-module.html#nmoldyn_package_path"><a title="nMOLDYN.Analysis.Analysis.nmoldyn_package_path
+nMOLDYN.Analysis.Template.nmoldyn_package_path
+nMOLDYN.GUI.CheckJobsStatusDialog.nmoldyn_package_path
+nMOLDYN.GUI.GeneralInformationsDialog.nmoldyn_package_path
+nMOLDYN.GUI.MainDialog.nmoldyn_package_path
+nMOLDYN.GUI.Widgets.nmoldyn_package_path
+nMOLDYN.Tests.BuildTestCases.nmoldyn_package_path
+nMOLDYN.nmoldyn_package_path" class="py-name" href="#" onclick="return doclink('link-0', 'nmoldyn_package_path', 'link-0');">nmoldyn_package_path</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'/home/cs/pellegrini/nMOLDYN/development'</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method nMOLDYN.GUI.Widgets.ComboListbox.insert()=nMOLDYN.GUI.Widgets.ComboListbox-class.html#insert,Method nMOLDYN.GUI.Widgets.ComboText.insert()=nMOLDYN.GUI.Widgets.ComboText-class.html#insert"><a title="nMOLDYN.GUI.Widgets.ComboListbox.insert
+nMOLDYN.GUI.Widgets.ComboText.insert" class="py-name" href="#" onclick="return doclink('link-1', 'insert', 'link-1');">insert</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name"><a title="nMOLDYN.Analysis.Analysis.nmoldyn_package_path
+nMOLDYN.Analysis.Template.nmoldyn_package_path
+nMOLDYN.GUI.CheckJobsStatusDialog.nmoldyn_package_path
+nMOLDYN.GUI.GeneralInformationsDialog.nmoldyn_package_path
+nMOLDYN.GUI.MainDialog.nmoldyn_package_path
+nMOLDYN.GUI.Widgets.nmoldyn_package_path
+nMOLDYN.Tests.BuildTestCases.nmoldyn_package_path
+nMOLDYN.nmoldyn_package_path" class="py-name" href="#" onclick="return doclink('link-2', 'nmoldyn_package_path', 'link-0');">nmoldyn_package_path</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable nMOLDYN.Tests.BuildTestCases.analysis=nMOLDYN.Tests.BuildTestCases-module.html#analysis"><a title="nMOLDYN.Tests.BuildTestCases.analysis" class="py-name" href="#" onclick="return doclink('link-3', 'analysis', 'link-3');">analysis</a></tt> <tt class="py-op">=</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">argv</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable nMOLDYN.Tests.BuildTestCases.testContents=nMOLDYN.Tests.BuildTestCases-module.html#testContents"><a title="nMOLDYN.Tests.BuildTestCases.testContents" class="py-name" href="#" onclick="return doclink('link-4', 'testContents', 'link-4');">testContents</a></tt> <tt class="py-op">=</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-5" class="py-name"><a title="nMOLDYN.Tests.BuildTestCases.analysis" class="py-name" href="#" onclick="return doclink('link-5', 'analysis', 'link-3');">analysis</a></tt><tt class="py-op">,</tt><tt class="py-string">'TestsContents.py'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">'r'</tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-keyword">exec</tt> <tt id="link-6" class="py-name"><a title="nMOLDYN.Tests.BuildTestCases.testContents" class="py-name" href="#" onclick="return doclink('link-6', 'testContents', 'link-4');">testContents</a></tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt id="link-7" class="py-name"><a title="nMOLDYN.Tests.BuildTestCases.testContents" class="py-name" href="#" onclick="return doclink('link-7', 'testContents', 'link-4');">testContents</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method nMOLDYN.Core.IOFiles.TemporaryFile.close()=nMOLDYN.Core.IOFiles.TemporaryFile-class.html#close,Method nMOLDYN.Core.Logger.LogToFile.close()=nMOLDYN.Core.Logger.LogToFile-class.html#close"><a title="nMOLDYN.Core.IOFiles.TemporaryFile.close
+nMOLDYN.Core.Logger.LogToFile.close" class="py-name" href="#" onclick="return doclink('link-8', 'close', 'link-8');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">for</tt> <tt class="py-name">t</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name" targets="Variable nMOLDYN.Tests.ARA.TestsContents.test=nMOLDYN.Tests.ARA.TestsContents-module.html#test,Variable nMOLDYN.Tests.AVACF.TestsContents.test=nMOLDYN.Tests.AVACF.TestsContents-module.html#test,Variable nMOLDYN.Tests.DCSF.TestsContents.test=nMOLDYN.Tests.DCSF.TestsContents-module.html#test,Variable nMOLDYN.Tests.DISF.TestsContents.test=nMOLDYN.Tests.DISF.TestsContents-module.html#test,Variable nMOLDYN.Tests.DISFG.TestsContents.test=nMOLDYN.Tests.DISFG.TestsContents-module.html#test,Variable nMOLDYN.Tests.DOS.TestsContents.test=nMOLDYN.Tests.DOS.TestsContents-module.html#test,Variable nMOLDYN.Tests.EISF.TestsContents.test=nMOLDYN.Tests.EISF.TestsContents-module.html#test,Variable nMOLDYN.Tests.MSD.TestsContents.test=nMOLDYN.Tests.MSD.TestsContents-module.html#test,Variable nMOLDYN.Tests.VACF.TestsContents.test=nMOLDYN.Tests.VACF.TestsContents-module.html#test"><a title="nMOLDYN.Tests.ARA.TestsContents.test
+nMOLDYN.Tests.AVACF.TestsContents.test
+nMOLDYN.Tests.DCSF.TestsContents.test
+nMOLDYN.Tests.DISF.TestsContents.test
+nMOLDYN.Tests.DISFG.TestsContents.test
+nMOLDYN.Tests.DOS.TestsContents.test
+nMOLDYN.Tests.EISF.TestsContents.test
+nMOLDYN.Tests.MSD.TestsContents.test
+nMOLDYN.Tests.VACF.TestsContents.test" class="py-name" href="#" onclick="return doclink('link-9', 'test', 'link-9');">test</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt class="py-name">tInd</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">t</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-name">referenceTestFile</tt> <tt class="py-op">=</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-10" class="py-name"><a title="nMOLDYN.Tests.BuildTestCases.analysis" class="py-name" href="#" onclick="return doclink('link-10', 'analysis', 'link-3');">analysis</a></tt><tt class="py-op">,</tt> <tt id="link-11" class="py-name"><a title="nMOLDYN.Tests.BuildTestCases.analysis" class="py-name" href="#" onclick="return doclink('link-11', 'analysis', 'link-3');">analysis</a></tt> <tt class="py-op">+</tt> <tt class="py-name">tInd</tt> <tt class="py-op">+</tt><tt class="py-string">'_Reference.inp'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">'w'</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-name">referenceTestFile</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.write()=nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter-class.html#write"><a title="nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.write" class="py-name" href="#" onclick="return doclink('link-12', 'write', 'link-12');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'from MMTK import *\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">key</tt><tt class="py-op">,</tt> <tt class="py-name">val</tt> <tt class="py-keyword">in</tt> <tt id="link-13" class="py-name" targets="Variable nMOLDYN.Tests.ARA.TestsContents.template=nMOLDYN.Tests.ARA.TestsContents-module.html#template,Variable nMOLDYN.Tests.AVACF.TestsContents.template=nMOLDYN.Tests.AVACF.TestsContents-module.html#template,Variable nMOLDYN.Tests.DCSF.TestsContents.template=nMOLDYN.Tests.DCSF.TestsContents-module.html#template,Variable nMOLDYN.Tests.DISF.TestsContents.template=nMOLDYN.Tests.DISF.TestsContents-module.html#template,Variable nMOLDYN.Tests.DISFG.TestsContents.template=nMOLDYN.Tests.DISFG.TestsContents-module.html#template,Variable nMOLDYN.Tests.DOS.TestsContents.template=nMOLDYN.Tests.DOS.TestsContents-module.html#template,Variable nMOLDYN.Tests.EISF.TestsContents.template=nMOLDYN.Tests.EISF.TestsContents-module.html#template,Variable nMOLDYN.Tests.MSD.TestsContents.template=nMOLDYN.Tests.MSD.TestsContents-module.html#template,Variable nMOLDYN.Tests.VACF.TestsContents.template=nMOLDYN.Tests.VACF.TestsContents-module.html#template"><a title="nMOLDYN.Tests.ARA.TestsContents.template
+nMOLDYN.Tests.AVACF.TestsContents.template
+nMOLDYN.Tests.DCSF.TestsContents.template
+nMOLDYN.Tests.DISF.TestsContents.template
+nMOLDYN.Tests.DISFG.TestsContents.template
+nMOLDYN.Tests.DOS.TestsContents.template
+nMOLDYN.Tests.EISF.TestsContents.template
+nMOLDYN.Tests.MSD.TestsContents.template
+nMOLDYN.Tests.VACF.TestsContents.template" class="py-name" href="#" onclick="return doclink('link-13', 'template', 'link-13');">template</a></tt><tt class="py-op">[</tt><tt class="py-string">'REF'</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt id="link-14" class="py-name"><a title="nMOLDYN.Tests.ARA.TestsContents.test
+nMOLDYN.Tests.AVACF.TestsContents.test
+nMOLDYN.Tests.DCSF.TestsContents.test
+nMOLDYN.Tests.DISF.TestsContents.test
+nMOLDYN.Tests.DISFG.TestsContents.test
+nMOLDYN.Tests.DOS.TestsContents.test
+nMOLDYN.Tests.EISF.TestsContents.test
+nMOLDYN.Tests.MSD.TestsContents.test
+nMOLDYN.Tests.VACF.TestsContents.test" class="py-name" href="#" onclick="return doclink('link-14', 'test', 'link-9');">test</a></tt><tt class="py-op">[</tt><tt class="py-name">t</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">'REF'</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">val</tt><tt class="py-op">,</tt> <tt class="py-name">str</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">            <tt class="py-name">referenceTestFile</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.write" class="py-name" href="#" onclick="return doclink('link-15', 'write', 'link-12');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'%s = %s\n'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">,</tt> <tt class="py-name">repr</tt><tt class="py-op">(</tt><tt class="py-name">val</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">            <tt class="py-name">referenceTestFile</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="nMOLDYN.GUI.HTMLReader.tkhtml.tkHTMLWriter.write" class="py-name" href="#" onclick="return doclink('link-16', 'write', 'link-12');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">'%s = %s\n'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">,</tt> <tt class="py-name">val</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt class="py-name">referenceTestFile</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="nMOLDYN.Core.IOFiles.TemporaryFile.close
+nMOLDYN.Core.Logger.LogToFile.close" class="py-name" href="#" onclick="return doclink('link-17', 'close', 'link-8');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct  8 16:57:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

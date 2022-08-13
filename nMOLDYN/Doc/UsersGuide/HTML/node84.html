@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node88.html">
+<LINK REL="previous" HREF="node83.html">
+<LINK REL="up" HREF="node83.html">
+<LINK REL="next" HREF="node85.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2399"
+  HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2395"
+  HREF="node83.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2389"
+  HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2397"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2400"
+  HREF="node85.html">Optimal superposition.</A>
+<B> Up:</B> <A NAME="tex2html2396"
+  HREF="node83.html">Rigid-Body Trajectory</A>
+<B> Previous:</B> <A NAME="tex2html2390"
+  HREF="node83.html">Rigid-Body Trajectory</A>
+ &nbsp <B>  <A NAME="tex2html2398"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008249100000000000000"></A>
+<A NAME="rbt_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+To analyze the dynamics of complex molecular systems it is often desirable to consider the overall motion of 
+molecules or molecular subunits. We will call this motion rigid-body motion in the following. Rigid-body motions 
+are fully determined by the dynamics of the centroid, which may be the center-of-mass, and the dynamics of the
+angular coordinates describing the orientation of the rigid body. The angular coordinates are the appropriate 
+variables to compute angular correlation functions of molecular systems in space and time. In most cases, however, 
+these variables are not directly available from <A HREF=node4.html#tex2html392 NAME="19355">MD</A> simulations since <A HREF=node4.html#tex2html393 NAME="19362">MD</A> algorithms typically work in cartesian coordinates. 
+Molecules are either treated as flexible, or, if they are treated as rigid, constraints are taken into account in the 
+framework of cartesian coordinates [<A
+ HREF="node192.html#Berendsen">54</A>]. In <I>n</I>MOLDYN, <A HREF=node4.html#tex2html394 NAME="19369"><B>R</B>igid-<B>B</B>ody <B>T</B>rajectory (<I>RBT</I>)</A> can be defined from a 
+<A HREF=node4.html#tex2html395 NAME="19376">MD</A> trajectory by fitting rigid reference structures, defining a (sub)molecule, to the corresponding structure in each time 
+frame of the trajectory. Here `fit' means the optimal superposition of the structures in a least-squares sense. We will 
+describe now how rigid body motions, i.e. global translations and rotations of molecules or  subunits of complex molecules, 
+can be extracted from a <A HREF=node4.html#tex2html396 NAME="19383">MD</A> trajectory. A more detailed presentation is given in [<A
+ HREF="node192.html#Kneller:1991">55</A>]. We define 
+an optimal rigid-body trajectory in the following way: for each time frame of the trajectory the atomic positions of a rigid 
+reference structure, defined by the three cartesian components of its centroid (e.g. the center of mass) and three angles, are as 
+close as possible to the atomic positions of the corresponding structure in  the <A HREF=node4.html#tex2html397 NAME="19390">MD</A> configuration. Here `as close as possible' means as close 
+as possible in a least-squares sense.  
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2401"
+  HREF="node85.html">Optimal superposition.</A>
+<LI><A NAME="tex2html2402"
+  HREF="node86.html">Quaternions and rotations.</A>
+<LI><A NAME="tex2html2403"
+  HREF="node87.html">Solution of the minimization problem.</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2399"
+  HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2395"
+  HREF="node83.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2389"
+  HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2397"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2400"
+  HREF="node85.html">Optimal superposition.</A>
+<B> Up:</B> <A NAME="tex2html2396"
+  HREF="node83.html">Rigid-Body Trajectory</A>
+<B> Previous:</B> <A NAME="tex2html2390"
+  HREF="node83.html">Rigid-Body Trajectory</A>
+ &nbsp <B>  <A NAME="tex2html2398"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

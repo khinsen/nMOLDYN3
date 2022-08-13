@@ -1,0 +1,389 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node105.html">
+<LINK REL="previous" HREF="node103.html">
+<LINK REL="up" HREF="node103.html">
+<LINK REL="next" HREF="node105.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2651"
+  HREF="node105.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2647"
+  HREF="node103.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2641"
+  HREF="node103.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2649"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2652"
+  HREF="node105.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2648"
+  HREF="node103.html">Quasi Harmonic Analysis</A>
+<B> Previous:</B> <A NAME="tex2html2642"
+  HREF="node103.html">Quasi Harmonic Analysis</A>
+ &nbsp <B>  <A NAME="tex2html2650"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION0082412100000000000000"></A>
+<A NAME="qha_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+<A HREF=node4.html#tex2html472 NAME="20147"><I>QHA</I></A> is a method for obtaining effective modes of vibration from fluctuations calculated by a <A HREF=node4.html#tex2html473 NAME="20154">MD</A> 
+simulation. The underlying principle is that from atomic fluctuations, an effective force field can be calculated 
+relative to the average dynamic structure that yields the same fluctuation matrix as that obtained from a normal mode 
+calculation. Since the fluctuation matrix is inversely proportional to the effective force constant matrix, they have common 
+eigenvectors which correspond to the quasiharmonic modes of vibration. Quasiharmonic modes  can be analyzed in the same way 
+as normal modes, and comparison of the results with those from harmonic approximation calculations for the same system is 
+straightforward.
+
+<P>
+The way to perform a <A HREF=node4.html#tex2html474 NAME="20161"><I>QHA</I></A> in <I>n</I>MOLDYN is based on the diagonalization of the fluctuation matrix that can be easily retrieved 
+from a <A HREF=node4.html#tex2html475 NAME="20168">MD</A> simulation. Indeed, from a <A HREF=node4.html#tex2html476 NAME="20175">MD</A> simulation, coordinates which define the position of all atoms as a function of time are
+saved at each step of the <A HREF=node4.html#tex2html477 NAME="20182">MD</A>. From these coordinates, both the average position <!-- MATH
+ $\langle \mathbf{x} \rangle$
+ -->
+<IMG
+ WIDTH="31" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img312.gif"
+ ALT="$\langle \mathbf{x} \rangle$"> and the 
+covariance matrix of fluctuations about the average position <IMG
+ WIDTH="17" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img313.gif"
+ ALT="$\sigma$"> can be calculated the latter being defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\sigma_{ij} = \left\langle \left ( x_{i} - \langle x \rangle \right ) \left ( x_{j} - \langle x \rangle \right )\right\rangle
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="385" HEIGHT="32" BORDER="0"
+ SRC="img314.gif"
+ ALT="\begin{displaymath}
+\sigma_{ij} = \left\langle \left ( x_{i} - \langle x \rangle \right ) \left ( x_{j} - \langle x \rangle \right )\right\rangle
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.101)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+with variances as the diagonal elements and with covariances as the off-diagonal elements.
+
+<P>
+Once the covariance matrix of fluctuations is obtained, the Quasi-Harmonic modes of vibration <IMG
+ WIDTH="31" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img315.gif"
+ ALT="$\Delta x$"> and their 
+corresponding frequencies <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img316.gif"
+ ALT="$\omega$"> are calculated by solving (diagonalizing) the equation:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\left ( \mathbf{\sigma^{\prime}} - \lambda^{\prime} \mathbf{I}\right )\mathbf{\eta} = 0
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:qha"></A><IMG
+ WIDTH="339" HEIGHT="32" BORDER="0"
+ SRC="img317.gif"
+ ALT="\begin{displaymath}
+\left ( \mathbf{\sigma^{\prime}} - \lambda^{\prime} \mathbf{I}\right )\mathbf{\eta} = 0
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.102)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="14" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img318.gif"
+ ALT="$\mathbf{I}$"> is the identity matrix and 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\mathbf{\sigma^{\prime}} = \mathbf{M^{1/2}} \mathbf{\sigma} \mathbf{M^{1/2}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="346" HEIGHT="27" BORDER="0"
+ SRC="img319.gif"
+ ALT="\begin{displaymath}
+\mathbf{\sigma^{\prime}} = \mathbf{M^{1/2}} \mathbf{\sigma} \mathbf{M^{1/2}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.103)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<IMG
+ WIDTH="25" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img320.gif"
+ ALT="$\mathbf{M}$"> being the diagonal mass matrix.
+
+<P>
+The solutions of <A HREF="node104.html#eq:qha">4.102</A> yielding:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\omega = \left (k_{B}T/\lambda^{\prime} \right )^{1/2}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:qha_omega"></A><IMG
+ WIDTH="343" HEIGHT="32" BORDER="0"
+ SRC="img321.gif"
+ ALT="\begin{displaymath}
+\omega = \left (k_{B}T/\lambda^{\prime} \right )^{1/2}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.104)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\mathbf{\Delta x} = \mathbf{M}^{-1/2}\mathbf{\eta}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:qha_dx"></A><IMG
+ WIDTH="336" HEIGHT="30" BORDER="0"
+ SRC="img322.gif"
+ ALT="\begin{displaymath}
+\mathbf{\Delta x} = \mathbf{M}^{-1/2}\mathbf{\eta}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.105)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+Once the normal modes have been obtained, a great variety of analysis can be performed. <I>n</I>MOLDYN proposes some of 
+them namely:
+
+<UL>
+<LI>Local and global character indicator
+
+<P>
+Normal modes of vibration can involve all the atoms of the system, as in the case of low-frequency global deformation motions, or 
+be localized in one particular part of the molecule. It is useful to have indicators which define the degree of global character or local 
+character for particular modes of vibration. Since the eigen vectors form an orthonormal basis 
+<!-- MATH
+ $\sum_{j = 1}^{3N} \Delta x_{ji}^2 = 1$
+ -->
+<IMG
+ WIDTH="119" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img323.gif"
+ ALT="$\sum_{j = 1}^{3N} \Delta x_{ji}^2 = 1$"> where <I>N</I> is the number of selected atoms, a local character indicator is given by:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+lci = \sum_{j = 1}^{3N} \Delta x_{ji}^4
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:qha_lci"></A><IMG
+ WIDTH="333" HEIGHT="61" BORDER="0"
+ SRC="img324.gif"
+ ALT="\begin{displaymath}
+lci = \sum_{j = 1}^{3N} \Delta x_{ji}^4
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.106)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+which is large for modes <I>i</I> with significant local character. The global character indicator is given by:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+gci = \sum_{j = 1}^{3N} \frac{|\Delta x_{ji}|}{\sqrt{3N}}^{-4}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:qha_gci"></A><IMG
+ WIDTH="351" HEIGHT="61" BORDER="0"
+ SRC="img325.gif"
+ ALT="\begin{displaymath}
+gci = \sum_{j = 1}^{3N} \frac{\vert\Delta x_{ji}\vert}{\sqrt{3N}}^{-4}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.107)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+which is large for modes <I>i</I> without significant global character. These indicators are not invariant with the orientation of the 
+system and are only qualitative indicators of character because only the sum of the squares is invariant to rotation. If the motion is 
+dominated by a single component of a single-atom, then <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img326.gif"
+ ALT="$\Delta x_i$"> will be close to unity for that element and zero for all others. This
+results in the maximum possible value for the local characteer indicator of 1 and a maximum for the lack of global character 
+indicator of <IMG
+ WIDTH="39" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img327.gif"
+ ALT="$9N^2$">. The other extreme is represented by a net translation of all atoms in the <I>(1,1,1)</I> direction, where all elements are the 
+same with a value of <IMG
+ WIDTH="46" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img328.gif"
+ ALT="$\sqrt{3N}$">. In this case the local character indicator has a minimum value of <IMG
+ WIDTH="49" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img329.gif"
+ ALT="$3N^{-1}$"> and the lack of global character 
+indicator will hav a minimum of 1. Modes with significant mixing of global and local character may have a large local indicator and a small lack of global 
+character indicator; thus two indicators are needed to evaluate the character of the motion.
+
+<P>
+</LI>
+<LI>Projection of <A HREF=node4.html#tex2html478 NAME="20189">MD</A> trajectories onto normal modes
+
+<P>
+It is useful to compare normal modes of vibration (or other type of motion) with the <A HREF=node4.html#tex2html479 NAME="20196">MD</A> simulation. This allows examination of the 
+amplitudes of this type of motion and the time scales. This is a straightforward procedure in which the effects of solvent damping may be explored for the *
+case in which the <A HREF=node4.html#tex2html480 NAME="20203">MD</A> simulation is carried out with explicit solvent even if the normal mode calculation is carried out in vaccuum. The procedure 
+is to generate a time series of the projection of the difference of trajectory position and the average position into a mode of interest given by:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+A_a(t) = \sum_{i=1}^{3N} \Delta x_{ai} M_i^{\frac{1}{2}} \left(x_i(t) - \langle x_i\rangle\right)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:qha_at"></A><IMG
+ WIDTH="409" HEIGHT="58" BORDER="0"
+ SRC="img330.gif"
+ ALT="\begin{displaymath}
+A_a(t) = \sum_{i=1}^{3N} \Delta x_{ai} M_i^{\frac{1}{2}} \left(x_i(t) - \langle x_i\rangle\right)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.108)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+This time series can be evaluated with standard procedures to determine correlation functions and spectra. It is also useful in analyzing the 
+results of a <A HREF=node4.html#tex2html481 NAME="20210"><I>QHA</I></A> analysis to determine which modes are predominantly vibrational in character and which arise mainly from jumping between energy 
+substates.
+</LI>
+</UL>
+
+<P>
+Beside the quantitative analysis described above, one of the best way to understand a normal mode of vibration is through a 
+visual examination. To do this, a trajectory must be created which depicts the molecular system as a function of time from a 
+given starting configuration. For a set of normal modes to view, this trajectory is given by:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\textbf{x}(t) = \langle \textbf{x} \rangle + \sum_{i=1}^{N_{modes}} \alpha_i M^{-\frac{1}{2}}\Delta x_i cos(\omega_i t)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:qha_trajectory"></A><IMG
+ WIDTH="426" HEIGHT="59" BORDER="0"
+ SRC="img331.gif"
+ ALT="\begin{displaymath}
+\textbf{x}(t) = \langle \textbf{x} \rangle + \sum_{i=1}^{N_{modes}} \alpha_i M^{-\frac{1}{2}}\Delta x_i cos(\omega_i t)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.109)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="23" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img332.gif"
+ ALT="$\alpha_i$"> and <IMG
+ WIDTH="23" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img333.gif"
+ ALT="$\omega_i$"> are respectively the amplitude and frequency of the motion associated to normal mode <IMG
+ WIDTH="12" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.gif"
+ ALT="$i$"> and 
+<IMG
+ WIDTH="59" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img334.gif"
+ ALT="$N_{modes}$"> is the number of selected normal modes to visualize. <I>n</I>MOLDYN allows the visualization of normal modes through a 
+specific viewer (see Section <A HREF="node182.html#effective_mode">4.3.3</A>).
+
+<P>
+For more details about QHA and related techniques please refer to Ref. [<A
+ HREF="node192.html#Karplus">53</A>]
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2651"
+  HREF="node105.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2647"
+  HREF="node103.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2641"
+  HREF="node103.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2649"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2652"
+  HREF="node105.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2648"
+  HREF="node103.html">Quasi Harmonic Analysis</A>
+<B> Previous:</B> <A NAME="tex2html2642"
+  HREF="node103.html">Quasi Harmonic Analysis</A>
+ &nbsp <B>  <A NAME="tex2html2650"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

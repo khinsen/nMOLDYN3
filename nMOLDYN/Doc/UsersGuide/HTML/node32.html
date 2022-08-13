@@ -1,0 +1,340 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Preferences</TITLE>
+<META NAME="description" CONTENT="Preferences">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node33.html">
+<LINK REL="previous" HREF="node31.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node33.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1538"
+  HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1534"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1528"
+  HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1536"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1539"
+  HREF="node33.html">Quit</A>
+<B> Up:</B> <A NAME="tex2html1535"
+  HREF="node19.html">The File menu</A>
+<B> Previous:</B> <A NAME="tex2html1529"
+  HREF="node31.html">Convert ASCII to NetCDF</A>
+ &nbsp <B>  <A NAME="tex2html1537"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION008160000000000000000"></A>
+<A NAME="preferences"></A>
+<BR>
+Preferences
+</H2>
+The <B>Preferences</B> option allows to set the <I>n</I>MOLDYN preferences using the <B>ConfigParser</B> Python-module mechanism 
+[<A
+ HREF="node192.html#ConfigParser">46</A>]. In <I>n</I>MOLDYN the preferences are classified in the three following sections:
+
+<UL>
+<LI>File handling: contains the preferences variables related to the file handled by <I>n</I>MOLDYN (log file, output file ...),
+</LI>
+<LI>External programs: contains the preferences variables related to the actions performed by <I>n</I>MOLDYN that require 
+an external program (e.g. displaying the documentation, animating a trajectory, converting <A HREF=node4.html#tex2html209 NAME="17828">NetCDF</A> to ASCII or ASCII 
+to <A HREF=node4.html#tex2html210 NAME="17835">NetCDF</A> ...),
+</LI>
+<LI>Miscellaneous: contains the other preferences variables that could not be classified elssewhere.
+</LI>
+</UL>
+Pressing the <B>Preferences</B> menubutton will pop up the dialog shown in figure <A HREF="node32.html#fig:preferences_file_handling">4.16</A>. 
+
+<DIV ALIGN="CENTER"><A NAME="fig:preferences_file_handling"></A><A NAME="1095"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.16:</STRONG>
+The dialog used to set up <I>n</I>MOLDYN preferences.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="452" HEIGHT="380" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.gif"
+ ALT="\includegraphics[width=10cm]{Figures/preferences_file_handling.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+By default, the dialog for <B>File handling</B> section is displayed. Clicking on the <B>File handling</B>, 
+<B>External programs</B> or <B>Miscellaneous</B> radiobutton will display the dialog corresponding to the selected 
+section (see Figure <A HREF="node32.html#fig:preferences_sections">4.17</A>).
+
+<DIV ALIGN="CENTER"><A NAME="fig:preferences_sections"></A><A NAME="7447"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.17:</STRONG>
+The three preferences sections dialogs available in <I>n</I>MOLDYN. On the left, 
+the <B>file handling</B> section, on the middle the <B>external programs</B> section and on the right, the <B>miscellaneous</B> section.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="235" HEIGHT="198" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.gif"
+ ALT="\includegraphics[width=5.2cm]{Figures/preferences_file_handling.eps}">
+<IMG
+ WIDTH="235" HEIGHT="198" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.gif"
+ ALT="\includegraphics[width=5.2cm]{Figures/preferences_external_programs.eps}">
+<IMG
+ WIDTH="235" HEIGHT="198" ALIGN="BOTTOM" BORDER="0"
+ SRC="img30.gif"
+ ALT="\includegraphics[width=5.2cm]{Figures/preferences_miscellaneous.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+Each preference section dialog contains an entry for each of its associated preferences variable initialized with a 
+default value. Here is the list of the <I>n</I>MOLDYN preferences variables:
+
+<UL>
+<LI><B>Logfile path</B>
+<BR><B>Section:</B> File handling
+<BR><B>Preferences variable name:</B> logfile_path
+<BR><B>Format:</B> string
+<BR><B>Default:</B> The user $HOME directory
+<BR><B>Description:</B> The path for the directory where the <I>n</I>MOLDYN log files will be written.
+
+<P>
+</LI>
+<LI><B>Trajectory file path</B>
+<BR><B>Section:</B> File handling
+<BR><B>Preferences variable name:</B> trajfile_path
+<BR><B>Format:</B> string
+<BR><B>Default:</B> The user $HOME directory
+<BR><B>Description:</B> The path for the directory where the <A HREF=node4.html#tex2html211 NAME="17842">MMTK</A> <A HREF=node4.html#tex2html212 NAME="17849">NetCDF</A> trajectories will be loaded by default.
+
+<P>
+</LI>
+<LI><B>Output file path</B>
+<BR><B>Section:</B> File handling
+<BR><B>Preferences variable name:</B> outputfile_path
+<BR><B>Format:</B> string
+<BR><B>Default:</B> The user $HOME directory
+<BR><B>Description:</B> The path for the directory where the <I>n</I>MOLDYN output files will be written.
+
+<P>
+</LI>
+<LI><B>Acrobat reader path</B>
+<BR><B>Section:</B> External programs
+<BR><B>Preferences variable name:</B> acroread_path
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> The path for the acrobat reader executable. If this path is not set, it will not be possible to display the 
+documentation in pdf format.
+
+<P>
+</LI>
+<LI><B>VMD molecular viewer path</B>
+<BR><B>Section:</B> External programs
+<BR><B>Preferences variable name:</B> vmd_path
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> The path for the <B>VMD</B> molecular viewer executable [<A
+ HREF="node192.html#VMD">33</A>]. If this path is not set, the 
+<B>Animate</B> and <B>Effective mode</B> options of the <B>View</B>  menu will be disabled.
+
+</LI>
+<LI><B>ncdump path</B>
+<BR><B>Section:</B> External programs
+<BR><B>Preferences variable name:</B> ncdump_path
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> The path for the <B>ncdump</B> executable. If this path is not set, the 
+<B>Convert NetCDF to ASCII</B> option of the <B>File</B> menu will be disabled.
+
+<P>
+</LI>
+<LI><B>ncgen path</B>
+<BR><B>Section:</B> External programs
+<BR><B>Preferences variable name:</B> ncgen_path
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> The path for the <B>ncgen</B> executable. 
+If this path is not set, the <B>Convert ASCII to NetCDF</B> option of the <B>File</B> menu will be disabled.
+
+<P>
+</LI>
+<LI><B>Progress rate</B>
+<BR><B>Section:</B> Miscellaneous
+<BR><B>Preferences variable name:</B> progress_rate
+<BR><B>Format:</B> not an editable entry
+<BR><B>Default:</B> <I>10</I>
+<BR><B>Description:</B> The rate at which the progress of a <I>n</I>MOLDYN analysis will be displayed on the console and written 
+in the <I>n</I>MOLDYN log file.
+
+<P>
+</LI>
+<LI><B>Documentation style</B>
+<BR><B>Section:</B> Miscellaneous
+<BR><B>Preferences variable name:</B> documentation_style
+<BR><B>Format:</B> not an editable entry
+<BR><B>Default:</B> <I>html</I>
+<BR><B>Description:</B> The format for the <I>n</I>MOLDYN users guide when clicking on <I>Help -<IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.gif"
+ ALT="$&gt;$"> Help</I> item and for the 
+online help. HTML if <B>html</B> is selected, PDF if <B>pdf</B> is selected.
+
+<P>
+</LI>
+<LI><B>ncdump missing</B>
+<BR><B>Section:</B> Miscellaneous
+<BR><B>Preferences variable name:</B> warning_ncdump
+<BR><B>Format:</B> no an editable entry
+<BR><B>Default:</B> <I>yes</I>
+<BR><B>Description:</B> If set to <I>yes</I>, you will be informed if <B>ncdump</B> was not found at each <I>n</I>MOLDYN start 
+and each time the <B>Preferences</B> dialog is closed.
+
+<P>
+</LI>
+<LI><B>ncgen missing</B>
+<BR><B>Section:</B> Miscellaneous
+<BR><B>Preferences variable name:</B> warning_ncgen
+<BR><B>Format:</B> no an editable entry
+<BR><B>Default:</B> <I>yes</I>
+<BR><B>Description:</B> If set to <I>yes</I>, you will be informed if <B>ncgen</B> was not found at each <I>n</I>MOLDYN start 
+and each time the <B>Preferences</B> dialog is closed.
+
+<P>
+</LI>
+<LI><B>VMD missing</B>
+<BR><B>Section:</B> Miscellaneous
+<BR><B>Preferences variable name:</B> warning_vmd
+<BR><B>Format:</B> no an editable entry
+<BR><B>Default:</B> <I>yes</I>
+<BR><B>Description:</B> If set to <I>yes</I>, you will be informed if <B>VMD</B> was not found at each <I>n</I>MOLDYN start 
+and each time the <B>Preferences</B> dialog is closed.
+
+<P>
+</LI>
+<LI><B>acrobat reader missing</B>
+<BR><B>Section:</B> Miscellaneous
+<BR><B>Preferences variable name:</B> warning_acroread
+<BR><B>Format:</B> no an editable entry
+<BR><B>Default:</B> <I>yes</I>
+<BR><B>Description:</B> If set to <I>yes</I>, you will be informed if <B>acrobat reader</B> was not found at each <I>n</I>MOLDYN start 
+and each time the <B>Preferences</B> dialog is closed.
+</LI>
+</UL>
+
+<P>
+The <B>Actions</B> frame contains four buttons which are respectively:
+
+<UL>
+<LI><B>Cancel</B>
+</LI>
+<LI><B>Save</B>
+</LI>
+<LI><B>Load</B>
+</LI>
+<LI><B>OK</B>
+</LI>
+</UL> 
+Pressing the <B>Cancel</B> button will cancel the preferences settings and close the preferences dialog leaving the preferences in the state they
+were when opening the <B>Preferences</B> dialog. 
+Pressing the <B>Save</B> button will pop up a file browser from which you will select a location to save the preferences. 
+By default, the preferences file name is:
+
+<BR>
+<BR><TT>$USERPROFILE&#92;Application Data&#92;nMOLDYN&#92;nMOLDYN.ini</TT> on Windows,
+
+<BR>
+<BR><TT>$HOME/.nMOLDYN</TT> on Unix and,
+
+<BR>
+<BR><TT>$HOME/Library/Preferences/nMOLDYN.pref</TT> on MacOS
+
+<BR>
+<BR>
+If those paths does not exist, they will be created. These default paths will be the ones that will be searched 
+when <I>n</I>MOLDYN is started. Pressing the <B>Load</B> button will load a preferences file through a dialog. <B>OK</B> will
+use the settings for the running session of <I>n</I>MOLDYN but will not save them.
+
+<P>
+The figure <A HREF="node32.html#fig:preferences_config_file_example">4.18</A> shows an example of a <I>n</I>MOLDYN preferences file built under a linux 
+workstation. Please note the format that must be strictly respected.
+
+<DIV ALIGN="CENTER"><A NAME="fig:preferences_config_file_example"></A><A NAME="1250"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.18:</STRONG>
+Example of a <I>n</I>MOLDYN preferences file.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="281" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.gif"
+ ALT="\includegraphics[width=10cm]{Figures/preferences_config_file_example.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+As can be seen from that figure, the file must start with the line '[nmoldyn]' followed by th declaration of each preferences 
+variables. For the vairables that may be missing in that file or with an empty value (e.g. ncdump_path in figure 
+<A HREF="node32.html#fig:preferences_config_file_example">4.18</A>), the default value will be used.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1538"
+  HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1534"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1528"
+  HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1536"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1539"
+  HREF="node33.html">Quit</A>
+<B> Up:</B> <A NAME="tex2html1535"
+  HREF="node19.html">The File menu</A>
+<B> Previous:</B> <A NAME="tex2html1529"
+  HREF="node31.html">Convert ASCII to NetCDF</A>
+ &nbsp <B>  <A NAME="tex2html1537"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

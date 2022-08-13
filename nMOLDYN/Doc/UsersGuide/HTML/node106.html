@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Output
+</TITLE>
+<META NAME="description" CONTENT="Output
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="previous" HREF="node105.html">
+<LINK REL="up" HREF="node103.html">
+<LINK REL="next" HREF="node107.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2673"
+  HREF="node107.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2669"
+  HREF="node103.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2665"
+  HREF="node105.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2671"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2674"
+  HREF="node107.html">Reorientational Correlation Function</A>
+<B> Up:</B> <A NAME="tex2html2670"
+  HREF="node103.html">Quasi Harmonic Analysis</A>
+<B> Previous:</B> <A NAME="tex2html2666"
+  HREF="node105.html">Parameters</A>
+ &nbsp <B>  <A NAME="tex2html2672"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION0082412300000000000000">
+Output
+<BR></A>
+</H4>
+The results of a <A HREF=node4.html#tex2html486 NAME="20249"><I>QHA</I></A> analysis are stored in a <A HREF=node4.html#tex2html487 NAME="20256">NetCDF</A> file whose main variables are namely:
+
+<UL>
+<LI>time_msd: the times in <I>ps</I> at which the <A HREF=node4.html#tex2html488 NAME="20263"><I>QHA</I></A> was evaluated,
+</LI>
+<LI>omega: the <I>3N</I> eigen values <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img316.gif"
+ ALT="$\omega$"> defined in equation <A HREF="node104.html#eq:qha_omega">4.104</A>,
+</LI>
+<LI>dx: a <I>(3N,3N)</I> matrix giving the eigen vectors, <IMG
+ WIDTH="31" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img315.gif"
+ ALT="$\Delta x$"> defined in equation <A HREF="node104.html#eq:qha_dx">4.105</A>
+</LI>
+<LI>mode: the mode index ranging from 1 to <I>3N</I>,
+</LI>
+<LI>lci: the local character indicator defined in equation <A HREF="node104.html#eq:qha_lci">4.106</A>,
+</LI>
+<LI>gci: the global character indicator defined in equation <A HREF="node104.html#eq:qha_gci">4.107</A>,
+</LI>
+<LI>at: a <!-- MATH
+ $(N_{frames},3N)$
+ -->
+<IMG
+ WIDTH="113" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img336.gif"
+ ALT="$(N_{frames},3N)$"> matrix where <IMG
+ WIDTH="67" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img311.gif"
+ ALT="$N_{frames}$"> is the number of selected frames for the analysis. This matrix stores 
+the projection of <A HREF=node4.html#tex2html489 NAME="20270">MD</A> trajectory onto normal modes as defined in equation <A HREF="node104.html#eq:qha_at">4.108</A>,
+</LI>
+<LI>avgstruct: a <I>(N,3)</I> matrix storing the averaged structure <!-- MATH
+ $\langle x\rangle$
+ -->
+<IMG
+ WIDTH="30" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img337.gif"
+ ALT="$\langle x\rangle$">.
+</LI>
+</UL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

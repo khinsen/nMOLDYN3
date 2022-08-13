@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>nMOLDYN</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;nMOLDYN
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="nMOLDYN-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="nMOLDYN-module.html">Package nMOLDYN</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Package information</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module nMOLDYN.__pkginfo__=nMOLDYN.__pkginfo__-module.html"><a title="nMOLDYN.__pkginfo__" class="py-name" href="#" onclick="return doclink('link-0', '__pkginfo__', 'link-0');">__pkginfo__</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">__version__</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># Add shared library path to sys.path</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">time</tt> <tt class="py-keyword">import</tt> <tt class="py-name">strftime</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment"># The nMOLDYN Atoms Database is defined as the default database to search in.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">from</tt> <tt class="py-name">MMTK</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Database</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Package nMOLDYN=nMOLDYN-module.html"><a title="nMOLDYN" class="py-name" href="#" onclick="return doclink('link-1', 'nMOLDYN', 'link-1');">nMOLDYN</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package nMOLDYN.Core=nMOLDYN.Core-module.html"><a title="nMOLDYN.Core" class="py-name" href="#" onclick="return doclink('link-2', 'Core', 'link-2');">Core</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module nMOLDYN.Core.Config=nMOLDYN.Core.Config-module.html"><a title="nMOLDYN.Core.Config" class="py-name" href="#" onclick="return doclink('link-3', 'Config', 'link-3');">Config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Function nMOLDYN.Core.Config.loadConfigurationFile()=nMOLDYN.Core.Config-module.html#loadConfigurationFile"><a title="nMOLDYN.Core.Config.loadConfigurationFile" class="py-name" href="#" onclick="return doclink('link-4', 'loadConfigurationFile', 'link-4');">loadConfigurationFile</a></tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name"><a title="nMOLDYN" class="py-name" href="#" onclick="return doclink('link-5', 'nMOLDYN', 'link-1');">nMOLDYN</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="nMOLDYN.Core" class="py-name" href="#" onclick="return doclink('link-6', 'Core', 'link-2');">Core</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Module nMOLDYN.Core.Logger=nMOLDYN.Core.Logger-module.html"><a title="nMOLDYN.Core.Logger" class="py-name" href="#" onclick="return doclink('link-7', 'Logger', 'link-7');">Logger</a></tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Variable nMOLDYN.Core.Logger.CONSOLE_LOGGER=nMOLDYN.Core.Logger-module.html#CONSOLE_LOGGER"><a title="nMOLDYN.Core.Logger.CONSOLE_LOGGER" class="py-name" href="#" onclick="return doclink('link-8', 'CONSOLE_LOGGER', 'link-8');">CONSOLE_LOGGER</a></tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Variable nMOLDYN.Core.Logger.FILE_LOGGER=nMOLDYN.Core.Logger-module.html#FILE_LOGGER"><a title="nMOLDYN.Core.Logger.FILE_LOGGER" class="py-name" href="#" onclick="return doclink('link-9', 'FILE_LOGGER', 'link-9');">FILE_LOGGER</a></tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name" targets="Variable nMOLDYN.Core.Logger.GUI_LOGGER=nMOLDYN.Core.Logger-module.html#GUI_LOGGER"><a title="nMOLDYN.Core.Logger.GUI_LOGGER" class="py-name" href="#" onclick="return doclink('link-10', 'GUI_LOGGER', 'link-10');">GUI_LOGGER</a></tt><tt class="py-op">,</tt> <tt id="link-11" class="py-name" targets="Class nMOLDYN.Core.Logger.LogToConsole=nMOLDYN.Core.Logger.LogToConsole-class.html"><a title="nMOLDYN.Core.Logger.LogToConsole" class="py-name" href="#" onclick="return doclink('link-11', 'LogToConsole', 'link-11');">LogToConsole</a></tt><tt class="py-op">,</tt> <tt id="link-12" class="py-name" targets="Class nMOLDYN.Core.Logger.LogToFile=nMOLDYN.Core.Logger.LogToFile-class.html"><a title="nMOLDYN.Core.Logger.LogToFile" class="py-name" href="#" onclick="return doclink('link-12', 'LogToFile', 'link-12');">LogToFile</a></tt><tt class="py-op">,</tt> <tt id="link-13" class="py-name" targets="Class nMOLDYN.Core.Logger.LogToGUI=nMOLDYN.Core.Logger.LogToGUI-class.html"><a title="nMOLDYN.Core.Logger.LogToGUI" class="py-name" href="#" onclick="return doclink('link-13', 'LogToGUI', 'link-13');">LogToGUI</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-14" class="py-name"><a title="nMOLDYN" class="py-name" href="#" onclick="return doclink('link-14', 'nMOLDYN', 'link-1');">nMOLDYN</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="nMOLDYN.Core" class="py-name" href="#" onclick="return doclink('link-15', 'Core', 'link-2');">Core</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Module nMOLDYN.Core.Preferences=nMOLDYN.Core.Preferences-module.html"><a title="nMOLDYN.Core.Preferences" class="py-name" href="#" onclick="return doclink('link-16', 'Preferences', 'link-16');">Preferences</a></tt> <tt class="py-keyword">import</tt> <tt id="link-17" class="py-name" targets="Variable nMOLDYN.Core.Preferences.PREFERENCES=nMOLDYN.Core.Preferences-module.html#PREFERENCES"><a title="nMOLDYN.Core.Preferences.PREFERENCES" class="py-name" href="#" onclick="return doclink('link-17', 'PREFERENCES', 'link-17');">PREFERENCES</a></tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-comment"># Package path</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-18" class="py-name" targets="Variable nMOLDYN.Analysis.Analysis.nmoldyn_package_path=nMOLDYN.Analysis.Analysis-module.html#nmoldyn_package_path,Variable nMOLDYN.Analysis.Template.nmoldyn_package_path=nMOLDYN.Analysis.Template-module.html#nmoldyn_package_path,Variable nMOLDYN.GUI.CheckJobsStatusDialog.nmoldyn_package_path=nMOLDYN.GUI.CheckJobsStatusDialog-module.html#nmoldyn_package_path,Variable nMOLDYN.GUI.GeneralInformationsDialog.nmoldyn_package_path=nMOLDYN.GUI.GeneralInformationsDialog-module.html#nmoldyn_package_path,Variable nMOLDYN.GUI.MainDialog.nmoldyn_package_path=nMOLDYN.GUI.MainDialog-module.html#nmoldyn_package_path,Variable nMOLDYN.GUI.Widgets.nmoldyn_package_path=nMOLDYN.GUI.Widgets-module.html#nmoldyn_package_path,Variable nMOLDYN.Tests.BuildTestCases.nmoldyn_package_path=nMOLDYN.Tests.BuildTestCases-module.html#nmoldyn_package_path,Variable nMOLDYN.nmoldyn_package_path=nMOLDYN-module.html#nmoldyn_package_path"><a title="nMOLDYN.Analysis.Analysis.nmoldyn_package_path
+nMOLDYN.Analysis.Template.nmoldyn_package_path
+nMOLDYN.GUI.CheckJobsStatusDialog.nmoldyn_package_path
+nMOLDYN.GUI.GeneralInformationsDialog.nmoldyn_package_path
+nMOLDYN.GUI.MainDialog.nmoldyn_package_path
+nMOLDYN.GUI.Widgets.nmoldyn_package_path
+nMOLDYN.Tests.BuildTestCases.nmoldyn_package_path
+nMOLDYN.nmoldyn_package_path" class="py-name" href="#" onclick="return doclink('link-18', 'nmoldyn_package_path', 'link-18');">nmoldyn_package_path</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-comment"># The nMOLDYN internal atom database will be the efault one.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-name">Database</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method nMOLDYN.GUI.Widgets.ComboListbox.insert()=nMOLDYN.GUI.Widgets.ComboListbox-class.html#insert,Method nMOLDYN.GUI.Widgets.ComboText.insert()=nMOLDYN.GUI.Widgets.ComboText-class.html#insert"><a title="nMOLDYN.GUI.Widgets.ComboListbox.insert
+nMOLDYN.GUI.Widgets.ComboText.insert" class="py-name" href="#" onclick="return doclink('link-19', 'insert', 'link-19');">insert</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-20" class="py-name"><a title="nMOLDYN.Analysis.Analysis.nmoldyn_package_path
+nMOLDYN.Analysis.Template.nmoldyn_package_path
+nMOLDYN.GUI.CheckJobsStatusDialog.nmoldyn_package_path
+nMOLDYN.GUI.GeneralInformationsDialog.nmoldyn_package_path
+nMOLDYN.GUI.MainDialog.nmoldyn_package_path
+nMOLDYN.GUI.Widgets.nmoldyn_package_path
+nMOLDYN.Tests.BuildTestCases.nmoldyn_package_path
+nMOLDYN.nmoldyn_package_path" class="py-name" href="#" onclick="return doclink('link-20', 'nmoldyn_package_path', 'link-18');">nmoldyn_package_path</a></tt><tt class="py-op">,</tt> <tt class="py-string">'Database'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-comment"># The user configuration file is read.</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-21" class="py-name"><a title="nMOLDYN.Core.Config.loadConfigurationFile" class="py-name" href="#" onclick="return doclink('link-21', 'loadConfigurationFile', 'link-4');">loadConfigurationFile</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-comment"># if the external programs path are not set, nMOLDYN tries to find them in classical locations.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">for</tt> <tt class="py-name">p</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">'vmd'</tt><tt class="py-op">,</tt><tt class="py-string">'ncdump'</tt><tt class="py-op">,</tt><tt class="py-string">'ncgen'</tt><tt class="py-op">,</tt><tt class="py-string">'acroread'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isfile</tt><tt class="py-op">(</tt><tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt id="link-22" class="py-name"><a title="nMOLDYN.Core.Preferences.PREFERENCES" class="py-name" href="#" onclick="return doclink('link-22', 'PREFERENCES', 'link-17');">PREFERENCES</a></tt><tt class="py-op">,</tt><tt class="py-name">p</tt><tt class="py-op">+</tt><tt class="py-string">'_path'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-23" class="py-name"><a title="nMOLDYN" class="py-name" href="#" onclick="return doclink('link-23', 'nMOLDYN', 'link-1');">nMOLDYN</a></tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="nMOLDYN.Core" class="py-name" href="#" onclick="return doclink('link-24', 'Core', 'link-2');">Core</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Module nMOLDYN.Core.Misc=nMOLDYN.Core.Misc-module.html"><a title="nMOLDYN.Core.Misc" class="py-name" href="#" onclick="return doclink('link-25', 'Misc', 'link-25');">Misc</a></tt> <tt class="py-keyword">import</tt> <tt id="link-26" class="py-name" targets="Function nMOLDYN.Core.Misc.findExecutable()=nMOLDYN.Core.Misc-module.html#findExecutable"><a title="nMOLDYN.Core.Misc.findExecutable" class="py-name" href="#" onclick="return doclink('link-26', 'findExecutable', 'link-26');">findExecutable</a></tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">p</tt> <tt class="py-op">==</tt> <tt class="py-string">'acroread'</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt> <tt class="py-op">==</tt> <tt class="py-string">'win32'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">            <tt class="py-name">exe</tt> <tt class="py-op">=</tt> <tt class="py-string">'AcroRd32'</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">            <tt class="py-name">exe</tt> <tt class="py-op">=</tt> <tt class="py-name">p</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-name">setattr</tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="nMOLDYN.Core.Preferences.PREFERENCES" class="py-name" href="#" onclick="return doclink('link-27', 'PREFERENCES', 'link-17');">PREFERENCES</a></tt><tt class="py-op">,</tt><tt class="py-name">p</tt><tt class="py-op">+</tt><tt class="py-string">'_path'</tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name"><a title="nMOLDYN.Core.Misc.findExecutable" class="py-name" href="#" onclick="return doclink('link-28', 'findExecutable', 'link-26');">findExecutable</a></tt><tt class="py-op">(</tt><tt class="py-name">exe</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-comment"># The file handler is created and provided to the file logger.</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-29" class="py-name" targets="Variable nMOLDYN.fileHandler=nMOLDYN-module.html#fileHandler"><a title="nMOLDYN.fileHandler" class="py-name" href="#" onclick="return doclink('link-29', 'fileHandler', 'link-29');">fileHandler</a></tt> <tt class="py-op">=</tt> <tt id="link-30" class="py-name"><a title="nMOLDYN.Core.Logger.LogToFile" class="py-name" href="#" onclick="return doclink('link-30', 'LogToFile', 'link-12');">LogToFile</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-31" class="py-name"><a title="nMOLDYN.Core.Preferences.PREFERENCES" class="py-name" href="#" onclick="return doclink('link-31', 'PREFERENCES', 'link-17');">PREFERENCES</a></tt><tt class="py-op">.</tt><tt class="py-name">logfile_path</tt><tt class="py-op">,</tt><tt class="py-string">'nMOLDYN_%s.log'</tt> <tt class="py-op">%</tt> <tt class="py-name">strftime</tt><tt class="py-op">(</tt><tt class="py-string">'%a%d%b%Y_%Hh%Mm%Ss'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt id="link-32" class="py-name"><a title="nMOLDYN.Core.Logger.FILE_LOGGER" class="py-name" href="#" onclick="return doclink('link-32', 'FILE_LOGGER', 'link-9');">FILE_LOGGER</a></tt><tt class="py-op">.</tt><tt class="py-name">addHandler</tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="nMOLDYN.fileHandler" class="py-name" href="#" onclick="return doclink('link-33', 'fileHandler', 'link-29');">fileHandler</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt class="py-comment"># The console handler is created and provided to the console logger.</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-34" class="py-name" targets="Variable nMOLDYN.consoleHandler=nMOLDYN-module.html#consoleHandler"><a title="nMOLDYN.consoleHandler" class="py-name" href="#" onclick="return doclink('link-34', 'consoleHandler', 'link-34');">consoleHandler</a></tt> <tt class="py-op">=</tt> <tt id="link-35" class="py-name"><a title="nMOLDYN.Core.Logger.LogToConsole" class="py-name" href="#" onclick="return doclink('link-35', 'LogToConsole', 'link-11');">LogToConsole</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt id="link-36" class="py-name"><a title="nMOLDYN.Core.Logger.CONSOLE_LOGGER" class="py-name" href="#" onclick="return doclink('link-36', 'CONSOLE_LOGGER', 'link-8');">CONSOLE_LOGGER</a></tt><tt class="py-op">.</tt><tt class="py-name">addHandler</tt><tt class="py-op">(</tt><tt id="link-37" class="py-name"><a title="nMOLDYN.consoleHandler" class="py-name" href="#" onclick="return doclink('link-37', 'consoleHandler', 'link-34');">consoleHandler</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"><tt class="py-comment"># The console handler is created and provided to the console logger.</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-38" class="py-name" targets="Variable nMOLDYN.dialogHandler=nMOLDYN-module.html#dialogHandler"><a title="nMOLDYN.dialogHandler" class="py-name" href="#" onclick="return doclink('link-38', 'dialogHandler', 'link-38');">dialogHandler</a></tt> <tt class="py-op">=</tt> <tt id="link-39" class="py-name"><a title="nMOLDYN.Core.Logger.LogToGUI" class="py-name" href="#" onclick="return doclink('link-39', 'LogToGUI', 'link-13');">LogToGUI</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt id="link-40" class="py-name"><a title="nMOLDYN.Core.Logger.GUI_LOGGER" class="py-name" href="#" onclick="return doclink('link-40', 'GUI_LOGGER', 'link-10');">GUI_LOGGER</a></tt><tt class="py-op">.</tt><tt class="py-name">addHandler</tt><tt class="py-op">(</tt><tt id="link-41" class="py-name"><a title="nMOLDYN.dialogHandler" class="py-name" href="#" onclick="return doclink('link-41', 'dialogHandler', 'link-38');">dialogHandler</a></tt><tt class="py-op">)</tt>         </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt class="py-keyword">del</tt> <tt class="py-name">os</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"><tt class="py-keyword">del</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct  8 16:57:09 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

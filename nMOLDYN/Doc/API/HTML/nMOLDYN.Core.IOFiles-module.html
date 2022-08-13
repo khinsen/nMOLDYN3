@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>nMOLDYN.Core.IOFiles</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="nMOLDYN-module.html">Package&nbsp;nMOLDYN</a> ::
+        <a href="nMOLDYN.Core-module.html">Package&nbsp;Core</a> ::
+        Module&nbsp;IOFiles
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="nMOLDYN.Core.IOFiles-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module IOFiles</h1><p class="nomargin-top"><span class="codelink"><a href="nMOLDYN.Core.IOFiles-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+This module implements IO-related classes, functions and procedures.
+
+Classes:
+    * TemporaryFile            : creates a temporary file stroring the evolution of an analysis.
+    * EndOfFile                : an empty dummy class used by |DCDReader|.
+    * FortranBinaryFile        : sets up a binary file reader.
+    * DCDFile                  : sets up a DCD file reader.
+    * AmberNetCDFConverter     : converts a trajectory from Amber &gt; 9 to a MMTK NetCDF trajectory.
+    * CHARMMConverter          : converts a trajectory from CHARMM to a MMTK NetCDF trajectory.
+    * DL_POLYConverter         : converts a trajectory from DL_POLY &gt; 9 to a MMTK NetCDF trajectory.
+    * MaterialsStudioConverter : converts a trajectory from MaterialsStudio &gt; 9 to a MMTK NetCDF trajectory.
+    * NAMDConverter            : converts a trajectory from NAMD to a MMTK NetCDF trajectory.
+    * VASPConverter            : converts a trajectory from VASP &gt; 9 to a MMTK NetCDF trajectory.
+        
+Procedures:
+    * convertNetCDFToASCII: converts a NetCDF file into an ASCII file.
+    * convertASCIIToNetCDF: converts an ASCII file into a NetCDF file.
+
+</pre>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.IOFiles.TemporaryFile-class.html" class="summary-name">TemporaryFile</a><br />
+      Creates a temporary file used to monitor (progress, start, end  
+        ...) an analysis.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.IOFiles.EndOfFile-class.html" class="summary-name">EndOfFile</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.IOFiles.FortranBinaryFile-class.html" class="summary-name">FortranBinaryFile</a><br />
+      Sets up a Fortran binary file reader.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.IOFiles.DCDFile-class.html" class="summary-name">DCDFile</a><br />
+      Sets up a DCD file reader.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.IOFiles.AmberNetCDFConverter-class.html" class="summary-name">AmberNetCDFConverter</a><br />
+      Converts an Amber NetCDF Trajectory into a MMTK NetCDFFile.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.IOFiles.CHARMMConverter-class.html" class="summary-name">CHARMMConverter</a><br />
+      Converts a CHARMM Trajectory into a MMTK NetCDFFile.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.IOFiles.DL_POLYConverter-class.html" class="summary-name">DL_POLYConverter</a><br />
+      Converts a DL_POLY Trajectory into a MMTK NetCDFFile.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.IOFiles.MaterialsStudioConverter-class.html" class="summary-name">MaterialsStudioConverter</a><br />
+      Converts a MaterialsStudio Discover or Forcite Trajectory into a 
+        MMTK NetCDFFile.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.IOFiles.NAMDConverter-class.html" class="summary-name">NAMDConverter</a><br />
+      Converts a NAMD Trajectory into a MMTK NetCDFFile.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="nMOLDYN.Core.IOFiles.VASPConverter-class.html" class="summary-name">VASPConverter</a><br />
+      Converts a VASP Trajectory into a MMTK NetCDFFile.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.IOFiles-module.html#convertNetCDFToASCII" class="summary-sig-name">convertNetCDFToASCII</a>(<span class="summary-sig-arg">inputFile</span>,
+        <span class="summary-sig-arg">outputFile</span>,
+        <span class="summary-sig-arg">variables</span>,
+        <span class="summary-sig-arg">floatPrecision</span>=<span class="summary-sig-default">9</span>,
+        <span class="summary-sig-arg">doublePrecision</span>=<span class="summary-sig-default">17</span>)</span><br />
+      Converts a file in NetCDF format to a file in ASCII/CDL format using 
+      the ncdump program provided with the netcdf library.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.IOFiles-pysrc.html#convertNetCDFToASCII">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.Core.IOFiles-module.html#convertASCIIToNetCDF" class="summary-sig-name">convertASCIIToNetCDF</a>(<span class="summary-sig-arg">inputFile</span>,
+        <span class="summary-sig-arg">outputFile</span>)</span><br />
+      Converts a file in ASCII format to a file in NetCDF format using the 
+      ncgen program provided with the netcdf library.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.Core.IOFiles-pysrc.html#convertASCIIToNetCDF">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="convertNetCDFToASCII"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">convertNetCDFToASCII</span>(<span class="sig-arg">inputFile</span>,
+        <span class="sig-arg">outputFile</span>,
+        <span class="sig-arg">variables</span>,
+        <span class="sig-arg">floatPrecision</span>=<span class="sig-default">9</span>,
+        <span class="sig-arg">doublePrecision</span>=<span class="sig-default">17</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.IOFiles-pysrc.html#convertNetCDFToASCII">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Converts a file in NetCDF format to a file in ASCII/CDL format using 
+  the ncdump program provided with the netcdf library.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>inputFile</code></strong> (string) - the name of the NetCDF input file.</li>
+        <li><strong class="pname"><code>outputFile</code></strong> (string) - the name of the CDL output file.</li>
+        <li><strong class="pname"><code>variables</code></strong> (list) - list of the NetCDF variables names (string) to extract from the 
+          NetCDF file for conversion.</li>
+        <li><strong class="pname"><code>floatPrecision</code></strong> (integer) - the precision on the float numbers.</li>
+        <li><strong class="pname"><code>doublePrecision</code></strong> (integer) - the precision on the double numbers.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="convertASCIIToNetCDF"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">convertASCIIToNetCDF</span>(<span class="sig-arg">inputFile</span>,
+        <span class="sig-arg">outputFile</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.Core.IOFiles-pysrc.html#convertASCIIToNetCDF">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Converts a file in ASCII format to a file in NetCDF format using the 
+  ncgen program provided with the netcdf library.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>inputFile</code></strong> (string) - the name of the NetCDF input file.</li>
+        <li><strong class="pname"><code>outputFile</code></strong> (string) - the name of the CDL output file.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct  8 16:56:53 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node57.html">
+<LINK REL="previous" HREF="node55.html">
+<LINK REL="up" HREF="node55.html">
+<LINK REL="next" HREF="node57.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2053"
+  HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2049"
+  HREF="node55.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2043"
+  HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2051"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2054"
+  HREF="node57.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2050"
+  HREF="node55.html">Root Mean-Square Deviation</A>
+<B> Previous:</B> <A NAME="tex2html2044"
+  HREF="node55.html">Root Mean-Square Deviation</A>
+ &nbsp <B>  <A NAME="tex2html2052"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008242100000000000000"></A>
+<A NAME="rmsd_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+The <A HREF=node4.html#tex2html290 NAME="18559"><I>RMSD</I></A> is maybe the most popular estimator of structural similarity. It is a 
+numerical measure of the difference between two structures that can be defined as:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+RMSD(t) = \sqrt{\frac{\sum_{\alpha = 1}^{N_{\alpha}}({\bf r}_{\alpha}(t) - {\bf r}_{\alpha}(t_{ref}))}{N_{\alpha}}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:rmsd"></A><IMG
+ WIDTH="430" HEIGHT="55" BORDER="0"
+ SRC="img114.gif"
+ ALT="\begin{displaymath}
+RMSD(t) = \sqrt{\frac{\sum_{\alpha = 1}^{N_{\alpha}}({\bf r}_{\alpha}(t) - {\bf r}_{\alpha}(t_{ref}))}{N_{\alpha}}}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.30)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="30" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img115.gif"
+ ALT="$N_{\alpha}$"> is the number of atoms of the system, and <!-- MATH
+ ${\bf r}_{\alpha}(t)$
+ -->
+<IMG
+ WIDTH="44" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img116.gif"
+ ALT="${\bf r}_{\alpha}(t)$"> and <!-- MATH
+ ${\bf r}_{\alpha}(t_{ref})$
+ -->
+<IMG
+ WIDTH="65" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img117.gif"
+ ALT="${\bf r}_{\alpha}(t_{ref})$"> are 
+respectively the position of atom <IMG
+ WIDTH="18" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.gif"
+ ALT="$\alpha$"> at time <IMG
+ WIDTH="13" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img118.gif"
+ ALT="$t$"> and <IMG
+ WIDTH="34" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img119.gif"
+ ALT="$t_{ref}$"> where <IMG
+ WIDTH="34" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img119.gif"
+ ALT="$t_{ref}$"> is a reference time usually 
+choosen as the first step of the simulation.
+Typically, <A HREF=node4.html#tex2html291 NAME="18566"><I>RMSD</I></A> is used to quantify the structural evolution of the system during the simulation. It can 
+provide precious information about the system especially if it reached equilibrium or conversely if major
+structural changes occured during the simulation.
+
+<P>
+In <I>n</I>MOLDYN, <A HREF=node4.html#tex2html292 NAME="18573"><I>RMSD</I></A> is computed using the discretized version of equation <A HREF="node56.html#eq:rmsd">4.30</A>:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+RMSD(n\cdot\Delta t) = \sqrt{\frac{\sum_{\alpha = 1}^{N_{\alpha}}({\bf r}_{\alpha}(t) - {\bf r}_{ref}(t))}{N_{\alpha}}},
+\qquad n = 0\ldots N_t - 1.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:rmsd_num"></A><IMG
+ WIDTH="525" HEIGHT="55" BORDER="0"
+ SRC="img120.gif"
+ ALT="\begin{displaymath}
+RMSD(n\cdot\Delta t) = \sqrt{\frac{\sum_{\alpha = 1}^{N_{\al...
+...- {\bf r}_{ref}(t))}{N_{\alpha}}},
+\qquad n = 0\ldots N_t - 1.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.31)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="26" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.gif"
+ ALT="$N_t$"> is the number of frames and <IMG
+ WIDTH="27" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img121.gif"
+ ALT="$\Delta t$"> is the time step.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2053"
+  HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2049"
+  HREF="node55.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2043"
+  HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2051"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2054"
+  HREF="node57.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html2050"
+  HREF="node55.html">Root Mean-Square Deviation</A>
+<B> Previous:</B> <A NAME="tex2html2044"
+  HREF="node55.html">Root Mean-Square Deviation</A>
+ &nbsp <B>  <A NAME="tex2html2052"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

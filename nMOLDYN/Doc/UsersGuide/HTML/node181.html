@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Animation</TITLE>
+<META NAME="description" CONTENT="Animation">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node182.html">
+<LINK REL="previous" HREF="node180.html">
+<LINK REL="up" HREF="node179.html">
+<LINK REL="next" HREF="node182.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3640"
+  HREF="node182.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3636"
+  HREF="node179.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3630"
+  HREF="node180.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3638"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3641"
+  HREF="node182.html">Effective mode</A>
+<B> Up:</B> <A NAME="tex2html3637"
+  HREF="node179.html">The View menu</A>
+<B> Previous:</B> <A NAME="tex2html3631"
+  HREF="node180.html">Plot</A>
+ &nbsp <B>  <A NAME="tex2html3639"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION008320000000000000000"></A>
+<A NAME="animation"></A>
+<BR>
+Animation
+</H2>
+This option allows one to view an animation of a trajectory using <A HREF=node4.html#tex2html788 NAME="22980">VMD</A>. To do so, <A HREF=node4.html#tex2html789 NAME="22987">VMD</A> must be installed and the  
+preferences variables <B>vmd_path</B> storing the path for <A HREF=node4.html#tex2html790 NAME="22994">VMD</A> reader executable must be correctly set. 
+
+<P>
+Pressing the <B>Animation</B> button will pop up the dialog shown on figure <A HREF="node181.html#fig:animation">4.67</A>
+
+<DIV ALIGN="CENTER"><A NAME="fig:animation"></A><A NAME="6789"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.67:</STRONG>
+The dialog from where a trajectory can be animated using <A HREF=node4.html#tex2html786 NAME="22972"><B>V</B>isual <B>M</B>olecular <B>D</B>ynamics (VMD)</A></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="295" ALIGN="BOTTOM" BORDER="0"
+ SRC="img632.gif"
+ ALT="\includegraphics[width=10cm]{Figures/animation.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The following input fields controls the parameters to visualize an animation of a trajectory through <A HREF=node4.html#tex2html791 NAME="23001">VMD</A>:
+
+<P>
+
+<UL>
+<LI><B>MMTK Trajectory file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> the loaded trajectory filename if one trajectory is currently loaded. Nothing otherwise
+<BR><B>Description:</B> this widget allows to specify the name of the trajectory animation to visualize.
+
+<P>
+</LI>
+<LI><B>First step</B>
+<BR><B>Format:</B> integer in [1,<I>traj_length</I>] where <I>traj_length</I> is the number of frames of the input trajectory
+<BR><B>Default:</B> <I>1</I> if one trajectory is currently loaded.or nothing otherwise.
+<BR><B>Description:</B> this widget allows to specify the first step of the trajectory to visualize.
+
+<P>
+</LI>
+<LI><B>Last step</B>
+<BR><B>Format:</B> integer in [1,<I>traj_length</I>] where <I>traj_length</I> is the number of frames of the input trajectory
+<BR><B>Default:</B> the trajectory last step if one trajectory is currently loaded or nothing otherwise.
+<BR><B>Description:</B> this widget allows to specify the last step of the trajectory to visualize. Depending on the 
+trajectory, calling <A HREF=node4.html#tex2html792 NAME="23008">VMD</A> from <I>n</I>MOLDYN is quite time-consuming, the entered value should not be too high.
+
+<P>
+</LI>
+<LI><B>Skip step</B>
+<BR><B>Format:</B> integer in [1,<I>traj_length</I>[ where <I>traj_length</I> is the number of frames of the input trajectory
+<BR><B>Default:</B> <I>1</I> if one trajectory is currently loaded.or nothing otherwise.
+<BR><B>Description:</B> this widget allows to specify the number of trajectory steps to skip between each step to visualize.
+</LI>
+</UL>
+Pressing the <B>OK</B> button will run the animation, pressing the <B>Cancel</B> button will close the dialog.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3640"
+  HREF="node182.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3636"
+  HREF="node179.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3630"
+  HREF="node180.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3638"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3641"
+  HREF="node182.html">Effective mode</A>
+<B> Up:</B> <A NAME="tex2html3637"
+  HREF="node179.html">The View menu</A>
+<B> Previous:</B> <A NAME="tex2html3631"
+  HREF="node180.html">Plot</A>
+ &nbsp <B>  <A NAME="tex2html3639"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,1168 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>nMOLDYN.GUI.SelectionDialog.SelectionDialog</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="nMOLDYN-module.html">Package&nbsp;nMOLDYN</a> ::
+        <a href="nMOLDYN.GUI-module.html">Package&nbsp;GUI</a> ::
+        <a href="nMOLDYN.GUI.SelectionDialog-module.html">Module&nbsp;SelectionDialog</a> ::
+        Class&nbsp;SelectionDialog
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class SelectionDialog</h1><p class="nomargin-top"><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+  Tkinter.Misc --+        
+                 |        
+Tkinter.BaseWidget --+    
+                     |    
+        Tkinter.Wm --+    
+                     |    
+      Tkinter.Toplevel --+
+                         |
+                        <strong class="uidshort">SelectionDialog</strong>
+</pre>
+
+<hr />
+<p>Sets up a dialog from which the user can perform an atom 
+  selection.</p>
+
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>Tkinter.Misc</code></b>:
+      <code><a href="float-class.html">getdouble</a></code>,
+      <code><a href="int-class.html">getint</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">selectionType</span>,
+        <span class="summary-sig-arg">univContents</span>)</span><br />
+      The constructor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#body" class="summary-sig-name">body</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">master</span>)</span><br />
+      Create dialog body.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.body">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="buttonbox"></a><span class="summary-sig-name">buttonbox</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Add standard button box.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.buttonbox">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#ok" class="summary-sig-name">ok</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">None</span>)</span><br />
+      This method is called when the user clicks on the 'OK' button of the 
+      selection editor dialog.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.ok">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cancel"></a><span class="summary-sig-name">cancel</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Cancel the selection setting up the selection string to a selection 
+      type-dependant value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.cancel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="validate"></a><span class="summary-sig-name">validate</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.validate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="apply"></a><span class="summary-sig-name">apply</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Performs a last checking of the selection string before closing the 
+      selection dialog.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.apply">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#getValue" class="summary-sig-name">getValue</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      This method returns the self.selectionString class attributes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.getValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#setDefaultSelectionString" class="summary-sig-name">setDefaultSelectionString</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Sets the selection string to its default value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.setDefaultSelectionString">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#changeSelectionMedia" class="summary-sig-name">changeSelectionMedia</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Changes the 'media' from which the selection will be performed.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.changeSelectionMedia">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#clear" class="summary-sig-name">clear</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      This methods clears all the listboxes of the 'Selection from the 
+      loaded trajectory' browser.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.clear">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="buildSelectionString"></a><span class="summary-sig-name">buildSelectionString</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      This method actually build the selection string out of the 
+      |self.selection| dictionnary.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.buildSelectionString">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="displaySelectionString"></a><span class="summary-sig-name">displaySelectionString</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Displays in the 'Selection preview' textwidget the selection string 
+      under process.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.displaySelectionString">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#selectFromExpression" class="summary-sig-name">selectFromExpression</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      This callback performs a selection from a expression string by 
+      writing the expression in its corresponding text widget.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.selectFromExpression">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="selectFromFile"></a><span class="summary-sig-name">selectFromFile</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>=<span class="summary-sig-default">None</span>)</span><br />
+      This method/callback performs a selection from a file by selection 
+      the file from a browser.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.selectFromFile">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="selectPrefixName"></a><span class="summary-sig-name">selectPrefixName</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      This callback is called when the user clicks on one item of the 
+      'Group number' listbox of the selection editor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.selectPrefixName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="deletePrefixName"></a><span class="summary-sig-name">deletePrefixName</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      This callback will remove the selection string associated to the 
+      selected prefix name.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.deletePrefixName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="createNewGroup"></a><span class="summary-sig-name">createNewGroup</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      This callback will create a new group entry in the 'Group number' 
+      listbox.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.createNewGroup">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#selectObjectName" class="summary-sig-name">selectObjectName</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      This callback is called when the user clicks on one item of the 
+      'Object name' listbox of the selection editor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.selectObjectName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="selectGroupingLevel"></a><span class="summary-sig-name">selectGroupingLevel</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.selectGroupingLevel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#selectKeyword" class="summary-sig-name">selectKeyword</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      This callback is called whenever the user clicks on one item of the 
+      'Selection keyword' listbox.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.selectKeyword">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="deleteObjectName"></a><span class="summary-sig-name">deleteObjectName</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      This method will delete the object name from the selection string if 
+      it was previously selected.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.deleteObjectName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#selectValue" class="summary-sig-name">selectValue</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      This callback is called whenever the user clicks on one entry of the 
+      'Selection value' listbox.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.selectValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="nMOLDYN.GUI.SelectionDialog.SelectionDialog-class.html#appendLinker" class="summary-sig-name">appendLinker</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">linker</span>)</span><br />
+      This method is called when the user press the '(', ')', 'AND' or 'OR'
+      buttons of the atom selection dialog.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.appendLinker">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>Tkinter.BaseWidget</code></b>:
+      <code>destroy</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>Tkinter.BaseWidget</code></b> (private):
+      <code>_do</code>,
+      <code>_setup</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>Tkinter.Misc</code></b>:
+      <code>__getitem__</code>,
+      <code>__setitem__</code>,
+      <code>__str__</code>,
+      <code>after</code>,
+      <code>after_cancel</code>,
+      <code>after_idle</code>,
+      <code>bbox</code>,
+      <code>bell</code>,
+      <code>bind</code>,
+      <code>bind_all</code>,
+      <code>bind_class</code>,
+      <code>bindtags</code>,
+      <code>cget</code>,
+      <code>clipboard_append</code>,
+      <code>clipboard_clear</code>,
+      <code>clipboard_get</code>,
+      <code>colormodel</code>,
+      <code>columnconfigure</code>,
+      <code>config</code>,
+      <code>configure</code>,
+      <code>deletecommand</code>,
+      <code>event_add</code>,
+      <code>event_delete</code>,
+      <code>event_generate</code>,
+      <code>event_info</code>,
+      <code>focus</code>,
+      <code>focus_displayof</code>,
+      <code>focus_force</code>,
+      <code>focus_get</code>,
+      <code>focus_lastfor</code>,
+      <code>focus_set</code>,
+      <code>getboolean</code>,
+      <code>getvar</code>,
+      <code>grab_current</code>,
+      <code>grab_release</code>,
+      <code>grab_set</code>,
+      <code>grab_set_global</code>,
+      <code>grab_status</code>,
+      <code>grid_bbox</code>,
+      <code>grid_columnconfigure</code>,
+      <code>grid_location</code>,
+      <code>grid_propagate</code>,
+      <code>grid_rowconfigure</code>,
+      <code>grid_size</code>,
+      <code>grid_slaves</code>,
+      <code>image_names</code>,
+      <code>image_types</code>,
+      <code>keys</code>,
+      <code>lift</code>,
+      <code>lower</code>,
+      <code>mainloop</code>,
+      <code>nametowidget</code>,
+      <code>option_add</code>,
+      <code>option_clear</code>,
+      <code>option_get</code>,
+      <code>option_readfile</code>,
+      <code>pack_propagate</code>,
+      <code>pack_slaves</code>,
+      <code>place_slaves</code>,
+      <code>propagate</code>,
+      <code>quit</code>,
+      <code>register</code>,
+      <code>rowconfigure</code>,
+      <code>selection_clear</code>,
+      <code>selection_get</code>,
+      <code>selection_handle</code>,
+      <code>selection_own</code>,
+      <code>selection_own_get</code>,
+      <code>send</code>,
+      <code>setvar</code>,
+      <code>size</code>,
+      <code>slaves</code>,
+      <code>tk_bisque</code>,
+      <code>tk_focusFollowsMouse</code>,
+      <code>tk_focusNext</code>,
+      <code>tk_focusPrev</code>,
+      <code>tk_menuBar</code>,
+      <code>tk_setPalette</code>,
+      <code>tk_strictMotif</code>,
+      <code>tkraise</code>,
+      <code>unbind</code>,
+      <code>unbind_all</code>,
+      <code>unbind_class</code>,
+      <code>update</code>,
+      <code>update_idletasks</code>,
+      <code>wait_variable</code>,
+      <code>wait_visibility</code>,
+      <code>wait_window</code>,
+      <code>waitvar</code>,
+      <code>winfo_atom</code>,
+      <code>winfo_atomname</code>,
+      <code>winfo_cells</code>,
+      <code>winfo_children</code>,
+      <code>winfo_class</code>,
+      <code>winfo_colormapfull</code>,
+      <code>winfo_containing</code>,
+      <code>winfo_depth</code>,
+      <code>winfo_exists</code>,
+      <code>winfo_fpixels</code>,
+      <code>winfo_geometry</code>,
+      <code>winfo_height</code>,
+      <code>winfo_id</code>,
+      <code>winfo_interps</code>,
+      <code>winfo_ismapped</code>,
+      <code>winfo_manager</code>,
+      <code>winfo_name</code>,
+      <code>winfo_parent</code>,
+      <code>winfo_pathname</code>,
+      <code>winfo_pixels</code>,
+      <code>winfo_pointerx</code>,
+      <code>winfo_pointerxy</code>,
+      <code>winfo_pointery</code>,
+      <code>winfo_reqheight</code>,
+      <code>winfo_reqwidth</code>,
+      <code>winfo_rgb</code>,
+      <code>winfo_rootx</code>,
+      <code>winfo_rooty</code>,
+      <code>winfo_screen</code>,
+      <code>winfo_screencells</code>,
+      <code>winfo_screendepth</code>,
+      <code>winfo_screenheight</code>,
+      <code>winfo_screenmmheight</code>,
+      <code>winfo_screenmmwidth</code>,
+      <code>winfo_screenvisual</code>,
+      <code>winfo_screenwidth</code>,
+      <code>winfo_server</code>,
+      <code>winfo_toplevel</code>,
+      <code>winfo_viewable</code>,
+      <code>winfo_visual</code>,
+      <code>winfo_visualid</code>,
+      <code>winfo_visualsavailable</code>,
+      <code>winfo_vrootheight</code>,
+      <code>winfo_vrootwidth</code>,
+      <code>winfo_vrootx</code>,
+      <code>winfo_vrooty</code>,
+      <code>winfo_width</code>,
+      <code>winfo_x</code>,
+      <code>winfo_y</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>Tkinter.Misc</code></b> (private):
+      <code>_bind</code>,
+      <code>_configure</code>,
+      <code>_displayof</code>,
+      <code>_getboolean</code>,
+      <code>_getdoubles</code>,
+      <code>_getints</code>,
+      <code>_grid_configure</code>,
+      <code>_nametowidget</code>,
+      <code>_options</code>,
+      <code>_register</code>,
+      <code>_report_exception</code>,
+      <code>_root</code>,
+      <code>_substitute</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>Tkinter.Wm</code></b>:
+      <code>aspect</code>,
+      <code>attributes</code>,
+      <code>client</code>,
+      <code>colormapwindows</code>,
+      <code>command</code>,
+      <code>deiconify</code>,
+      <code>focusmodel</code>,
+      <code>frame</code>,
+      <code>geometry</code>,
+      <code>grid</code>,
+      <code>group</code>,
+      <code>iconbitmap</code>,
+      <code>iconify</code>,
+      <code>iconmask</code>,
+      <code>iconname</code>,
+      <code>iconposition</code>,
+      <code>iconwindow</code>,
+      <code>maxsize</code>,
+      <code>minsize</code>,
+      <code>overrideredirect</code>,
+      <code>positionfrom</code>,
+      <code>protocol</code>,
+      <code>resizable</code>,
+      <code>sizefrom</code>,
+      <code>state</code>,
+      <code>title</code>,
+      <code>transient</code>,
+      <code>withdraw</code>,
+      <code>wm_aspect</code>,
+      <code>wm_attributes</code>,
+      <code>wm_client</code>,
+      <code>wm_colormapwindows</code>,
+      <code>wm_command</code>,
+      <code>wm_deiconify</code>,
+      <code>wm_focusmodel</code>,
+      <code>wm_frame</code>,
+      <code>wm_geometry</code>,
+      <code>wm_grid</code>,
+      <code>wm_group</code>,
+      <code>wm_iconbitmap</code>,
+      <code>wm_iconify</code>,
+      <code>wm_iconmask</code>,
+      <code>wm_iconname</code>,
+      <code>wm_iconposition</code>,
+      <code>wm_iconwindow</code>,
+      <code>wm_maxsize</code>,
+      <code>wm_minsize</code>,
+      <code>wm_overrideredirect</code>,
+      <code>wm_positionfrom</code>,
+      <code>wm_protocol</code>,
+      <code>wm_resizable</code>,
+      <code>wm_sizefrom</code>,
+      <code>wm_state</code>,
+      <code>wm_title</code>,
+      <code>wm_transient</code>,
+      <code>wm_withdraw</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>Tkinter.Misc</code></b>:
+      <code>_noarg_</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>Tkinter.Misc</code></b> (private):
+      <code>_subst_format</code>,
+      <code>_subst_format_str</code>,
+      <code>_tclCommands</code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">selectionType</span>,
+        <span class="sig-arg">univContents</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The constructor.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parent</code></strong> - the parent widget.</li>
+        <li><strong class="pname"><code>selectionType</code></strong> (string) - a string being one of 'subset', 'deuteration' or 'group' 
+          specifying the atom selection type thatwill be performed.</li>
+        <li><strong class="pname"><code>univContents</code></strong> (dict) - a dictionnary that contains the universe contents.</li>
+    </ul></dd>
+    <dt>Overrides:
+        Tkinter.BaseWidget.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="body"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">body</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">master</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.body">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create dialog body. Return widget that should have initial focus.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ok"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ok</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.ok">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This method is called when the user clicks on the 'OK' button of the 
+  selection editor dialog. It closes the selection editor dialog and build 
+  the selection string.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getValue"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getValue</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.getValue">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This method returns the self.selectionString class attributes.</p>
+  <p>Thanks to this method, the selection dialog can be used like any other
+  ComboWidget for which the getValue allows to fetch their contents.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="setDefaultSelectionString"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setDefaultSelectionString</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.setDefaultSelectionString">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the selection string to its default value. This value depends on 
+  the the selection type.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="changeSelectionMedia"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">changeSelectionMedia</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.changeSelectionMedia">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Changes the 'media' from which the selection will be performed.</p>
+  <p>It can be either from a selection file, either from the loaded 
+  trajectory or from an expression string. When changing selection media, 
+  the previous selection is cleared.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="clear"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">clear</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.clear">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This methods clears all the listboxes of the 'Selection from the 
+  loaded trajectory' browser. It resets the selection listboxes and their 
+  associated variables, it resets the selection string, and updates the 
+  'Selection preview' text widget.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="selectFromExpression"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">selectFromExpression</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.selectFromExpression">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This callback performs a selection from a expression string by writing
+  the expression in its corresponding text widget.</p>
+  <p>The expression must be a set of valid ;-separated python instructions 
+  the last one being 'selection = ...' as the selection string parser will 
+  search for the selection variables when executing the expression 
+  string.</p>
+  <p>To refer to the universe just use the variable 'self.universe'.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="selectObjectName"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">selectObjectName</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.selectObjectName">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This callback is called when the user clicks on one item of the 
+  'Object name' listbox of the selection editor. It will display into the 
+  'Selection keyword' listbox all the selection keywords corresponding to 
+  the selected object type.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="selectKeyword"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">selectKeyword</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.selectKeyword">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This callback is called whenever the user clicks on one item of the 
+  'Selection keyword' listbox. It will display in the 'Selection value' 
+  listbox the selection values available for the selected keyword.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="selectValue"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">selectValue</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.selectValue">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This callback is called whenever the user clicks on one entry of the 
+  'Selection value' listbox. It will update the current selection.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="appendLinker"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">appendLinker</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">linker</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="nMOLDYN.GUI.SelectionDialog-pysrc.html#SelectionDialog.appendLinker">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This method is called when the user press the '(', ')', 'AND' or 'OR' 
+  buttons of the atom selection dialog. It:</p>
+  <ul>
+    <li>
+      checks whether the selected linker can be actually be appended
+    </li>
+    <li>
+      appends the linker if so.
+    </li>
+  </ul>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="nMOLDYN-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://sourcesup.cru.fr/projects/nmoldyn">nMOLDYN</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct  8 16:57:00 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

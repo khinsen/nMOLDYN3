@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Parameters
+</TITLE>
+<META NAME="description" CONTENT="Parameters
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node161.html">
+<LINK REL="previous" HREF="node159.html">
+<LINK REL="up" HREF="node158.html">
+<LINK REL="next" HREF="node161.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3381"
+  HREF="node161.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3377"
+  HREF="node158.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3371"
+  HREF="node159.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3379"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3382"
+  HREF="node161.html">Output</A>
+<B> Up:</B> <A NAME="tex2html3378"
+  HREF="node158.html">Coordination number</A>
+<B> Previous:</B> <A NAME="tex2html3372"
+  HREF="node159.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html3380"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008262200000000000000"></A>
+<A NAME="cn_parameters"></A>
+<BR>
+Parameters
+<BR>
+</H4>
+Pressing the <B>Coordination Number</B> button will pop up the dialog shown on figure <A HREF="node160.html#fig:cn">4.59</A>
+
+<DIV ALIGN="CENTER"><A NAME="fig:cn"></A><A NAME="7701"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.59:</STRONG>
+The dialog from where the <I>CN</I> analysis will be set up and run.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="531" ALIGN="BOTTOM" BORDER="0"
+ SRC="img564.gif"
+ ALT="\includegraphics[width=10cm]{Figures/cn.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The following input fields controls the parameters for the <A HREF=node4.html#tex2html685 NAME="22137"><I>CN</I></A> analysis:
+
+<P>
+
+<UL>
+<LI><B>Trajectory file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>traj_file</I> where <I>traj_file</I> is the name of the loaded trajectory
+<BR><B>Description:</B> the value of this widget can not be changed. It just recalls for information purpose the name
+of the trajectory file loaded for the analysis.
+
+<P>
+</LI>
+<LI><B>Frame selection</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>1:traj_length:1</I> where <I>traj_length</I> is the number of frames of the trajectory.
+<BR><B>Description:</B> this widget allows to select the trajectory frames that will be used for the analysis. This must
+be a string of the form:
+
+<BR>
+<BR><I>first:last:step</I>
+
+<BR>
+<BR>
+where <I>first</I> is an integer specifying the first frame number to consider, <I>last</I> is an integer specifying the last 
+frame number to consider and <I>step</I> is an integer specifying the step number between two frames.
+
+<P>
+For example,
+
+<UL>
+<LI><I>2:10:3</I> will select the frames 2, 5 and 8.
+</LI>
+<LI><I>1:5:1</I> will select the frames 1, 2, 3, 4 and 5.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>Distances (in nm)</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>0.0:1.0:0.1</I>.
+<BR><B>Description:</B> this widget allows to select distances in <I>nm</I> at which the <A HREF=node4.html#tex2html686 NAME="22144"><I>CN</I></A> will be computed. This must
+be a string of the form:
+
+<BR>
+<BR><!-- MATH
+ $r_{min}:r_{max}:r_{step}$
+ -->
+<IMG
+ WIDTH="137" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img549.gif"
+ ALT="$r_{min}:r_{max}:r_{step}$">
+
+<BR>
+<BR>
+In this way, the <A HREF=node4.html#tex2html687 NAME="22151"><I>CN</I></A> will be calculated for discrete <I>r</I> defined as 
+<!-- MATH
+ $r_m = r_{min} + m \cdot r_{step}$
+ -->
+<IMG
+ WIDTH="166" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img550.gif"
+ ALT="$r_m = r_{min} + m \cdot r_{step}$"> where <IMG
+ WIDTH="40" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img551.gif"
+ ALT="$r_{min}$"> is the smallest <I>r</I> , <IMG
+ WIDTH="39" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img552.gif"
+ ALT="$r_{step}$"> is the 
+distance between two consecutive <I>r</I> values and with <I>m</I> running from 0 to <IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img553.gif"
+ ALT="$N_{rvalues}$"> 
+where <IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img553.gif"
+ ALT="$N_{rvalues}$"> is the number of selected <I>r</I> values defined as 
+<!-- MATH
+ $N_{rvalues}= E(\frac{r_{max} - r_{min}}{r_{step}}) + 1$
+ -->
+<IMG
+ WIDTH="221" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img554.gif"
+ ALT="$N_{rvalues}= E(\frac{r_{max} - r_{min}}{r_{step}}) + 1$"> where <IMG
+ WIDTH="42" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img555.gif"
+ ALT="$r_{max}$"> is the 
+radius of the biggest <I>r</I> value .
+
+<P>
+For example,
+
+<UL>
+<LI><I>0:10:1</I> will compute <A HREF=node4.html#tex2html688 NAME="22158"><I>PDF</I></A> for <I>r = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</I> <I>nm</I>.
+</LI>
+<LI><I>3:7:1.2</I> will compute <A HREF=node4.html#tex2html689 NAME="22165"><I>PDF</I></A> for <I>r = 3, 4.2, 5.4, 6.6</I> <I>nm</I>.
+</LI>
+</UL>
+
+</LI>
+<LI><B>Group selection</B>
+<BR><B>Format:</B> group selection string
+<BR><B>Default:</B> <I>all</I>
+<BR><B>Description:</B> this widget allows the selection of the groups of atoms whose centers of gravity will be used to compute 
+the <A HREF=node4.html#tex2html690 NAME="22172"><I>CN</I></A> (see Section <A HREF="node159.html#cn_theory">4.2.6.2</A>). See Section <A HREF="node45.html#group_selection">4.2.2.3</A> for more details about group selection.
+
+<P>
+</LI>
+<LI><B>Subset selection</B>
+<BR><B>Format:</B> subset selection string
+<BR><B>Default:</B> <I>all</I>
+<BR><B>Description:</B> this widget allows the selection of a subset of the system for the analysis. Only the atoms 
+of this subset will be considered when looking around the centers of gravity of the selected groups of atoms. 
+See Section <A HREF="node37.html#subset_selection">4.2.2.1</A> for more details about subset selection.
+
+<P>
+</LI>
+<LI><B>Deuteration selection</B>
+<BR><B>Format:</B> deuteration selection string
+<BR><B>Default:</B> <I>no</I>
+<BR><B>Description:</B> this widget allows the selection of a subset of hydrogen atoms that will be considered as 
+deuterium atoms. See Section <A HREF="node41.html#deuteration_selection">4.2.2.2</A> for more details about deuteration selection.
+
+<P>
+</LI>
+<LI><B>CN output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>CN_traj_file.nc</I> where <I>traj_file.nc</I> is the name of the input trajectory
+<BR><B>Description:</B> this widget allows to enter the name of the <A HREF=node4.html#tex2html691 NAME="22179">NetCDF</A> output file of the <A HREF=node4.html#tex2html692 NAME="22186"><I>CN</I></A> analysis. A <A HREF=node4.html#tex2html693 NAME="22193">CDL</A> 
+version of the <A HREF=node4.html#tex2html694 NAME="22200">NetCDF</A> output file is also automatically created with <I>CN_traj_file.cdl</I> name.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3381"
+  HREF="node161.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3377"
+  HREF="node158.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3371"
+  HREF="node159.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3379"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3382"
+  HREF="node161.html">Output</A>
+<B> Up:</B> <A NAME="tex2html3378"
+  HREF="node158.html">Coordination number</A>
+<B> Previous:</B> <A NAME="tex2html3372"
+  HREF="node159.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html3380"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Load NetCDF file</TITLE>
+<META NAME="description" CONTENT="Load NetCDF file">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node21.html">
+<LINK REL="previous" HREF="node19.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node21.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1389"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1385"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1379"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1387"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1390"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Up:</B> <A NAME="tex2html1386"
+  HREF="node19.html">The File menu</A>
+<B> Previous:</B> <A NAME="tex2html1380"
+  HREF="node19.html">The File menu</A>
+ &nbsp <B>  <A NAME="tex2html1388"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION008110000000000000000"></A>
+<A NAME="load_netcdf_file"></A>
+<BR>
+Load NetCDF file
+</H2>
+The <B>Load NetCDF file</B> option allows one to select the <B>NetCDF</B> file
+of the trajectory which will be used to perform the analysis. Clicking on it, a file browser like the one showed in figure 
+<A HREF="node20.html#fig:file_browser">4.2</A> pops up.
+
+<DIV ALIGN="CENTER"><A NAME="fig:file_browser"></A><A NAME="648"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.2:</STRONG>
+File-Directory selection window.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="314" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.gif"
+ ALT="\includegraphics[width=10cm]{Figures/file_browser.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+To select a directory, double click on it. By doing this, the complete pathname of the selected 
+directory appears on the <B>Directory</B> selection button at the top of the window. To select
+the parent directory left-click the directory selection button. When a file in the list is highlighted (clicked) 
+its name is shown in the <B>File name</B> field. The selection is confirmed by pressing the button <B>Open</B> 
+of the browser. By doing this, the file selection window closes.
+
+<P>
+Two kind of files can be loaded in <I>n</I>MOLDYN, the <A HREF=node4.html#tex2html67 NAME="16864">MMTK</A> <A HREF=node4.html#tex2html68 NAME="16871">NetCDF</A> files and the <A HREF=node4.html#tex2html69 NAME="16878">MMTK</A> trajectory set 
+files (usually with respective <B>.nc</B> and <B>.ncs</B> extensions), the latter being just an ASCII file where each 
+line is a link to a <A HREF=node4.html#tex2html70 NAME="16885">MMTK</A> <A HREF=node4.html#tex2html71 NAME="16892">NetCDF</A> file. The figure <A HREF="node20.html#fig:trajectory_set">4.3</A> shows an example of a trajectory set file. 
+
+<DIV ALIGN="CENTER"><A NAME="fig:trajectory_set"></A><A NAME="661"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.3:</STRONG>
+Example of a MMTK trajectory set file.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="330" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.gif"
+ ALT="\includegraphics[width=10cm]{Figures/trajectory_set.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+For more details about trajectory set files, please refer to the <A HREF=node4.html#tex2html72 NAME="16899">MMTK</A> documentation [<A
+ HREF="node192.html#MMTK_TrajectorySet">47</A>].
+
+<P>
+Please note again that the <A HREF=node4.html#tex2html73 NAME="16906">MMTK</A> <A HREF=node4.html#tex2html74 NAME="16913">NetCDF</A> file format is central to <I>n</I>MOLDYN as it is the only trajectory format that <I>n</I>MOLDYN 
+can handle directly. Trajectories that have not been produced with <A HREF=node4.html#tex2html75 NAME="16920">MMTK</A> or <A HREF=node4.html#tex2html76 NAME="16927">MMTK</A>-based programs must be converted 
+to <A HREF=node4.html#tex2html77 NAME="16934">MMTK</A> format before they can be analyzed with <I>n</I>MOLDYN.
+
+<P>
+One important step that is performed by <I>n</I>MOLDYN when loading the trajectory is the determination of the chemical contents of 
+the <A HREF=node4.html#tex2html78 NAME="16941">MMTK</A> universe corresponding to the loaded trajectory. <I>n</I>MOLDYN attributes to each <A HREF=node4.html#tex2html79 NAME="16948">MMTK</A> chemical object found in 
+the universe  a name that is either its <A HREF=node4.html#tex2html80 NAME="16955">MMTK</A> database name if this object is referenced in the <A HREF=node4.html#tex2html81 NAME="16962">MMTK</A> internal database 
+otherwise its name will be its number of atoms appended to its chemical object type (respectively A, AC, M, NC, PC, P for Atom, 
+AtomCluster, Molecule, NucleotideChain, PeptideChain, Protein chemical types.). In the seldom case where the system contains some isomers, 
+<I>n</I>MOLDYN will distinguish them by appending to their name the suffix <B>_iso<IMG
+ WIDTH="12" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.gif"
+ ALT="$i$"></B>' where <IMG
+ WIDTH="12" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.gif"
+ ALT="$i$"> is the number of 
+the isomer. In order to retrieve to which isomer corresponds the <I>n</I>MOLDYN name, a PDB file whose name is the name of the isomer is created in the output file directory.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1389"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1385"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1379"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1387"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1390"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Up:</B> <A NAME="tex2html1386"
+  HREF="node19.html">The File menu</A>
+<B> Previous:</B> <A NAME="tex2html1380"
+  HREF="node19.html">The File menu</A>
+ &nbsp <B>  <A NAME="tex2html1388"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

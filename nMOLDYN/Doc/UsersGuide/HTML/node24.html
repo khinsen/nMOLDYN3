@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>DL_POLY to MMTK</TITLE>
+<META NAME="description" CONTENT="DL_POLY to MMTK">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node25.html">
+<LINK REL="previous" HREF="node23.html">
+<LINK REL="up" HREF="node21.html">
+<LINK REL="next" HREF="node25.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1444"
+  HREF="node25.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1440"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1434"
+  HREF="node23.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1442"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1445"
+  HREF="node25.html">Discover to MMTK</A>
+<B> Up:</B> <A NAME="tex2html1441"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1435"
+  HREF="node23.html">CHARMM/X-PLOR to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1443"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION008123000000000000000"></A>
+<A NAME="dlpoly_to_mmtk"></A>
+<BR>
+DL_POLY to MMTK
+</H3>
+This converter allows the conversion from a trajectory generated with DL_POLY [<A
+ HREF="node192.html#DL_POLY">28</A>] to a <A HREF=node4.html#tex2html115 NAME="17192">MMTK</A> <A HREF=node4.html#tex2html116 NAME="17199">NetCDF</A> 
+trajectory. Pressing the <B>DL_POLY to MMTK</B> menubutton, the dialog shown in figure <A HREF="node24.html#fig:dlpoly_converter">4.6</A> will pop up.
+
+<DIV ALIGN="CENTER"><A NAME="fig:dlpoly_converter"></A><A NAME="751"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.6:</STRONG>
+The DL_POLY to MMTK converter dialog.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="295" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.gif"
+ ALT="\includegraphics[width=10cm]{Figures/dlpoly_converter.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+To perform the conversion, the following input fields must be filled:
+
+<UL>
+<LI><B>FIELD input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the DL_POLY FIELD file that stores the informations about the system. This file is necessary to build up 
+the <A HREF=node4.html#tex2html117 NAME="17206">MMTK</A> universe related to the <A HREF=node4.html#tex2html118 NAME="17213">MMTK</A> trajectory.
+
+<P>
+</LI>
+<LI><B>HISTORY input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the DL_POLY HISTORY file that stores the trajectory frames.
+
+<P>
+</LI>
+<LI><B>Special atoms</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> <I>n</I>MOLDYN will create the <A HREF=node4.html#tex2html119 NAME="17220">MMTK</A> universe with the atom names specified in the FIELD file. 
+By default, <I>n</I>MOLDYN will interpret these names directly as if they were a chemical symbol. If this fails, 
+<I>n</I>MOLDYN will remove the last character until it corresponds to a known chemical symbol. For example, an 
+atom defined in the FIELD file as CB, will first be interpreted as an atom of chemical symbol CB. As it does not 
+exist, <I>n</I>MOLDYN will interpret it as an atom of chemical symbol C, namely a carbon atom. Usig htis procedure, 
+it can happen that some atom names can be misunderstood or event not understood at all by <A HREF=node4.html#tex2html120 NAME="17227">MMTK</A>As an example, the figure <A HREF="node24.html#fig:dlpoly_field_example">4.7</A> shows the example of a FIELD file 
+where one carbon atom specification (the one in red in the figure) will be misinterpreted as a cesium atom.
+
+<DIV ALIGN="CENTER"><A NAME="fig:dlpoly_field_example"></A><A NAME="7446"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.7:</STRONG>
+Example of a DL_POLY/FIELD file for which the <B>Special atoms</B> field must be 
+filled because one carbon atom name, CS, will be interpreted as a cesium atom.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="330" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.gif"
+ ALT="\includegraphics[width=10cm]{Figures/dlpoly_field_example.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The aim of the <B>Special atoms</B> field is precisely to avoid such problems. The format for the 
+<B>Special atoms</B> field is
+
+<BR>
+<BR><I>atom name1:element1 sep atom name2:element2 ...</I> where <I>sep</I> can be a white space, a comma or a semicolon.
+
+<BR>
+<BR>
+In the example showed in figure <A HREF="node24.html#fig:dlpoly_field_example">4.7</A>, the string CS:C should be entered in the <B>Special atoms</B> field.
+Interestingly, the <B>Special atoms</B> field can also be used to specify united atoms. The syntax is exactly the same but, in 
+that case, the element name must be replaced by the <A HREF=node4.html#tex2html121 NAME="17234">MMTK</A> united atom code (e.g. CH3, CH2, CH, NH, NH2, NH3, OH, SH ...).
+
+<P>
+</LI>
+<LI><B>MMTK NetCDF output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the name of the <A HREF=node4.html#tex2html122 NAME="17241">MMTK</A> <A HREF=node4.html#tex2html123 NAME="17248">NetCDF</A> trajectory that will be written.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1444"
+  HREF="node25.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1440"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1434"
+  HREF="node23.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1442"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1445"
+  HREF="node25.html">Discover to MMTK</A>
+<B> Up:</B> <A NAME="tex2html1441"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1435"
+  HREF="node23.html">CHARMM/X-PLOR to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1443"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

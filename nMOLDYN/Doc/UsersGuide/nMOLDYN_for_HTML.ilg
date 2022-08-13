@@ -1,0 +1,7 @@
+This is makeindex, version 2.14 [02-Oct-2002] (kpathsea + Thai support).
+Scanning style file ./nMOLDYN_for_HTML.ist..............done (14 attributes redefined, 0 ignored).
+Scanning input file nMOLDYN_for_HTML.acr....done (756 entries accepted, 0 rejected).
+Sorting entries.........done (8193 comparisons).
+Generating output file nMOLDYN_for_HTML.acn....done (220 lines written, 0 warnings).
+Output written in nMOLDYN_for_HTML.acn.
+Transcript written in nMOLDYN_for_HTML.ilg.

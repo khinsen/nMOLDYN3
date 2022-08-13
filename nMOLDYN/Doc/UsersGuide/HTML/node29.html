@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Frame snapshot</TITLE>
+<META NAME="description" CONTENT="Frame snapshot">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node30.html">
+<LINK REL="previous" HREF="node21.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node30.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1502"
+  HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1498"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1492"
+  HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1500"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1503"
+  HREF="node30.html">Convert NetCDF to ASCII</A>
+<B> Up:</B> <A NAME="tex2html1499"
+  HREF="node19.html">The File menu</A>
+<B> Previous:</B> <A NAME="tex2html1493"
+  HREF="node28.html">VASP to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1501"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION008130000000000000000"></A>
+<A NAME="frame_snapshot"></A>
+<BR>
+Frame snapshot
+</H2>
+The <B>Frame snapshot</B> option allows the extraction of one or several frames in <A HREF=node4.html#tex2html176 NAME="17609"><I>PDB</I></A> format from a <A HREF=node4.html#tex2html177 NAME="17616">MMTK</A> <A HREF=node4.html#tex2html178 NAME="17623">NetCDF</A> 
+trajectory. Clicking on it, the dialog shown in figure <A HREF="node29.html#fig:frame_snapshot">4.12</A> will pop up.
+
+<DIV ALIGN="CENTER"><A NAME="fig:frame_snapshot"></A><A NAME="965"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.12:</STRONG>
+The dialog used to export trajectory frames to a PDB file.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="249" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.gif"
+ ALT="\includegraphics[width=10cm]{Figures/frame_snapshot.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+To perform the frame extraction, the following input fields must be filled:
+
+<UL>
+<LI><B>NetCDF input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> a <A HREF=node4.html#tex2html179 NAME="17630">MMTK</A> <A HREF=node4.html#tex2html180 NAME="17637">NetCDF</A> trajectory file of the system must be provided for the extraction. 
+If a trajectory is currently loaded, it will be proposed by default for the frame extraction.
+
+<P>
+</LI>
+<LI><B>Selected frames</B>
+<BR><B>Format:</B> integer or Python expression or string
+<BR><B>Default:</B> <I>1</I>
+<BR><B>Description:</B> this field will store the frames selected for extraction. The format for the <B>Selected frames</B> 
+field can be:
+
+<UL>
+<LI>an integer specifying the index of a single frame to extract
+</LI>
+<LI>a valid Python expression that will generate a list of integers where each integer specify the index of a frame to extract.
+</LI>
+<LI>a string with the following format:
+<BR><I>min 1:max 1:skip 1 sep ... sep min N:max N:skip N</I>
+<BR>
+where <I>sep</I> can be a white space, a comma or a semicolon and each block <I>min i:max i:skip i</I> will specify a 
+range of frames including frame <I>min i</I> to frame <I>max i</I> by jump of <I>skip i</I> frames.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>PDB output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> this field will store the name of the <A HREF=node4.html#tex2html181 NAME="17644"><I>PDB</I></A> output file that will contain the extracted frames. The line
+
+<BR>
+<BR><I>REMARK Frame i</I>
+
+<BR>
+<BR>
+will be written before each written frame <I>i</I>.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1502"
+  HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1498"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1492"
+  HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1500"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1503"
+  HREF="node30.html">Convert NetCDF to ASCII</A>
+<B> Up:</B> <A NAME="tex2html1499"
+  HREF="node19.html">The File menu</A>
+<B> Previous:</B> <A NAME="tex2html1493"
+  HREF="node28.html">VASP to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1501"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>selection from an expression string
+</TITLE>
+<META NAME="description" CONTENT="selection from an expression string
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="previous" HREF="node39.html">
+<LINK REL="up" HREF="node37.html">
+<LINK REL="next" HREF="node41.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1789"
+  HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1785"
+  HREF="node37.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1781"
+  HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1787"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1790"
+  HREF="node41.html">Deuteration selection</A>
+<B> Up:</B> <A NAME="tex2html1786"
+  HREF="node37.html">Subset selection</A>
+<B> Previous:</B> <A NAME="tex2html1782"
+  HREF="node39.html">selection from the loaded</A>
+ &nbsp <B>  <A NAME="tex2html1788"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008221300000000000000">
+selection from an expression string
+<BR></A>
+</H4>
+To perform a subset selection from an expression string, you have to click on the <B>from an expression string</B> 
+radiobutton. A dialog will be displayed in the underneath frame from which you will enter a valid Python expression 
+that must declare the <I>selection</I> variable as a list of atoms of the loaded universe. The variable 
+<I>self.universe</I> will be used as a reference for that universe (see Fig. <A HREF="node40.html#fig:subset_selection_from_an_expression_string">4.23</A>).
+
+<DIV ALIGN="CENTER"><A NAME="fig:subset_selection_from_an_expression_string"></A><A NAME="1514"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.23:</STRONG>
+The subset selection dialog for a selection from an expression string.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="453" HEIGHT="290" ALIGN="BOTTOM" BORDER="0"
+ SRC="img66.gif"
+ ALT="\includegraphics[width=10cm]{Figures/subset_selection_from_an_expression_string.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Once an expression string has been entered press <B>Return</B> to register it. The constructed selection string that will be used by <I>n</I>MOLDYN for this kind of 
+selection will be displayed in the <B>Selection preview</B> entry at the bottom of the dialog with highlighted keywords.
+
+<P>
+Here are some examples of valid expression strings that can be entered:
+
+<UL>
+<LI><I>selection = self.universe.atomList()[0:10]</I>: will select the ten first atoms of the universe,
+</LI>
+<LI><I>selection = [at for at in self.universe if at._mass <IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\geq$"> 10]</I>: will select only the atoms of the universe whose 
+mass is greater than 10 <I>amu</I>.
+</LI>
+</UL>
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1789"
+  HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1785"
+  HREF="node37.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1781"
+  HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1787"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1790"
+  HREF="node41.html">Deuteration selection</A>
+<B> Up:</B> <A NAME="tex2html1786"
+  HREF="node37.html">Subset selection</A>
+<B> Previous:</B> <A NAME="tex2html1782"
+  HREF="node39.html">selection from the loaded</A>
+ &nbsp <B>  <A NAME="tex2html1788"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

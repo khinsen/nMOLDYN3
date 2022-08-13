@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>MSD within the AR model</TITLE>
+<META NAME="description" CONTENT="MSD within the AR model">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node100.html">
+<LINK REL="previous" HREF="node98.html">
+<LINK REL="up" HREF="node95.html">
+<LINK REL="next" HREF="node100.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2592"
+  HREF="node100.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2588"
+  HREF="node95.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2582"
+  HREF="node98.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2590"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2593"
+  HREF="node100.html">Friction coefficient within the</A>
+<B> Up:</B> <A NAME="tex2html2589"
+  HREF="node95.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2583"
+  HREF="node98.html">Discrete memory function of</A>
+ &nbsp <B>  <A NAME="tex2html2591"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H5><A NAME="SECTION0082411140000000000000">
+MSD within the AR model</A>
+</H5> The relation between the <A HREF=node4.html#tex2html434 NAME="19830"><I>VACF</I></A> and the <A HREF=node4.html#tex2html435 NAME="19837"><I>MSD</I></A> reads
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{MSD}(t)=\langle[x(t)-x(0)]^2\rangle=2 \int_{0}^{t}d\tau\,(t - \tau)
+C_{vv}(t)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:msd_vacf_x"></A><IMG
+ WIDTH="470" HEIGHT="46" BORDER="0"
+ SRC="img286.gif"
+ ALT="\begin{displaymath}
+{MSD}(t)=\langle[x(t)-x(0)]^2\rangle=2 \int_{0}^{t}d\tau (t - \tau)
+C_{vv}(t)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.84)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+By discretizing the above equation one obtains
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+MSD(n)=2 \sum_{k=0}^n \Delta t^2(n-k)C_{vv}(k).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:msd_vacf_x_discrete_1"></A><IMG
+ WIDTH="415" HEIGHT="55" BORDER="0"
+ SRC="img287.gif"
+ ALT="\begin{displaymath}
+MSD(n)=2 \sum_{k=0}^n \Delta t^2(n-k)C_{vv}(k).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.85)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Using
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+f_1(n)=\Theta(n)\cdot n
+f_2(n)=\Theta(n)\cdot C_{vv}(n)
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="295" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img288.gif"
+ ALT="$\displaystyle f_1(n)=\Theta(n)\cdot n
+f_2(n)=\Theta(n)\cdot C_{vv}(n)$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.86)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+into Eq. <A HREF="node99.html#eq:msd_vacf_x_discrete_1">4.85</A>, gives
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+MSD(n)=2 \sum_{k=-\infty}^{+\infty} \Delta t^2f_1(n-k)f_2(k)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:msd_vacf_x_discrete_2"></A><IMG
+ WIDTH="424" HEIGHT="59" BORDER="0"
+ SRC="img289.gif"
+ ALT="\begin{displaymath}
+MSD(n)=2 \sum_{k=-\infty}^{+\infty} \Delta t^2f_1(n-k)f_2(k)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.87)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Making use of the one-side z-transform (equivalent to the Laplace transform for discrete functions), we obtain 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{MSD}^{>}(z)= 2 F_1^{>} F_2^{>}\Delta t^2 ,
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:msd_vacf_x_discrete_2_Z"></A><IMG
+ WIDTH="378" HEIGHT="31" BORDER="0"
+ SRC="img290.gif"
+ ALT="\begin{displaymath}
+{MSD}^{&gt;}(z)= 2 F_1^{&gt;} F_2^{&gt;}\Delta t^2 ,
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.88)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+F_1^{>}=\frac{z}{(z-1)^2}.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:f1z"></A><IMG
+ WIDTH="338" HEIGHT="43" BORDER="0"
+ SRC="img291.gif"
+ ALT="\begin{displaymath}
+F_1^{&gt;}=\frac{z}{(z-1)^2}.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.89)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Introducing Eq. <A HREF="node99.html#eq:f1z">4.89</A> into Eq. <A HREF="node99.html#eq:msd_vacf_x_discrete_2_Z">4.88</A> yields
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+MSD^{>}(z)= 2 \frac{z\Delta t^2}{(z-1)^2}C_{vv}^{>}(z)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="msd_z"></A><IMG
+ WIDTH="392" HEIGHT="49" BORDER="0"
+ SRC="img292.gif"
+ ALT="\begin{displaymath}
+MSD^{&gt;}(z)= 2 \frac{z\Delta t^2}{(z-1)^2}C_{vv}^{&gt;}(z)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.90)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+and its inverse z-transform reads
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{MSD}(n)= 2\Delta t^2\cdot\frac{1}{2\pi i}\oint dz z^{n-1}\cdot\frac{z}{(z-1)^2}\cdot C_{vv}^{>}(z).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="inv_Z"></A><IMG
+ WIDTH="474" HEIGHT="46" BORDER="0"
+ SRC="img293.gif"
+ ALT="\begin{displaymath}
+{MSD}(n)= 2\Delta t^2\cdot\frac{1}{2\pi i}\oint dz z^{n-1}\cdot\frac{z}{(z-1)^2}\cdot C_{vv}^{&gt;}(z).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.91)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Using the expression of the non-normalized <!-- MATH
+ $C_{vv}^{\rangle}(z)$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img294.gif"
+ ALT="$C_{vv}^{\rangle}(z)$"> obtained in the framework of the <A HREF=node4.html#tex2html436 NAME="19844"><I>AR</I></A> model 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+C_{vv}^{>}(z)= \sum_{j=1}^P\beta_j\frac{z}{z-z_j}\cdot\langle v^2\rangle
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="384" HEIGHT="61" BORDER="0"
+ SRC="img295.gif"
+ ALT="\begin{displaymath}
+C_{vv}^{&gt;}(z)= \sum_{j=1}^P\beta_j\frac{z}{z-z_j}\cdot\langle v^2\rangle
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.92)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+one finds the expression of <A HREF=node4.html#tex2html437 NAME="19851"><I>MSD</I></A> within the same <A HREF=node4.html#tex2html438 NAME="19858"><I>AR</I></A> model
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+MSD^{AR}(n) & = & 2\Delta t^2\langle v^2\rangle \sum_{j=1}^P\beta_j \frac{1}{2\pi i}\oint dz \frac{z^{n+1}}{(z-1)^2}\cdot\frac{1}{z-z_j}\\
+& = & 2\Delta t^2\langle v^2\rangle \sum_{j=1}^P\beta_j \{\frac{n}{1-z_j}-\frac{z_j}{(1-z_j)^2}+\frac{z_j^{n+1}}{(1-z_j)^2}\}.
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="97" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img296.gif"
+ ALT="$\displaystyle MSD^{AR}(n)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="314" HEIGHT="72" ALIGN="MIDDLE" BORDER="0"
+ SRC="img297.gif"
+ ALT="$\displaystyle 2\Delta t^2\langle v^2\rangle \sum_{j=1}^P\beta_j \frac{1}{2\pi i}\oint dz \frac{z^{n+1}}{(z-1)^2}\cdot\frac{1}{z-z_j}$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.93)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="374" HEIGHT="72" ALIGN="MIDDLE" BORDER="0"
+ SRC="img298.gif"
+ ALT="$\displaystyle 2\Delta t^2\langle v^2\rangle \sum_{j=1}^P\beta_j \{\frac{n}{1-z_j}-\frac{z_j}{(1-z_j)^2}+\frac{z_j^{n+1}}{(1-z_j)^2}\}.$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.94)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+MSD^{AR}(n)\stackrel{n\rightarrow +\infty}{\simeq} 2Dn\Delta t \mbox{  ;  } 
+D=\Delta t\langle v^2\rangle \sum_{j=1}^P\frac{\beta_j}{1-z_j}=\frac{\langle v^2\rangle}{\gamma}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="501" HEIGHT="61" BORDER="0"
+ SRC="img299.gif"
+ ALT="\begin{displaymath}
+MSD^{AR}(n)\stackrel{n\rightarrow +\infty}{\simeq} 2Dn\Delta...
+...{j=1}^P\frac{\beta_j}{1-z_j}=\frac{\langle v^2\rangle}{\gamma}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.95)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+which allows one to compute the <A HREF=node4.html#tex2html439 NAME="19865"><I>MSD</I></A> within the <A HREF=node4.html#tex2html440 NAME="19872"><I>AR</I></A> model from the poles and the <IMG
+ WIDTH="23" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img252.gif"
+ ALT="$\beta_j$"> coefficients of the non-normalized <A HREF=node4.html#tex2html441 NAME="19879"><I>VACF</I></A>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2592"
+  HREF="node100.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2588"
+  HREF="node95.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2582"
+  HREF="node98.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2590"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2593"
+  HREF="node100.html">Friction coefficient within the</A>
+<B> Up:</B> <A NAME="tex2html2589"
+  HREF="node95.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2583"
+  HREF="node98.html">Discrete memory function of</A>
+ &nbsp <B>  <A NAME="tex2html2591"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

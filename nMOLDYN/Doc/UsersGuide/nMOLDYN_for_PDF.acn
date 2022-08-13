@@ -1,0 +1,265 @@
+\begin{theglossary}\glogroupA
+
+\gloitem {\glosslabel{acn:AC}{\textbf {A}ngular \textbf {C}orrelation\ (\noexpand \acronymfont {\textit {AC}})}}\relax
+\glodelim 
+		\glsnumformat{67\delimR 69}\delimT 
+
+\gloitem {\glosslabel{acn:ADOS}{\textbf {A}ngular \textbf {D}ensity \textbf {O}f \textbf {S}tates\ (\noexpand \acronymfont {\textit {ADOS}})}}\relax
+\glodelim 
+		\glsnumformat{105\delimR 108}\delimT 
+
+\gloitem {\glosslabel{acn:AR}{\textbf {A}uto-\textbf {R}egressive\ (\noexpand \acronymfont {\textit {AR}})}}\relax
+\glodelim 
+		\glsnumformat{86}\delimN \glsnumformat{88}\delimN 
+		\glsnumformat{90}\delimN \glsnumformat{116}\delimN 
+		\glsnumformat{126}\delimT 
+
+\gloitem {\glosslabel{acn:ARA}{\textbf {A}uto-\textbf {R}egressive \textbf {A}nalysis\ (\noexpand \acronymfont {\textit {ARA}})}}\relax
+\glodelim 
+		\glsnumformat{86}\delimN \glsnumformat{91\delimR 93}\delimN 
+		\glsnumformat{173}\delimT 
+
+\gloitem {\glosslabel{acn:AVACF}{\textbf {A}ngular \textbf {V}elocity \textbf {A}uto\textbf {C}orrelation \textbf {F}unction\ (\noexpand \acronymfont {\textit {AVACF}})}}\relax
+\glodelim 
+		\glsnumformat{102}\delimN 
+		\glsnumformat{104\delimN 105}\delimN 
+		\glsnumformat{173}\delimT \gloskip \glogroupC
+
+\gloitem {\glosslabel{acn:CDL}{network \textbf {C}ommon \textbf {D}ata \textbf {L}anguage\ (\noexpand \acronymfont {CDL})}}\relax
+\glodelim 
+		\glsnumformat{32}\delimN \glsnumformat{34}\delimN 
+		\glsnumformat{61}\delimN \glsnumformat{64}\delimN 
+		\glsnumformat{66}\delimN \glsnumformat{68}\delimN 
+		\glsnumformat{72}\delimN \glsnumformat{75}\delimN 
+		\glsnumformat{93}\delimN \glsnumformat{101}\delimN 
+		\glsnumformat{104}\delimN \glsnumformat{107}\delimN 
+		\glsnumformat{115}\delimN \glsnumformat{120}\delimN 
+		\glsnumformat{125}\delimN \glsnumformat{130}\delimN 
+		\glsnumformat{134}\delimN \glsnumformat{139}\delimN 
+		\glsnumformat{143}\delimN \glsnumformat{146}\delimN 
+		\glsnumformat{150}\delimN \glsnumformat{153}\delimN 
+		\glsnumformat{158\delimN 159}\delimN 
+		\glsnumformat{163}\delimN \glsnumformat{165}\delimT 
+
+\gloitem {\glosslabel{acn:CHARMM}{\textbf {C}hemistry at \textbf {HAR}vard \textbf {M}acromolecular \textbf {M}echanics\ (\noexpand \acronymfont {CHARMM})}}\relax
+\glodelim 
+		\glsnumformat{10}\delimN \glsnumformat{22\delimN 23}\delimN 
+		\glsnumformat{29}\delimT 
+
+\gloitem {\glosslabel{acn:CN}{\textbf {C}oordination \textbf {N}umber\ (\noexpand \acronymfont {\textit {CN}})}}\relax
+\glodelim 
+		\glsnumformat{10}\delimN \glsnumformat{150\delimN 151}\delimN 
+		\glsnumformat{153\delimR 155}\delimT 
+
+\gloitem {\glosslabel{acn:COMT}{\textbf {C}enter \textbf {O}f \textbf {M}ass \textbf {T}rajectory\ (\noexpand \acronymfont {\textit {COMT}})}}\relax
+\glodelim 
+		\glsnumformat{10}\delimN \glsnumformat{85\delimN 86}\delimT \gloskip \glogroupD
+
+\gloitem {\glosslabel{acn:DCSF}{\textbf {D}ynamic \textbf {C}oherent \textbf {S}tructure \textbf {F}actor\ (\noexpand \acronymfont {\textit {DCSF}})}}\relax
+\glodelim 
+		\glsnumformat{112}\delimN \glsnumformat{115}\delimN 
+		\glsnumformat{173}\delimT 
+
+\gloitem {\glosslabel{acn:DCSFAR}{\textbf {D}ynamic \textbf {C}oherent \textbf {S}tructure \textbf {F}actor using an \textbf {A}uto-\textbf {R}egressive model\ (\noexpand \acronymfont {\textit {DCSFAR}})}}\relax
+\glodelim 
+		\glsnumformat{117}\delimN \glsnumformat{120}\delimT 
+
+\gloitem {\glosslabel{acn:DISF}{\textbf {D}ynamic \textbf {I}ncoherent \textbf {S}tructure \textbf {F}actor\ (\noexpand \acronymfont {\textit {DISF}})}}\relax
+\glodelim 
+		\glsnumformat{122}\delimN \glsnumformat{125}\delimN 
+		\glsnumformat{139}\delimN \glsnumformat{173}\delimT 
+
+\gloitem {\glosslabel{acn:DISFAR}{\textbf {D}ynamic \textbf {I}ncoherent \textbf {S}tructure \textbf {F}actor using an \textbf {A}uto-\textbf {R}egressive model\ (\noexpand \acronymfont {\textit {DISFAR}})}}\relax
+\glodelim 
+		\glsnumformat{127}\delimN \glsnumformat{130}\delimT 
+
+\gloitem {\glosslabel{acn:DISFG}{\textbf {D}ynamic \textbf {I}ncoherent \textbf {S}tructure \textbf {F}actor using an \textbf {G}aussian approximation\ (\noexpand \acronymfont {\textit {DISFG}})}}\relax
+\glodelim 
+		\glsnumformat{132}\delimN \glsnumformat{134}\delimN 
+		\glsnumformat{173}\delimT 
+
+\gloitem {\glosslabel{acn:DOS}{\textbf {D}ensity \textbf {O}f \textbf {S}tates\ (\noexpand \acronymfont {\textit {DOS}})}}\relax
+\glodelim 
+		\glsnumformat{70}\delimN \glsnumformat{73}\delimN 
+		\glsnumformat{75\delimN 76}\delimN \glsnumformat{90}\delimN 
+		\glsnumformat{93}\delimN \glsnumformat{173}\delimT \gloskip \glogroupE
+
+\gloitem {\glosslabel{acn:EISF}{\textbf {E}lastic \textbf {I}ncoherent \textbf {S}tructure \textbf {F}actor\ (\noexpand \acronymfont {\textit {EISF}})}}\relax
+\glodelim 
+		\glsnumformat{134\delimR 136}\delimN 
+		\glsnumformat{139}\delimN \glsnumformat{173}\delimT \gloskip \glogroupF
+
+\gloitem {\glosslabel{acn:FCA}{\textbf {F}ast \textbf {C}orrelation \textbf {A}lgorithm\ (\noexpand \acronymfont {FCA})}}\relax
+\glodelim 
+		\glsnumformat{59}\delimN \glsnumformat{111}\delimN 
+		\glsnumformat{122}\delimN \glsnumformat{184}\delimT \gloskip \glogroupG
+
+\gloitem {\glosslabel{acn:GMFT}{\textbf {G}lobal \textbf {M}otion \textbf {F}iltered \textbf {T}rajectory\ (\noexpand \acronymfont {\textit {GMFT}})}}\relax
+\glodelim 
+		\glsnumformat{11}\delimN \glsnumformat{78\delimR 80}\delimT 
+
+\gloitem {\glosslabel{acn:GUI}{\textbf {G}raphical \textbf {U}ser \textbf {I}nterface\ (\noexpand \acronymfont {\textit {GUI}})}}\relax
+\glodelim 
+		\glsnumformat{10\delimN 11}\delimN 
+		\glsnumformat{16\delimR 18}\delimN \glsnumformat{56}\delimN 
+		\glsnumformat{175\delimN 176}\delimN 
+		\glsnumformat{179}\delimT \gloskip \glogroupM
+
+\gloitem {\glosslabel{acn:MD}{\textbf {M}olecular \textbf {D}ynamics\ (\noexpand \acronymfont {MD})}}\relax
+\glodelim 
+		\glsnumformat{1}\delimN \glsnumformat{9}\delimN 
+		\glsnumformat{42}\delimN \glsnumformat{58}\delimN 
+		\glsnumformat{78}\delimN \glsnumformat{80}\delimN 
+		\glsnumformat{86}\delimN \glsnumformat{94\delimN 95}\delimN 
+		\glsnumformat{97}\delimN \glsnumformat{111}\delimN 
+		\glsnumformat{121}\delimN \glsnumformat{135}\delimN 
+		\glsnumformat{160}\delimN \glsnumformat{184}\delimT 
+
+\gloitem {\glosslabel{acn:MMTK}{\textbf {M}olecular \textbf {M}odelling \textbf {T}ool\textbf {K}it\ (\noexpand \acronymfont {MMTK})}}\relax
+\glodelim 
+		\glsnumformat{1}\delimN \glsnumformat{10}\delimN 
+		\glsnumformat{12}\delimN \glsnumformat{14}\delimN 
+		\glsnumformat{18}\delimN \glsnumformat{20\delimR 32}\delimN 
+		\glsnumformat{37}\delimN \glsnumformat{46}\delimN 
+		\glsnumformat{51}\delimN \glsnumformat{55}\delimN 
+		\glsnumformat{68}\delimN \glsnumformat{78}\delimN 
+		\glsnumformat{80}\delimN \glsnumformat{84}\delimN 
+		\glsnumformat{86}\delimN \glsnumformat{157}\delimN 
+		\glsnumformat{162}\delimN \glsnumformat{174}\delimT 
+
+\gloitem {\glosslabel{acn:MSD}{\textbf {M}ean-\textbf {S}quare \textbf {D}isplacement\ (\noexpand \acronymfont {\textit {MSD}})}}\relax
+\glodelim 
+		\glsnumformat{42}\delimN \glsnumformat{57\delimR 62}\delimN 
+		\glsnumformat{89\delimN 90}\delimN \glsnumformat{93}\delimN 
+		\glsnumformat{131}\delimN \glsnumformat{173}\delimN 
+		\glsnumformat{176}\delimN \glsnumformat{179}\delimT \gloskip \glogroupN
+
+\gloitem {\glosslabel{acn:NAMD}{\textbf {NA}noscale \textbf {M}olecular \textbf {D}ynamics\ (\noexpand \acronymfont {NAMD})}}\relax
+\glodelim 
+		\glsnumformat{10}\delimN \glsnumformat{28\delimN 29}\delimT 
+
+\gloitem {\glosslabel{acn:NetCDF}{\textbf {N}etwork \textbf {C}ommon \textbf {D}ata \textbf {F}orm\ (\noexpand \acronymfont {NetCDF})}}\relax
+\glodelim 
+		\glsnumformat{1}\delimN \glsnumformat{10}\delimN 
+		\glsnumformat{14}\delimN \glsnumformat{16}\delimN 
+		\glsnumformat{20\delimR 23}\delimN \glsnumformat{25}\delimN 
+		\glsnumformat{27\delimR 35}\delimN \glsnumformat{37}\delimN 
+		\glsnumformat{61}\delimN \glsnumformat{64}\delimN 
+		\glsnumformat{66}\delimN \glsnumformat{68\delimR 70}\delimN 
+		\glsnumformat{72}\delimN \glsnumformat{74\delimR 76}\delimN 
+		\glsnumformat{78}\delimN \glsnumformat{80}\delimN 
+		\glsnumformat{84}\delimN \glsnumformat{86}\delimN 
+		\glsnumformat{92\delimN 93}\delimN \glsnumformat{97}\delimN 
+		\glsnumformat{101}\delimN 
+		\glsnumformat{103\delimR 105}\delimN 
+		\glsnumformat{107}\delimN \glsnumformat{115}\delimN 
+		\glsnumformat{120}\delimN \glsnumformat{125}\delimN 
+		\glsnumformat{130}\delimN \glsnumformat{134}\delimN 
+		\glsnumformat{139}\delimN \glsnumformat{143}\delimN 
+		\glsnumformat{146}\delimN \glsnumformat{150}\delimN 
+		\glsnumformat{153}\delimN 
+		\glsnumformat{158\delimR 160}\delimN 
+		\glsnumformat{163}\delimN \glsnumformat{165}\delimN 
+		\glsnumformat{168}\delimT \gloskip \glogroupO
+
+\gloitem {\glosslabel{acn:OP}{\textbf {O}rder \textbf {P}arameter\ (\noexpand \acronymfont {\textit {OP}})}}\relax
+\glodelim 
+		\glsnumformat{11}\delimN \glsnumformat{161}\delimN 
+		\glsnumformat{163}\delimT 
+
+\gloitem {\glosslabel{acn:OPCM}{\textbf {O}rder \textbf {P}arameter using \textbf {C}ontact \textbf {M}odel\ (\noexpand \acronymfont {\textit {OPCM}})}}\relax
+\glodelim 
+		\glsnumformat{11}\delimN \glsnumformat{164\delimN 165}\delimT \gloskip \glogroupP
+
+\gloitem {\glosslabel{acn:PBFT}{\textbf {P}ass-\textbf {B}and \textbf {F}iltered \textbf {T}rajectory\ (\noexpand \acronymfont {\textit {PBFT}})}}\relax
+\glodelim 
+		\glsnumformat{76}\delimN \glsnumformat{78}\delimT 
+
+\gloitem {\glosslabel{acn:PDB}{\textbf {P}rotein \textbf {D}ata \textbf {B}ank\ (\noexpand \acronymfont {\textit {PDB}})}}\relax
+\glodelim 
+		\glsnumformat{14\delimN 15}\delimN \glsnumformat{31}\delimN 
+		\glsnumformat{44}\delimN \glsnumformat{49}\delimN 
+		\glsnumformat{53}\delimT 
+
+\gloitem {\glosslabel{acn:PDF}{\textbf {P}air-\textbf {D}istribution \textbf {F}unction\ (\noexpand \acronymfont {\textit {PDF}})}}\relax
+\glodelim 
+		\glsnumformat{10}\delimN \glsnumformat{147\delimR 150}\delimN 
+		\glsnumformat{152}\delimN \glsnumformat{154}\delimN 
+		\glsnumformat{156}\delimT \gloskip \glogroupQ
+
+\gloitem {\glosslabel{acn:QHA}{\textbf {Q}uasi-\textbf {H}armonic \textbf {A}nalysis\ (\noexpand \acronymfont {\textit {QHA}})}}\relax
+\glodelim 
+		\glsnumformat{11}\delimN \glsnumformat{94\delimR 97}\delimN 
+		\glsnumformat{170\delimN 171}\delimT \gloskip \glogroupR
+
+\gloitem {\glosslabel{acn:RBT}{\textbf {R}igid-\textbf {B}ody \textbf {T}rajectory\ (\noexpand \acronymfont {\textit {RBT}})}}\relax
+\glodelim 
+		\glsnumformat{80}\delimN \glsnumformat{82\delimR 85}\delimN 
+		\glsnumformat{101}\delimN \glsnumformat{104}\delimN 
+		\glsnumformat{107}\delimT 
+
+\gloitem {\glosslabel{acn:RCF}{\textbf {R}eorientational \textbf {C}orrelation \textbf {F}unction\ (\noexpand \acronymfont {\textit {RCF}})}}\relax
+\glodelim 
+		\glsnumformat{100\delimR 102}\delimT 
+
+\gloitem {\glosslabel{acn:RDF}{\textbf {R}adial-\textbf {D}istribution \textbf {F}unction\ (\noexpand \acronymfont {\textit {RDF}})}}\relax
+\glodelim 
+		\glsnumformat{147}\delimN 
+		\glsnumformat{149\delimN 150}\delimT 
+
+\gloitem {\glosslabel{acn:RMSD}{\textbf {R}oot \textbf {M}ean-\textbf {S}quare \textbf {D}eviation\ (\noexpand \acronymfont {\textit {RMSD}})}}\relax
+\glodelim 
+		\glsnumformat{10}\delimN \glsnumformat{62\delimR 64}\delimT 
+
+\gloitem {\glosslabel{acn:ROG}{\textbf {R}adius \textbf {O}f \textbf {G}yration\ (\noexpand \acronymfont {\textit {ROG}})}}\relax
+\glodelim 
+		\glsnumformat{10}\delimN \glsnumformat{64\delimR 66}\delimT \gloskip \glogroupS
+
+\gloitem {\glosslabel{acn:SCSF}{\textbf {S}tatic \textbf {C}oherent \textbf {S}tructure \textbf {F}actor\ (\noexpand \acronymfont {\textit {SCSF}})}}\relax
+\glodelim 
+		\glsnumformat{11}\delimN \glsnumformat{140}\delimN 
+		\glsnumformat{143}\delimT 
+
+\gloitem {\glosslabel{acn:SD}{\textbf {S}patial \textbf {D}ensity\ (\noexpand \acronymfont {\textit {SD}})}}\relax
+\glodelim 
+		\glsnumformat{10}\delimN \glsnumformat{154\delimN 155}\delimN 
+		\glsnumformat{157\delimN 158}\delimN 
+		\glsnumformat{160}\delimT 
+
+\gloitem {\glosslabel{acn:SFA}{\textbf {S}crew\textbf {F}it \textbf {A}nalysis\ (\noexpand \acronymfont {\textit {SFA}})}}\relax
+\glodelim 
+		\glsnumformat{158\delimR 160}\delimT 
+
+\gloitem {\glosslabel{acn:SSCSF}{\textbf {S}moothed \textbf {S}tatic \textbf {C}oherent \textbf {S}tructure \textbf {F}actor\ (\noexpand \acronymfont {\textit {SSCSF}})}}\relax
+\glodelim 
+		\glsnumformat{11}\delimN \glsnumformat{144}\delimN 
+		\glsnumformat{146}\delimT \gloskip \glogroupT
+
+\gloitem {\glosslabel{acn:TCF}{\textbf {T}otal-\textbf {C}orrelation \textbf {F}unction\ (\noexpand \acronymfont {\textit {TCF}})}}\relax
+\glodelim 
+		\glsnumformat{147}\delimN 
+		\glsnumformat{149\delimN 150}\delimT \gloskip \glogroupU
+
+\gloitem {\glosslabel{acn:UCAR}{\textbf {U}niversity \textbf {C}orporation for \textbf {A}tmospheric \textbf {R}esearch\ (\noexpand \acronymfont {\textit {UCAR}})}}\relax
+\glodelim 
+		\glsnumformat{14}\delimT \gloskip \glogroupV
+
+\gloitem {\glosslabel{acn:VACF}{\textbf {V}elocity \textbf {A}uto\textbf {C}orrelation \textbf {F}unction\ (\noexpand \acronymfont {\textit {VACF}})}}\relax
+\glodelim 
+		\glsnumformat{69\delimN 70}\delimN 
+		\glsnumformat{72\delimN 73}\delimN 
+		\glsnumformat{87\delimR 90}\delimN \glsnumformat{93}\delimN 
+		\glsnumformat{116}\delimN \glsnumformat{173}\delimT 
+
+\gloitem {\glosslabel{acn:VASP}{\textbf {V}ienna \textbf {A}b-initio \textbf {S}imulation \textbf {P}ackage\ (\noexpand \acronymfont {VASP})}}\relax
+\glodelim 
+		\glsnumformat{10}\delimN \glsnumformat{29\delimN 30}\delimT 
+
+\gloitem {\glosslabel{acn:VMD}{\textbf {V}isual \textbf {M}olecular \textbf {D}ynamics\ (\noexpand \acronymfont {VMD})}}\relax
+\glodelim 
+		\glsnumformat{169\delimR 171}\delimT \gloskip \glogroupX
+
+\gloitem {\glosslabel{acn:XST}{e\textbf {X}tended \textbf {S}ystem \textbf {T}rajectory\ (\noexpand \acronymfont {XST})}}\relax
+\glodelim 
+		\glsnumformat{29}\delimT 
+\end{theglossary}

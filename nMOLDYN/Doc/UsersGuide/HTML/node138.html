@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory and implementation
+</TITLE>
+<META NAME="description" CONTENT="Theory and implementation
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node139.html">
+<LINK REL="previous" HREF="node137.html">
+<LINK REL="up" HREF="node137.html">
+<LINK REL="next" HREF="node139.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3098"
+  HREF="node139.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3094"
+  HREF="node137.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3088"
+  HREF="node137.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3096"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3099"
+  HREF="node139.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3095"
+  HREF="node137.html">Dynamic Incoherent Structure Factor</A>
+<B> Previous:</B> <A NAME="tex2html3089"
+  HREF="node137.html">Dynamic Incoherent Structure Factor</A>
+ &nbsp <B>  <A NAME="tex2html3097"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008256100000000000000"></A>
+<A NAME="disfg_theory"></A>
+<BR>
+Theory and implementation
+<BR>
+</H4>
+The <A HREF=node4.html#tex2html586 NAME="21300"><I>MSD</I></A> can be related to the incoherent intermediate scattering function  via the cumulant expansion
+[<A
+ HREF="node192.html#Rahman:1962">49</A>,<A
+ HREF="node192.html#Yip:1980">50</A>] 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\cal F}^{g}_{\mathrm{inc}}(\textbf{q},t) = \sum^{N_{species}}_{I = 1} n_I \omega_{I,\mathrm{inc}} {\cal F}^{g}_{I,\mathrm{inc}}(\textbf{q},t)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:fqt_cumulant"></A><IMG
+ WIDTH="421" HEIGHT="61" BORDER="0"
+ SRC="img492.gif"
+ ALT="\begin{displaymath}
+{\cal F}^{g}_{\mathrm{inc}}(\textbf{q},t) = \sum^{N_{species...
+...a_{I,\mathrm{inc}} {\cal F}^{g}_{I,\mathrm{inc}}(\textbf{q},t)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.167)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="64" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.gif"
+ ALT="$N_{species}$"> is the number of selected species, <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.gif"
+ ALT="$n_I$"> the number of atoms of species <I>I</I>, 
+<!-- MATH
+ $\omega_{I,\mathrm{inc}}$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img483.gif"
+ ALT="$\omega_{I,\mathrm{inc}}$"> the weight for specie <I>I</I> (see Section <A HREF="node35.html#weighting_scheme">4.2.1</A> for more details) and
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\cal F}^{g}_{I,\mathrm{inc}}(\textbf{q},t) = \frac{1}{n_I}\sum^{n_I}_{\alpha} \exp[-q^2\rho_{\alpha,1}(t) + q^4\rho_{\alpha,2}(t) \mp\ldots].
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:fqt_cumulant_1"></A><IMG
+ WIDTH="480" HEIGHT="54" BORDER="0"
+ SRC="img493.gif"
+ ALT="\begin{displaymath}
+{\cal F}^{g}_{I,\mathrm{inc}}(\textbf{q},t) = \frac{1}{n_I}\...
+...exp[-q^2\rho_{\alpha,1}(t) + q^4\rho_{\alpha,2}(t) \mp\ldots].
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.168)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The cumulants <!-- MATH
+ $\rho_{\alpha,k}(t)$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img494.gif"
+ ALT="$\rho_{\alpha,k}(t)$"> are defined as
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+\rho_{\alpha,1}(t) &= &\frac{1}{2!}
+\langle d^2_\alpha(t;\textbf{n}_q) \rangle \\
+\rho_{\alpha,2}(t) &= &\frac{1}{4!}\left[
+\langle d_\alpha^4(t;\textbf{n}_q)\rangle - 3\langle d^2_\alpha(t;\textbf{n}_q) 
+\rangle^2\right] \\
+&\vdots &\nonumber
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="55" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img495.gif"
+ ALT="$\displaystyle \rho_{\alpha,1}(t)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="102" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img496.gif"
+ ALT="$\displaystyle \frac{1}{2!}
+\langle d^2_\alpha(t;\textbf{n}_q) \rangle$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.169)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="55" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img497.gif"
+ ALT="$\displaystyle \rho_{\alpha,2}(t)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="235" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img498.gif"
+ ALT="$\displaystyle \frac{1}{4!}\left[
+\langle d_\alpha^4(t;\textbf{n}_q)\rangle - 3\langle d^2_\alpha(t;\textbf{n}_q)
+\rangle^2\right]$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.170)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="11" HEIGHT="59" ALIGN="MIDDLE" BORDER="0"
+ SRC="img499.gif"
+ ALT="$\textstyle \vdots$"></TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The vector <IMG
+ WIDTH="25" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img500.gif"
+ ALT="$\textbf{n}_q$"> is the unit vector in the direction of <IMG
+ WIDTH="17" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img222.gif"
+ ALT="${\bf q}$">. In the Gaussian approximation the above 
+expansion is truncated after the <IMG
+ WIDTH="22" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img501.gif"
+ ALT="$q^2$">-term. For certain model systems like the ideal gas, the harmonic oscillator, 
+and a particle undergoing Einstein diffusion, this is exact. For these systems the incoherent intermediate scattering 
+function is completely determined by the <A HREF=node4.html#tex2html587 NAME="21307"><I>MSD</I></A>.
+
+<P>
+<I>n</I>MOLDYN allows one to compute the total and partial incoherent intermediate scattering function in the
+<EM>Gaussian approximation</EM> by discretizing equation <A HREF="node138.html#eq:fqt_cumulant">4.167</A>:
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\cal F}^{g}_{\mathrm{inc}}(q_m,k\cdot\Delta t) \doteq \sum^{N_{species}}_{I = 1} n_I \omega_{I,\mathrm{inc}} F^{g}_{I, \mathrm{inc}}(q_m,k\cdot\Delta t),
+\qquad k = 0\ldots N_t - 1,\; m = 0\ldots N_q - 1.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="647" HEIGHT="61" BORDER="0"
+ SRC="img502.gif"
+ ALT="\begin{displaymath}
+{\cal F}^{g}_{\mathrm{inc}}(q_m,k\cdot\Delta t) \doteq \sum^...
+...t\Delta t),
+\qquad k = 0\ldots N_t - 1,\; m = 0\ldots N_q - 1.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.171)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+with for each specie the following expression for the intermediate scattering function:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+F^{g}_{I,\alpha ,\mathrm{inc}}(q_m,k\cdot\Delta t) &=& \frac{1}{n_I}\sum^{n_I}_{\alpha} \exp\left[-\frac{(q_m)^2}{6}
+  \Delta^2_\alpha(k\cdot\Delta t)\right]
+\qquad\mbox{{\rm isotropic system}},\\
+F^{g}_{I,\alpha ,\mathrm{inc}}(q_m,k\cdot\Delta t) &=& \frac{1}{n_I}\sum^{n_I}_{\alpha} \exp\left[-\frac{(q_m)^2}{2}
+  \Delta^2_\alpha(k\cdot\Delta t;{\bf n})\right]
+\quad\mbox{{\rm non-isotropic system}}.
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="144" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img503.gif"
+ ALT="$\displaystyle F^{g}_{I,\alpha ,\mathrm{inc}}(q_m,k\cdot\Delta t)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="410" HEIGHT="67" ALIGN="MIDDLE" BORDER="0"
+ SRC="img504.gif"
+ ALT="$\displaystyle \frac{1}{n_I}\sum^{n_I}_{\alpha} \exp\left[-\frac{(q_m)^2}{6}
+\Delta^2_\alpha(k\cdot\Delta t)\right]
+\qquad\mbox{{\rm isotropic system}},$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.172)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="144" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img503.gif"
+ ALT="$\displaystyle F^{g}_{I,\alpha ,\mathrm{inc}}(q_m,k\cdot\Delta t)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="446" HEIGHT="67" ALIGN="MIDDLE" BORDER="0"
+ SRC="img505.gif"
+ ALT="$\displaystyle \frac{1}{n_I}\sum^{n_I}_{\alpha} \exp\left[-\frac{(q_m)^2}{2}
+\De...
+...2_\alpha(k\cdot\Delta t;{\bf n})\right]
+\quad\mbox{{\rm non-isotropic system}}.$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.173)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<IMG
+ WIDTH="26" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.gif"
+ ALT="$N_t$"> is the total number of time steps in the coordinate time series and <IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img444.gif"
+ ALT="$N_q$"> is a user-defined number of <I>q</I>-shells. 
+The <IMG
+ WIDTH="42" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img506.gif"
+ ALT="$(q,t)$">-grid is the same as for the calculation of the intermediate incoherent scatering function (see Section <A HREF="node129.html#disf">4.2.5.4</A>). 
+The quantities <!-- MATH
+ $\Delta^2_\alpha(t)$
+ -->
+<IMG
+ WIDTH="50" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img507.gif"
+ ALT="$\Delta^2_\alpha(t)$"> and <!-- MATH
+ $\Delta^2_\alpha(t;{\bf n})$
+ -->
+<IMG
+ WIDTH="69" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img508.gif"
+ ALT="$\Delta^2_\alpha(t;{\bf n})$"> are the mean-square displacements, defined in 
+Equations (<A HREF="node52.html#eq:msd">4.16</A>) and (<A HREF="node52.html#eq:msd_n">4.17</A>), respectively. They are computed by using the algorithm described in Section 
+<A HREF="node52.html#msd_theory">4.2.4.1</A>. <I>n</I>MOLDYN corrects the atomic input trajectories for jumps due to periodic boundary conditions. It should 
+be noted that the computation of the intermediate scattering function in the Gaussian approximation is much `cheaper' than 
+the computation of the full intermediate scattering function, <!-- MATH
+ $\mathcal{F}_{\mathrm{inc}}(q,t)$
+ -->
+<IMG
+ WIDTH="73" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img509.gif"
+ ALT="$\mathcal{F}_{\mathrm{inc}}(q,t)$">, since no averaging over different 
+<I>q</I>-vectors needs to be performed. It is sufficient to compute a single mean-square displacement per atom.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3098"
+  HREF="node139.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html3094"
+  HREF="node137.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html3088"
+  HREF="node137.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html3096"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3099"
+  HREF="node139.html">Parameters</A>
+<B> Up:</B> <A NAME="tex2html3095"
+  HREF="node137.html">Dynamic Incoherent Structure Factor</A>
+<B> Previous:</B> <A NAME="tex2html3089"
+  HREF="node137.html">Dynamic Incoherent Structure Factor</A>
+ &nbsp <B>  <A NAME="tex2html3097"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

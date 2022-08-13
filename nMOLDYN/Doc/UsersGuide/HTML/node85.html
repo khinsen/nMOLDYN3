@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Optimal superposition.</TITLE>
+<META NAME="description" CONTENT="Optimal superposition.">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node86.html">
+<LINK REL="previous" HREF="node84.html">
+<LINK REL="up" HREF="node84.html">
+<LINK REL="next" HREF="node86.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2414"
+  HREF="node86.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2410"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2404"
+  HREF="node84.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2412"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2415"
+  HREF="node86.html">Quaternions and rotations.</A>
+<B> Up:</B> <A NAME="tex2html2411"
+  HREF="node84.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2405"
+  HREF="node84.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html2413"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H5><A NAME="SECTION008249110000000000000">
+Optimal superposition.</A>
+</H5> We consider a given time frame in which the atomic positions of a (sub)molecule are 
+given by  <!-- MATH
+ ${\bf x}_\alpha,\,\alpha = 1\ldots N$
+ -->
+<IMG
+ WIDTH="122" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img167.gif"
+ ALT="${\bf x}_\alpha, \alpha = 1\ldots N$">. The corresponding positions in the reference structure are denoted as 
+<!-- MATH
+ ${\bf x}^{(0)}_\alpha,\,\alpha = 1\ldots N$
+ -->
+<IMG
+ WIDTH="131" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img168.gif"
+ ALT="${\bf x}^{(0)}_\alpha, \alpha = 1\ldots N$">. For both the given structure and the reference structure we introduce the yet 
+undetermined centroids <IMG
+ WIDTH="22" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img169.gif"
+ ALT="${\bf X}$"> and  <IMG
+ WIDTH="40" HEIGHT="23" ALIGN="BOTTOM" BORDER="0"
+ SRC="img170.gif"
+ ALT="${\bf X}^{(0)}$">, respectively, and define the deviation 
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\bf\Delta}_\alpha \doteq
+{\bf D}({\bf q})\left[{\bf x}^{(0)}_\alpha - {\bf X}^{(0)}\right] -   
+       \left[{\bf x}_\alpha - {\bf X}\right].
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:delta"></A><IMG
+ WIDTH="422" HEIGHT="37" BORDER="0"
+ SRC="img171.gif"
+ ALT="\begin{displaymath}
+{\bf\Delta}_\alpha \doteq
+{\bf D}({\bf q})\left[{\bf x}^{(0)...
+...bf X}^{(0)}\right] -
+\left[{\bf x}_\alpha - {\bf X}\right].
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.45)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+Here <!-- MATH
+ ${\bf D}({\bf q})$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img172.gif"
+ ALT="${\bf D}({\bf q})$"> is a rotation matrix which depends on also yet undetermined angular coordinates which we chose to 
+be <EM>quaternion parameters</EM>, abbreviated as vector <!-- MATH
+ ${\bf q} = (q_0,q_1,q_2,q_3)$
+ -->
+<IMG
+ WIDTH="138" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img173.gif"
+ ALT="${\bf q} = (q_0,q_1,q_2,q_3)$">. The quaternion parameters fulfill the 
+normalization condition <!-- MATH
+ ${\bf q}\cdot{\bf q} = 1$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img174.gif"
+ ALT="${\bf q}\cdot{\bf q} = 1$"> [<A
+ HREF="node192.html#Altmann">56</A>]. The target function to be minimized is now defined as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+m({\bf q};{\bf X},{\bf X}^{(0)}) = 
+\sum_\alpha \omega_\alpha |{\bf\Delta}|^2_\alpha.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="386" HEIGHT="46" BORDER="0"
+ SRC="img175.gif"
+ ALT="\begin{displaymath}
+m({\bf q};{\bf X},{\bf X}^{(0)}) =
+\sum_\alpha \omega_\alpha \vert{\bf\Delta}\vert^2_\alpha.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.46)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <IMG
+ WIDTH="27" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.gif"
+ ALT="$\omega_\alpha$"> are atomic weights (see Section <A HREF="node35.html#weighting_scheme">4.2.1</A>). The minimization with respect to the centroids 
+is decoupled from the minimization with respect to the quaternion parameters and yields
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+{\bf X}       &= &\sum_\alpha \omega_\alpha\,{\bf x}_\alpha,\\
+{\bf X}^{(0)} &= &\sum_\alpha \omega_\alpha\,{\bf x}^{(0)}_\alpha.
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="22" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img176.gif"
+ ALT="$\displaystyle {\bf X}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="80" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img177.gif"
+ ALT="$\displaystyle \sum_\alpha \omega_\alpha {\bf x}_\alpha,$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.47)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="40" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img178.gif"
+ ALT="$\displaystyle {\bf X}^{(0)}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="89" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img179.gif"
+ ALT="$\displaystyle \sum_\alpha \omega_\alpha {\bf x}^{(0)}_\alpha.$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.48)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+We are now left with a minimization problem for the rotational part which can be written as
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+m({\bf q}) = \sum_\alpha \omega_\alpha 
+\left[{\bf D}({\bf q}){\bf r}^{(0)}_\alpha - {\bf r}_\alpha\right]^2
+\stackrel{!}{=} Min.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:minimize_rot"></A><IMG
+ WIDTH="431" HEIGHT="48" BORDER="0"
+ SRC="img180.gif"
+ ALT="\begin{displaymath}
+m({\bf q}) = \sum_\alpha \omega_\alpha
+\left[{\bf D}({\bf q...
+...r}^{(0)}_\alpha - {\bf r}_\alpha\right]^2
+\stackrel{!}{=} Min.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.49)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+The relative position vectors
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+{\bf r}_\alpha        &= &{\bf x}_\alpha - {\bf X},\\
+{\bf r}^{(0)}_\alpha  &= &{\bf x}^{(0)}_\alpha - {\bf X}^{(0)},
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img181.gif"
+ ALT="$\displaystyle {\bf r}_\alpha$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="68" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img182.gif"
+ ALT="$\displaystyle {\bf x}_\alpha - {\bf X},$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.50)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img183.gif"
+ ALT="$\displaystyle {\bf r}^{(0)}_\alpha$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="20" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.gif"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="94" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img184.gif"
+ ALT="$\displaystyle {\bf x}^{(0)}_\alpha - {\bf X}^{(0)},$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.51)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+are fixed and the rotation matrix reads [<A
+ HREF="node192.html#Altmann">56</A>]
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+{\bf D}({\bf q}) = 
+\left(
+\begin{array}{ccc}
+ q_0^2+q_1^2-q^2_2-q^2_3  &2(-q_0q_3+q_1q_2) &2(q_0q_2+q_1q_3) \\
+ 2(q_0q_3+q_1q_2)  &q_0^2+q_2^2-q^2_1-q^2_3  &2(-q_0q_1+q_2q_3)\\
+ 2(-q_0q_2+q_1q_3) &2(q_0q_1+q_2q_3)  &q_0^2+q_3^2-q^2_1-q^2_2  
+\end{array}
+\right).
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:d_quat"></A><IMG
+ WIDTH="544" HEIGHT="73" BORDER="0"
+ SRC="img185.gif"
+ ALT="\begin{displaymath}
+{\bf D}({\bf q}) =
+\left(
+\begin{array}{ccc}
+q_0^2+q_1^2-q...
+...2(q_0q_1+q_2q_3) &amp;q_0^2+q_3^2-q^2_1-q^2_2
+\end{array}\right).
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.52)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2414"
+  HREF="node86.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2410"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2404"
+  HREF="node84.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2412"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2415"
+  HREF="node86.html">Quaternions and rotations.</A>
+<B> Up:</B> <A NAME="tex2html2411"
+  HREF="node84.html">Theory and implementation</A>
+<B> Previous:</B> <A NAME="tex2html2405"
+  HREF="node84.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html2413"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

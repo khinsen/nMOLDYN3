@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>NetCDF file format</TITLE>
+<META NAME="description" CONTENT="NetCDF file format">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node13.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="node11.html">
+<LINK REL="next" HREF="node13.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1119"
+  HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1115"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1109"
+  HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1117"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1120"
+  HREF="node13.html">PDB file format</A>
+<B> Up:</B> <A NAME="tex2html1116"
+  HREF="node11.html">Input and output files</A>
+<B> Previous:</B> <A NAME="tex2html1110"
+  HREF="node11.html">Input and output files</A>
+ &nbsp <B>  <A NAME="tex2html1118"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION007100000000000000000"></A>
+<A NAME="netcdf_file_format"></A>
+<BR>
+NetCDF file format
+</H1>
+<A HREF=node4.html#tex2html39 NAME="16667">NetCDF</A> is a set of software libraries and self-describing, machine-independent data formats 
+that support the creation, access, and sharing of array-oriented scientific data. The project homepage is hosted by the 
+Unidata program at the <A HREF=node4.html#tex2html40 NAME="16674"><B>U</B>niversity <B>C</B>orporation for <B>A</B>tmospheric <B>R</B>esearch (<I>UCAR</I>)</A> [<A
+ HREF="node192.html#UCAR">43</A>]. They are also the chief source of <A HREF=node4.html#tex2html41 NAME="16681">NetCDF</A> -based software, standards 
+development, updates ...[<A
+ HREF="node192.html#NetCDF_Softwares">44</A>]. The format is an open standard.
+
+<P>
+The data format is self-describing. This means that there is a header which describes the layout of the rest of the 
+file, in particular the data arrays, as well as arbitrary file metadata in the form of name/value attributes. The format 
+is platform independent, with issues such as endianness being addressed in the software libraries. The data arrays 
+are rectangular, not ragged, and stored in a simple and regular fashion that allows efficient subsetting.
+
+<P>
+<I>n</I>MOLDYN expects trajectories to be in <A HREF=node4.html#tex2html42 NAME="16688">NetCDF</A> format and follow the conventions of <A HREF=node4.html#tex2html43 NAME="16695">MMTK</A>. Trajectories that have not been produced with 
+<A HREF=node4.html#tex2html44 NAME="16702">MMTK</A> or <A HREF=node4.html#tex2html45 NAME="16709">MMTK</A>-based programs must be converted to <A HREF=node4.html#tex2html46 NAME="16716">MMTK</A> format
+before they can be analyzed with <I>n</I>MOLDYN. This conversion is necessary because no other common trajectory format 
+permits efficient access both to conformations at a given time and to one-atom trajectories for all times. In
+addition to providing such an access, the <A HREF=node4.html#tex2html47 NAME="16723">NetCDF</A> format has several advantages that make it particularly suitable 
+for archiving trajectories: 
+
+<P>
+
+<UL>
+<LI>compact files (binary storage);
+</LI>
+<LI>machine-independent format;
+</LI>
+<LI>fully self-contained, complete information about the system is stored in the trajectory file.
+</LI>
+</UL>
+
+<P>
+The conversion of the trajectories from different formats to the <A HREF=node4.html#tex2html48 NAME="16730">MMTK</A> format can be made directly via the 
+<I>n</I>MOLDYN graphical user interface (see Section <A HREF="node21.html#trajectory_conversion">4.1.2</A>).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1119"
+  HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1115"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1109"
+  HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1117"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1120"
+  HREF="node13.html">PDB file format</A>
+<B> Up:</B> <A NAME="tex2html1116"
+  HREF="node11.html">Input and output files</A>
+<B> Previous:</B> <A NAME="tex2html1110"
+  HREF="node11.html">Input and output files</A>
+ &nbsp <B>  <A NAME="tex2html1118"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,653 @@
+\BOOKMARK [1][-]{section*.2}{Contents}{}
+\BOOKMARK [1][-]{section.1}{Package nMOLDYN}{}
+\BOOKMARK [2][-]{subsection.1.1}{Modules}{section.1}
+\BOOKMARK [2][-]{subsection.1.2}{Variables}{section.1}
+\BOOKMARK [1][-]{section.2}{Package nMOLDYN.Analysis}{}
+\BOOKMARK [2][-]{subsection.2.1}{Modules}{section.2}
+\BOOKMARK [1][-]{section.3}{Module nMOLDYN.Analysis.Analysis}{}
+\BOOKMARK [2][-]{subsection.3.1}{Functions}{section.3}
+\BOOKMARK [2][-]{subsection.3.2}{Variables}{section.3}
+\BOOKMARK [2][-]{subsection.3.3}{Class Analysis}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Methods}{subsection.3.3}
+\BOOKMARK [2][-]{subsection.3.4}{Class QVectors}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Methods}{subsection.3.4}
+\BOOKMARK [1][-]{section.4}{Module nMOLDYN.Analysis.Dynamics}{}
+\BOOKMARK [2][-]{subsection.4.1}{Class MeanSquareDisplacement}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Methods}{subsection.4.1}
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Class Variables}{subsection.4.1}
+\BOOKMARK [2][-]{subsection.4.2}{Class RootMeanSquareDeviation}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Methods}{subsection.4.2}
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Class Variables}{subsection.4.2}
+\BOOKMARK [2][-]{subsection.4.3}{Class CartesianVelocityAutoCorrelationFunction}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Methods}{subsection.4.3}
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Class Variables}{subsection.4.3}
+\BOOKMARK [2][-]{subsection.4.4}{Class CartesianDensityOfStates}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.4.1}{Methods}{subsection.4.4}
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Class Variables}{subsection.4.4}
+\BOOKMARK [2][-]{subsection.4.5}{Class AutoRegressiveAnalysis}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.5.1}{Methods}{subsection.4.5}
+\BOOKMARK [3][-]{subsubsection.4.5.2}{Class Variables}{subsection.4.5}
+\BOOKMARK [2][-]{subsection.4.6}{Class PassBandFilteredTrajectory}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.6.1}{Methods}{subsection.4.6}
+\BOOKMARK [3][-]{subsubsection.4.6.2}{Class Variables}{subsection.4.6}
+\BOOKMARK [2][-]{subsection.4.7}{Class RadiusOfGyration}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.7.1}{Methods}{subsection.4.7}
+\BOOKMARK [3][-]{subsubsection.4.7.2}{Class Variables}{subsection.4.7}
+\BOOKMARK [2][-]{subsection.4.8}{Class GlobalMotionFilteredTrajectory}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.8.1}{Methods}{subsection.4.8}
+\BOOKMARK [3][-]{subsubsection.4.8.2}{Class Variables}{subsection.4.8}
+\BOOKMARK [2][-]{subsection.4.9}{Class CenterOfMassTrajectory}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.9.1}{Methods}{subsection.4.9}
+\BOOKMARK [3][-]{subsubsection.4.9.2}{Class Variables}{subsection.4.9}
+\BOOKMARK [2][-]{subsection.4.10}{Class QuasiHarmonicAnalysis}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.10.1}{Methods}{subsection.4.10}
+\BOOKMARK [3][-]{subsubsection.4.10.2}{Class Variables}{subsection.4.10}
+\BOOKMARK [2][-]{subsection.4.11}{Class AngularCorrelation}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.11.1}{Methods}{subsection.4.11}
+\BOOKMARK [3][-]{subsubsection.4.11.2}{Class Variables}{subsection.4.11}
+\BOOKMARK [2][-]{subsection.4.12}{Class RigidBodyTrajectory}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.12.1}{Methods}{subsection.4.12}
+\BOOKMARK [3][-]{subsubsection.4.12.2}{Class Variables}{subsection.4.12}
+\BOOKMARK [2][-]{subsection.4.13}{Class ReorientationalCorrelationFunction}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.13.1}{Methods}{subsection.4.13}
+\BOOKMARK [3][-]{subsubsection.4.13.2}{Class Variables}{subsection.4.13}
+\BOOKMARK [2][-]{subsection.4.14}{Class AngularVelocity}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.14.1}{Methods}{subsection.4.14}
+\BOOKMARK [2][-]{subsection.4.15}{Class AngularVelocityAutoCorrelationFunction}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.15.1}{Methods}{subsection.4.15}
+\BOOKMARK [3][-]{subsubsection.4.15.2}{Class Variables}{subsection.4.15}
+\BOOKMARK [2][-]{subsection.4.16}{Class AngularDensityOfStates}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.16.1}{Methods}{subsection.4.16}
+\BOOKMARK [3][-]{subsubsection.4.16.2}{Class Variables}{subsection.4.16}
+\BOOKMARK [1][-]{section.5}{Module nMOLDYN.Analysis.NMR}{}
+\BOOKMARK [2][-]{subsection.5.1}{Class OrderParameter}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Methods}{subsection.5.1}
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Class Variables}{subsection.5.1}
+\BOOKMARK [2][-]{subsection.5.2}{Class OrderParameterContactModel}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Methods}{subsection.5.2}
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Class Variables}{subsection.5.2}
+\BOOKMARK [1][-]{section.6}{Module nMOLDYN.Analysis.Scattering}{}
+\BOOKMARK [2][-]{subsection.6.1}{Functions}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Class DynamicCoherentStructureFactor}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Methods}{subsection.6.2}
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Class Variables}{subsection.6.2}
+\BOOKMARK [2][-]{subsection.6.3}{Class StaticCoherentStructureFactor}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Methods}{subsection.6.3}
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Class Variables}{subsection.6.3}
+\BOOKMARK [2][-]{subsection.6.4}{Class DynamicCoherentStructureFactorAR}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.4.1}{Methods}{subsection.6.4}
+\BOOKMARK [3][-]{subsubsection.6.4.2}{Class Variables}{subsection.6.4}
+\BOOKMARK [2][-]{subsection.6.5}{Class DynamicIncoherentStructureFactor}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.5.1}{Methods}{subsection.6.5}
+\BOOKMARK [3][-]{subsubsection.6.5.2}{Class Variables}{subsection.6.5}
+\BOOKMARK [2][-]{subsection.6.6}{Class DynamicIncoherentStructureFactorAR}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.6.1}{Methods}{subsection.6.6}
+\BOOKMARK [3][-]{subsubsection.6.6.2}{Class Variables}{subsection.6.6}
+\BOOKMARK [2][-]{subsection.6.7}{Class DynamicIncoherentStructureFactorGaussian}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.7.1}{Methods}{subsection.6.7}
+\BOOKMARK [3][-]{subsubsection.6.7.2}{Class Variables}{subsection.6.7}
+\BOOKMARK [2][-]{subsection.6.8}{Class ElasticIncoherentStructureFactor}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.8.1}{Methods}{subsection.6.8}
+\BOOKMARK [3][-]{subsubsection.6.8.2}{Class Variables}{subsection.6.8}
+\BOOKMARK [2][-]{subsection.6.9}{Class SmoothedStaticCoherentStructureFactor}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.9.1}{Methods}{subsection.6.9}
+\BOOKMARK [3][-]{subsubsection.6.9.2}{Class Variables}{subsection.6.9}
+\BOOKMARK [1][-]{section.7}{Module nMOLDYN.Analysis.Slave}{}
+\BOOKMARK [2][-]{subsection.7.1}{Functions}{section.7}
+\BOOKMARK [1][-]{section.8}{Module nMOLDYN.Analysis.Structure}{}
+\BOOKMARK [2][-]{subsection.8.1}{Class PairDistributionFunction}{section.8}
+\BOOKMARK [3][-]{subsubsection.8.1.1}{Methods}{subsection.8.1}
+\BOOKMARK [3][-]{subsubsection.8.1.2}{Class Variables}{subsection.8.1}
+\BOOKMARK [2][-]{subsection.8.2}{Class CoordinationNumber}{section.8}
+\BOOKMARK [3][-]{subsubsection.8.2.1}{Methods}{subsection.8.2}
+\BOOKMARK [3][-]{subsubsection.8.2.2}{Class Variables}{subsection.8.2}
+\BOOKMARK [2][-]{subsection.8.3}{Class ScrewFitAnalysis}{section.8}
+\BOOKMARK [3][-]{subsubsection.8.3.1}{Methods}{subsection.8.3}
+\BOOKMARK [3][-]{subsubsection.8.3.2}{Class Variables}{subsection.8.3}
+\BOOKMARK [2][-]{subsection.8.4}{Class SpatialDensity}{section.8}
+\BOOKMARK [3][-]{subsubsection.8.4.1}{Methods}{subsection.8.4}
+\BOOKMARK [3][-]{subsubsection.8.4.2}{Class Variables}{subsection.8.4}
+\BOOKMARK [1][-]{section.9}{Module nMOLDYN.Analysis.Template}{}
+\BOOKMARK [2][-]{subsection.9.1}{Functions}{section.9}
+\BOOKMARK [2][-]{subsection.9.2}{Variables}{section.9}
+\BOOKMARK [2][-]{subsection.9.3}{Class SerialPerAtom}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.3.1}{Methods}{subsection.9.3}
+\BOOKMARK [2][-]{subsection.9.4}{Class ParallelPerAtom}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.4.1}{Methods}{subsection.9.4}
+\BOOKMARK [2][-]{subsection.9.5}{Class SerialPerFrame}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.5.1}{Methods}{subsection.9.5}
+\BOOKMARK [2][-]{subsection.9.6}{Class ParallelPerFrame}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.6.1}{Methods}{subsection.9.6}
+\BOOKMARK [2][-]{subsection.9.7}{Class SerialPerGroup}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.7.1}{Methods}{subsection.9.7}
+\BOOKMARK [2][-]{subsection.9.8}{Class ParallelPerGroup}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.8.1}{Methods}{subsection.9.8}
+\BOOKMARK [2][-]{subsection.9.9}{Class SerialPerQShell}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.9.1}{Methods}{subsection.9.9}
+\BOOKMARK [2][-]{subsection.9.10}{Class ParallelPerQShell}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.10.1}{Methods}{subsection.9.10}
+\BOOKMARK [2][-]{subsection.9.11}{Class MeanSquareDisplacement\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.11.1}{Methods}{subsection.9.11}
+\BOOKMARK [3][-]{subsubsection.9.11.2}{Class Variables}{subsection.9.11}
+\BOOKMARK [2][-]{subsection.9.12}{Class MeanSquareDisplacement\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.12.1}{Methods}{subsection.9.12}
+\BOOKMARK [3][-]{subsubsection.9.12.2}{Class Variables}{subsection.9.12}
+\BOOKMARK [2][-]{subsection.9.13}{Class RootMeanSquareDeviation\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.13.1}{Methods}{subsection.9.13}
+\BOOKMARK [3][-]{subsubsection.9.13.2}{Class Variables}{subsection.9.13}
+\BOOKMARK [2][-]{subsection.9.14}{Class RootMeanSquareDeviation\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.14.1}{Methods}{subsection.9.14}
+\BOOKMARK [3][-]{subsubsection.9.14.2}{Class Variables}{subsection.9.14}
+\BOOKMARK [2][-]{subsection.9.15}{Class CartesianVelocityAutoCorrelationFunction\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.15.1}{Methods}{subsection.9.15}
+\BOOKMARK [3][-]{subsubsection.9.15.2}{Class Variables}{subsection.9.15}
+\BOOKMARK [2][-]{subsection.9.16}{Class CartesianVelocityAutoCorrelationFunction\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.16.1}{Methods}{subsection.9.16}
+\BOOKMARK [3][-]{subsubsection.9.16.2}{Class Variables}{subsection.9.16}
+\BOOKMARK [2][-]{subsection.9.17}{Class CartesianDensityOfStates\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.17.1}{Methods}{subsection.9.17}
+\BOOKMARK [3][-]{subsubsection.9.17.2}{Class Variables}{subsection.9.17}
+\BOOKMARK [2][-]{subsection.9.18}{Class CartesianDensityOfStates\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.18.1}{Methods}{subsection.9.18}
+\BOOKMARK [3][-]{subsubsection.9.18.2}{Class Variables}{subsection.9.18}
+\BOOKMARK [2][-]{subsection.9.19}{Class AutoRegressiveAnalysis\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.19.1}{Methods}{subsection.9.19}
+\BOOKMARK [3][-]{subsubsection.9.19.2}{Class Variables}{subsection.9.19}
+\BOOKMARK [2][-]{subsection.9.20}{Class AutoRegressiveAnalysis\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.20.1}{Methods}{subsection.9.20}
+\BOOKMARK [3][-]{subsubsection.9.20.2}{Class Variables}{subsection.9.20}
+\BOOKMARK [2][-]{subsection.9.21}{Class PassBandFilteredTrajectory\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.21.1}{Methods}{subsection.9.21}
+\BOOKMARK [3][-]{subsubsection.9.21.2}{Class Variables}{subsection.9.21}
+\BOOKMARK [2][-]{subsection.9.22}{Class PassBandFilteredTrajectory\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.22.1}{Methods}{subsection.9.22}
+\BOOKMARK [3][-]{subsubsection.9.22.2}{Class Variables}{subsection.9.22}
+\BOOKMARK [2][-]{subsection.9.23}{Class DynamicIncoherentStructureFactor\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.23.1}{Methods}{subsection.9.23}
+\BOOKMARK [3][-]{subsubsection.9.23.2}{Class Variables}{subsection.9.23}
+\BOOKMARK [2][-]{subsection.9.24}{Class DynamicIncoherentStructureFactor\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.24.1}{Methods}{subsection.9.24}
+\BOOKMARK [3][-]{subsubsection.9.24.2}{Class Variables}{subsection.9.24}
+\BOOKMARK [2][-]{subsection.9.25}{Class DynamicIncoherentStructureFactorGaussian\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.25.1}{Methods}{subsection.9.25}
+\BOOKMARK [3][-]{subsubsection.9.25.2}{Class Variables}{subsection.9.25}
+\BOOKMARK [2][-]{subsection.9.26}{Class DynamicIncoherentStructureFactorGaussian\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.26.1}{Methods}{subsection.9.26}
+\BOOKMARK [3][-]{subsubsection.9.26.2}{Class Variables}{subsection.9.26}
+\BOOKMARK [2][-]{subsection.9.27}{Class ElasticIncoherentStructureFactor\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.27.1}{Methods}{subsection.9.27}
+\BOOKMARK [3][-]{subsubsection.9.27.2}{Class Variables}{subsection.9.27}
+\BOOKMARK [2][-]{subsection.9.28}{Class ElasticIncoherentStructureFactor\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.28.1}{Methods}{subsection.9.28}
+\BOOKMARK [3][-]{subsubsection.9.28.2}{Class Variables}{subsection.9.28}
+\BOOKMARK [2][-]{subsection.9.29}{Class RadiusOfGyration\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.29.1}{Methods}{subsection.9.29}
+\BOOKMARK [3][-]{subsubsection.9.29.2}{Class Variables}{subsection.9.29}
+\BOOKMARK [2][-]{subsection.9.30}{Class RadiusOfGyration\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.30.1}{Methods}{subsection.9.30}
+\BOOKMARK [3][-]{subsubsection.9.30.2}{Class Variables}{subsection.9.30}
+\BOOKMARK [2][-]{subsection.9.31}{Class DynamicIncoherentStructureFactorAR\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.31.1}{Methods}{subsection.9.31}
+\BOOKMARK [3][-]{subsubsection.9.31.2}{Class Variables}{subsection.9.31}
+\BOOKMARK [2][-]{subsection.9.32}{Class DynamicIncoherentStructureFactorAR\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.32.1}{Methods}{subsection.9.32}
+\BOOKMARK [3][-]{subsubsection.9.32.2}{Class Variables}{subsection.9.32}
+\BOOKMARK [2][-]{subsection.9.33}{Class SmoothedStaticCoherentStructureFactor\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.33.1}{Methods}{subsection.9.33}
+\BOOKMARK [3][-]{subsubsection.9.33.2}{Class Variables}{subsection.9.33}
+\BOOKMARK [2][-]{subsection.9.34}{Class SmoothedStaticCoherentStructureFactor\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.34.1}{Methods}{subsection.9.34}
+\BOOKMARK [3][-]{subsubsection.9.34.2}{Class Variables}{subsection.9.34}
+\BOOKMARK [2][-]{subsection.9.35}{Class PairDistributionFunction\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.35.1}{Methods}{subsection.9.35}
+\BOOKMARK [3][-]{subsubsection.9.35.2}{Class Variables}{subsection.9.35}
+\BOOKMARK [2][-]{subsection.9.36}{Class PairDistributionFunction\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.36.1}{Methods}{subsection.9.36}
+\BOOKMARK [3][-]{subsubsection.9.36.2}{Class Variables}{subsection.9.36}
+\BOOKMARK [2][-]{subsection.9.37}{Class CoordinationNumber\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.37.1}{Methods}{subsection.9.37}
+\BOOKMARK [3][-]{subsubsection.9.37.2}{Class Variables}{subsection.9.37}
+\BOOKMARK [2][-]{subsection.9.38}{Class CoordinationNumber\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.38.1}{Methods}{subsection.9.38}
+\BOOKMARK [3][-]{subsubsection.9.38.2}{Class Variables}{subsection.9.38}
+\BOOKMARK [2][-]{subsection.9.39}{Class ScrewFitAnalysis\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.39.1}{Methods}{subsection.9.39}
+\BOOKMARK [3][-]{subsubsection.9.39.2}{Class Variables}{subsection.9.39}
+\BOOKMARK [2][-]{subsection.9.40}{Class ScrewFitAnalysis\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.40.1}{Methods}{subsection.9.40}
+\BOOKMARK [3][-]{subsubsection.9.40.2}{Class Variables}{subsection.9.40}
+\BOOKMARK [2][-]{subsection.9.41}{Class SpatialDensity\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.41.1}{Methods}{subsection.9.41}
+\BOOKMARK [3][-]{subsubsection.9.41.2}{Class Variables}{subsection.9.41}
+\BOOKMARK [2][-]{subsection.9.42}{Class SpatialDensity\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.42.1}{Methods}{subsection.9.42}
+\BOOKMARK [3][-]{subsubsection.9.42.2}{Class Variables}{subsection.9.42}
+\BOOKMARK [2][-]{subsection.9.43}{Class GlobalMotionFilteredTrajectory\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.43.1}{Methods}{subsection.9.43}
+\BOOKMARK [3][-]{subsubsection.9.43.2}{Class Variables}{subsection.9.43}
+\BOOKMARK [2][-]{subsection.9.44}{Class GlobalMotionFilteredTrajectory\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.44.1}{Methods}{subsection.9.44}
+\BOOKMARK [3][-]{subsubsection.9.44.2}{Class Variables}{subsection.9.44}
+\BOOKMARK [2][-]{subsection.9.45}{Class CenterOfMassTrajectory\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.45.1}{Methods}{subsection.9.45}
+\BOOKMARK [3][-]{subsubsection.9.45.2}{Class Variables}{subsection.9.45}
+\BOOKMARK [2][-]{subsection.9.46}{Class CenterOfMassTrajectory\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.46.1}{Methods}{subsection.9.46}
+\BOOKMARK [3][-]{subsubsection.9.46.2}{Class Variables}{subsection.9.46}
+\BOOKMARK [2][-]{subsection.9.47}{Class OrderParameterContactModel\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.47.1}{Methods}{subsection.9.47}
+\BOOKMARK [3][-]{subsubsection.9.47.2}{Class Variables}{subsection.9.47}
+\BOOKMARK [2][-]{subsection.9.48}{Class OrderParameterContactModel\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.48.1}{Methods}{subsection.9.48}
+\BOOKMARK [3][-]{subsubsection.9.48.2}{Class Variables}{subsection.9.48}
+\BOOKMARK [2][-]{subsection.9.49}{Class AngularCorrelation\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.49.1}{Methods}{subsection.9.49}
+\BOOKMARK [3][-]{subsubsection.9.49.2}{Class Variables}{subsection.9.49}
+\BOOKMARK [2][-]{subsection.9.50}{Class AngularCorrelation\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.50.1}{Methods}{subsection.9.50}
+\BOOKMARK [3][-]{subsubsection.9.50.2}{Class Variables}{subsection.9.50}
+\BOOKMARK [2][-]{subsection.9.51}{Class RigidBodyTrajectory\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.51.1}{Methods}{subsection.9.51}
+\BOOKMARK [3][-]{subsubsection.9.51.2}{Class Variables}{subsection.9.51}
+\BOOKMARK [2][-]{subsection.9.52}{Class RigidBodyTrajectory\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.52.1}{Methods}{subsection.9.52}
+\BOOKMARK [3][-]{subsubsection.9.52.2}{Class Variables}{subsection.9.52}
+\BOOKMARK [2][-]{subsection.9.53}{Class ReorientationalCorrelationFunction\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.53.1}{Methods}{subsection.9.53}
+\BOOKMARK [3][-]{subsubsection.9.53.2}{Class Variables}{subsection.9.53}
+\BOOKMARK [2][-]{subsection.9.54}{Class ReorientationalCorrelationFunction\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.54.1}{Methods}{subsection.9.54}
+\BOOKMARK [3][-]{subsubsection.9.54.2}{Class Variables}{subsection.9.54}
+\BOOKMARK [2][-]{subsection.9.55}{Class AngularVelocityAutoCorrelationFunction\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.55.1}{Methods}{subsection.9.55}
+\BOOKMARK [3][-]{subsubsection.9.55.2}{Class Variables}{subsection.9.55}
+\BOOKMARK [2][-]{subsection.9.56}{Class AngularVelocityAutoCorrelationFunction\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.56.1}{Methods}{subsection.9.56}
+\BOOKMARK [3][-]{subsubsection.9.56.2}{Class Variables}{subsection.9.56}
+\BOOKMARK [2][-]{subsection.9.57}{Class AngularDensityOfStates\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.57.1}{Methods}{subsection.9.57}
+\BOOKMARK [3][-]{subsubsection.9.57.2}{Class Variables}{subsection.9.57}
+\BOOKMARK [2][-]{subsection.9.58}{Class AngularDensityOfStates\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.58.1}{Methods}{subsection.9.58}
+\BOOKMARK [3][-]{subsubsection.9.58.2}{Class Variables}{subsection.9.58}
+\BOOKMARK [2][-]{subsection.9.59}{Class OrderParameter\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.59.1}{Methods}{subsection.9.59}
+\BOOKMARK [3][-]{subsubsection.9.59.2}{Class Variables}{subsection.9.59}
+\BOOKMARK [2][-]{subsection.9.60}{Class OrderParameter\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.60.1}{Methods}{subsection.9.60}
+\BOOKMARK [3][-]{subsubsection.9.60.2}{Class Variables}{subsection.9.60}
+\BOOKMARK [2][-]{subsection.9.61}{Class QuasiHarmonicAnalysis\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.61.1}{Methods}{subsection.9.61}
+\BOOKMARK [3][-]{subsubsection.9.61.2}{Class Variables}{subsection.9.61}
+\BOOKMARK [2][-]{subsection.9.62}{Class DynamicCoherentStructureFactor\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.62.1}{Methods}{subsection.9.62}
+\BOOKMARK [3][-]{subsubsection.9.62.2}{Class Variables}{subsection.9.62}
+\BOOKMARK [2][-]{subsection.9.63}{Class DynamicCoherentStructureFactor\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.63.1}{Methods}{subsection.9.63}
+\BOOKMARK [3][-]{subsubsection.9.63.2}{Class Variables}{subsection.9.63}
+\BOOKMARK [2][-]{subsection.9.64}{Class StaticCoherentStructureFactor\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.64.1}{Methods}{subsection.9.64}
+\BOOKMARK [3][-]{subsubsection.9.64.2}{Class Variables}{subsection.9.64}
+\BOOKMARK [2][-]{subsection.9.65}{Class StaticCoherentStructureFactor\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.65.1}{Methods}{subsection.9.65}
+\BOOKMARK [3][-]{subsubsection.9.65.2}{Class Variables}{subsection.9.65}
+\BOOKMARK [2][-]{subsection.9.66}{Class DynamicCoherentStructureFactorAR\137serial}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.66.1}{Methods}{subsection.9.66}
+\BOOKMARK [3][-]{subsubsection.9.66.2}{Class Variables}{subsection.9.66}
+\BOOKMARK [2][-]{subsection.9.67}{Class DynamicCoherentStructureFactorAR\137parallel}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.67.1}{Methods}{subsection.9.67}
+\BOOKMARK [3][-]{subsubsection.9.67.2}{Class Variables}{subsection.9.67}
+\BOOKMARK [1][-]{section.10}{Package nMOLDYN.Core}{}
+\BOOKMARK [2][-]{subsection.10.1}{Modules}{section.10}
+\BOOKMARK [1][-]{section.11}{Module nMOLDYN.Core.Chemistry}{}
+\BOOKMARK [2][-]{subsection.11.1}{Functions}{section.11}
+\BOOKMARK [1][-]{section.12}{Module nMOLDYN.Core.Config}{}
+\BOOKMARK [2][-]{subsection.12.1}{Functions}{section.12}
+\BOOKMARK [1][-]{section.13}{Module nMOLDYN.Core.Error}{}
+\BOOKMARK [2][-]{subsection.13.1}{Class Error}{section.13}
+\BOOKMARK [3][-]{subsubsection.13.1.1}{Methods}{subsection.13.1}
+\BOOKMARK [3][-]{subsubsection.13.1.2}{Properties}{subsection.13.1}
+\BOOKMARK [1][-]{section.14}{Module nMOLDYN.Core.IOFiles}{}
+\BOOKMARK [2][-]{subsection.14.1}{Functions}{section.14}
+\BOOKMARK [2][-]{subsection.14.2}{Class TemporaryFile}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.2.1}{Methods}{subsection.14.2}
+\BOOKMARK [2][-]{subsection.14.3}{Class EndOfFile}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.3.1}{Methods}{subsection.14.3}
+\BOOKMARK [3][-]{subsubsection.14.3.2}{Properties}{subsection.14.3}
+\BOOKMARK [2][-]{subsection.14.4}{Class FortranBinaryFile}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.4.1}{Methods}{subsection.14.4}
+\BOOKMARK [3][-]{subsubsection.14.4.2}{Properties}{subsection.14.4}
+\BOOKMARK [2][-]{subsection.14.5}{Class DCDFile}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.5.1}{Methods}{subsection.14.5}
+\BOOKMARK [3][-]{subsubsection.14.5.2}{Properties}{subsection.14.5}
+\BOOKMARK [2][-]{subsection.14.6}{Class AmberNetCDFConverter}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.6.1}{Methods}{subsection.14.6}
+\BOOKMARK [2][-]{subsection.14.7}{Class CHARMMConverter}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.7.1}{Methods}{subsection.14.7}
+\BOOKMARK [2][-]{subsection.14.8}{Class DL\137POLYConverter}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.8.1}{Methods}{subsection.14.8}
+\BOOKMARK [2][-]{subsection.14.9}{Class MaterialsStudioConverter}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.9.1}{Methods}{subsection.14.9}
+\BOOKMARK [3][-]{subsubsection.14.9.2}{Class Variables}{subsection.14.9}
+\BOOKMARK [2][-]{subsection.14.10}{Class NAMDConverter}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.10.1}{Methods}{subsection.14.10}
+\BOOKMARK [2][-]{subsection.14.11}{Class VASPConverter}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.11.1}{Methods}{subsection.14.11}
+\BOOKMARK [1][-]{section.15}{Module nMOLDYN.Core.Logger}{}
+\BOOKMARK [2][-]{subsection.15.1}{Functions}{section.15}
+\BOOKMARK [2][-]{subsection.15.2}{Variables}{section.15}
+\BOOKMARK [2][-]{subsection.15.3}{Class LogToGUI}{section.15}
+\BOOKMARK [3][-]{subsubsection.15.3.1}{Methods}{subsection.15.3}
+\BOOKMARK [2][-]{subsection.15.4}{Class LogToFile}{section.15}
+\BOOKMARK [3][-]{subsubsection.15.4.1}{Methods}{subsection.15.4}
+\BOOKMARK [2][-]{subsection.15.5}{Class LogToConsole}{section.15}
+\BOOKMARK [3][-]{subsubsection.15.5.1}{Methods}{subsection.15.5}
+\BOOKMARK [1][-]{section.16}{Module nMOLDYN.Core.Mathematics}{}
+\BOOKMARK [2][-]{subsection.16.1}{Functions}{section.16}
+\BOOKMARK [2][-]{subsection.16.2}{Variables}{section.16}
+\BOOKMARK [1][-]{section.17}{Module nMOLDYN.Core.Misc}{}
+\BOOKMARK [2][-]{subsection.17.1}{Functions}{section.17}
+\BOOKMARK [2][-]{subsection.17.2}{Variables}{section.17}
+\BOOKMARK [1][-]{section.18}{Module nMOLDYN.Core.Preferences}{}
+\BOOKMARK [2][-]{subsection.18.1}{Variables}{section.18}
+\BOOKMARK [2][-]{subsection.18.2}{Class nMOLDYNPreferences}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.2.1}{Methods}{subsection.18.2}
+\BOOKMARK [3][-]{subsubsection.18.2.2}{Properties}{subsection.18.2}
+\BOOKMARK [3][-]{subsubsection.18.2.3}{Class Variables}{subsection.18.2}
+\BOOKMARK [1][-]{section.19}{Package nMOLDYN.GUI}{}
+\BOOKMARK [2][-]{subsection.19.1}{Modules}{section.19}
+\BOOKMARK [1][-]{section.20}{Module nMOLDYN.GUI.ASCIIToNetCDFConversionDialog}{}
+\BOOKMARK [2][-]{subsection.20.1}{Class ASCIIToNetCDFConversionDialog}{section.20}
+\BOOKMARK [3][-]{subsubsection.20.1.1}{Methods}{subsection.20.1}
+\BOOKMARK [1][-]{section.21}{Module nMOLDYN.GUI.AnalysisBenchmarkDialog}{}
+\BOOKMARK [2][-]{subsection.21.1}{Class AnalysisBenchmarkDialog}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.1.1}{Methods}{subsection.21.1}
+\BOOKMARK [1][-]{section.22}{Module nMOLDYN.GUI.AnalysisDialog}{}
+\BOOKMARK [2][-]{subsection.22.1}{Class AnalysisDialog}{section.22}
+\BOOKMARK [3][-]{subsubsection.22.1.1}{Methods}{subsection.22.1}
+\BOOKMARK [1][-]{section.23}{Module nMOLDYN.GUI.AnimationDialog}{}
+\BOOKMARK [2][-]{subsection.23.1}{Class AnimationDialog}{section.23}
+\BOOKMARK [3][-]{subsubsection.23.1.1}{Methods}{subsection.23.1}
+\BOOKMARK [3][-]{subsubsection.23.1.2}{Class Variables}{subsection.23.1}
+\BOOKMARK [1][-]{section.24}{Module nMOLDYN.GUI.CheckJobsStatusDialog}{}
+\BOOKMARK [2][-]{subsection.24.1}{Variables}{section.24}
+\BOOKMARK [2][-]{subsection.24.2}{Class CheckJobsStatusDialog}{section.24}
+\BOOKMARK [3][-]{subsubsection.24.2.1}{Methods}{subsection.24.2}
+\BOOKMARK [3][-]{subsubsection.24.2.2}{Class Variables}{subsection.24.2}
+\BOOKMARK [1][-]{section.25}{Module nMOLDYN.GUI.GeneralInformationsDialog}{}
+\BOOKMARK [2][-]{subsection.25.1}{Variables}{section.25}
+\BOOKMARK [2][-]{subsection.25.2}{Class GeneralInformationsDialog}{section.25}
+\BOOKMARK [3][-]{subsubsection.25.2.1}{Methods}{subsection.25.2}
+\BOOKMARK [3][-]{subsubsection.25.2.2}{Class Variables}{subsection.25.2}
+\BOOKMARK [1][-]{section.26}{Package nMOLDYN.GUI.HTMLReader}{}
+\BOOKMARK [2][-]{subsection.26.1}{Modules}{section.26}
+\BOOKMARK [1][-]{section.27}{Module nMOLDYN.GUI.HTMLReader.mfxtools}{}
+\BOOKMARK [2][-]{subsection.27.1}{Functions}{section.27}
+\BOOKMARK [2][-]{subsection.27.2}{Variables}{section.27}
+\BOOKMARK [1][-]{section.28}{Module nMOLDYN.GUI.HTMLReader.mfxutil}{}
+\BOOKMARK [2][-]{subsection.28.1}{Functions}{section.28}
+\BOOKMARK [2][-]{subsection.28.2}{Variables}{section.28}
+\BOOKMARK [2][-]{subsection.28.3}{Class SubclassResponsibility}{section.28}
+\BOOKMARK [3][-]{subsubsection.28.3.1}{Methods}{subsection.28.3}
+\BOOKMARK [3][-]{subsubsection.28.3.2}{Properties}{subsection.28.3}
+\BOOKMARK [2][-]{subsection.28.4}{Class Struct}{section.28}
+\BOOKMARK [3][-]{subsubsection.28.4.1}{Methods}{subsection.28.4}
+\BOOKMARK [2][-]{subsection.28.5}{Class KwStruct}{section.28}
+\BOOKMARK [3][-]{subsubsection.28.5.1}{Methods}{subsection.28.5}
+\BOOKMARK [1][-]{section.29}{Module nMOLDYN.GUI.HTMLReader.tkconst}{}
+\BOOKMARK [2][-]{subsection.29.1}{Variables}{section.29}
+\BOOKMARK [1][-]{section.30}{Module nMOLDYN.GUI.HTMLReader.tkfont}{}
+\BOOKMARK [2][-]{subsection.30.1}{Functions}{section.30}
+\BOOKMARK [2][-]{subsection.30.2}{Variables}{section.30}
+\BOOKMARK [1][-]{section.31}{Module nMOLDYN.GUI.HTMLReader.tkhtml}{}
+\BOOKMARK [2][-]{subsection.31.1}{Functions}{section.31}
+\BOOKMARK [2][-]{subsection.31.2}{Class MfxScrolledText}{section.31}
+\BOOKMARK [3][-]{subsubsection.31.2.1}{Methods}{subsection.31.2}
+\BOOKMARK [3][-]{subsubsection.31.2.2}{Class Variables}{subsection.31.2}
+\BOOKMARK [2][-]{subsection.31.3}{Class MfxReadonlyScrolledText}{section.31}
+\BOOKMARK [3][-]{subsubsection.31.3.1}{Methods}{subsection.31.3}
+\BOOKMARK [3][-]{subsubsection.31.3.2}{Class Variables}{subsection.31.3}
+\BOOKMARK [2][-]{subsection.31.4}{Class tkHTMLWriter}{section.31}
+\BOOKMARK [3][-]{subsubsection.31.4.1}{Methods}{subsection.31.4}
+\BOOKMARK [2][-]{subsection.31.5}{Class tkHTMLParser}{section.31}
+\BOOKMARK [3][-]{subsubsection.31.5.1}{Methods}{subsection.31.5}
+\BOOKMARK [3][-]{subsubsection.31.5.2}{Class Variables}{subsection.31.5}
+\BOOKMARK [2][-]{subsection.31.6}{Class tkHTMLViewer}{section.31}
+\BOOKMARK [3][-]{subsubsection.31.6.1}{Methods}{subsection.31.6}
+\BOOKMARK [1][-]{section.32}{Module nMOLDYN.GUI.HTMLReader.tkinit}{}
+\BOOKMARK [2][-]{subsection.32.1}{Functions}{section.32}
+\BOOKMARK [1][-]{section.33}{Module nMOLDYN.GUI.HTMLReader.tkutil}{}
+\BOOKMARK [2][-]{subsection.33.1}{Functions}{section.33}
+\BOOKMARK [1][-]{section.34}{Module nMOLDYN.GUI.HTMLReader.tkwidget}{}
+\BOOKMARK [2][-]{subsection.34.1}{Functions}{section.34}
+\BOOKMARK [2][-]{subsection.34.2}{Class MfxDialog}{section.34}
+\BOOKMARK [3][-]{subsubsection.34.2.1}{Methods}{subsection.34.2}
+\BOOKMARK [3][-]{subsubsection.34.2.2}{Class Variables}{subsection.34.2}
+\BOOKMARK [2][-]{subsection.34.3}{Class MfxExceptionDialog}{section.34}
+\BOOKMARK [3][-]{subsubsection.34.3.1}{Methods}{subsection.34.3}
+\BOOKMARK [3][-]{subsubsection.34.3.2}{Class Variables}{subsection.34.3}
+\BOOKMARK [2][-]{subsection.34.4}{Class MfxSimpleSlider}{section.34}
+\BOOKMARK [3][-]{subsubsection.34.4.1}{Methods}{subsection.34.4}
+\BOOKMARK [3][-]{subsubsection.34.4.2}{Class Variables}{subsection.34.4}
+\BOOKMARK [2][-]{subsection.34.5}{Class MfxSimpleEntry}{section.34}
+\BOOKMARK [3][-]{subsubsection.34.5.1}{Methods}{subsection.34.5}
+\BOOKMARK [3][-]{subsubsection.34.5.2}{Class Variables}{subsection.34.5}
+\BOOKMARK [2][-]{subsection.34.6}{Class MfxTooltip}{section.34}
+\BOOKMARK [3][-]{subsubsection.34.6.1}{Methods}{subsection.34.6}
+\BOOKMARK [2][-]{subsection.34.7}{Class MfxScrolledCanvas}{section.34}
+\BOOKMARK [3][-]{subsubsection.34.7.1}{Methods}{subsection.34.7}
+\BOOKMARK [1][-]{section.35}{Module nMOLDYN.GUI.HTMLReader.util}{}
+\BOOKMARK [2][-]{subsection.35.1}{Functions}{section.35}
+\BOOKMARK [2][-]{subsection.35.2}{Variables}{section.35}
+\BOOKMARK [2][-]{subsection.35.3}{Class Timer}{section.35}
+\BOOKMARK [3][-]{subsubsection.35.3.1}{Methods}{subsection.35.3}
+\BOOKMARK [2][-]{subsection.35.4}{Class DataLoader}{section.35}
+\BOOKMARK [3][-]{subsubsection.35.4.1}{Methods}{subsection.35.4}
+\BOOKMARK [1][-]{section.36}{Module nMOLDYN.GUI.HTMLReader.version}{}
+\BOOKMARK [2][-]{subsection.36.1}{Variables}{section.36}
+\BOOKMARK [1][-]{section.37}{Module nMOLDYN.GUI.MainDialog}{}
+\BOOKMARK [2][-]{subsection.37.1}{Variables}{section.37}
+\BOOKMARK [2][-]{subsection.37.2}{Class MainDialog}{section.37}
+\BOOKMARK [3][-]{subsubsection.37.2.1}{Methods}{subsection.37.2}
+\BOOKMARK [3][-]{subsubsection.37.2.2}{Class Variables}{subsection.37.2}
+\BOOKMARK [1][-]{section.38}{Module nMOLDYN.GUI.NetCDFToASCIIConversionDialog}{}
+\BOOKMARK [2][-]{subsection.38.1}{Class NetCDFToASCIIConversionDialog}{section.38}
+\BOOKMARK [3][-]{subsubsection.38.1.1}{Methods}{subsection.38.1}
+\BOOKMARK [1][-]{section.39}{Module nMOLDYN.GUI.PDBSnapshotGeneratorDialog}{}
+\BOOKMARK [2][-]{subsection.39.1}{Class PDBSnapshotGeneratorDialog}{section.39}
+\BOOKMARK [3][-]{subsubsection.39.1.1}{Methods}{subsection.39.1}
+\BOOKMARK [1][-]{section.40}{Module nMOLDYN.GUI.PlotNetCDFVariableDialog}{}
+\BOOKMARK [2][-]{subsection.40.1}{Variables}{section.40}
+\BOOKMARK [2][-]{subsection.40.2}{Class SettingsDialog}{section.40}
+\BOOKMARK [3][-]{subsubsection.40.2.1}{Methods}{subsection.40.2}
+\BOOKMARK [2][-]{subsection.40.3}{Class PlotNetCDFVariableDialog}{section.40}
+\BOOKMARK [3][-]{subsubsection.40.3.1}{Methods}{subsection.40.3}
+\BOOKMARK [1][-]{section.41}{Module nMOLDYN.GUI.PreferencesDialog}{}
+\BOOKMARK [2][-]{subsection.41.1}{Class dummy}{section.41}
+\BOOKMARK [3][-]{subsubsection.41.1.1}{Methods}{subsection.41.1}
+\BOOKMARK [2][-]{subsection.41.2}{Class PreferencesDialog}{section.41}
+\BOOKMARK [3][-]{subsubsection.41.2.1}{Methods}{subsection.41.2}
+\BOOKMARK [1][-]{section.42}{Module nMOLDYN.GUI.PyroServerDialog}{}
+\BOOKMARK [2][-]{subsection.42.1}{Class PyroServerDialog}{section.42}
+\BOOKMARK [3][-]{subsubsection.42.1.1}{Methods}{subsection.42.1}
+\BOOKMARK [3][-]{subsubsection.42.1.2}{Class Variables}{subsection.42.1}
+\BOOKMARK [1][-]{section.43}{Module nMOLDYN.GUI.SelectionDialog}{}
+\BOOKMARK [2][-]{subsection.43.1}{Class SelectionDialog}{section.43}
+\BOOKMARK [3][-]{subsubsection.43.1.1}{Methods}{subsection.43.1}
+\BOOKMARK [3][-]{subsubsection.43.1.2}{Class Variables}{subsection.43.1}
+\BOOKMARK [1][-]{section.44}{Module nMOLDYN.GUI.Tags}{}
+\BOOKMARK [2][-]{subsection.44.1}{Variables}{section.44}
+\BOOKMARK [1][-]{section.45}{Module nMOLDYN.GUI.TrajectoryConversionDialog}{}
+\BOOKMARK [2][-]{subsection.45.1}{Class AmberNetCDFConverterDialog}{section.45}
+\BOOKMARK [3][-]{subsubsection.45.1.1}{Methods}{subsection.45.1}
+\BOOKMARK [2][-]{subsection.45.2}{Class CHARMMConverterDialog}{section.45}
+\BOOKMARK [3][-]{subsubsection.45.2.1}{Methods}{subsection.45.2}
+\BOOKMARK [2][-]{subsection.45.3}{Class DL\137POLYConverterDialog}{section.45}
+\BOOKMARK [3][-]{subsubsection.45.3.1}{Methods}{subsection.45.3}
+\BOOKMARK [2][-]{subsection.45.4}{Class MaterialsStudioConverterDialog}{section.45}
+\BOOKMARK [3][-]{subsubsection.45.4.1}{Methods}{subsection.45.4}
+\BOOKMARK [2][-]{subsection.45.5}{Class NAMDConverterDialog}{section.45}
+\BOOKMARK [3][-]{subsubsection.45.5.1}{Methods}{subsection.45.5}
+\BOOKMARK [2][-]{subsection.45.6}{Class VASPConverterDialog}{section.45}
+\BOOKMARK [3][-]{subsubsection.45.6.1}{Methods}{subsection.45.6}
+\BOOKMARK [1][-]{section.46}{Module nMOLDYN.GUI.ViewEffectiveModeDialog}{}
+\BOOKMARK [2][-]{subsection.46.1}{Class ViewEffectiveModeDialog}{section.46}
+\BOOKMARK [3][-]{subsubsection.46.1.1}{Methods}{subsection.46.1}
+\BOOKMARK [3][-]{subsubsection.46.1.2}{Class Variables}{subsection.46.1}
+\BOOKMARK [1][-]{section.47}{Module nMOLDYN.GUI.Widgets}{}
+\BOOKMARK [2][-]{subsection.47.1}{Functions}{section.47}
+\BOOKMARK [2][-]{subsection.47.2}{Variables}{section.47}
+\BOOKMARK [2][-]{subsection.47.3}{Class ValidatingEntry}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.3.1}{Methods}{subsection.47.3}
+\BOOKMARK [3][-]{subsubsection.47.3.2}{Class Variables}{subsection.47.3}
+\BOOKMARK [2][-]{subsection.47.4}{Class IntegerEntry}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.4.1}{Methods}{subsection.47.4}
+\BOOKMARK [3][-]{subsubsection.47.4.2}{Class Variables}{subsection.47.4}
+\BOOKMARK [2][-]{subsection.47.5}{Class FloatEntry}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.5.1}{Methods}{subsection.47.5}
+\BOOKMARK [3][-]{subsubsection.47.5.2}{Class Variables}{subsection.47.5}
+\BOOKMARK [2][-]{subsection.47.6}{Class StringEntry}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.6.1}{Methods}{subsection.47.6}
+\BOOKMARK [3][-]{subsubsection.47.6.2}{Class Variables}{subsection.47.6}
+\BOOKMARK [2][-]{subsection.47.7}{Class ComboFrame}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.7.1}{Methods}{subsection.47.7}
+\BOOKMARK [3][-]{subsubsection.47.7.2}{Class Variables}{subsection.47.7}
+\BOOKMARK [2][-]{subsection.47.8}{Class ComboLabel}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.8.1}{Methods}{subsection.47.8}
+\BOOKMARK [3][-]{subsubsection.47.8.2}{Class Variables}{subsection.47.8}
+\BOOKMARK [2][-]{subsection.47.9}{Class ComboIntegerEntry}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.9.1}{Methods}{subsection.47.9}
+\BOOKMARK [3][-]{subsubsection.47.9.2}{Class Variables}{subsection.47.9}
+\BOOKMARK [2][-]{subsection.47.10}{Class ComboFloatEntry}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.10.1}{Methods}{subsection.47.10}
+\BOOKMARK [3][-]{subsubsection.47.10.2}{Class Variables}{subsection.47.10}
+\BOOKMARK [2][-]{subsection.47.11}{Class ComboStringEntry}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.11.1}{Methods}{subsection.47.11}
+\BOOKMARK [3][-]{subsubsection.47.11.2}{Class Variables}{subsection.47.11}
+\BOOKMARK [2][-]{subsection.47.12}{Class ComboRadiobutton}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.12.1}{Methods}{subsection.47.12}
+\BOOKMARK [3][-]{subsubsection.47.12.2}{Class Variables}{subsection.47.12}
+\BOOKMARK [2][-]{subsection.47.13}{Class ComboCheckbutton}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.13.1}{Methods}{subsection.47.13}
+\BOOKMARK [3][-]{subsubsection.47.13.2}{Class Variables}{subsection.47.13}
+\BOOKMARK [2][-]{subsection.47.14}{Class ComboOptionMenu}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.14.1}{Methods}{subsection.47.14}
+\BOOKMARK [3][-]{subsubsection.47.14.2}{Class Variables}{subsection.47.14}
+\BOOKMARK [2][-]{subsection.47.15}{Class ComboSpinbox}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.15.1}{Methods}{subsection.47.15}
+\BOOKMARK [3][-]{subsubsection.47.15.2}{Class Variables}{subsection.47.15}
+\BOOKMARK [2][-]{subsection.47.16}{Class ComboScale}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.16.1}{Methods}{subsection.47.16}
+\BOOKMARK [3][-]{subsubsection.47.16.2}{Class Variables}{subsection.47.16}
+\BOOKMARK [2][-]{subsection.47.17}{Class ComboButton}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.17.1}{Methods}{subsection.47.17}
+\BOOKMARK [3][-]{subsubsection.47.17.2}{Class Variables}{subsection.47.17}
+\BOOKMARK [2][-]{subsection.47.18}{Class ComboFileBrowser}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.18.1}{Methods}{subsection.47.18}
+\BOOKMARK [3][-]{subsubsection.47.18.2}{Class Variables}{subsection.47.18}
+\BOOKMARK [2][-]{subsection.47.19}{Class ComboText}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.19.1}{Methods}{subsection.47.19}
+\BOOKMARK [3][-]{subsubsection.47.19.2}{Class Variables}{subsection.47.19}
+\BOOKMARK [2][-]{subsection.47.20}{Class ComboListbox}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.20.1}{Methods}{subsection.47.20}
+\BOOKMARK [3][-]{subsubsection.47.20.2}{Class Variables}{subsection.47.20}
+\BOOKMARK [2][-]{subsection.47.21}{Class StatusBar}{section.47}
+\BOOKMARK [3][-]{subsubsection.47.21.1}{Methods}{subsection.47.21}
+\BOOKMARK [3][-]{subsubsection.47.21.2}{Class Variables}{subsection.47.21}
+\BOOKMARK [1][-]{section.48}{Package nMOLDYN.Tests}{}
+\BOOKMARK [2][-]{subsection.48.1}{Modules}{section.48}
+\BOOKMARK [1][-]{section.49}{Package nMOLDYN.Tests.ARA}{}
+\BOOKMARK [2][-]{subsection.49.1}{Modules}{section.49}
+\BOOKMARK [1][-]{section.50}{Module nMOLDYN.Tests.ARA.TestsContents}{}
+\BOOKMARK [2][-]{subsection.50.1}{Variables}{section.50}
+\BOOKMARK [1][-]{section.51}{Module nMOLDYN.Tests.ARA.runTests}{}
+\BOOKMARK [2][-]{subsection.51.1}{Variables}{section.51}
+\BOOKMARK [1][-]{section.52}{Package nMOLDYN.Tests.AVACF}{}
+\BOOKMARK [2][-]{subsection.52.1}{Modules}{section.52}
+\BOOKMARK [1][-]{section.53}{Module nMOLDYN.Tests.AVACF.TestsContents}{}
+\BOOKMARK [2][-]{subsection.53.1}{Variables}{section.53}
+\BOOKMARK [1][-]{section.54}{Module nMOLDYN.Tests.AVACF.runTests}{}
+\BOOKMARK [2][-]{subsection.54.1}{Variables}{section.54}
+\BOOKMARK [1][-]{section.55}{Module nMOLDYN.Tests.AnalysisTests}{}
+\BOOKMARK [2][-]{subsection.55.1}{Class AnalysisTest}{section.55}
+\BOOKMARK [3][-]{subsubsection.55.1.1}{Methods}{subsection.55.1}
+\BOOKMARK [1][-]{section.56}{Module nMOLDYN.Tests.BuildTestCases}{}
+\BOOKMARK [2][-]{subsection.56.1}{Variables}{section.56}
+\BOOKMARK [1][-]{section.57}{Package nMOLDYN.Tests.DCSF}{}
+\BOOKMARK [2][-]{subsection.57.1}{Modules}{section.57}
+\BOOKMARK [1][-]{section.58}{Module nMOLDYN.Tests.DCSF.TestsContents}{}
+\BOOKMARK [2][-]{subsection.58.1}{Variables}{section.58}
+\BOOKMARK [1][-]{section.59}{Module nMOLDYN.Tests.DCSF.runTests}{}
+\BOOKMARK [2][-]{subsection.59.1}{Variables}{section.59}
+\BOOKMARK [1][-]{section.60}{Package nMOLDYN.Tests.DISF}{}
+\BOOKMARK [2][-]{subsection.60.1}{Modules}{section.60}
+\BOOKMARK [1][-]{section.61}{Module nMOLDYN.Tests.DISF.TestsContents}{}
+\BOOKMARK [2][-]{subsection.61.1}{Variables}{section.61}
+\BOOKMARK [1][-]{section.62}{Module nMOLDYN.Tests.DISF.runTests}{}
+\BOOKMARK [2][-]{subsection.62.1}{Variables}{section.62}
+\BOOKMARK [1][-]{section.63}{Package nMOLDYN.Tests.DISFG}{}
+\BOOKMARK [2][-]{subsection.63.1}{Modules}{section.63}
+\BOOKMARK [1][-]{section.64}{Module nMOLDYN.Tests.DISFG.TestsContents}{}
+\BOOKMARK [2][-]{subsection.64.1}{Variables}{section.64}
+\BOOKMARK [1][-]{section.65}{Module nMOLDYN.Tests.DISFG.runTests}{}
+\BOOKMARK [2][-]{subsection.65.1}{Variables}{section.65}
+\BOOKMARK [1][-]{section.66}{Package nMOLDYN.Tests.DOS}{}
+\BOOKMARK [2][-]{subsection.66.1}{Modules}{section.66}
+\BOOKMARK [1][-]{section.67}{Module nMOLDYN.Tests.DOS.TestsContents}{}
+\BOOKMARK [2][-]{subsection.67.1}{Variables}{section.67}
+\BOOKMARK [1][-]{section.68}{Module nMOLDYN.Tests.DOS.runTests}{}
+\BOOKMARK [2][-]{subsection.68.1}{Variables}{section.68}
+\BOOKMARK [1][-]{section.69}{Package nMOLDYN.Tests.EISF}{}
+\BOOKMARK [2][-]{subsection.69.1}{Modules}{section.69}
+\BOOKMARK [1][-]{section.70}{Module nMOLDYN.Tests.EISF.TestsContents}{}
+\BOOKMARK [2][-]{subsection.70.1}{Variables}{section.70}
+\BOOKMARK [1][-]{section.71}{Module nMOLDYN.Tests.EISF.runTests}{}
+\BOOKMARK [2][-]{subsection.71.1}{Variables}{section.71}
+\BOOKMARK [1][-]{section.72}{Package nMOLDYN.Tests.MSD}{}
+\BOOKMARK [2][-]{subsection.72.1}{Modules}{section.72}
+\BOOKMARK [1][-]{section.73}{Module nMOLDYN.Tests.MSD.TestsContents}{}
+\BOOKMARK [2][-]{subsection.73.1}{Variables}{section.73}
+\BOOKMARK [1][-]{section.74}{Module nMOLDYN.Tests.MSD.runTests}{}
+\BOOKMARK [2][-]{subsection.74.1}{Variables}{section.74}
+\BOOKMARK [1][-]{section.75}{Module nMOLDYN.Tests.StabilityTests}{}
+\BOOKMARK [2][-]{subsection.75.1}{Variables}{section.75}
+\BOOKMARK [2][-]{subsection.75.2}{Class AnalysisTest}{section.75}
+\BOOKMARK [3][-]{subsubsection.75.2.1}{Methods}{subsection.75.2}
+\BOOKMARK [2][-]{subsection.75.3}{Class MSDTests}{section.75}
+\BOOKMARK [3][-]{subsubsection.75.3.1}{Methods}{subsection.75.3}
+\BOOKMARK [3][-]{subsubsection.75.3.2}{Class Variables}{subsection.75.3}
+\BOOKMARK [2][-]{subsection.75.4}{Class VACFTests}{section.75}
+\BOOKMARK [3][-]{subsubsection.75.4.1}{Methods}{subsection.75.4}
+\BOOKMARK [3][-]{subsubsection.75.4.2}{Class Variables}{subsection.75.4}
+\BOOKMARK [2][-]{subsection.75.5}{Class ARATests}{section.75}
+\BOOKMARK [3][-]{subsubsection.75.5.1}{Methods}{subsection.75.5}
+\BOOKMARK [3][-]{subsubsection.75.5.2}{Class Variables}{subsection.75.5}
+\BOOKMARK [2][-]{subsection.75.6}{Class AVACFTests}{section.75}
+\BOOKMARK [3][-]{subsubsection.75.6.1}{Methods}{subsection.75.6}
+\BOOKMARK [3][-]{subsubsection.75.6.2}{Class Variables}{subsection.75.6}
+\BOOKMARK [2][-]{subsection.75.7}{Class DOSTests}{section.75}
+\BOOKMARK [3][-]{subsubsection.75.7.1}{Methods}{subsection.75.7}
+\BOOKMARK [3][-]{subsubsection.75.7.2}{Class Variables}{subsection.75.7}
+\BOOKMARK [2][-]{subsection.75.8}{Class DCSFTests}{section.75}
+\BOOKMARK [3][-]{subsubsection.75.8.1}{Methods}{subsection.75.8}
+\BOOKMARK [3][-]{subsubsection.75.8.2}{Class Variables}{subsection.75.8}
+\BOOKMARK [2][-]{subsection.75.9}{Class DISFTests}{section.75}
+\BOOKMARK [3][-]{subsubsection.75.9.1}{Methods}{subsection.75.9}
+\BOOKMARK [3][-]{subsubsection.75.9.2}{Class Variables}{subsection.75.9}
+\BOOKMARK [2][-]{subsection.75.10}{Class DISFGTests}{section.75}
+\BOOKMARK [3][-]{subsubsection.75.10.1}{Methods}{subsection.75.10}
+\BOOKMARK [3][-]{subsubsection.75.10.2}{Class Variables}{subsection.75.10}
+\BOOKMARK [2][-]{subsection.75.11}{Class EISFTests}{section.75}
+\BOOKMARK [3][-]{subsubsection.75.11.1}{Methods}{subsection.75.11}
+\BOOKMARK [3][-]{subsubsection.75.11.2}{Class Variables}{subsection.75.11}
+\BOOKMARK [2][-]{subsection.75.12}{Class ALLTests}{section.75}
+\BOOKMARK [3][-]{subsubsection.75.12.1}{Methods}{subsection.75.12}
+\BOOKMARK [3][-]{subsubsection.75.12.2}{Class Variables}{subsection.75.12}
+\BOOKMARK [1][-]{section.76}{Package nMOLDYN.Tests.VACF}{}
+\BOOKMARK [2][-]{subsection.76.1}{Modules}{section.76}
+\BOOKMARK [1][-]{section.77}{Module nMOLDYN.Tests.VACF.TestsContents}{}
+\BOOKMARK [2][-]{subsection.77.1}{Variables}{section.77}
+\BOOKMARK [1][-]{section.78}{Module nMOLDYN.Tests.VACF.runTests}{}
+\BOOKMARK [2][-]{subsection.78.1}{Variables}{section.78}
+\BOOKMARK [1][-]{section.79}{Module nMOLDYN.\137\137pkginfo\137\137}{}
+\BOOKMARK [1][-]{section*.4}{Index}{}

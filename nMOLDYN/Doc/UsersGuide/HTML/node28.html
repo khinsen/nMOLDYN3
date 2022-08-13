@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>VASP to MMTK</TITLE>
+<META NAME="description" CONTENT="VASP to MMTK">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="previous" HREF="node27.html">
+<LINK REL="up" HREF="node21.html">
+<LINK REL="next" HREF="node29.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1490"
+  HREF="node29.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1486"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1482"
+  HREF="node27.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1488"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1491"
+  HREF="node29.html">Frame snapshot</A>
+<B> Up:</B> <A NAME="tex2html1487"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1483"
+  HREF="node27.html">NAMD to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1489"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION008127000000000000000"></A>
+<A NAME="vasp_to_mmtk"></A>
+<BR>
+VASP to MMTK
+</H3>
+This converter allows the conversion from a trajectory generated with <A HREF=node4.html#tex2html165 NAME="17534">VASP</A> [<A
+ HREF="node192.html#VASP">34</A>] to a <A HREF=node4.html#tex2html166 NAME="17541">MMTK</A> <A HREF=node4.html#tex2html167 NAME="17548">NetCDF</A> trajectory. 
+Pressing the <B>VASP to MMTK</B> menubutton, the dialog shown in figure <A HREF="node28.html#fig:vasp_converter">4.11</A> will pop up.
+
+<DIV ALIGN="CENTER"><A NAME="fig:vasp_converter"></A><A NAME="926"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.11:</STRONG>
+The VASP to MMTK converter dialog.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="295" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.gif"
+ ALT="\includegraphics[width=10cm]{Figures/vasp_converter.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+To perform the conversion, the following input fields must be filled:
+
+<UL>
+<LI><B>CONTCAR/POSCAR input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the <A HREF=node4.html#tex2html168 NAME="17555">VASP</A> CONTCAR or POSCAR file that stores the informations about the system. This file is 
+necessary to build up the <A HREF=node4.html#tex2html169 NAME="17562">MMTK</A> universe related to the <A HREF=node4.html#tex2html170 NAME="17569">MMTK</A> trajectory.
+
+<P>
+</LI>
+<LI><B>XDATCAR input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the <A HREF=node4.html#tex2html171 NAME="17576">VASP</A> XDATCAR file that stores the trajectory frames.
+
+<P>
+</LI>
+<LI><B>Atom contents</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the CONTCAR file contains the number of atoms of each element in the system but does not tell the elements the system is 
+made of. This information has to provided using the <B>Atom contents</B> field. 
+
+<P>
+The format for the <B>Atom contents</B> field is
+
+<BR>
+<BR><I>element1 sep element2 ...</I> where <I>sep</I> can be a white space, a comma or a semicolon and 
+<I>element1, elemnt2</I> ...are the chemical symbols of element 1, 2 ...
+
+<BR>
+<BR>
+Interestingly, the <B>Atom contents</B> field can also be used to specify united atoms. The syntax is exactly the same but, in 
+that case, the element name must be replaced by the <A HREF=node4.html#tex2html172 NAME="17583">MMTK</A> united atom code (e.g. CH3, CH2, CH, NH, NH2, NH3, OH, S ...).
+
+<P>
+</LI>
+<LI><B>MMTK NetCDF output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the name of the <A HREF=node4.html#tex2html173 NAME="17590">MMTK</A> <A HREF=node4.html#tex2html174 NAME="17597">NetCDF</A> trajectory that will be written.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1490"
+  HREF="node29.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1486"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1482"
+  HREF="node27.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1488"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1491"
+  HREF="node29.html">Frame snapshot</A>
+<B> Up:</B> <A NAME="tex2html1487"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1483"
+  HREF="node27.html">NAMD to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1489"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

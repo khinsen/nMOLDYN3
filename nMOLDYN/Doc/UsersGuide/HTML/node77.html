@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Parameters
+</TITLE>
+<META NAME="description" CONTENT="Parameters
+">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node78.html">
+<LINK REL="previous" HREF="node76.html">
+<LINK REL="up" HREF="node75.html">
+<LINK REL="next" HREF="node78.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2310"
+  HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2306"
+  HREF="node75.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2300"
+  HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2308"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2311"
+  HREF="node78.html">Output</A>
+<B> Up:</B> <A NAME="tex2html2307"
+  HREF="node75.html">Pass-Band Filtered Trajectory</A>
+<B> Previous:</B> <A NAME="tex2html2301"
+  HREF="node76.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html2309"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION008247200000000000000"></A>
+<A NAME="pbft_parameters"></A>
+<BR>
+Parameters
+<BR>
+</H4>
+Pressing the <B>Pass-Band Filtered Trajectory</B> button will pop up the dialog shown on figure <A HREF="node77.html#fig:pbft">4.41</A>
+
+<DIV ALIGN="CENTER"><A NAME="fig:pbft"></A><A NAME="7503"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.41:</STRONG>
+The dialog from where the <I>PBFT</I> analysis will be set up and run.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="441" ALIGN="BOTTOM" BORDER="0"
+ SRC="img164.gif"
+ ALT="\includegraphics[width=10cm]{Figures/pbft.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The following input fields controls the parameters for the <A HREF=node4.html#tex2html377 NAME="19244"><I>PBFT</I></A> analysis:
+
+<P>
+
+<UL>
+<LI><B>Trajectory file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>traj_file</I> where <I>traj_file</I> is the name of the loaded trajectory
+<BR><B>Description:</B> the value of this widget can not be changed. It just recalls for information purpose the name
+of the trajectory file loaded for the analysis.
+
+<P>
+</LI>
+<LI><B>Frame selection</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>1:traj_length:1</I> where <I>traj_length</I> is the number of frames of the trajectory.
+<BR><B>Description:</B> this widget allows to select the trajectory frames that will be used for the analysis. This must
+be a string of the form:
+
+<BR>
+<BR><I>first:last:step</I>
+
+<BR>
+<BR>
+where <I>first</I> is an integer specifying the first frame number to consider, <I>last</I> is an integer specifying the last 
+frame number to consider and <I>step</I> is an integer specifying the step number between two frames.
+
+<P>
+For example,
+
+<UL>
+<LI><I>2:10:3</I> will select the frames 2, 5 and 8.
+</LI>
+<LI><I>1:5:1</I> will select the frames 1, 2, 3, 4 and 5.
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>Pass-band filter</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>0.0:1000.0</I>
+<BR><B>Description:</B> this widget allows to specify respectively the minimum and maximum frequencies for the pass-band filter. 
+The entered value must have the following format:
+
+<BR>
+<BR><I>fmin:fmax</I>
+
+<BR>
+<BR>
+where <I>fmin</I> and <I>fmax</I> are respectively the minimum and maximum frequencies in <I>THz</I> of the pass-band filter.
+
+</LI>
+<LI><B>Subset selection</B>
+<BR><B>Format:</B> subset selection string
+<BR><B>Default:</B> <I>all</I>
+<BR><B>Description:</B> this widget allows the selection of a subset of the system for the analysis. 
+See Section <A HREF="node37.html#subset_selection">4.2.2.1</A> for more details.
+
+<P>
+</LI>
+<LI><B>PBFT Output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>PBFT_traj_file.nc</I> where <I>traj_file.nc</I> is the name of the input trajectory
+<BR><B>Description:</B> this widget allows to enter the name of the <A HREF=node4.html#tex2html378 NAME="19251">NetCDF</A> output file of the <A HREF=node4.html#tex2html379 NAME="19258"><I>PBFT</I></A> analysis.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2310"
+  HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html2306"
+  HREF="node75.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html2300"
+  HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html2308"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2311"
+  HREF="node78.html">Output</A>
+<B> Up:</B> <A NAME="tex2html2307"
+  HREF="node75.html">Pass-Band Filtered Trajectory</A>
+<B> Previous:</B> <A NAME="tex2html2301"
+  HREF="node76.html">Theory and implementation</A>
+ &nbsp <B>  <A NAME="tex2html2309"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>

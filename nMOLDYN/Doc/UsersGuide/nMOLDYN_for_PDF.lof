@@ -1,0 +1,78 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The \textit {n}MOLDYN main window}}{19}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces File-Directory selection window}}{20}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Example of a MMTK trajectory set file}}{20}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The Amber to MMTK converter dialog}}{22}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The CHARMM to MMTK converter dialog}}{23}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces The DL\_POLY to MMTK converter dialog}}{24}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Example of a DL\_POLY/FIELD file}}{25}{figure.4.7}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The Discover to MMTK converter dialog}}{26}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces The Forcite to MMTK converter dialog}}{27}{figure.4.9}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces The NAMD to MMTK converter dialog}}{29}{figure.4.10}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces The VASP to MMTK converter dialog}}{30}{figure.4.11}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces The frame extraction dialog}}{31}{figure.4.12}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces The NetCDF to ASCII conversion dialog}}{32}{figure.4.13}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces The ASCII to NetCDF conversion dialog}}{34}{figure.4.14}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Example of an ASCII file that can be converted to a NetCDF file}}{35}{figure.4.15}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces The Preferences dialog}}{36}{figure.4.16}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces The three preferences sections}}{36}{figure.4.17}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Example of a preferences file}}{40}{figure.4.18}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces The subset selection dialog}}{43}{figure.4.19}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces The subset selection dialog for a selection from a selection file}}{44}{figure.4.20}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Example of a subset selection file}}{44}{figure.4.21}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces The subset selection dialog for a selection from the loaded trajectory}}{45}{figure.4.22}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces The subset selection dialog for a selection from an expression string}}{47}{figure.4.23}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces The deuteration selection dialog}}{48}{figure.4.24}
+\contentsline {figure}{\numberline {4.25}{\ignorespaces The deuteration selection dialog for a selection from a selection file}}{49}{figure.4.25}
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Example of a deuteration selection file}}{49}{figure.4.26}
+\contentsline {figure}{\numberline {4.27}{\ignorespaces The deuteration selection dialog for a selection from the loaded trajectory}}{50}{figure.4.27}
+\contentsline {figure}{\numberline {4.28}{\ignorespaces The deuteration selection dialog for a selection from an expression string}}{51}{figure.4.28}
+\contentsline {figure}{\numberline {4.29}{\ignorespaces The group selection dialog}}{52}{figure.4.29}
+\contentsline {figure}{\numberline {4.30}{\ignorespaces The group selection dialog for a selection from a selection file}}{53}{figure.4.30}
+\contentsline {figure}{\numberline {4.31}{\ignorespaces Example of a group selection file}}{53}{figure.4.31}
+\contentsline {figure}{\numberline {4.32}{\ignorespaces The group selection dialog for a selection from the loaded trajectory}}{54}{figure.4.32}
+\contentsline {figure}{\numberline {4.33}{\ignorespaces The group selection dialog for a selection from an expression string}}{56}{figure.4.33}
+\contentsline {figure}{\numberline {4.34}{\ignorespaces Examples of calculated \textit {MSD} with \textit {n}MOLDYN}}{58}{figure.4.34}
+\contentsline {figure}{\numberline {4.35}{\ignorespaces The \textit {MSD} analysis dialog}}{60}{figure.4.35}
+\contentsline {figure}{\numberline {4.36}{\ignorespaces The \textit {RMSD} analysis dialog}}{63}{figure.4.36}
+\contentsline {figure}{\numberline {4.37}{\ignorespaces The \textit {ROG} analysis dialog}}{65}{figure.4.37}
+\contentsline {figure}{\numberline {4.38}{\ignorespaces The \textit {AC} analysis dialog}}{67}{figure.4.38}
+\contentsline {figure}{\numberline {4.39}{\ignorespaces The \textit {VACF} analysis dialog}}{71}{figure.4.39}
+\contentsline {figure}{\numberline {4.40}{\ignorespaces The \textit {DOS} analysis dialog}}{74}{figure.4.40}
+\contentsline {figure}{\numberline {4.41}{\ignorespaces The \textit {PBFT} analysis dialog}}{77}{figure.4.41}
+\contentsline {figure}{\numberline {4.42}{\ignorespaces The \textit {GMFT} analysis dialog}}{79}{figure.4.42}
+\contentsline {figure}{\numberline {4.43}{\ignorespaces The \textit {RBT} analysis dialog}}{83}{figure.4.43}
+\contentsline {figure}{\numberline {4.44}{\ignorespaces The \textit {COMT} analysis dialog}}{85}{figure.4.44}
+\contentsline {figure}{\numberline {4.45}{\ignorespaces The \textit {ARA} analysis dialog}}{91}{figure.4.45}
+\contentsline {figure}{\numberline {4.46}{\ignorespaces The \textit {QHA} analysis dialog}}{96}{figure.4.46}
+\contentsline {figure}{\numberline {4.47}{\ignorespaces The \textit {RCF} analysis dialog}}{100}{figure.4.47}
+\contentsline {figure}{\numberline {4.48}{\ignorespaces The \textit {AVACF} analysis dialog}}{103}{figure.4.48}
+\contentsline {figure}{\numberline {4.49}{\ignorespaces The \textit {ADOS} analysis dialog}}{106}{figure.4.49}
+\contentsline {figure}{\numberline {4.50}{\ignorespaces The \textit {DCSF} analysis dialog}}{112}{figure.4.50}
+\contentsline {figure}{\numberline {4.51}{\ignorespaces The \textit {DCSFAR} analysis dialog}}{117}{figure.4.51}
+\contentsline {figure}{\numberline {4.52}{\ignorespaces The \textit {DISF} analysis dialog}}{123}{figure.4.52}
+\contentsline {figure}{\numberline {4.53}{\ignorespaces The \textit {DISFAR} analysis dialog}}{127}{figure.4.53}
+\contentsline {figure}{\numberline {4.54}{\ignorespaces The \textit {DISFG} analysis dialog}}{132}{figure.4.54}
+\contentsline {figure}{\numberline {4.55}{\ignorespaces The \textit {EISF} analysis dialog}}{137}{figure.4.55}
+\contentsline {figure}{\numberline {4.56}{\ignorespaces The \textit {SCSF} analysis dialog}}{141}{figure.4.56}
+\contentsline {figure}{\numberline {4.57}{\ignorespaces The \textit {SSCSF} analysis dialog}}{145}{figure.4.57}
+\contentsline {figure}{\numberline {4.58}{\ignorespaces The \textit {PDF} analysis dialog}}{148}{figure.4.58}
+\contentsline {figure}{\numberline {4.59}{\ignorespaces The \textit {CN} analysis dialog}}{152}{figure.4.59}
+\contentsline {figure}{\numberline {4.60}{\ignorespaces The \textit {SD} analysis dialog}}{156}{figure.4.60}
+\contentsline {figure}{\numberline {4.61}{\ignorespaces The \textit {SFA} analysis dialog}}{159}{figure.4.61}
+\contentsline {figure}{\numberline {4.62}{\ignorespaces The \textit {OP} analysis dialog}}{162}{figure.4.62}
+\contentsline {figure}{\numberline {4.63}{\ignorespaces The \textit {OPCM} analysis dialog}}{164}{figure.4.63}
+\contentsline {figure}{\numberline {4.64}{\ignorespaces The plot dialog}}{166}{figure.4.64}
+\contentsline {figure}{\numberline {4.65}{\ignorespaces The plot settings dialog}}{168}{figure.4.65}
+\contentsline {figure}{\numberline {4.66}{\ignorespaces The export plot dialog}}{169}{figure.4.66}
+\contentsline {figure}{\numberline {4.67}{\ignorespaces The trajectory animation dialog}}{169}{figure.4.67}
+\contentsline {figure}{\numberline {4.68}{\ignorespaces The effective mode viewer dialog}}{171}{figure.4.68}
+\contentsline {figure}{\numberline {4.69}{\ignorespaces The analysis benchmark dialog}}{173}{figure.4.69}
+\contentsline {figure}{\numberline {4.70}{\ignorespaces The about dialog}}{174}{figure.4.70}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of autostart file}}{176}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of input file}}{179}{figure.5.2}
+\addvspace {10\p@ }

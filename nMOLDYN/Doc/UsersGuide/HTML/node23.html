@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.62)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>CHARMM/X-PLOR to MMTK</TITLE>
+<META NAME="description" CONTENT="CHARMM/X-PLOR to MMTK">
+<META NAME="keywords" CONTENT="nMOLDYN_for_HTML">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nMOLDYN_for_HTML.css">
+
+<LINK REL="next" HREF="node24.html">
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="node21.html">
+<LINK REL="next" HREF="node24.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1432"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1428"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1422"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1430"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1433"
+  HREF="node24.html">DL_POLY to MMTK</A>
+<B> Up:</B> <A NAME="tex2html1429"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1423"
+  HREF="node22.html">Amber to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1431"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION008122000000000000000"></A>
+<A NAME="charmm_to_mmtk"></A>
+<BR>
+CHARMM/X-PLOR to MMTK
+</H3>
+This converter allows the conversion from a trajectory generated with <A HREF=node4.html#tex2html103 NAME="17113">CHARMM</A> or X-PLOR [<A
+ HREF="node192.html#CHARMM">27</A>,<A
+ HREF="node192.html#X-PLOR">35</A>] to a 
+<A HREF=node4.html#tex2html104 NAME="17120">MMTK</A> <A HREF=node4.html#tex2html105 NAME="17127">NetCDF</A> trajectory. Pressing the <B>CHARMM/X-PLOR to MMTK</B> menubutton, the dialog shown in figure <A HREF="node23.html#fig:charmm_converter">4.5</A> will pop up.
+
+<DIV ALIGN="CENTER"><A NAME="fig:charmm_converter"></A><A NAME="720"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.5:</STRONG>
+The CHARMM to MMTK converter dialog.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="451" HEIGHT="249" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.gif"
+ ALT="\includegraphics[width=10cm]{Figures/charmm_converter.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+To perform the conversion, the following input fields must be filled:
+
+<UL>
+<LI><B>PDB input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> a PDB file of the system must be provided for the conversion. This file is necessary to build up 
+the <A HREF=node4.html#tex2html106 NAME="17134">MMTK</A> universe related to the <A HREF=node4.html#tex2html107 NAME="17141">MMTK</A> trajectory. 
+
+<P>
+</LI>
+<LI><B>DCD input file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the <A HREF=node4.html#tex2html108 NAME="17148">CHARMM</A> DCD trajectory file that stores the trajectory frames.
+
+<P>
+</LI>
+<LI><B>MMTK NetCDF output file</B>
+<BR><B>Format:</B> string
+<BR><B>Default:</B> <I>None</I>
+<BR><B>Description:</B> the name of the <A HREF=node4.html#tex2html109 NAME="17155">MMTK</A> <A HREF=node4.html#tex2html110 NAME="17162">NetCDF</A> trajectory that will be written. Once, a DCD file has been 
+loaded, a default name for the <A HREF=node4.html#tex2html111 NAME="17169">MMTK</A> <A HREF=node4.html#tex2html112 NAME="17176">NetCDF</A> output file will be proposed. This default name will be 
+<I>file.nc</I> if <I>file.dcd</I> is the DCD trajectory file name.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1432"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.gif"></A> 
+<A NAME="tex2html1428"
+  HREF="node21.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.gif"></A> 
+<A NAME="tex2html1422"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.gif"></A> 
+<A NAME="tex2html1430"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1433"
+  HREF="node24.html">DL_POLY to MMTK</A>
+<B> Up:</B> <A NAME="tex2html1429"
+  HREF="node21.html">Trajectory conversion</A>
+<B> Previous:</B> <A NAME="tex2html1423"
+  HREF="node22.html">Amber to MMTK</A>
+ &nbsp <B>  <A NAME="tex2html1431"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+pellegrini eric
+2009-10-06
+</ADDRESS>
+</BODY>
+</HTML>
