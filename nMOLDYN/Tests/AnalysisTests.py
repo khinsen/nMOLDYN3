@@ -9,7 +9,7 @@ import unittest
 
 from Scientific.N import array, zeros
 
-from nMoldyn.Mathematics.Analysis import correlation
+from nMOLDYN.Mathematics.Analysis import correlation
 
 class AnalysisTest(unittest.TestCase):
 
